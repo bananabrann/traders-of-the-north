@@ -1,117 +1,185 @@
-import { doWhileStatement } from "babel-types";
-
 // META-GAME RULES:
 
-// Two human players pull tokens from a bag into a pot. Based on the token drawn, the token has a different point value, explained below. After all Runes are used, or 20 turns pass, the player with the most points wins!
+// Treasures from another successfull viking raid are being unloaded off the boats into Market. Two vikings, Sigrid and Ulf, fight for the spoils, each trying to take home more than their fair share. Players must draw tokens into a pot, making it ever bigger. Sound the Bell to ensure you have the final bet, or sound the bell early to tempt your opponent into betting his runes early! Beware though, the Market Master doesn't like wasting his time and will force you to bet should you sound the bell and the other viking declines. After all runes are used or the market comes to a close, the vikings go to the Longhouse to compare the stash!
+
 // runes: The "money" tokens used in betting.
 // gold: Worth one point if it is in the player's inventory
 // fish: Whoever has the most fish at the end of the turn will receive 10 points
 // skull: Loses two gold
 // rottenfish: Loses two fish
 
-// Each player will have an array for their Rune board.
+// The main logic of the game will revolve around disabling and enabling buttons, which are linked to specific functions that execute the game's mechanics.
+
+// *****************************************
+// Each player will have an array for their Runeboard.
+// *****************************************
+
 let ulfRuneBoard = [2, 5, 6, 9];
 let sigridRuneBoard = [3, 4, 7, 8];
 
-// Each player will have an object for their Stockpile that keeps track of what they collected.
-let ulfStockpile = {
-    gold: 0,
-    fish: 0,
-    skull: 0,
-    rottenfish: 0
+// *****************************************
+// Each player will have an object for their Stockpile that keeps track of what they won.
+// *****************************************
+vikingStockpile = {
+    ulf: {
+        gold: 0,
+        fish: 0,
+        skull: 0,
+        rottenfish: 0
+    },
+    sigrid: {
+        gold: 0,
+        fish: 0,
+        skull: 0,
+        rottenfish: 0
+    }
 };
 
-let sigridStockpile = {
-    gold: 0,
-    fish: 0,
-    skull: 0,
-    rottenfish: 0
-};
+// A lot of the functions are doubled to make up for who's turn it is. Can I eliminate this by passing paramenters through every function like viking.[i][gold] and such so that one functino can handle both vikings?
 
-// Something will contain the pot. Pieces draw are pushed here. Pieces, after bet, are pulled from here into the Stockpile objects for later calculation.
-let pot = [];
-
+// *****************************************
+// Something will contain the pot. Pieces drawn are pushed here. Pieces, after a player has won a bet, are pulled from here and placed into the winner's Stockpile object for later calculation.
 // Something that contains all the possible pieces of the game, called Bag.
+// *****************************************
+
+let pot = [];
 let bag =[...];
 
-// Something needs to define the buttons, and what they do.
+// *****************************************
+// Something needs to define the buttons, and what they do. These will link to HTML button elements that will be disabled and enabled based on various functions that control the game's mechanics.
+// *****************************************
+
 const ulfButtons = {
     draw: document.getElementByID(Ulf-Btn-Draw).onclick(function() {
-        pot.push(bag.randompiece);
+        pot.push[bag.randompiece];
         passTurn();
     }),
-    odin: document.getElementByID(Ulf-Btn-Bet).onclick (function() {
-        callOdin();
+    bell: document.getElementByID(Ulf-Btn-Bet).onclick (function() {
+        soundBell();
     }),
-    decline: document.getElementByID(Ulf-Btn-Decline-Bet) function() {
-        
+    decline: document.getElementByID(Ulf-Btn-Decline-Bet).onclick(function() {
+        mustBet = true;
+        passTurn();
+    })
+};
+const sigridButtons = {
+    draw: document.getElementByID(Sigrid-Btn-Draw).onclick(function() {
+        pot.push[bag.randompiece];
+        passTurn();
+    }),
+    bell: document.getElementByID(Sigrid-Btn-Bet).onclick (function() {
+        soundBell();
+    }),
+    decline: document.getElementByID(Sigrid-Btn-Decline-Bet).onclick(function() {
+        mustBet = true;
+        passTurn();
+    })
+};
+// QUESTION: Is it possible to link an individual value within an array to a button? i.e. so I can have four buttons for the runes, and disable their clickableness accordingly.
+
+// *****************************************
+// Something needs to determine the turn, which is the main switcher for checking special values and disabling the other player's buttons for proper turn management.
+// *****************************************
+let ulfTurn = true;
+let sigridTurn = false;
+
+function passTurn() {
+    if (ulfTurn === true) {
+        ulfButtons.draw === enabled
+        ulfButtons.bell === enabled
+        ulfButtons.decline === disabled
+
+        sigridButtons.draw === disabled
+        sigridButtons.bell === disabled
+        sigridButtons.decline === disabled
+
+        ulfTurn = false;
+        sigridTurn = true;
+
+        limitMyShit();
+    };
+    if (sigridTurn === true) {
+        ulfButtons.draw === disabled
+        ulfButtons.bell === disabled
+        ulfButtons.decline === dsiabled
+
+        sigridButtons.draw === enabled
+        sigridButtons.bell === enabled
+        sigridButtons.decline === disabled
+
+        ulfTurn = true;
+        sigridTurn = false;
+
+        limitMyShit();
+    }
+};
+
+// *****************************************
+// Something needs to check and limit the player's controls if certain turn modifiers are present.
+// *****************************************
+function limitMyShit() {
+    checkBetDecline();
+    checkPot();
+}
+
+let mustBet = false;
+
+function checkBetDecline() {
+    if ((ulfTurn === true) && (mustBet === true)) {
+        // Button modifiers here 
+        mustBet = false;
+    } else if ((sigridTurn === true) && (mustBet === true)) {
+        // Button modifiers here
+        mustBet = false;
+    }
+}
+function checkPot() {
+    if(pot.length > 6) {
         mustBet = true;
     }
 }
 
-// I plan on basically having all the buttons linking to something at all time, but the turn and sequence determines which are enabled.
+// It might be cleaner but harder passing in a parameter through every function to count the turn and limit the doubling of the code for each function.
 
-// Something needs to determine the turn, and enable/disable buttons.
-let t= 0;
-passTurn() {
-    if (t = 0) {
-        ulfButtons.draw === enabled
-        ulfButtons.odin === enabled
-        ulfButtons.decline === disabled
+// *****************************************
+// A function of sounding the bell needs to be defined.
+// *****************************************
 
-        sigridButtons.draw === disabled
-        sigridButtons.odin === disabled
-        sigridButtons.decline === disabled
-
-        checkOdinBetDecline();
-        t++;
-    };
-    if (t = 1) {
-        ulfButtons.draw === disabled
-        ulfButtons.odin === disabled
-        ulfButtons.decline === dsiabled
-
-        sigridButtons.draw === enabled
-        sigridButtons.odin === enabled
-        sigridButtons.decline === disabled
-
-        checkOdinBetDecline();
-        t = 0;
+function soundBell() {
+    if(ulfTurn === true) {
+        // The other viking goes first when soundBell, but because of the order that ulfTurn is made, it will be opposite here.
+        // disable/enable buttons
+        // Onclick listen for user to click something on the Runeboard and store it into an array. let ulfsBet = onclick [i] .map?
+        // u = ulf's bet
+        // s = sigrid's bet
+        checkBet(u, s)
+    } else if (sigridTurn === true) {
+        // disable buttons
+        checkBet()
     }
-    checkOdinBetDecline();
 };
+function checkBet(i) {
+    if (sigridRuneBoard[i] > ulfRuneBoard[i]) {
+        // push the pot into the stockpile
+    } else if (ulfRuneBoard[i] > sigridRuneBoard[i]) {
+        // push the pot into the stockpile3
+        // viking.push(pot[i])
+    } else {
+        mustBet = true;
+        passTurn()
+        // when the person who called the bet clicks, it will trigger passTurn. This part of the code will ensure the other viking actually bets.
+    }
+}
 
-// Something needs to check to see if the conditions for a declined bet are made true.
-let mustBet = false;
+// QUESTION: Can all the doubling of code (having to check who's turn it is every single time) with passing in parameters that link into a the
 
-if (mustBet === true) {
-    // disable all buttons besides Rune
-    mustBet = false;
-};
+// CONCERN: I imagine moving the pot's tiles into the object's elements and the checkbet function will be the most challenging part of this JavaScript. I think it's possible, but I feel like the code will be redundant in a lot of areas, and could be cleaned up nicely if using parameters? (See the top question)
 
-// The player will have two options on their turn:
-// Draw: Player draws one token and it is pushed into the pot, passing the turn.    drawbutton.onclick() {drawSequence(), passTurn()}
-// Bet: Player selects a Rune, and the other player raises (places a higher Rune) or declines.    betbutton.onclick() {betSequence()}
+// *****************************************
+// End game calcutions check the if the game's victory conditions are met.
+// *****************************************
 
-callOdin() {
-    if(other player === declinebutton.onclick) {
-        original player places Rune down
-    } else if (other player === Rune[i].onclick
-};
-// If a player draws, a piece is randomly selected from Bag and moved into Pot, and passes the turn.
-// if(player onclick draw) {pot.push(bag.randopiece)}
-
-// Function where if the pot becomes greater than 6, the next player's only choice is to bet.
-// if(pot > 6) {drawButton == disabled} else {...}
-
-// If a player bets, the OTHER player then has the option to select one of his/her runes to bet. If bet is accepted, the original player then can decline the bet or place a higher rune. If the other player declines the bet, the original player MUST the pot.
-
-// Accepting the pot results in the player losing the selected rune, losing it for the remainder of the game.
-
-// The received tokens are pushed into the player's stockpile, and a simple calculation of the token piece determines whether a gold piece is added/lost, or a fish token is added to his/her stockpile.
-
-// Game ends if XX turns are taken, or if both players run out of runes.
-
+// *****************************************
 // BONUS: If one player runs out of runes, the other player can take two tokens per left over rune.
 
 // BONUS: There is an additional token that triggers a bet sequence when drawn as if that player called a bet.
