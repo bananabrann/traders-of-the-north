@@ -1,23 +1,30 @@
 // ALERT! ALERT! ALERT!
 // All this is within .game-window
-    .runeboard {
-        background-color: rgb(43, 31, 18);
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        img {
-            max-height: 95%;
-        }
-    }
-    
-    #ulf-board {
-        background-color: lightblue;
-        // It's messed up because I'm in the middle of switching around html
-    }
-    #sigrid-board {
-        background-color: lightblue;
 
+.runeboard {
+    background-color: rgb(54, 30, 13);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    img {
+        max-height: 95%;
     }
+}
+#message-board {
+    background-color: gray;
     
+}
+#pot {
+    background-color: rgb(241, 241, 144);
+}
+#ulf-board {
+    background-color: lightblue;
+    // It's messed up because I'm in the middle of switching around html
+}
+#sigrid-board {
+    background-color: rgb(117, 155, 168);
+
+}
+
 
 

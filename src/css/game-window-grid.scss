@@ -8,7 +8,8 @@
     display: grid;
     grid-template-columns: repeat(18, 1fr);
     grid-template-rows: repeat(12, 1fr);
-    @import "game-window-styles.scss";
+
+
 
     #message-board {
         grid-column: 4 / span 13;
@@ -27,7 +28,6 @@
         grid-row: 8 / span 2;
     }
     .buttonboard {
-        #ulf-buttonboard {
         #ulf-button-draw {
             grid-column: 7 / span 2;
             grid-row: 10 / span 1;
@@ -42,7 +42,7 @@
             grid-row: 10 / span 1;
         }
     }
-    }
+    
     #ulf-board {
         grid-column: 1 / span 9;
         grid-row: 11 / span 2;
@@ -51,4 +51,5 @@
         grid-column: 10 / span 9;
         grid-row: 11 / span 2;
     }
+    @import "game-window-styles.scss";
 }
