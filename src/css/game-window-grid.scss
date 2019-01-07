@@ -1,0 +1,16 @@
+// ALERT! ALERT! ALERT!
+// This only contains the grid layout for the game-window
+
+.game-window {
+    max-width: 90%;
+    max-height: 700px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(17, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    @import "game-window-styles.scss";
+    #pot {
+        grid-column: 5 / span 7;
+        grid-row: 3 / span 6;
+    }
+}

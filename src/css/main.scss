@@ -1,5 +1,7 @@
 @import "background.scss";
-@import "game-window.scss";
+@import "game-window-grid.scss";
+// @import "game-window.scss";
+// It's importing this one while within game-window-grid.scss
 @import "alert.scss";
 
 @media (max-width: 1000px) {
