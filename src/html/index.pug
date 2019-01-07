@@ -8,20 +8,6 @@ html(lang="en")
     body
         .game-window this is the game window
             section#message-board Here is the Message Board!
-            section.player-board#ulf-board
-                h3 Ulf's Board
-                .stockpile
-                    .gold-stockpile#ulf-gold-stockpile Ulf's Gold Stockpile
-                    .fish-stockpile#ulf-fish-stockpile Ulf's Fish Stockpile
-            section.runeboard#ulf-runeboard Runeboard
-                    .rune#ulf-rune2 
-                        img(src="../img/runestones/runestone-2.png", alt="RuneStone 2")
-                    .rune#ulf-rune5
-                        img(src="../img/runestones/runestone-5.png", alt="RuneStone 5")
-                    .rune#ulf-rune6
-                        img(src="../img/runestones/runestone-6.png", alt="RuneStone 6")
-                    .rune#ulf-rune9
-                        img(src="../img/runestones/runestone-9.png", alt="RuneStone 9")
             section#pot
                 .piece-slot hello I'm the pot
                 .piece-slot 2
@@ -31,12 +17,35 @@ html(lang="en")
                 .piece-slot 6
                 .piece-slot 7
                 .piece-slot 8
+            section.buttonboard
+                #ulf-buttonboard
+                    #ulf-button-draw DRAW
+                    #ulf-button-bell BELL
+                    #ulf-button-decline DECLINE
+                #sigrid-buttonboard
+                    #sigrid-button-draw DRAW
+                    #sigrid-button-bell BELL
+                    #sigrid-button-decline DECLINE
+            section.player-board#ulf-board
+                h3 Ulf's Board
+                .stockpile
+                    .gold-stockpile#ulf-gold-stockpile Ulf's Gold Stockpile
+                    .fish-stockpile#ulf-fish-stockpile Ulf's Fish Stockpile
+            section.runeboard#ulf-runeboard
+                    .rune#ulf-rune2 
+                        img(src="../img/runestones/runestone-2.png", alt="RuneStone 2")
+                    .rune#ulf-rune5
+                        img(src="../img/runestones/runestone-5.png", alt="RuneStone 5")
+                    .rune#ulf-rune6
+                        img(src="../img/runestones/runestone-6.png", alt="RuneStone 6")
+                    .rune#ulf-rune9
+                        img(src="../img/runestones/runestone-9.png", alt="RuneStone 9")
             section.player-board#sigrid-board
                 h3 Sigrid's Board
                 .stockpile
                     .gold-stockpile#sigrid-gold-stockpile Sigrid's Gold Stockpile
                     .fish-stockpile#sigrid-fish-stockpile Sigrid's Fish Stockpile
-            section.runeboard#sigrid-runeboard Sigrid Runeboard
+            section.runeboard#sigrid-runeboard
                     .rune#sigrid-rune3
                         img(src="../img/runestones/runestone-3.png", alt="RuneStone 3")
                     .rune#sigrid-rune4

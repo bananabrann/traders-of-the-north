@@ -6,11 +6,49 @@
     max-height: 700px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(17, 1fr);
-    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(12, 1fr);
     @import "game-window-styles.scss";
+
+    #message-board {
+        grid-column: 4 / span 13;
+        grid-row: 1 / span 1;
+    }
     #pot {
-        grid-column: 5 / span 7;
-        grid-row: 3 / span 6;
+        grid-column: 5 / span 10;
+        grid-row: 3 / span 4;
+    }
+    #ulf-runeboard {
+        grid-column: 1 / span 8;
+        grid-row: 8 / span 2;
+    }
+    #sigrid-runeboard {
+        grid-column: 11 / span 8;
+        grid-row: 8 / span 2;
+    }
+    .buttonboard {
+        #ulf-buttonboard {
+        #ulf-button-draw {
+            grid-column: 7 / span 2;
+            grid-row: 10 / span 1;
+            background-color: red;
+        }
+        #ulf-button-bell {
+            grid-column: 5 / span 2;
+            grid-row: 10 / span 1;
+        }
+        #ulf-button-decline {
+            grid-column: 3 / span 2;
+            grid-row: 10 / span 1;
+        }
+    }
+    }
+    #ulf-board {
+        grid-column: 1 / span 9;
+        grid-row: 11 / span 2;
+    }
+    #sigrid-board {
+        grid-column: 10 / span 9;
+        grid-row: 11 / span 2;
     }
 }

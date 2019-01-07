@@ -1,59 +1,23 @@
 // ALERT! ALERT! ALERT!
 // All this is within .game-window
-
-    #message-board {
-        grid-column: 5 / span 9; // might be 8
-        grid-row: 1 / span 1;
-        justify-self: stretch;
-        background-color: lightgoldenrodyellow;
-    }
-    .player-board {
-        .stockpile {
-            .gold-stockpile {
-
-                // #ulf-gold-stockpile {
-
-                // }
-                // #sigrid-gold-stockpile {
-
-                // }
-            }
-            .fish-stockpile {
-                // #ulf-fish-stockpile {
-
-                // }
-                // #sigrid-fish-stockpile {
-
-                // }
-            }
-        }
-        .runeboard {
-            background-color: rgb(43, 31, 18);
-            img {
-                max-height: 50px;
-            }
+    .runeboard {
+        background-color: rgb(43, 31, 18);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        img {
+            max-height: 95%;
         }
     }
+    
     #ulf-board {
         background-color: lightblue;
-        grid-column: 1 / span 3;
-        grid-row: 4 / span 4; 
         // It's messed up because I'm in the middle of switching around html
     }
     #sigrid-board {
         background-color: lightblue;
-        grid-column: 15 / span 3;
-        grid-row: 4 / span 4;
-    }
-    #pot {
-        background-color: coral;
-        grid-column: 6 / span 7;
-        grid-row: 3 / span 6;
-        
-        .piece-slot {
 
-            background-color: red;
-        }
     }
+    
 
 
