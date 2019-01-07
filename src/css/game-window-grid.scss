@@ -12,13 +12,16 @@
 
 
     #message-board {
-        grid-column: 4 / span 13;
+        grid-column: 4 / span 12;
         grid-row: 1 / span 1;
     }
     #pot {
         grid-column: 5 / span 10;
         grid-row: 3 / span 4;
     }
+
+
+
     #ulf-runeboard {
         grid-column: 1 / span 8;
         grid-row: 8 / span 2;
@@ -27,22 +30,6 @@
         grid-column: 11 / span 8;
         grid-row: 8 / span 2;
     }
-    .buttonboard {
-        #ulf-button-draw {
-            grid-column: 7 / span 2;
-            grid-row: 10 / span 1;
-            background-color: red;
-        }
-        #ulf-button-bell {
-            grid-column: 5 / span 2;
-            grid-row: 10 / span 1;
-        }
-        #ulf-button-decline {
-            grid-column: 3 / span 2;
-            grid-row: 10 / span 1;
-        }
-    }
-    
     #ulf-board {
         grid-column: 1 / span 9;
         grid-row: 11 / span 2;
@@ -51,5 +38,33 @@
         grid-column: 10 / span 9;
         grid-row: 11 / span 2;
     }
+
+
+
+    #ulf-button-draw {
+        grid-column: 7 / span 2;
+        grid-row: 10 / span 1;
+    }
+    #ulf-button-bell {
+        grid-column: 5 / span 2;
+        grid-row: 10 / span 1;
+    }
+    #ulf-button-decline {
+        grid-column: 3 / span 2;
+        grid-row: 10 / span 1;
+    }
+    #sigrid-button-draw {
+        grid-column: 11 / span 2;
+        grid-row: 10 / span 1;
+    }
+    #sigrid-button-bell {
+        grid-column: 13 / span 2;
+        grid-row: 10 / span 1;
+    }
+    #sigrid-button-decline {
+        grid-column: 15 / span 2;
+        grid-row: 10 / span 1;
+    }
+
     @import "game-window-styles.scss";
 }
