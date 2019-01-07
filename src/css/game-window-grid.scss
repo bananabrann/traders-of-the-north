@@ -1,7 +1,10 @@
 // ALERT! ALERT! ALERT!
 // This only contains the grid layout for the game-window
-
+body {
+    background-color: rgb(27, 25, 49);
+}
 .game-window {
+    background-color: white;
     max-width: 90%;
     max-height: 700px;
     margin: 0 auto;
