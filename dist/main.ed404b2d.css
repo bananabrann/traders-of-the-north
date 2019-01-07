@@ -1,9 +1,11 @@
 body {
-  background-color: #1b1931;
+  background-image: url("vikingscene.c2a8a489.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .game-window {
-  background-color: white;
+  background-color: #313131;
   max-width: 90%;
   max-height: 700px;
   margin: 0 auto;
@@ -34,6 +36,14 @@ body {
 .game-window #sigrid-board {
   grid-column: 10/span 9;
   grid-row: 11/span 2;
+}
+.game-window #ulf-portrait {
+  grid-column: 1/span 1;
+  grid-row: 7/span 1;
+}
+.game-window #sigrid-portrait {
+  grid-column: 18/span 1;
+  grid-row: 7/span 1;
 }
 .game-window #ulf-button-draw {
   grid-column: 7/span 2;
@@ -67,6 +77,9 @@ body {
 }
 .game-window .runeboard img {
   max-height: 95%;
+}
+.game-window .character-portraits img {
+  height: 200px;
 }
 .game-window .buttons-ind {
   background-color: #924c4c;

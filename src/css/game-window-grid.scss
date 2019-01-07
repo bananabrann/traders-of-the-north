@@ -1,10 +1,13 @@
 // ALERT! ALERT! ALERT!
 // This only contains the grid layout for the game-window
 body {
-    background-color: rgb(27, 25, 49);
+    background-image: url("../img/vikingscene.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 .game-window {
-    background-color: white;
+    
+    background-color: rgb(49, 49, 49);
     max-width: 90%;
     max-height: 700px;
     margin: 0 auto;
@@ -42,7 +45,14 @@ body {
         grid-row: 11 / span 2;
     }
 
-
+    #ulf-portrait {
+        grid-column: 1 / span 1;
+        grid-row: 7 / span 1;
+    }
+    #sigrid-portrait {
+        grid-column: 18 / span 1;
+        grid-row: 7 / span 1;
+    }
 
     #ulf-button-draw {
         grid-column: 7 / span 2;
