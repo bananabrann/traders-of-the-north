@@ -126,16 +126,16 @@ userButton = {
     }),
     rune: {
       r2: document.getElementById("ulf-rune2").addEventListener("click", function () {
-        placeRune("2", "Ulf");
+        placeRune(2, "ulf");
       }),
       r5: document.getElementById("ulf-rune5").addEventListener("click", function () {
-        console.log("Ulf Rune 5 clicked!");
+        placeRune(5, "ulf");
       }),
       r6: document.getElementById("ulf-rune6").addEventListener("click", function () {
-        console.log("Ulf Rune 6 clicked!");
+        placeRune(6, "ulf");
       }),
       r9: document.getElementById("ulf-rune9").addEventListener("click", function () {
-        console.log("Ulf Rune 9 clicked!");
+        placeRune(9, "ulf");
       })
     }
   },
@@ -151,17 +151,17 @@ userButton = {
     }),
     rune: {
       r3: document.getElementById("sigrid-rune3").addEventListener("click", function () {
-        placeRune("3", "Sigrid");
+        placeRune(3, "sigrid");
       }),
       r4: document.getElementById("sigrid-rune4").addEventListener("click", function () {
-        console.log("Sigrid Rune 4 clicked!");
+        placeRune(4, "sigrid");
       }),
       r7: document.getElementById("sigrid-rune7").addEventListener("click", function () {
-        console.log("Sigrid Rune 7 clicked!");
+        placeRune(7, "sigrid");
       }),
       // r7: "You correctly linked to r7!",
       r8: document.getElementById("sigrid-rune8").addEventListener("click", function () {
-        console.log("Sigrid Rune 8 clicked!");
+        placeRune(8, "sigrid");
       })
     }
   }
@@ -205,9 +205,15 @@ function placeRune(rune, viking) {
 
     (function () {
       if (arena[0] > arena[1]) {
-        console.log("Ah");
-      } else {
-        console.log("".concat(arena[0], " is not bigger than ").concat(arena[1]));
+        arena.splice(1, 1);
+        console.log("0 > 1 option triggered");
+        console.log("The arena after the splice is ...");
+        console.log(arena); // console.log(`The winner is ${viking}`)
+      } else if (arena[1] > arena[0]) {
+        arena.splice(0, 1);
+        console.log("1 > 0 option triggered");
+        console.log("The arena after the splice is ...");
+        console.log(arena); // console.log(`The winner is ${viking}`)
       }
     })(); // (function() {
     //     // Evaluate winner
