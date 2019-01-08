@@ -106,14 +106,23 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"../js/main2.js":[function(require,module,exports) {
 // console.log("Houston, we're live");
-// bag = [...];
-// pot =[];
-// arena =[];
+var bag = [{
+  "fish": 1
+}, {
+  "fish": 1
+}, {
+  "gold": 1
+}, {
+  "gold": 1
+}];
+var pot = [];
+var arena = [];
+console.log(bag);
 userButton = {
   // Don't use an integer for the rune object keys, it won't work.
   ulf: {
     draw: document.getElementById("ulf-button-draw").addEventListener("click", function () {
-      console.log("Ulf draw clicked!");
+      drawCard("Ulf");
     }),
     bet: document.getElementById("ulf-button-bet").addEventListener("click", function () {
       console.log("Ulf bet clicked!");
@@ -138,7 +147,7 @@ userButton = {
   },
   sigrid: {
     draw: document.getElementById("sigrid-button-draw").addEventListener("click", function () {
-      console.log("Sigrid draw clicked!");
+      drawCard("Sigrid");
     }),
     bet: document.getElementById("sigrid-button-bet").addEventListener("click", function () {
       console.log("Sigrid bet clicked!");
@@ -162,25 +171,32 @@ userButton = {
       })
     }
   }
-}; // vikingStockpile = {
-//     ulf: {
-//         gold: 0,
-//         fish: 0,
-//         badgold: 0,
-//         badfish: 0
-//     },
-//     sigrid: {
-//         gold: 0,
-//         fish: 0,
-//         badgold: 0,
-//         badfish: 0
-//     }
-// };
-// drawCard() {
-//     if (arena.length = 1) {
-//     }
-// }
-// calLBet() {
+};
+vikingStockpile = {
+  ulf: {
+    gold: 0,
+    fish: 0,
+    badgold: 0,
+    badfish: 0
+  },
+  sigrid: {
+    gold: 0,
+    fish: 0,
+    badgold: 0,
+    badfish: 0
+  }
+};
+
+function drawCard(viking) {
+  console.log("".concat(viking, " drawing card...")); // if (arena.length = 1) {
+  // }
+
+  pot.push(bag[Math.floor(Math.random() * bag.length)]);
+  console.log("The pot is...");
+  console.log(pot);
+}
+
+; // calLBet() {
 // }
 // later, add passTurn and functionality preventing invalid turns to occur.
 },{}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {

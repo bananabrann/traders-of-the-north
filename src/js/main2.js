@@ -1,13 +1,15 @@
 // console.log("Houston, we're live");
 
-// bag = [...];
-// pot =[];
-// arena =[];
+const bag = [{"fish": 1}, {"fish": 1}, {"gold": 1}, {"gold": 1}, ];
+let pot =[];
+let arena =[];
+
+console.log(bag);
 
 userButton = {
     // Don't use an integer for the rune object keys, it won't work.
     ulf: {
-        draw: document.getElementById("ulf-button-draw").addEventListener("click", function() { console.log("Ulf draw clicked!") }),
+        draw: document.getElementById("ulf-button-draw").addEventListener("click", function() {drawCard("Ulf")} ),
         bet: document.getElementById("ulf-button-bet").addEventListener("click", function() { console.log("Ulf bet clicked!")}),
         decline: document.getElementById("ulf-button-decline").addEventListener("click", function() { console.log("Ulf decline clicked!")}),
         rune: {
@@ -18,7 +20,7 @@ userButton = {
         }
     },
     sigrid: {
-        draw: document.getElementById("sigrid-button-draw").addEventListener("click", function() { console.log("Sigrid draw clicked!")}),
+        draw: document.getElementById("sigrid-button-draw").addEventListener("click", function() { drawCard("Sigrid") }),
         bet: document.getElementById("sigrid-button-bet").addEventListener("click", function() { console.log("Sigrid bet clicked!")}),
         decline: document.getElementById("sigrid-button-decline").addEventListener("click", function() { console.log("Sigrid decline clicked!")}),
         rune: {
@@ -33,27 +35,32 @@ userButton = {
 
 
 
-// vikingStockpile = {
-//     ulf: {
-//         gold: 0,
-//         fish: 0,
-//         badgold: 0,
-//         badfish: 0
-//     },
-//     sigrid: {
-//         gold: 0,
-//         fish: 0,
-//         badgold: 0,
-//         badfish: 0
-//     }
-// };
+vikingStockpile = {
+    ulf: {
+        gold: 0,
+        fish: 0,
+        badgold: 0,
+        badfish: 0
+    },
+    sigrid: {
+        gold: 0,
+        fish: 0,
+        badgold: 0,
+        badfish: 0
+    }
+};
 
 
-// drawCard() {
-//     if (arena.length = 1) {
+function drawCard(viking) {
+    console.log(`${viking} drawing card...`);
 
-//     }
-// }
+    // if (arena.length = 1) {
+
+    // }
+    pot.push(bag[Math.floor(Math.random()*bag.length)]);
+    console.log("The pot is...");
+    console.log(pot);
+};
 
 // calLBet() {
 
