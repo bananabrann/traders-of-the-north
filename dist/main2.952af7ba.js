@@ -106,16 +106,10 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"../js/main2.js":[function(require,module,exports) {
 // const bag = [{"gold": 1}, {"fish": 1}, {"fish": 1}, {"fish": 1}, {"badgold": 1}, {"badfish": 1}, {"badfish": 1} ];
-var bag = ["gold", "gold", "fish", "fish", "badgold", "badfish"]; // *Repeats are not nessesary for randomizer, but repeats are here for tile ratios
+var bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish"]; // *Repeats are not nessesary for randomizer, but repeats are here for tile ratios
 // Think about which one to use, for score calculation.
 
-var pot = []; // let pot2 = {
-//     gold: 0,
-//     fish: 0,
-//     badfish: 0,
-//     badgold: 0
-// };
-
+var pot = [];
 var arena = []; // console.log(bag);
 
 userButton = {
@@ -174,13 +168,13 @@ userButton = {
 };
 vikingStockpile = {
   ulf: {
-    gold: 26,
-    fish: 4,
+    gold: 0,
+    fish: 0,
     badgold: 0,
-    badfish: 1
+    badfish: 0
   },
   sigrid: {
-    gold: 2,
+    gold: 0,
     fish: 0,
     badgold: 0,
     badfish: 0
@@ -217,35 +211,29 @@ function placeRune(rune, viking) {
 
     (function () {
       if (arena[0].rune > arena[1].rune) {
+        // console.log("0 > 1 option triggered");
         arena.splice(1, 1);
-        console.log("0 > 1 option triggered"); // pot.forEach(tile => {
-        //     addedStuff(tile) = (vikingStockpile[arena[0].viking])[tile]
-        //     // Object.values(vikingStockpile[arena[0].viking][tile])
-        //     console.log(vikingStockpile[arena[0].viking])
-        // });
+        console.log(vikingStockpile[arena[0].viking]);
 
         for (var i = 0; i < pot.length; i++) {
-          vikingStockpile[arena[0].viking][pot[i]] = 1 + (vikingStockpile[arena[0].viking][pot[i]] || 0);
-          console.log(vikingStockpile[arena[0].viking]);
+          vikingStockpile[arena[0].viking][pot[i]] = 1 + vikingStockpile[arena[0].viking][pot[i]];
         }
 
-        ; // console.log(vikingStockpile.ulf)
-        // This correctly selects the winnin viking
-        // console.log(vikingStockpile[arena[0].viking])
+        ;
+        console.log(vikingStockpile[arena[0].viking]);
       } else if (arena[1].rune > arena[0].rune) {
-        console.log("1 > 0 option triggered");
+        // console.log("1 > 0 option triggered");
         arena.splice(0, 1);
-        console.log(vikingStockpile[arena[0].viking]); // return vikingStockpile[arena[0].viking].push(pot)
-      } // console.log(`The winner viking is ${winnerViking}`);
+        console.log(vikingStockpile[arena[0].viking]);
 
-    })(); // (function() {
-    //     // Evaluate winner
-    //     console.log(arena[0]);
-    //     // if (arena[0] > arena[1]) {
-    //     // }
-    // });
-    // console.log(`The winner is ${winner}"`);
+        for (var _i = 0; _i < pot.length; _i++) {
+          vikingStockpile[arena[0].viking][pot[_i]] = 1 + vikingStockpile[arena[0].viking][pot[_i]];
+        }
 
+        ;
+        console.log(vikingStockpile[arena[0].viking]);
+      }
+    })();
   }
 } // ******************************************
 // ******************************************
