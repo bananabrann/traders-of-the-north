@@ -188,15 +188,30 @@ vikingStockpile = {
 };
 
 function drawCard(viking) {
-  console.log("".concat(viking, " drawing card...")); // if (arena.length = 1) {
-  // }
+  console.log("".concat(viking, " drawing card...")); // copied this randomizer (with my own variables) from W3 schools
 
   pot.push(bag[Math.floor(Math.random() * bag.length)]);
   console.log("The pot is...");
   console.log(pot);
 }
 
-; // calLBet() {
+; // ******************************************
+// ******************************************
+// CODE SCRAPYARD
+// ******************************************
+// ******************************************
+
+function checkBet() {
+  if (arena.length >= 2) {
+    console.log("checkBet works");
+  }
+}
+
+checkBet();
+
+function claimPot(viking, y) {
+  console.log("".concat(viking, " claims the pot of ").concat(pot));
+} // calLBet() {
 // }
 // later, add passTurn and functionality preventing invalid turns to occur.
 },{}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {

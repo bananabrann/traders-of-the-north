@@ -54,13 +54,44 @@ vikingStockpile = {
 function drawCard(viking) {
     console.log(`${viking} drawing card...`);
 
-    // if (arena.length = 1) {
-
-    // }
+    // copied this randomizer (with my own variables) from W3 schools
     pot.push(bag[Math.floor(Math.random()*bag.length)]);
+
     console.log("The pot is...");
     console.log(pot);
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ******************************************
+// ******************************************
+// CODE SCRAPYARD
+// ******************************************
+// ******************************************
+
+
+function checkBet() {
+    if (arena.length >= 2) {
+        console.log("checkBet works");
+    }
+}
+checkBet();
+
+function claimPot(viking, y) {
+    console.log(`${viking} claims the pot of ${pot}`);
+}
 
 // calLBet() {
 
