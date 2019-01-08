@@ -126,7 +126,7 @@ userButton = {
     }),
     rune: {
       r2: document.getElementById("ulf-rune2").addEventListener("click", function () {
-        console.log("Ulf Rune 2 clicked!");
+        placeRune("2", "Ulf");
       }),
       r5: document.getElementById("ulf-rune5").addEventListener("click", function () {
         console.log("Ulf Rune 5 clicked!");
@@ -151,7 +151,7 @@ userButton = {
     }),
     rune: {
       r3: document.getElementById("sigrid-rune3").addEventListener("click", function () {
-        console.log("Sigrid Rune 3 clicked!");
+        placeRune("3", "Sigrid");
       }),
       r4: document.getElementById("sigrid-rune4").addEventListener("click", function () {
         console.log("Sigrid Rune 4 clicked!");
@@ -187,18 +187,43 @@ function drawCard(viking) {
       console.log("The market is full, you have to bet!"); // Add CSS modifiers in the future here!
     })();
   } else {
-    pot.push(bag[Math.floor(Math.random() * bag.length)]); // passTurn();
-
+    pot.push(bag[Math.floor(Math.random() * bag.length)]);
     console.log("".concat(viking, " draws card ").concat(pot.slice(-1).pop(), "."));
     console.log("The pot is... ".concat(pot));
   }
 }
 
-; // ******************************************
+;
+
+function placeRune(rune, viking) {
+  if (arena.length < 1) {
+    arena.push(rune);
+    console.log("".concat(rune, " has been pushed into the arena..."));
+  } else if (arena.length === 1) {
+    arena.push(rune);
+    console.log("".concat(rune, " has been pushed into the arena. We are ready to compare!"));
+
+    (function () {
+      if (arena[0] > arena[1]) {
+        console.log("Ah");
+      } else {
+        console.log("".concat(arena[0], " is not bigger than ").concat(arena[1]));
+      }
+    })(); // (function() {
+    //     // Evaluate winner
+    //     console.log(arena[0]);
+    //     // if (arena[0] > arena[1]) {
+    //     // }
+    // });
+    // console.log(`The winner is ${winner}"`);
+
+  }
+} // ******************************************
 // ******************************************
 // CODE SCRAPYARD
 // ******************************************
 // ******************************************
+
 
 function checkBet() {
   if (arena.length >= 2) {
@@ -206,11 +231,10 @@ function checkBet() {
   }
 }
 
-checkBet();
-
-function claimPot(viking, y) {
-  console.log("".concat(viking, " claims the pot of ").concat(pot));
-} // calLBet() {
+checkBet(); // function claimPot(viking, y) {
+//     console.log(`${viking} claims the pot of ${pot}`);
+// }
+// calLBet() {
 // }
 // later, add passTurn and functionality preventing invalid turns to occur.
 },{}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -240,7 +264,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53137" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57457" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

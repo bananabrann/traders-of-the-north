@@ -15,7 +15,7 @@ userButton = {
         bet: document.getElementById("ulf-button-bet").addEventListener("click", function() { console.log("Ulf bet clicked!")}),
         decline: document.getElementById("ulf-button-decline").addEventListener("click", function() { console.log("Ulf decline clicked!")}),
         rune: {
-            r2: document.getElementById("ulf-rune2").addEventListener("click", function() { console.log("Ulf Rune 2 clicked!")}),
+            r2: document.getElementById("ulf-rune2").addEventListener("click", function() { placeRune("2", "Ulf")}),
             r5: document.getElementById("ulf-rune5").addEventListener("click", function() { console.log("Ulf Rune 5 clicked!")}),
             r6: document.getElementById("ulf-rune6").addEventListener("click", function() { console.log("Ulf Rune 6 clicked!")}),
             r9: document.getElementById("ulf-rune9").addEventListener("click", function() { console.log("Ulf Rune 9 clicked!")})
@@ -26,7 +26,7 @@ userButton = {
         bet: document.getElementById("sigrid-button-bet").addEventListener("click", function() { console.log("Sigrid bet clicked!")}),
         decline: document.getElementById("sigrid-button-decline").addEventListener("click", function() { console.log("Sigrid decline clicked!")}),
         rune: {
-            r3: document.getElementById("sigrid-rune3").addEventListener("click", function() { console.log("Sigrid Rune 3 clicked!")}),
+            r3: document.getElementById("sigrid-rune3").addEventListener("click", function() { placeRune("3", "Sigrid")}),
             r4: document.getElementById("sigrid-rune4").addEventListener("click", function() { console.log("Sigrid Rune 4 clicked!")}),
             r7: document.getElementById("sigrid-rune7").addEventListener("click", function() { console.log("Sigrid Rune 7 clicked!")}),
             // r7: "You correctly linked to r7!",
@@ -58,13 +58,39 @@ function drawCard(viking) {
             // Add CSS modifiers in the future here!
         }) ();
     } else {pot.push(bag[Math.floor(Math.random()*bag.length)]);
-    // passTurn();
 
     console.log(`${viking} draws card ${(pot.slice(-1).pop())}.`);
     console.log(`The pot is... ${pot}`);
     }
 };
 
+function placeRune(rune, viking) {
+    if (arena.length < 1) {
+        arena.push(rune);
+        console.log(`${rune} has been pushed into the arena...`);
+    } else if (arena.length === 1) {
+        arena.push(rune);
+        console.log(`${rune} has been pushed into the arena. We are ready to compare!`);
+        (function () { 
+            if (arena[0] > arena[1] ) {
+                console.log("Ah");
+            } else {
+                console.log(`${arena[0]} is not bigger than ${arena[1]}`);
+            }
+            
+         })();
+        
+
+        // (function() {
+        //     // Evaluate winner
+        //     console.log(arena[0]);
+        //     // if (arena[0] > arena[1]) {
+
+        //     // }
+        // });
+        // console.log(`The winner is ${winner}"`);
+    }
+}
 
 
 
@@ -92,9 +118,9 @@ function checkBet() {
 }
 checkBet();
 
-function claimPot(viking, y) {
-    console.log(`${viking} claims the pot of ${pot}`);
-}
+// function claimPot(viking, y) {
+//     console.log(`${viking} claims the pot of ${pot}`);
+// }
 
 // calLBet() {
 
