@@ -49,7 +49,7 @@ body {
   grid-column: 7/span 2;
   grid-row: 10/span 1;
 }
-.game-window #ulf-button-bell {
+.game-window #ulf-button-bet {
   grid-column: 5/span 2;
   grid-row: 10/span 1;
 }
@@ -61,7 +61,7 @@ body {
   grid-column: 11/span 2;
   grid-row: 10/span 1;
 }
-.game-window #sigrid-button-bell {
+.game-window #sigrid-button-bet {
   grid-column: 13/span 2;
   grid-row: 10/span 1;
 }

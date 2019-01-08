@@ -6,10 +6,14 @@
 
 userButton = {
     ulf: {
-        draw: document.getElementById("ulf-button-draw").addEventListener("click", function() { 
-            console.log("Ulf's Button Clicked")
-        }),
-        bet: 0,
+        draw: document.getElementById("ulf-button-draw").addEventListener("click", function() { console.log("Ulf draw clicked") }),
+        bet: document.getElementById("ulf-button-bet").addEventListener("click", function() { console.log("Ulf bet clicked")}),
+        decline: document.getElementById("ulf-button-decline").addEventListener("click", function() { console.log("Ulf decline clicked")})
+    },
+    sigrid: {
+        draw: document.getElementById("sigrid-button-draw").addEventListener("click", function() { console.log("Sigrid draw clicked")}),
+        bet: document.getElementById("sigrid-button-bet").addEventListener("click", function() { console.log("Sigrid bet clicked")}),
+        decline: document.getElementById("sigrid-button-decline").addEventListener("click", function() { console.log("Sigrid decline clicked")})
     }
 };
 
