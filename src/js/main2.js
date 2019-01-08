@@ -1,6 +1,8 @@
-// console.log("Houston, we're live");
+// const bag = [{"gold": 1}, {"fish": 1}, {"fish": 1}, {"fish": 1}, {"badgold": 1}, {"badfish": 1}, {"badfish": 1} ];
+const bag = ["gold", "gold", "fish", "fish", "badgold", "badfish"];
+// *Repeats are not nessesary for randomizer, but repeats are here for tile ratios
+// Think about which one to use, for score calculation.
 
-const bag = [{"fish": 1}, {"fish": 1}, {"gold": 1}, {"gold": 1}, ];
 let pot =[];
 let arena =[];
 
@@ -33,8 +35,6 @@ userButton = {
     }
 };
 
-
-
 vikingStockpile = {
     ulf: {
         gold: 0,
@@ -52,15 +52,18 @@ vikingStockpile = {
 
 
 function drawCard(viking) {
-    console.log(`${viking} drawing card...`);
+    if (pot.length >= 8) {
+        (function() {
+            console.log("The market is full, you have to bet!");
+            // Add CSS modifiers in the future here!
+        }) ();
+    } else {pot.push(bag[Math.floor(Math.random()*bag.length)]);
+    // passTurn();
 
-    // copied this randomizer (with my own variables) from W3 schools
-    pot.push(bag[Math.floor(Math.random()*bag.length)]);
-
-    console.log("The pot is...");
-    console.log(pot);
+    console.log(`${viking} draws card ${(pot.slice(-1).pop())}.`);
+    console.log(`The pot is... ${pot}`);
+    }
 };
-
 
 
 

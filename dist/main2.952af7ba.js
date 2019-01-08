@@ -105,16 +105,10 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   // Override the current require with this new one
   return newRequire;
 })({"../js/main2.js":[function(require,module,exports) {
-// console.log("Houston, we're live");
-var bag = [{
-  "fish": 1
-}, {
-  "fish": 1
-}, {
-  "gold": 1
-}, {
-  "gold": 1
-}];
+// const bag = [{"gold": 1}, {"fish": 1}, {"fish": 1}, {"fish": 1}, {"badgold": 1}, {"badfish": 1}, {"badfish": 1} ];
+var bag = ["gold", "gold", "fish", "fish", "badgold", "badfish"]; // *Repeats are not nessesary for randomizer, but repeats are here for tile ratios
+// Think about which one to use, for score calculation.
+
 var pot = [];
 var arena = [];
 console.log(bag);
@@ -188,11 +182,16 @@ vikingStockpile = {
 };
 
 function drawCard(viking) {
-  console.log("".concat(viking, " drawing card...")); // copied this randomizer (with my own variables) from W3 schools
+  if (pot.length >= 8) {
+    (function () {
+      console.log("The market is full, you have to bet!"); // Add CSS modifiers in the future here!
+    })();
+  } else {
+    pot.push(bag[Math.floor(Math.random() * bag.length)]); // passTurn();
 
-  pot.push(bag[Math.floor(Math.random() * bag.length)]);
-  console.log("The pot is...");
-  console.log(pot);
+    console.log("".concat(viking, " draws card ").concat(pot.slice(-1).pop(), "."));
+    console.log("The pot is... ".concat(pot));
+  }
 }
 
 ; // ******************************************
