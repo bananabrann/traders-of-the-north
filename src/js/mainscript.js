@@ -96,7 +96,7 @@ function passTurn() {
         ulfTurn = false;
         sigridTurn = true;
 
-        limitMyShit();
+        limitMyStuff();
     };
     if (sigridTurn === true) {
         ulfButtons.draw === disabled
@@ -110,14 +110,14 @@ function passTurn() {
         ulfTurn = true;
         sigridTurn = false;
 
-        limitMyShit();
+        limitMyStuff();
     }
 };
 
 // *****************************************
 // Something needs to check and limit the player's controls if certain turn modifiers are present.
 // *****************************************
-function limitMyShit() {
+function limitMyStuff() {
     checkBetDecline();
     checkPot();
 }
