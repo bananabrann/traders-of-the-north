@@ -4,9 +4,16 @@ const bag = ["gold", "gold", "fish", "fish", "badgold", "badfish"];
 // Think about which one to use, for score calculation.
 
 let pot =[];
+// let pot2 = {
+//     gold: 0,
+//     fish: 0,
+//     badfish: 0,
+//     badgold: 0
+// };
+
 let arena =[];
 
-console.log(bag);
+// console.log(bag);
 
 userButton = {
     // Don't use an integer for the rune object keys, it won't work.
@@ -37,13 +44,13 @@ userButton = {
 
 vikingStockpile = {
     ulf: {
-        gold: 0,
-        fish: 0,
+        gold: 26,
+        fish: 4,
         badgold: 0,
-        badfish: 0
+        badfish: 1
     },
     sigrid: {
-        gold: 0,
+        gold: 2,
         fish: 0,
         badgold: 0,
         badfish: 0
@@ -66,30 +73,47 @@ function drawCard(viking) {
 
 function placeRune(rune, viking) {
     if (arena.length < 1) {
-        arena.push(rune);
+        arena.push({
+            rune: rune,
+            viking: viking
+        });
+
         console.log(`${rune} has been pushed into the arena...`);
     } else if (arena.length === 1) {
-        arena.push(rune);
+        arena.push({
+            rune: rune,
+            viking: viking
+        });
+
         console.log(`${rune} has been pushed into the arena. We are ready to compare!`);
         (function () { 
-            if (arena[0] > arena[1] ) {
+
+            if (arena[0].rune > arena[1].rune ) {
                 arena.splice(1, 1);
 
                 console.log("0 > 1 option triggered");
-                console.log("The arena after the splice is ...");
-                console.log(arena);
 
-                // console.log(`The winner is ${viking}`)
+                pot.forEach(tile => {
+                    vikingStockpile[arena[0].viking].push({[tile]: tile})
+                    console.log(tile)
+                })
+                
+                // console.log(vikingStockpile.ulf)
 
-            } else if (arena[1] > arena[0]) {
+                console.log(vikingStockpile[arena[0].viking])
+
+            } else if (arena[1].rune > arena[0].rune) {
+                console.log("1 > 0 option triggered");
+
                 arena.splice(0, 1);
 
-                console.log("1 > 0 option triggered");
-                console.log("The arena after the splice is ...");
-                console.log(arena);
+                console.log(vikingStockpile[arena[0].viking])
 
-                // console.log(`The winner is ${viking}`)
+
+                // return vikingStockpile[arena[0].viking].push(pot)
+
             }
+            // console.log(`The winner viking is ${winnerViking}`);
          })();
 
         

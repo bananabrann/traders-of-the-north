@@ -105,13 +105,21 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   // Override the current require with this new one
   return newRequire;
 })({"../js/main2.js":[function(require,module,exports) {
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 // const bag = [{"gold": 1}, {"fish": 1}, {"fish": 1}, {"fish": 1}, {"badgold": 1}, {"badfish": 1}, {"badfish": 1} ];
 var bag = ["gold", "gold", "fish", "fish", "badgold", "badfish"]; // *Repeats are not nessesary for randomizer, but repeats are here for tile ratios
 // Think about which one to use, for score calculation.
 
-var pot = [];
-var arena = [];
-console.log(bag);
+var pot = []; // let pot2 = {
+//     gold: 0,
+//     fish: 0,
+//     badfish: 0,
+//     badgold: 0
+// };
+
+var arena = []; // console.log(bag);
+
 userButton = {
   // Don't use an integer for the rune object keys, it won't work.
   ulf: {
@@ -168,13 +176,13 @@ userButton = {
 };
 vikingStockpile = {
   ulf: {
-    gold: 0,
-    fish: 0,
+    gold: 26,
+    fish: 4,
     badgold: 0,
-    badfish: 0
+    badfish: 1
   },
   sigrid: {
-    gold: 0,
+    gold: 2,
     fish: 0,
     badgold: 0,
     badfish: 0
@@ -197,24 +205,34 @@ function drawCard(viking) {
 
 function placeRune(rune, viking) {
   if (arena.length < 1) {
-    arena.push(rune);
+    arena.push({
+      rune: rune,
+      viking: viking
+    });
     console.log("".concat(rune, " has been pushed into the arena..."));
   } else if (arena.length === 1) {
-    arena.push(rune);
+    arena.push({
+      rune: rune,
+      viking: viking
+    });
     console.log("".concat(rune, " has been pushed into the arena. We are ready to compare!"));
 
     (function () {
-      if (arena[0] > arena[1]) {
+      if (arena[0].rune > arena[1].rune) {
         arena.splice(1, 1);
         console.log("0 > 1 option triggered");
-        console.log("The arena after the splice is ...");
-        console.log(arena); // console.log(`The winner is ${viking}`)
-      } else if (arena[1] > arena[0]) {
-        arena.splice(0, 1);
+        pot.forEach(function (tile) {
+          vikingStockpile[arena[0].viking].push(_defineProperty({}, tile, tile));
+          console.log(tile);
+        }); // console.log(vikingStockpile.ulf)
+
+        console.log(vikingStockpile[arena[0].viking]);
+      } else if (arena[1].rune > arena[0].rune) {
         console.log("1 > 0 option triggered");
-        console.log("The arena after the splice is ...");
-        console.log(arena); // console.log(`The winner is ${viking}`)
-      }
+        arena.splice(0, 1);
+        console.log(vikingStockpile[arena[0].viking]); // return vikingStockpile[arena[0].viking].push(pot)
+      } // console.log(`The winner viking is ${winnerViking}`);
+
     })(); // (function() {
     //     // Evaluate winner
     //     console.log(arena[0]);
@@ -270,7 +288,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57457" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64243" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
