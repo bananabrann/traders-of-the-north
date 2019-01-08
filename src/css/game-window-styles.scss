@@ -12,9 +12,9 @@
         max-height: 95%;
     }
 }
-    #sigrid-portrait {
-        text-align: right;
-    }
+#sigrid-portrait {
+    text-align: right;
+}
 .character-portraits {
     img {
         max-width: 100%;
@@ -27,6 +27,13 @@
 }
 #message-board {
     background-color: gray;
+    p {
+        font-family: 'Carrois Gothic SC', sans-serif;
+        font-size: 40px;
+        text-align: center;
+        margin: 0px;
+    }
+
 
 }
 #pot {

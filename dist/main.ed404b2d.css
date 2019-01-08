@@ -92,6 +92,12 @@ body {
 .game-window #message-board {
   background-color: gray;
 }
+.game-window #message-board p {
+  font-family: "Carrois Gothic SC", sans-serif;
+  font-size: 40px;
+  text-align: center;
+  margin: 0px;
+}
 .game-window #pot {
   background-color: #f1f190;
 }
