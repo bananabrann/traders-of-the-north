@@ -85,7 +85,10 @@ function placeRune(rune, viking) {
             viking: viking
         });
 
+        
+
         console.log(`${rune} has been pushed into the arena. We are ready to compare!`);
+
         (function () { 
 
             if (arena[0].rune > arena[1].rune ) {
@@ -93,14 +96,23 @@ function placeRune(rune, viking) {
 
                 console.log("0 > 1 option triggered");
 
-                pot.forEach(tile => {
-                    vikingStockpile[arena[0].viking].push({[tile]: tile})
-                    console.log(tile)
-                })
+        
+                // pot.forEach(tile => {
+                //     addedStuff(tile) = (vikingStockpile[arena[0].viking])[tile]
+                //     // Object.values(vikingStockpile[arena[0].viking][tile])
+                //     console.log(vikingStockpile[arena[0].viking])
+
+                // });
+
+                for (let i = 0; i < pot.length; i++) {
+                    (vikingStockpile[arena[0].viking])[pot[i]] = 1 + ((vikingStockpile[arena[0].viking])[pot[i]] || 0);
+                    console.log((vikingStockpile[arena[0].viking]));
+                    };
                 
                 // console.log(vikingStockpile.ulf)
 
-                console.log(vikingStockpile[arena[0].viking])
+                // This correctly selects the winnin viking
+                // console.log(vikingStockpile[arena[0].viking])
 
             } else if (arena[1].rune > arena[0].rune) {
                 console.log("1 > 0 option triggered");
@@ -115,8 +127,6 @@ function placeRune(rune, viking) {
             }
             // console.log(`The winner viking is ${winnerViking}`);
          })();
-
-        
 
         // (function() {
         //     // Evaluate winner

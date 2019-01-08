@@ -105,8 +105,6 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   // Override the current require with this new one
   return newRequire;
 })({"../js/main2.js":[function(require,module,exports) {
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 // const bag = [{"gold": 1}, {"fish": 1}, {"fish": 1}, {"fish": 1}, {"badgold": 1}, {"badfish": 1}, {"badfish": 1} ];
 var bag = ["gold", "gold", "fish", "fish", "badgold", "badfish"]; // *Repeats are not nessesary for randomizer, but repeats are here for tile ratios
 // Think about which one to use, for score calculation.
@@ -220,13 +218,20 @@ function placeRune(rune, viking) {
     (function () {
       if (arena[0].rune > arena[1].rune) {
         arena.splice(1, 1);
-        console.log("0 > 1 option triggered");
-        pot.forEach(function (tile) {
-          vikingStockpile[arena[0].viking].push(_defineProperty({}, tile, tile));
-          console.log(tile);
-        }); // console.log(vikingStockpile.ulf)
+        console.log("0 > 1 option triggered"); // pot.forEach(tile => {
+        //     addedStuff(tile) = (vikingStockpile[arena[0].viking])[tile]
+        //     // Object.values(vikingStockpile[arena[0].viking][tile])
+        //     console.log(vikingStockpile[arena[0].viking])
+        // });
 
-        console.log(vikingStockpile[arena[0].viking]);
+        for (var i = 0; i < pot.length; i++) {
+          vikingStockpile[arena[0].viking][pot[i]] = 1 + (vikingStockpile[arena[0].viking][pot[i]] || 0);
+          console.log(vikingStockpile[arena[0].viking]);
+        }
+
+        ; // console.log(vikingStockpile.ulf)
+        // This correctly selects the winnin viking
+        // console.log(vikingStockpile[arena[0].viking])
       } else if (arena[1].rune > arena[0].rune) {
         console.log("1 > 0 option triggered");
         arena.splice(0, 1);
