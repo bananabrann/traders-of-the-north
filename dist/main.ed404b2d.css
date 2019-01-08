@@ -79,7 +79,7 @@ body {
   max-height: 95%;
 }
 .game-window .character-portraits img {
-  height: 200px;
+  height: 100%;
 }
 .game-window .buttons-ind {
   background-color: #924c4c;
