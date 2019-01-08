@@ -9,8 +9,10 @@ body {
     
     background-color: rgb(49, 49, 49);
     max-width: 90%;
-    max-height: 700px;
+    max-height: 600px;
+    min-width: 950px;
     margin: 0 auto;
+
     display: grid;
     grid-template-columns: repeat(18, 1fr);
     grid-template-rows: repeat(12, 1fr);
@@ -22,7 +24,7 @@ body {
         grid-row: 1 / span 1;
     }
     #pot {
-        grid-column: 5 / span 10;
+        grid-column: 4 / span 12;
         grid-row: 3 / span 4;
     }
 

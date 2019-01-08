@@ -7,7 +7,8 @@ body {
 .game-window {
   background-color: #313131;
   max-width: 90%;
-  max-height: 700px;
+  max-height: 600px;
+  min-width: 950px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(18, 1fr);
@@ -18,7 +19,7 @@ body {
   grid-row: 1/span 1;
 }
 .game-window #pot {
-  grid-column: 5/span 10;
+  grid-column: 4/span 12;
   grid-row: 3/span 4;
 }
 .game-window #ulf-runeboard {
@@ -78,8 +79,11 @@ body {
 .game-window .runeboard img {
   max-height: 95%;
 }
+.game-window #sigrid-portrait {
+  text-align: right;
+}
 .game-window .character-portraits img {
-  width: 100%;
+  max-width: 100%;
   height: 100%;
 }
 .game-window .buttons-ind {

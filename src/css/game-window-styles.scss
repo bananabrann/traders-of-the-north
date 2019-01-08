@@ -12,13 +12,15 @@
         max-height: 95%;
     }
 }
+    #sigrid-portrait {
+        text-align: right;
+    }
 .character-portraits {
     img {
-        width: 100%;
+        max-width: 100%;
         height: 100%;
-        // background-color: red;
+        // See above for sigrid portrait right alignment
     }
-    // background-color: red;
 }
 .buttons-ind {
     background-color: rgb(146, 76, 76);
