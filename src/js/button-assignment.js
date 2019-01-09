@@ -1,0 +1,1 @@
+// Online resources are way too confusing on linking multiple JS files together

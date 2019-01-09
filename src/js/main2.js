@@ -3,6 +3,8 @@ const bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish"];
 let pot = [];
 let arena = [];
 
+// import "button-assignment.js";
+
 // COMPLETED! Do not touch.
 userButton = {
   // Don't use an integer for the rune object keys, it won't work.

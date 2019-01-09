@@ -108,7 +108,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish"]; // *Repeats are not nessesary for randomizer, but repeats are here for tile ratios
 
 var pot = [];
-var arena = []; // COMPLETED! Do not touch.
+var arena = []; // import "button-assignment.js";
+// COMPLETED! Do not touch.
 
 userButton = {
   // Don't use an integer for the rune object keys, it won't work.
