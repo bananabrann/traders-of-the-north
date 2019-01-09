@@ -43,7 +43,7 @@ body {
   grid-row: 4/span 4;
 }
 .game-window #sigrid-portrait {
-  grid-column: 15/span 5;
+  grid-column: 14/span 6;
   grid-row: 4/span 4;
 }
 .game-window #ulf-button-draw {
@@ -75,9 +75,10 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  flex-wrap: nowrap;
 }
 .game-window .runeboard img {
-  max-height: 95%;
+  max-height: 75%;
 }
 .game-window #sigrid-portrait {
   text-align: right;
@@ -99,7 +100,18 @@ body {
   margin: 0px;
 }
 .game-window #pot {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  flex-wrap: wrap;
   background-color: #f1f190;
+}
+.game-window #pot .piece-slot {
+  width: 120px;
+  height: 120px;
+  margin: 8px 20px;
+  background-color: yellow;
 }
 .game-window #ulf-board {
   background-color: lightblue;

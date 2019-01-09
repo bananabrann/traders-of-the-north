@@ -188,7 +188,21 @@ function drawCard(viking) {
     })();
   } else {
     pot.push(bag[Math.floor(Math.random() * bag.length)]);
-    console.log("".concat(viking, " draws card ").concat(pot.slice(-1).pop(), "."));
+    var lastCard = pot.slice(-1).pop();
+
+    if (lastCard === "gold") {
+      var newCard = document.createElement("div");
+      var node = document.createTextNode("Hello there! This is the variable node and you did it!");
+      newCard.appendChild(node);
+    } else if (lastCard === "fish") {
+      console.log("Just keep swimming!");
+    } else if (lastCard === "badgold") {
+      console.log("Someone took your gold!");
+    } else if (lastCard === "badfish") {
+      console.log("Your fish died");
+    }
+
+    console.log("".concat(viking, " draws card ").concat(lastCard, "."));
     console.log("The pot is... ".concat(pot));
   }
 } // COMPLETED! Do not touch.

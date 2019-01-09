@@ -2,51 +2,58 @@
 // All this is within .game-window
 
 .runeboard {
-    background-color: rgb(54, 30, 13);
+  background-color: rgb(54, 30, 13);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  // align-content: space-around;
+  // ^^^ Why does this not work?
+  flex-wrap: nowrap;
+  // If I edit anything with the grid, this CSS for justify-content fucks up. To correct it, put flex-wrap, save, then remove it, save. What? Lol
+  img {
+    max-height: 75%;
+  }
+}
+#sigrid-portrait {
+  text-align: right;
+}
+.character-portraits {
+  img {
+    max-width: 100%;
+    height: 100%;
+    // See above for sigrid portrait right alignment
+  }
+}
+.buttons-ind {
+  background-color: rgb(146, 76, 76);
+}
+#message-board {
+  background-color: gray;
+  p {
+    font-family: "Carrois Gothic SC", sans-serif;
+    font-size: 40px;
+    text-align: center;
+    margin: 0px;
+  }
+}
+#pot {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    // flex-wrap: nowrap;
-    // If I edit anything with the grid, this CSS for justify-content fucks up. To correct it, put flex-wrap, save, then remove it, save. What? Lol
-    img {
-        max-height: 95%;
-    }
-}
-#sigrid-portrait {
-    text-align: right;
-}
-.character-portraits {
-    img {
-        max-width: 100%;
-        height: 100%;
-        // See above for sigrid portrait right alignment
-    }
-}
-.buttons-ind {
-    background-color: rgb(146, 76, 76);
-}
-#message-board {
-    background-color: gray;
-    p {
-        font-family: 'Carrois Gothic SC', sans-serif;
-        font-size: 40px;
-        text-align: center;
-        margin: 0px;
-    }
-
-
-}
-#pot {
-    background-color: rgb(241, 241, 144);
+    align-content: center;
+    flex-wrap: wrap;
+  background-color: rgb(241, 241, 144);
+  .piece-slot {
+      width: 120px;
+      height: 120px;
+      margin: 8px 20px;
+      background-color: yellow;
+  }
 }
 #ulf-board {
-    background-color: lightblue;
-    // It's messed up because I'm in the middle of switching around html
+  background-color: lightblue;
+  // It's messed up because I'm in the middle of switching around html
 }
 #sigrid-board {
-    background-color: rgb(117, 155, 168);
-
+  background-color: rgb(117, 155, 168);
 }
-
-
-

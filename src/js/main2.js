@@ -115,10 +115,26 @@ function drawCard(viking) {
   } else {
     pot.push(bag[Math.floor(Math.random() * bag.length)]);
 
-    console.log(`${viking} draws card ${pot.slice(-1).pop()}.`);
+    let lastCard = pot.slice(-1).pop();
+    if (lastCard === "gold") {
+        let newCard = document.createElement("div");
+        let node = document.createTextNode("Hello there! This is the variable node and you did it!");
+        newCard.appendChild(node);
+
+    } else if (lastCard === "fish") {
+        console.log("Just keep swimming!");
+    } else if (lastCard === "badgold") {
+        console.log("Someone took your gold!");
+    } else if (lastCard === "badfish") {
+        console.log("Your fish died");
+    }
+
+    console.log(`${viking} draws card ${lastCard}.`);
     console.log(`The pot is... ${pot}`);
   }
 }
+
+
 
 // COMPLETED! Do not touch.
 function placeRune(rune, viking) {
