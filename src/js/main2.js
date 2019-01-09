@@ -1,14 +1,10 @@
-// const bag = [{"gold": 1}, {"fish": 1}, {"fish": 1}, {"fish": 1}, {"badgold": 1}, {"badfish": 1}, {"badfish": 1} ];
 const bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish"];
 // *Repeats are not nessesary for randomizer, but repeats are here for tile ratios
-// Think about which one to use, for score calculation.
-
 let pot =[];
-
 let arena =[];
 
-// console.log(bag);
 
+// COMPLETED! Do not touch.
 userButton = {
     // Don't use an integer for the rune object keys, it won't work.
     ulf: {
@@ -36,6 +32,7 @@ userButton = {
     }
 };
 
+// COMPLETED! Do not touch.
 vikingStockpile = {
     ulf: {
         gold: 0,
@@ -51,7 +48,7 @@ vikingStockpile = {
     }
 };
 
-
+// COMLETED! Do not touch.
 function drawCard(viking) {
     if (pot.length >= 8) {
         (function() {
@@ -65,6 +62,7 @@ function drawCard(viking) {
     }
 };
 
+// COMPLETED! Do not touch.
 function placeRune(rune, viking) {
     if (arena.length < 1) {
         arena.push({
