@@ -3,11 +3,7 @@ const bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish"];
 let pot = [];
 let arena = [];
 
-// import "button-assignment.js";
-
-// COMPLETED! Do not touch.
-userButton = {
-  // Don't use an integer for the rune object keys, it won't work.
+const userButton = {
   ulf: {
     draw: document
       .getElementById("ulf-button-draw")
@@ -89,8 +85,7 @@ userButton = {
   }
 };
 
-// COMPLETED! Do not touch.
-vikingStockpile = {
+const vikingStockpile = {
   ulf: {
     gold: 0,
     fish: 0,
@@ -105,7 +100,6 @@ vikingStockpile = {
   }
 };
 
-// COMLETED! Do not touch.
 function drawCard(viking) {
   if (pot.length >= 8) {
     (function() {
@@ -117,44 +111,51 @@ function drawCard(viking) {
 
     let lastInPot = pot.slice(-1).pop();
     if (lastInPot === "gold") {
-        // define that there's a new thing
-        // let newGoldCard = document.createElement("p");
-        // let goldNode = document.createTextNode("Here be gold arrrr!");
-        // goldNode.appendChild(newGoldCard);
-        // console.log(newGoldCard);
-        (function() {
-            console.log("Function working, dislaying the picture...");
-            let imgGold =  document.createElement("img");
-            imgGold.src = "../img/goldtoken.png";
-            imgGold.id = "gold-token-picture";
-            let foo = document.getElementById("pot");
-            foo.appendChild(imgGold);
-            console.log("Picture display function complete!");
-        })();
-        // let goldCardPic = 
-        // // newGoldCard.appendChild(document.getElementById(pot));
-        // goldCardPic.src = "../img/goldtoken.png";
-        // document.getElementById("pot").appendChild(goldCardPic);
-
-
-        // attach the img into #pot
-        // let node = document.getElementBy(piece-slot).createTextNode("Hello there! This is the variable node and you did it!");
-        // newGoldCard.appendChild(node);
-
+      (function() {
+        console.log("Function working, dislaying the picture...");
+        let imgGold = document.createElement("img");
+        imgGold.src = "/goldtoken.png";
+        imgGold.id = "gold-token-picture";
+        let foo = document.getElementById("pot");
+        foo.appendChild(imgGold);
+        console.log("Picture display function complete!");
+      })();
     } else if (lastInPot === "fish") {
-        console.log("Just keep swimming!");
+      console.log("Just keep swimming!");
     } else if (lastInPot === "badgold") {
-        console.log("Someone took your gold!");
+      console.log("Someone took your gold!");
     } else if (lastInPot === "badfish") {
-        console.log("Your fish died");
+      console.log("Your fish died");
     }
 
     console.log(`${viking} draws card ${lastInPot}.`);
     console.log(`The pot is... ${pot}`);
   }
+};
+
+function collectPot() {
+  if (arena[0].rune > arena[1].rune) {
+    // console.log("0 > 1 option triggered");
+    arena.splice(1, 1);
+    console.log(vikingStockpile[arena[0].viking]);
+
+    for (let i = 0; i < pot.length; i++) {
+      vikingStockpile[arena[0].viking][pot[i]] =
+        1 + vikingStockpile[arena[0].viking][pot[i]];
+    }
+
+    console.log(vikingStockpile[arena[0].viking]);
+  } else if (arena[1].rune > arena[0].rune) {
+    // console.log("1 > 0 option triggered");
+    arena.splice(0, 1);
+    console.log(vikingStockpile[arena[0].viking]);
+    for (let i = 0; i < pot.length; i++) {
+      vikingStockpile[arena[0].viking][pot[i]] =
+        1 + vikingStockpile[arena[0].viking][pot[i]];
+    }
+    console.log(vikingStockpile[arena[0].viking]);
+  }
 }
-
-
 
 // COMPLETED! Do not touch.
 function placeRune(rune, viking) {
@@ -175,29 +176,15 @@ function placeRune(rune, viking) {
       `${rune} has been pushed into the arena. We are ready to compare!`
     );
 
-    (function() {
-      if (arena[0].rune > arena[1].rune) {
-        // console.log("0 > 1 option triggered");
-        arena.splice(1, 1);
-        console.log(vikingStockpile[arena[0].viking]);
+    // Push whatever is in the pot into the values of the viking objects
+    collectPot();
+    // Reset arena
+    arena.splice(0, 1);
+    console.log("Arena cleared! moving to clear pot");
+    // Pot clear
+    pot.splice(0, 8);
 
-        for (let i = 0; i < pot.length; i++) {
-          vikingStockpile[arena[0].viking][pot[i]] =
-            1 + vikingStockpile[arena[0].viking][pot[i]];
-        }
-
-        console.log(vikingStockpile[arena[0].viking]);
-      } else if (arena[1].rune > arena[0].rune) {
-        // console.log("1 > 0 option triggered");
-        arena.splice(0, 1);
-        console.log(vikingStockpile[arena[0].viking]);
-        for (let i = 0; i < pot.length; i++) {
-          vikingStockpile[arena[0].viking][pot[i]] =
-            1 + vikingStockpile[arena[0].viking][pot[i]];
-        }
-        console.log(vikingStockpile[arena[0].viking]);
-      }
-    })();
+    // Need
   }
 }
 
@@ -206,17 +193,6 @@ function placeRune(rune, viking) {
 // CODE SCRAPYARD
 // ******************************************
 // ******************************************
-
-function checkBet() {
-  if (arena.length >= 2) {
-    console.log("checkBet works");
-  }
-}
-checkBet();
-
-// function claimPot(viking, y) {
-//     console.log(`${viking} claims the pot of ${pot}`);
-// }
 
 // calLBet() {
 

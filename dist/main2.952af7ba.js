@@ -108,11 +108,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish"]; // *Repeats are not nessesary for randomizer, but repeats are here for tile ratios
 
 var pot = [];
-var arena = []; // import "button-assignment.js";
-// COMPLETED! Do not touch.
-
-userButton = {
-  // Don't use an integer for the rune object keys, it won't work.
+var arena = [];
+var userButton = {
   ulf: {
     draw: document.getElementById("ulf-button-draw").addEventListener("click", function () {
       drawCard("Ulf");
@@ -164,9 +161,8 @@ userButton = {
       })
     }
   }
-}; // COMPLETED! Do not touch.
-
-vikingStockpile = {
+};
+var vikingStockpile = {
   ulf: {
     gold: 0,
     fish: 0,
@@ -179,7 +175,7 @@ vikingStockpile = {
     badgold: 0,
     badfish: 0
   }
-}; // COMLETED! Do not touch.
+};
 
 function drawCard(viking) {
   if (pot.length >= 8) {
@@ -191,27 +187,15 @@ function drawCard(viking) {
     var lastInPot = pot.slice(-1).pop();
 
     if (lastInPot === "gold") {
-      // define that there's a new thing
-      // let newGoldCard = document.createElement("p");
-      // let goldNode = document.createTextNode("Here be gold arrrr!");
-      // goldNode.appendChild(newGoldCard);
-      // console.log(newGoldCard);
       (function () {
         console.log("Function working, dislaying the picture...");
         var imgGold = document.createElement("img");
-        imgGold.src = "../img/goldtoken.png";
+        imgGold.src = "/goldtoken.png";
         imgGold.id = "gold-token-picture";
         var foo = document.getElementById("pot");
         foo.appendChild(imgGold);
         console.log("Picture display function complete!");
-      })(); // let goldCardPic = 
-      // // newGoldCard.appendChild(document.getElementById(pot));
-      // goldCardPic.src = "../img/goldtoken.png";
-      // document.getElementById("pot").appendChild(goldCardPic);
-      // attach the img into #pot
-      // let node = document.getElementBy(piece-slot).createTextNode("Hello there! This is the variable node and you did it!");
-      // newGoldCard.appendChild(node);
-
+      })();
     } else if (lastInPot === "fish") {
       console.log("Just keep swimming!");
     } else if (lastInPot === "badgold") {
@@ -222,6 +206,32 @@ function drawCard(viking) {
 
     console.log("".concat(viking, " draws card ").concat(lastInPot, "."));
     console.log("The pot is... ".concat(pot));
+  }
+}
+
+;
+
+function collectPot() {
+  if (arena[0].rune > arena[1].rune) {
+    // console.log("0 > 1 option triggered");
+    arena.splice(1, 1);
+    console.log(vikingStockpile[arena[0].viking]);
+
+    for (var i = 0; i < pot.length; i++) {
+      vikingStockpile[arena[0].viking][pot[i]] = 1 + vikingStockpile[arena[0].viking][pot[i]];
+    }
+
+    console.log(vikingStockpile[arena[0].viking]);
+  } else if (arena[1].rune > arena[0].rune) {
+    // console.log("1 > 0 option triggered");
+    arena.splice(0, 1);
+    console.log(vikingStockpile[arena[0].viking]);
+
+    for (var _i = 0; _i < pot.length; _i++) {
+      vikingStockpile[arena[0].viking][pot[_i]] = 1 + vikingStockpile[arena[0].viking][pot[_i]];
+    }
+
+    console.log(vikingStockpile[arena[0].viking]);
   }
 } // COMPLETED! Do not touch.
 
@@ -238,48 +248,20 @@ function placeRune(rune, viking) {
       rune: rune,
       viking: viking
     });
-    console.log("".concat(rune, " has been pushed into the arena. We are ready to compare!"));
+    console.log("".concat(rune, " has been pushed into the arena. We are ready to compare!")); // Push whatever is in the pot into the values of the viking objects
 
-    (function () {
-      if (arena[0].rune > arena[1].rune) {
-        // console.log("0 > 1 option triggered");
-        arena.splice(1, 1);
-        console.log(vikingStockpile[arena[0].viking]);
+    collectPot(); // Reset arena
 
-        for (var i = 0; i < pot.length; i++) {
-          vikingStockpile[arena[0].viking][pot[i]] = 1 + vikingStockpile[arena[0].viking][pot[i]];
-        }
+    arena.splice(0, 1);
+    console.log("Arena cleared! moving to clear pot"); // Pot clear
 
-        console.log(vikingStockpile[arena[0].viking]);
-      } else if (arena[1].rune > arena[0].rune) {
-        // console.log("1 > 0 option triggered");
-        arena.splice(0, 1);
-        console.log(vikingStockpile[arena[0].viking]);
-
-        for (var _i = 0; _i < pot.length; _i++) {
-          vikingStockpile[arena[0].viking][pot[_i]] = 1 + vikingStockpile[arena[0].viking][pot[_i]];
-        }
-
-        console.log(vikingStockpile[arena[0].viking]);
-      }
-    })();
+    pot.splice(0, 8); // Need
   }
 } // ******************************************
 // ******************************************
 // CODE SCRAPYARD
 // ******************************************
 // ******************************************
-
-
-function checkBet() {
-  if (arena.length >= 2) {
-    console.log("checkBet works");
-  }
-}
-
-checkBet(); // function claimPot(viking, y) {
-//     console.log(`${viking} claims the pot of ${pot}`);
-// }
 // calLBet() {
 // }
 // later, add passTurn and functionality preventing invalid turns to occur.
@@ -310,7 +292,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57597" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49229" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
