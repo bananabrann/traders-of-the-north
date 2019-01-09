@@ -8,20 +8,11 @@ html(lang="en")
         //- font-family: 'Norse', serif;
         title Traders of the North
     header
-        p outside of the game areaasfasdfasdf
     body
-        .game-window this is the game window
+        .game-window
             section#message-board 
                 p Here Be Content
             section#pot
-                //- .piece-slot#ps1 1
-                //- .piece-slot#ps2 2
-                //- .piece-slot#ps3 3
-                //- .piece-slot#ps4 4
-                //- .piece-slot#ps5 5
-                //- .piece-slot#ps6 6
-                //- .piece-slot#ps7 7
-                //- .piece-slot#ps8 8
             .character-portraits#ulf-portrait
                 img(src="../img/ulfportrait.png", alt="Ulf the Brave")
             .character-portraits#sigrid-portrait
@@ -37,8 +28,10 @@ html(lang="en")
             section.player-board#ulf-board
                 h3 Ulf's Board
                 .stockpile
-                    .gold-stockpile#ulf-gold-stockpile Ulf's Gold Stockpile
-                    .fish-stockpile#ulf-fish-stockpile Ulf's Fish Stockpile
+                    .gold-stockpile#ulf-gold-stockpile
+                        p Gold: 0
+                    .fish-stockpile#ulf-fish-stockpile
+                        p Fish: 0
             section.runeboard#ulf-runeboard
                     .rune#ulf-rune2 
                         img(src="../img/runestones/runestone-2.png", alt="RuneStone 2")
@@ -51,8 +44,10 @@ html(lang="en")
             section.player-board#sigrid-board
                 h3 Sigrid's Board
                 .stockpile
-                    .gold-stockpile#sigrid-gold-stockpile Sigrid's Gold Stockpile
-                    .fish-stockpile#sigrid-fish-stockpile Sigrid's Fish Stockpile
+                    .gold-stockpile#sigrid-gold-stockpile
+                        p Gold: 0
+                    .fish-stockpile#sigrid-fish-stockpile
+                        p Fish: 0
             section.runeboard#sigrid-runeboard
                     .rune#sigrid-rune3
                         img(src="../img/runestones/runestone-3.png", alt="RuneStone 3")

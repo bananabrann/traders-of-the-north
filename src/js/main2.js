@@ -211,14 +211,33 @@ function collectPot() {
       }
       console.log(vikingStockpile[arena[0].viking]);
     }
-  }
+    displayStockpile();
+}
 
 function clearPotImages() {
     while (foo.firstChild) {
         foo.removeChild(foo.firstChild);
         console.log("removing...");
     };
+}
 
+function displayStockpile() {
+    let totalGold = vikingStockpile[arena[0].viking].gold - (vikingStockpile[arena[0].viking].badgold * 2);
+    let totalFish = vikingStockpile[arena[0].viking].fish - (vikingStockpile[arena[0].viking].badfish * 2);
+        console.log(totalGold)
+
+    if (totalGold < 0) {
+        totalGold = 0;
+        console.log(`${arena[0].viking}'s gold has dropped below 0!`)
+    };
+    if (totalFish < 0) {
+        totalFish = 0;
+        console.log(`${arena[0].viking}'s fish ahs dropped below 0!`);
+    }
+    console.log(`${arena[0].viking} total gold is: ${totalGold}`);
+    console.log(`${arena[0].viking} total fish is: ${totalFish}`);
+
+    
 }
 
 // ******************************************
