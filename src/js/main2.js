@@ -115,21 +115,40 @@ function drawCard(viking) {
   } else {
     pot.push(bag[Math.floor(Math.random() * bag.length)]);
 
-    let lastCard = pot.slice(-1).pop();
-    if (lastCard === "gold") {
-        let newCard = document.createElement("div");
-        let node = document.createTextNode("Hello there! This is the variable node and you did it!");
-        newCard.appendChild(node);
+    let lastInPot = pot.slice(-1).pop();
+    if (lastInPot === "gold") {
+        // define that there's a new thing
+        // let newGoldCard = document.createElement("p");
+        // let goldNode = document.createTextNode("Here be gold arrrr!");
+        // goldNode.appendChild(newGoldCard);
+        // console.log(newGoldCard);
+        (function() {
+            console.log("Function working")
+            let imgGold =  document.createElement("img");
+            imgGold.src = "../img/goldtoken.png"
+            imgGold.id = "gold-token-picture"
+            var foo = document.getElementById("pot");
+            foo.appendChild(imgGold);
+        })();
+        // let goldCardPic = 
+        // // newGoldCard.appendChild(document.getElementById(pot));
+        // goldCardPic.src = "../img/goldtoken.png";
+        // document.getElementById("pot").appendChild(goldCardPic);
 
-    } else if (lastCard === "fish") {
+
+        // attach the img into #pot
+        // let node = document.getElementBy(piece-slot).createTextNode("Hello there! This is the variable node and you did it!");
+        // newGoldCard.appendChild(node);
+
+    } else if (lastInPot === "fish") {
         console.log("Just keep swimming!");
-    } else if (lastCard === "badgold") {
+    } else if (lastInPot === "badgold") {
         console.log("Someone took your gold!");
-    } else if (lastCard === "badfish") {
+    } else if (lastInPot === "badfish") {
         console.log("Your fish died");
     }
 
-    console.log(`${viking} draws card ${lastCard}.`);
+    console.log(`${viking} draws card ${lastInPot}.`);
     console.log(`The pot is... ${pot}`);
   }
 }

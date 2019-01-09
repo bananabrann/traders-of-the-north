@@ -188,21 +188,38 @@ function drawCard(viking) {
     })();
   } else {
     pot.push(bag[Math.floor(Math.random() * bag.length)]);
-    var lastCard = pot.slice(-1).pop();
+    var lastInPot = pot.slice(-1).pop();
 
-    if (lastCard === "gold") {
-      var newCard = document.createElement("div");
-      var node = document.createTextNode("Hello there! This is the variable node and you did it!");
-      newCard.appendChild(node);
-    } else if (lastCard === "fish") {
+    if (lastInPot === "gold") {
+      // define that there's a new thing
+      // let newGoldCard = document.createElement("p");
+      // let goldNode = document.createTextNode("Here be gold arrrr!");
+      // goldNode.appendChild(newGoldCard);
+      // console.log(newGoldCard);
+      (function () {
+        console.log("Function working");
+        var imgGold = document.createElement("img");
+        imgGold.src = "../img/goldtoken.png";
+        imgGold.id = "gold-token-picture";
+        var foo = document.getElementById("pot");
+        foo.appendChild(imgGold);
+      })(); // let goldCardPic = 
+      // // newGoldCard.appendChild(document.getElementById(pot));
+      // goldCardPic.src = "../img/goldtoken.png";
+      // document.getElementById("pot").appendChild(goldCardPic);
+      // attach the img into #pot
+      // let node = document.getElementBy(piece-slot).createTextNode("Hello there! This is the variable node and you did it!");
+      // newGoldCard.appendChild(node);
+
+    } else if (lastInPot === "fish") {
       console.log("Just keep swimming!");
-    } else if (lastCard === "badgold") {
+    } else if (lastInPot === "badgold") {
       console.log("Someone took your gold!");
-    } else if (lastCard === "badfish") {
+    } else if (lastInPot === "badfish") {
       console.log("Your fish died");
     }
 
-    console.log("".concat(viking, " draws card ").concat(lastCard, "."));
+    console.log("".concat(viking, " draws card ").concat(lastInPot, "."));
     console.log("The pot is... ".concat(pot));
   }
 } // COMPLETED! Do not touch.
@@ -292,7 +309,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49713" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57597" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
