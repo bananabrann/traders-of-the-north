@@ -1,7 +1,9 @@
-const bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish"];
+const bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish", "badfish"];
 // *Repeats are not nessesary for randomizer, but repeats are here for tile ratios
 let pot = [];
 let arena = [];
+
+const foo = document.getElementById("pot");
 
 const userButton = {
   ulf: {
@@ -110,7 +112,6 @@ function drawCard(viking) {
     pot.push(bag[Math.floor(Math.random() * bag.length)]);
 
     let lastInPot = pot.slice(-1).pop();
-    const foo = document.getElementById("pot");
 
     if (lastInPot === "gold") {
       (function() {
@@ -178,7 +179,7 @@ function placeRune(rune, viking) {
     // Pot clear
     pot.splice(0, 8);
     console.log(pot);
-    console.log("Pot clear!ed");
+    console.log("Pot cleared!");
 
     clearPotImages();
 
@@ -213,6 +214,10 @@ function collectPot() {
   }
 
 function clearPotImages() {
+    while (foo.firstChild) {
+        foo.removeChild(foo.firstChild);
+        console.log("removing...");
+    };
 
 }
 

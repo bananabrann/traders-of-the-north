@@ -105,10 +105,11 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   // Override the current require with this new one
   return newRequire;
 })({"../js/main2.js":[function(require,module,exports) {
-var bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish"]; // *Repeats are not nessesary for randomizer, but repeats are here for tile ratios
+var bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish", "badfish"]; // *Repeats are not nessesary for randomizer, but repeats are here for tile ratios
 
 var pot = [];
 var arena = [];
+var foo = document.getElementById("pot");
 var userButton = {
   ulf: {
     draw: document.getElementById("ulf-button-draw").addEventListener("click", function () {
@@ -185,7 +186,6 @@ function drawCard(viking) {
   } else {
     pot.push(bag[Math.floor(Math.random() * bag.length)]);
     var lastInPot = pot.slice(-1).pop();
-    var foo = document.getElementById("pot");
 
     if (lastInPot === "gold") {
       (function () {
@@ -248,7 +248,7 @@ function placeRune(rune, viking) {
 
     pot.splice(0, 8);
     console.log(pot);
-    console.log("Pot clear!ed");
+    console.log("Pot cleared!");
     clearPotImages();
     console.log("Rune comparrison complete and arena and pot successfully cleared.");
   }
@@ -282,7 +282,14 @@ function collectPot() {
   }
 }
 
-function clearPotImages() {} // ******************************************
+function clearPotImages() {
+  while (foo.firstChild) {
+    foo.removeChild(foo.firstChild);
+    console.log("removing...");
+  }
+
+  ;
+} // ******************************************
 // ******************************************
 // CODE SCRAPYARD
 // ******************************************

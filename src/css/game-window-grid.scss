@@ -8,10 +8,10 @@ body {
 .game-window {
     
     background-color: rgb(49, 49, 49);
-    max-width: 90%;
+    max-width: 1200px;
     // max-height: 80%;
     max-height: 850px;
-    min-width: 950px;
+    min-width: 1050px;
     margin: 0 auto;
 
     display: grid;
@@ -26,60 +26,60 @@ body {
     }
     #pot {
         grid-column: 4 / span 12;
-        grid-row: 3 / span 4;
+        grid-row: 2 / span 4;
     }
 
 
 
     #ulf-runeboard {
         grid-column: 1 / span 8;
-        grid-row: 8 / span 2;
+        grid-row: 6 / span 2;
     }
     #sigrid-runeboard {
         grid-column: 11 / span 8;
-        grid-row: 8 / span 2;
+        grid-row: 6 / span 2;
     }
     #ulf-board {
         grid-column: 1 / span 9;
-        grid-row: 11 / span 2;
+        grid-row: 10 / span 1;
     }
     #sigrid-board {
         grid-column: 10 / span 9;
-        grid-row: 11 / span 2;
+        grid-row: 10 / span 1;
     }
 
     #ulf-portrait {
         grid-column: 1 / span 5;
-        grid-row: 4 / span 4;
+        grid-row: 2 / span 4;
     }
     #sigrid-portrait {
         grid-column: 14 / span 6;
-        grid-row: 4 / span 4;
+        grid-row: 2 / span 4;
     }
 
     #ulf-button-draw {
         grid-column: 7 / span 2;
-        grid-row: 10 / span 1;
+        grid-row: 8 / span 1;
     }
     #ulf-button-bet {
         grid-column: 5 / span 2;
-        grid-row: 10 / span 1;
+        grid-row: 8 / span 1;
     }
     #ulf-button-decline {
         grid-column: 3 / span 2;
-        grid-row: 10 / span 1;
+        grid-row: 8 / span 1;
     }
     #sigrid-button-draw {
         grid-column: 11 / span 2;
-        grid-row: 10 / span 1;
+        grid-row: 8 / span 1;
     }
     #sigrid-button-bet {
         grid-column: 13 / span 2;
-        grid-row: 10 / span 1;
+        grid-row: 8 / span 1;
     }
     #sigrid-button-decline {
         grid-column: 15 / span 2;
-        grid-row: 10 / span 1;
+        grid-row: 8 / span 1;
     }
 
     @import "game-window-styles.scss";
