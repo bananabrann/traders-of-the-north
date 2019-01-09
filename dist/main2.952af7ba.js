@@ -105,12 +105,10 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   // Override the current require with this new one
   return newRequire;
 })({"../js/main2.js":[function(require,module,exports) {
-// const bag = [{"gold": 1}, {"fish": 1}, {"fish": 1}, {"fish": 1}, {"badgold": 1}, {"badfish": 1}, {"badfish": 1} ];
 var bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish"]; // *Repeats are not nessesary for randomizer, but repeats are here for tile ratios
-// Think about which one to use, for score calculation.
 
 var pot = [];
-var arena = []; // console.log(bag);
+var arena = []; // COMPLETED! Do not touch.
 
 userButton = {
   // Don't use an integer for the rune object keys, it won't work.
@@ -165,7 +163,8 @@ userButton = {
       })
     }
   }
-};
+}; // COMPLETED! Do not touch.
+
 vikingStockpile = {
   ulf: {
     gold: 0,
@@ -179,7 +178,7 @@ vikingStockpile = {
     badgold: 0,
     badfish: 0
   }
-};
+}; // COMLETED! Do not touch.
 
 function drawCard(viking) {
   if (pot.length >= 8) {
@@ -191,9 +190,8 @@ function drawCard(viking) {
     console.log("".concat(viking, " draws card ").concat(pot.slice(-1).pop(), "."));
     console.log("The pot is... ".concat(pot));
   }
-}
+} // COMPLETED! Do not touch.
 
-;
 
 function placeRune(rune, viking) {
   if (arena.length < 1) {
@@ -219,7 +217,6 @@ function placeRune(rune, viking) {
           vikingStockpile[arena[0].viking][pot[i]] = 1 + vikingStockpile[arena[0].viking][pot[i]];
         }
 
-        ;
         console.log(vikingStockpile[arena[0].viking]);
       } else if (arena[1].rune > arena[0].rune) {
         // console.log("1 > 0 option triggered");
@@ -230,7 +227,6 @@ function placeRune(rune, viking) {
           vikingStockpile[arena[0].viking][pot[_i]] = 1 + vikingStockpile[arena[0].viking][pot[_i]];
         }
 
-        ;
         console.log(vikingStockpile[arena[0].viking]);
       }
     })();
@@ -281,7 +277,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56169" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49713" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
