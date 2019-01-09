@@ -197,12 +197,13 @@ function drawCard(viking) {
       // goldNode.appendChild(newGoldCard);
       // console.log(newGoldCard);
       (function () {
-        console.log("Function working");
+        console.log("Function working, dislaying the picture...");
         var imgGold = document.createElement("img");
         imgGold.src = "../img/goldtoken.png";
         imgGold.id = "gold-token-picture";
         var foo = document.getElementById("pot");
         foo.appendChild(imgGold);
+        console.log("Picture display function complete!");
       })(); // let goldCardPic = 
       // // newGoldCard.appendChild(document.getElementById(pot));
       // goldCardPic.src = "../img/goldtoken.png";

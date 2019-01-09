@@ -25,12 +25,38 @@
   }
 }
 .buttons-ind {
-  background-color: rgb(146, 76, 76);
+//   background-color: rgba(34, 15, 3, 0.884);
+// background-image: url("../img/rockwall.jpg");
+// background-size: 200px;
+  font-family: 'Norse', serif;
+  font-size: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+    border: 4px ridge rgb(70, 70, 70);
+    border-radius: 20px;
+    // border-image-source: url("../img/rockwall.jpg");
+    // border-image-slice: 30 round;
+    // border-image-width: 8px;
+  
 }
+    .draw-button {
+        background-color: rgba(74, 119, 74, 0.486);
+    }
+    .bet-button {
+        background-color: rgb(92, 92, 61);
+    }
+    .decline-button {
+        background-color: rgb(56, 56, 88);
+    }
+    
+
+
 #message-board {
   background-color: gray;
   p {
-    font-family: "Carrois Gothic SC", sans-serif;
+    font-family: 'Carrois Gothic SC', sans-serif;
     font-size: 40px;
     text-align: center;
     margin: 0px;
@@ -43,17 +69,32 @@
     align-content: center;
     flex-wrap: wrap;
   background-color: rgb(241, 241, 144);
-  .piece-slot {
+  img {
       width: 120px;
       height: 120px;
       margin: 8px 20px;
     //   background-color: yellow;
   }
 }
-#ulf-board {
-  background-color: lightblue;
-  // It's messed up because I'm in the middle of switching around html
+.player-board {
+    border: 8px ridge rgb(56, 56, 56);
+    background-color: rgba(32, 22, 16, 0.918);
+    .stockpile {
+    background-size: 250px;
+    padding: 5px;
+    }
+    h3 {
+        font-family: 'Norse', sans-serif;
+        font-size: 20px;
+        color: rgb(230, 230, 230);
+        
+    }
 }
-#sigrid-board {
-  background-color: rgb(117, 155, 168);
-}
+// #sigrid-board {
+//     background-color: rgb(117, 155, 168);
+// }
+
+// #ulf-board {
+//     background-color: lightblue;
+//     // It's messed up because I'm in the middle of switching around html
+// }

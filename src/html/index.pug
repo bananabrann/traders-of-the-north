@@ -4,6 +4,8 @@ html(lang="en")
         link(rel="stylesheet", href="../css/main.scss")
         link(href='https://fonts.googleapis.com/css?family=Carrois+Gothic+SC', rel='stylesheet')
         //- font-family: 'Carrois Gothic SC', sans-serif;
+        link(src='../fonts/norse.otf', rel='stylesheet')
+        //- font-family: 'Norse', serif;
         title Traders of the North
     header
         p outside of the game areaasfasdfasdf
@@ -26,12 +28,12 @@ html(lang="en")
                 img(src="../img/sigridportrait.png", alt="Sigrid the Cunning")
                 //- I thik the problem is the file itself
             section.buttonboard
-            .buttons-ind#ulf-button-draw DRAW
-            .buttons-ind#ulf-button-bet BET
-            .buttons-ind#ulf-button-decline DECLINE
-            .buttons-ind#sigrid-button-draw DRAW
-            .buttons-ind#sigrid-button-bet BELL
-            .buttons-ind#sigrid-button-decline DECLINE
+            .buttons-ind.draw-button#ulf-button-draw DRAW
+            .buttons-ind.bet-button#ulf-button-bet BET
+            .buttons-ind.decline-button#ulf-button-decline PASS
+            .buttons-ind.draw-button#sigrid-button-draw DRAW
+            .buttons-ind.bet-button#sigrid-button-bet BET
+            .buttons-ind.decline-button#sigrid-button-decline PASS
             section.player-board#ulf-board
                 h3 Ulf's Board
                 .stockpile
