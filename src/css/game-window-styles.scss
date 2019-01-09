@@ -82,7 +82,12 @@
     .stockpile {
     background-size: 250px;
     padding: 5px;
+    img {
+        height: 22px;
+        width: 22px;
     }
+    }
+
     h3 {
         font-family: 'Norse', sans-serif;
         font-size: 20px;

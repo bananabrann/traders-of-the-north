@@ -263,8 +263,8 @@ function collectPot() {
     console.log("".concat(arena[0].viking, " won! His/her stockpile changes are..."));
     console.log(vikingStockpile[arena[0].viking]);
 
-    for (var i = 0; i < pot.length; i++) {
-      vikingStockpile[arena[0].viking][pot[i]] = 1 + vikingStockpile[arena[0].viking][pot[i]];
+    for (var _i = 0; _i < pot.length; _i++) {
+      vikingStockpile[arena[0].viking][pot[_i]] = 1 + vikingStockpile[arena[0].viking][pot[_i]];
     }
 
     console.log(vikingStockpile[arena[0].viking]);
@@ -274,14 +274,15 @@ function collectPot() {
     console.log("".concat(arena[0].viking, " won! His/her stockpile changes are..."));
     console.log(vikingStockpile[arena[0].viking]);
 
-    for (var _i = 0; _i < pot.length; _i++) {
-      vikingStockpile[arena[0].viking][pot[_i]] = 1 + vikingStockpile[arena[0].viking][pot[_i]];
+    for (var _i2 = 0; _i2 < pot.length; _i2++) {
+      vikingStockpile[arena[0].viking][pot[_i2]] = 1 + vikingStockpile[arena[0].viking][pot[_i2]];
     }
 
     console.log(vikingStockpile[arena[0].viking]);
   }
 
-  displayStockpile();
+  adjustResources();
+  updateStockpile();
 }
 
 function clearPotImages() {
@@ -293,30 +294,46 @@ function clearPotImages() {
   ;
 }
 
-function displayStockpile() {
-  var totalGold = vikingStockpile[arena[0].viking].gold - vikingStockpile[arena[0].viking].badgold * 2;
-  var totalFish = vikingStockpile[arena[0].viking].fish - vikingStockpile[arena[0].viking].badfish * 2;
-  console.log(totalGold);
+var ulfTotalGold = vikingStockpile.ulf.gold - vikingStockpile.ulf.badgold * 2;
+var ulfTotalFish = vikingStockpile.ulf.fish - vikingStockpile.ulf.badfish * 2;
+var sigridTotalGold = vikingStockpile.sigrid.gold - vikingStockpile.sigrid.badgold * 2;
+var sigridTotalFish = vikingStockpile.sigrid.fish - vikingStockpile.sigrid.badfish * 2;
 
-  if (totalGold < 0) {
-    totalGold = 0;
-    console.log("".concat(arena[0].viking, "'s gold has dropped below 0!"));
+function updateStockpile(viking) {
+  // let totalGold = vikingStockpile[arena[0].viking].gold - (vikingStockpile[arena[0].viking].badgold * 2);
+  // let totalFish = vikingStockpile[arena[0].viking].fish - (vikingStockpile[arena[0].viking].badfish * 2);
+  for (i = 0; i < ulfTotalGold; i++) {
+    var ulfGoldStoArea = document.getElementById("ulf-gold-stockpile");
+    var imgStoGold = document.createElement("img");
+    imgStoGold.src = "/goldtoken.png";
+    imgStoGold.id = "gold-stockpile-token-picture";
+    ulfGoldStoArea.appendChild(imgStoGold);
   }
+}
 
-  ;
-
-  if (totalFish < 0) {
-    totalFish = 0;
-    console.log("".concat(arena[0].viking, "'s fish ahs dropped below 0!"));
-  }
-
-  console.log("".concat(arena[0].viking, " total gold is: ").concat(totalGold));
-  console.log("".concat(arena[0].viking, " total fish is: ").concat(totalFish));
-} // ******************************************
+function adjustResources() {} // ******************************************
 // ******************************************
 // CODE SCRAPYARD
 // ******************************************
 // ******************************************
+// function zeroResources() {
+//     if (ulfTotalGold < 0) {
+//         ulfTotalGold = 0;
+//         console.log(`ulf's gold has dropped below 0!`)
+//     };
+//     if (ulfFish < 0) {
+//         ulfFish = 0;
+//         console.log(`ulf's fish ahs dropped below 0!`);
+//     }
+//     if (sigridGold < 0) {
+//         sigridGold = 0;
+//     }
+//     if (sigridFish < 0) {
+//         sigridFish = 0;
+//     }
+//     console.log(`Ulf's gold/fish: ${ulfGold + ulfFish}`);
+//     console.log(`Sigrids gold/fish: ${sigridGold + sigridFish}`);
+// }
 // calLBet() {
 // }
 // later, add passTurn and functionality preventing invalid turns to occur.

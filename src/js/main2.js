@@ -211,7 +211,8 @@ function collectPot() {
       }
       console.log(vikingStockpile[arena[0].viking]);
     }
-    displayStockpile();
+    adjustResources();
+    updateStockpile();
 }
 
 function clearPotImages() {
@@ -221,30 +222,62 @@ function clearPotImages() {
     };
 }
 
-function displayStockpile() {
-    let totalGold = vikingStockpile[arena[0].viking].gold - (vikingStockpile[arena[0].viking].badgold * 2);
-    let totalFish = vikingStockpile[arena[0].viking].fish - (vikingStockpile[arena[0].viking].badfish * 2);
-        console.log(totalGold)
+let ulfTotalGold = vikingStockpile.ulf.gold - (vikingStockpile.ulf.badgold * 2);
+let ulfTotalFish = vikingStockpile.ulf.fish - (vikingStockpile.ulf.badfish * 2);
+let sigridTotalGold = vikingStockpile.sigrid.gold - (vikingStockpile.sigrid.badgold * 2);
+let sigridTotalFish = vikingStockpile.sigrid.fish - (vikingStockpile.sigrid.badfish * 2);
 
-    if (totalGold < 0) {
-        totalGold = 0;
-        console.log(`${arena[0].viking}'s gold has dropped below 0!`)
-    };
-    if (totalFish < 0) {
-        totalFish = 0;
-        console.log(`${arena[0].viking}'s fish ahs dropped below 0!`);
+function updateStockpile(viking) {
+    // let totalGold = vikingStockpile[arena[0].viking].gold - (vikingStockpile[arena[0].viking].badgold * 2);
+    // let totalFish = vikingStockpile[arena[0].viking].fish - (vikingStockpile[arena[0].viking].badfish * 2);
+
+    for (i = 0; i < ulfTotalGold; i++) {
+        const ulfGoldStoArea = document.getElementById("ulf-gold-stockpile");
+        let imgStoGold = document.createElement("img");
+            imgStoGold.src = "/goldtoken.png";
+            imgStoGold.id = "gold-stockpile-token-picture";
+            ulfGoldStoArea.appendChild(imgStoGold);
     }
-    console.log(`${arena[0].viking} total gold is: ${totalGold}`);
-    console.log(`${arena[0].viking} total fish is: ${totalFish}`);
-
-    
 }
+
+
+
+
+function adjustResources() {
+
+}
+
+
+
+
+
 
 // ******************************************
 // ******************************************
 // CODE SCRAPYARD
 // ******************************************
 // ******************************************
+// function zeroResources() {
+
+//     if (ulfTotalGold < 0) {
+//         ulfTotalGold = 0;
+//         console.log(`ulf's gold has dropped below 0!`)
+//     };
+//     if (ulfFish < 0) {
+//         ulfFish = 0;
+//         console.log(`ulf's fish ahs dropped below 0!`);
+//     }
+//     if (sigridGold < 0) {
+//         sigridGold = 0;
+//     }
+//     if (sigridFish < 0) {
+//         sigridFish = 0;
+//     }
+//     console.log(`Ulf's gold/fish: ${ulfGold + ulfFish}`);
+
+//     console.log(`Sigrids gold/fish: ${sigridGold + sigridFish}`);
+
+// }
 
 // calLBet() {
 
