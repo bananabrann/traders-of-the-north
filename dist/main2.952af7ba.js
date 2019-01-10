@@ -105,11 +105,19 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   // Override the current require with this new one
   return newRequire;
 })({"../js/main2.js":[function(require,module,exports) {
-var bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish", "badfish"]; // *Repeats are not nessesary for randomizer, but repeats are here for tile ratios
+var bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish"]; // *Repeats are not nessesary for randomizer, but repeats are here for tile ratios
 
 var pot = [];
 var arena = [];
 var foo = document.getElementById("pot");
+var ulfGoldStoNum = document.getElementById("ulf-gold-stockpile-number");
+var ulfFishStoNum = document.getElementById("ulf-fish-stockpile-number");
+var sigridGoldStoNum = document.getElementById("sigrid-gold-stockpile-number");
+var sigridFishStoNum = document.getElementById("sigrid-fish-stockpile-number");
+var ulfRunesPlayed = 0;
+var sigridRunesPlayed = 0;
+var ulfFinalScore = 0;
+var sigridFinalScore = 0;
 var userButton = {
   ulf: {
     draw: document.getElementById("ulf-button-draw").addEventListener("click", function () {
@@ -215,16 +223,13 @@ function drawCard(viking) {
         imgBadfish.id = "badfish-token-picture";
         foo.appendChild(imgBadfish); // console.log("Badfish Token Displayed!");
       })();
-    }
-
-    ; // console.log(`${viking} draws card ${lastInPot}.`);
+    } // console.log(`${viking} draws card ${lastInPot}.`);
     // console.log(`The pot is... ${pot}`);
+
   }
 
   console.log("drawCard complete!");
 }
-
-;
 
 function placeRune(rune, viking) {
   if (arena.length < 1) {
@@ -242,13 +247,14 @@ function placeRune(rune, viking) {
     collectPot();
     arena.splice(0, 1);
     pot.splice(0, 8);
-    countRunesPlayed();
-    checkVictory();
-    console.log("placeRune(rune,viking) complete!");
+    console.log("placeRune(rune,viking) complete!"); // Simple, temp victory condition for GA presentation:
+
+    if (ulfRunesPlayed >= 4 || sigridRunesPlayed >= 4) {
+      console.log("Checking victory...");
+      checkVictory();
+    }
   }
 }
-
-;
 
 function collectPot() {
   // Send the pot into the object of the winning viking:
@@ -257,6 +263,14 @@ function collectPot() {
     //   console.log(vikingStockpile[arena[0].viking]);
     arena.splice(1, 1);
     document.getElementById(arena[0].viking + "-" + "rune" + arena[0].rune).style.display = "none";
+
+    if (arena[0].viking === "ulf") {
+      ulfRunesPlayed++;
+    }
+
+    if (arena[0].viking === "sigrid") {
+      sigridRunesPlayed++;
+    }
 
     for (var i = 0; i < pot.length; i++) {
       vikingStockpile[arena[0].viking][pot[i]] = 1 + vikingStockpile[arena[0].viking][pot[i]];
@@ -267,6 +281,14 @@ function collectPot() {
     //   console.log(vikingStockpile[arena[0].viking]);
     arena.splice(0, 1);
     document.getElementById(arena[0].viking + "-" + "rune" + arena[0].rune).style.display = "none";
+
+    if (arena[0].viking === "ulf") {
+      ulfRunesPlayed++;
+    }
+
+    if (arena[0].viking === "sigrid") {
+      sigridRunesPlayed++;
+    }
 
     for (var _i = 0; _i < pot.length; _i++) {
       vikingStockpile[arena[0].viking][pot[_i]] = 1 + vikingStockpile[arena[0].viking][pot[_i]];
@@ -286,14 +308,8 @@ function clearPotImages() {
     console.log("removing...");
   }
 
-  ;
   console.log("clearPotImages complete!");
 }
-
-var ulfGoldStoNum = document.getElementById("ulf-gold-stockpile-number");
-var ulfFishStoNum = document.getElementById("ulf-fish-stockpile-number");
-var sigridGoldStoNum = document.getElementById("sigrid-gold-stockpile-number");
-var sigridFishStoNum = document.getElementById("sigrid-fish-stockpile-number");
 
 function updateStockpile() {
   // Why does .textContent log the correct number, but does not allow updateStockpile() to overwrite it?
@@ -315,15 +331,11 @@ function updateStockpile() {
     vikingStockpile.ulf.badfish = 0;
   }
 
-  ;
-
   if (sigridTotalGold <= 0) {
     sigridTotalGold = 0;
     vikingStockpile.sigrid.gold = 0;
     vikingStockpile.sigrid.badgold = 0;
   }
-
-  ;
 
   if (sigridTotalFish <= 0) {
     sigridTotalFish = 0;
@@ -368,18 +380,26 @@ function updateStockpile() {
 
 
   console.log("updateStockpile() complete!");
-}
+} // maybe put this in the vikingStockpie object
 
-var runesPlayed = 0;
-
-function countRunesPlayed() {
-  runesPlayed++;
-  console.log("".concat(runesPlayed, " runes have been played."));
-}
 
 function checkVictory() {
-  // Simple victory condition:
-  if (runesPlayed >= 7) {}
+  if (ulfFishStoNum.textContent > sigridFishStoNum.textContent) {
+    ulfFinalScore += 6;
+  } else if (sigridFishStoNum > ulfFishStoNum) {
+    sigridFinalScore += 6;
+  }
+
+  for (var i = 0; i < ulfGoldStoNum; i++) {
+    ulfFinalScore++;
+  }
+
+  for (var _i2 = 0; _i2 < sigridGoldStoNum; _i2++) {
+    sigridFinalScore++;
+  }
+
+  console.log("Ulf's final score is ".concat(ulfFinalScore));
+  console.log("Sigrid's final score is ".concat(sigridFinalScore)); // Make message board display viking has won message
 } // ******************************************
 // ******************************************
 // CODE SCRAPYARD
