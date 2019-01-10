@@ -253,21 +253,20 @@ function placeRune(rune, viking) {
 function collectPot() {
   // Send the pot into the object of the winning viking:
   if (arena[0].rune > arena[1].rune) {
-    // console.log("0 > 1 option triggered");
-    arena.splice(1, 1); //   console.log(`${arena[0].viking} won! His/her stockpile changes are...`);
+    //   console.log(`${arena[0].viking} won! His/her stockpile changes are...`);
     //   console.log(vikingStockpile[arena[0].viking]);
-
-    document.getElementById(arena[0].viking + "-" + "rune" + arena[0].rune).style.backgroundColor = "red";
+    arena.splice(1, 1);
+    document.getElementById(arena[0].viking + "-" + "rune" + arena[0].rune).style.display = "none";
 
     for (var i = 0; i < pot.length; i++) {
       vikingStockpile[arena[0].viking][pot[i]] = 1 + vikingStockpile[arena[0].viking][pot[i]];
     } //   console.log(vikingStockpile[arena[0].viking]);
 
   } else if (arena[1].rune > arena[0].rune) {
-    arena.splice(0, 1); //   console.log(`${arena[0].viking} won! His/her stockpile changes are...`);
+    //   console.log(`${arena[0].viking} won! His/her stockpile changes are...`);
     //   console.log(vikingStockpile[arena[0].viking]);
-
-    document.getElementById(arena[0].viking + "-" + "rune" + arena[0].rune).style.backgroundColor = "red";
+    arena.splice(0, 1);
+    document.getElementById(arena[0].viking + "-" + "rune" + arena[0].rune).style.display = "none";
 
     for (var _i = 0; _i < pot.length; _i++) {
       vikingStockpile[arena[0].viking][pot[_i]] = 1 + vikingStockpile[arena[0].viking][pot[_i]];
