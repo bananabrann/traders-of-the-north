@@ -263,8 +263,8 @@ function collectPot() {
     console.log("".concat(arena[0].viking, " won! His/her stockpile changes are..."));
     console.log(vikingStockpile[arena[0].viking]);
 
-    for (var _i = 0; _i < pot.length; _i++) {
-      vikingStockpile[arena[0].viking][pot[_i]] = 1 + vikingStockpile[arena[0].viking][pot[_i]];
+    for (var i = 0; i < pot.length; i++) {
+      vikingStockpile[arena[0].viking][pot[i]] = 1 + vikingStockpile[arena[0].viking][pot[i]];
     }
 
     console.log(vikingStockpile[arena[0].viking]);
@@ -274,14 +274,14 @@ function collectPot() {
     console.log("".concat(arena[0].viking, " won! His/her stockpile changes are..."));
     console.log(vikingStockpile[arena[0].viking]);
 
-    for (var _i2 = 0; _i2 < pot.length; _i2++) {
-      vikingStockpile[arena[0].viking][pot[_i2]] = 1 + vikingStockpile[arena[0].viking][pot[_i2]];
+    for (var _i = 0; _i < pot.length; _i++) {
+      vikingStockpile[arena[0].viking][pot[_i]] = 1 + vikingStockpile[arena[0].viking][pot[_i]];
     }
 
     console.log(vikingStockpile[arena[0].viking]);
-  }
+  } // adjustResources();
 
-  adjustResources();
+
   updateStockpile();
 }
 
@@ -294,24 +294,43 @@ function clearPotImages() {
   ;
 }
 
-var ulfTotalGold = vikingStockpile.ulf.gold - vikingStockpile.ulf.badgold * 2;
-var ulfTotalFish = vikingStockpile.ulf.fish - vikingStockpile.ulf.badfish * 2;
-var sigridTotalGold = vikingStockpile.sigrid.gold - vikingStockpile.sigrid.badgold * 2;
-var sigridTotalFish = vikingStockpile.sigrid.fish - vikingStockpile.sigrid.badfish * 2;
+var ulfGoldStoNum = document.getElementById("ulf-gold-stockpile-number").textContent;
+var ulfFishStoNum = document.getElementById("ulf-fish-stockpile-number").textContent;
+var sigridGoldStoNum = document.getElementById("sigrid-gold-stockpile-number").textContent;
+var sigridFishStoNum = document.getElementById("sigrid-fish-stockpile-number").textContent;
+console.log("Hello!");
+console.log(ulfGoldStoNum);
+console.log(ulfFishStoNum);
+console.log(sigridGoldStoNum);
+console.log(sigridFishStoNum);
 
-function updateStockpile(viking) {
-  // let totalGold = vikingStockpile[arena[0].viking].gold - (vikingStockpile[arena[0].viking].badgold * 2);
-  // let totalFish = vikingStockpile[arena[0].viking].fish - (vikingStockpile[arena[0].viking].badfish * 2);
-  for (i = 0; i < ulfTotalGold; i++) {
-    var ulfGoldStoArea = document.getElementById("ulf-gold-stockpile");
-    var imgStoGold = document.createElement("img");
-    imgStoGold.src = "/goldtoken.png";
-    imgStoGold.id = "gold-stockpile-token-picture";
-    ulfGoldStoArea.appendChild(imgStoGold);
-  }
-}
-
-function adjustResources() {} // ******************************************
+function updateStockpile() {
+  // Keep these variables within the function, because of function run-path 
+  var ulfTotalGold = vikingStockpile.ulf.gold - vikingStockpile.ulf.badgold * 2;
+  var ulfTotalFish = vikingStockpile.ulf.fish - vikingStockpile.ulf.badfish * 2;
+  var sigridTotalGold = vikingStockpile.sigrid.gold - vikingStockpile.sigrid.badgold * 2;
+  var sigridTotalFish = vikingStockpile.sigrid.fish - vikingStockpile.sigrid.badfish * 2;
+  console.log("Ulf's TotalGold is ".concat(ulfTotalGold)); // This is for dynamic pictures within the stockpile area at bottom
+  // if (ulfTotalGold >= 0) {
+  //     // console.log(">= 0 is triggered")
+  //     let i = document.getElementById("gold-")
+  //     for (let i = 0; i < ulfTotalGold; i++) {
+  //         // add pictures accordingly
+  //         let imgStoGold = document.createElement("img");
+  //         imgStoGold.src = "/goldtoken.png";
+  //         imgStoGold.id = "gold-stockpile-token-picture";
+  //         ulfGoldStoArea.appendChild(imgStoGold);
+  //         console.log("Added one to Ulf's stockpile!");
+  //     }
+  // } else if (ulfTotalGold < 0) {
+  //     console.log("< 0 is triggered")
+  //         for (let i = 0; i > ulfTotalGold; i--) {
+  //             ulfGoldStoArea.removeChild(ulfGoldStoArea.firstChild);
+  //             vikingStockpile.ulf.badgold = 0;
+  //         }
+  //     //     console.log("Took one from Ulf's stockpile!");
+  // }
+} // ******************************************
 // ******************************************
 // CODE SCRAPYARD
 // ******************************************
@@ -364,7 +383,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49499" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51358" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

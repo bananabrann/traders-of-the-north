@@ -26,12 +26,14 @@ html(lang="en")
             .buttons-ind.bet-button#sigrid-button-bet BET
             .buttons-ind.decline-button#sigrid-button-decline PASS
             section.player-board#ulf-board
-                h3 Ulf's Board
+                h3
                 .stockpile
                     .gold-stockpile#ulf-gold-stockpile
-                        p Gold: 0
+                        span Gold:
+                        span.stockpile-num#ulf-gold-stockpile-number 0
                     .fish-stockpile#ulf-fish-stockpile
-                        p Fish: 0
+                        span Fish:
+                        span.stockpile-num#ulf-fish-stockpile-number 0
             section.runeboard#ulf-runeboard
                     .rune#ulf-rune2 
                         img(src="../img/runestones/runestone-2.png", alt="RuneStone 2")
@@ -42,12 +44,14 @@ html(lang="en")
                     .rune#ulf-rune9
                         img(src="../img/runestones/runestone-9.png", alt="RuneStone 9")
             section.player-board#sigrid-board
-                h3 Sigrid's Board
+                h3
                 .stockpile
                     .gold-stockpile#sigrid-gold-stockpile
-                        p Gold: 0
+                        span Gold:
+                        span.stockpile-num#sigrid-gold-stockpile-number 0
                     .fish-stockpile#sigrid-fish-stockpile
-                        p Fish: 0
+                        span Fish:
+                        span.stockpile-num#sigrid-fish-stockpile-number 0
             section.runeboard#sigrid-runeboard
                     .rune#sigrid-rune3
                         img(src="../img/runestones/runestone-3.png", alt="RuneStone 3")

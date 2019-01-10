@@ -211,7 +211,7 @@ function collectPot() {
       }
       console.log(vikingStockpile[arena[0].viking]);
     }
-    adjustResources();
+    // adjustResources();
     updateStockpile();
 }
 
@@ -222,30 +222,59 @@ function clearPotImages() {
     };
 }
 
-let ulfTotalGold = vikingStockpile.ulf.gold - (vikingStockpile.ulf.badgold * 2);
-let ulfTotalFish = vikingStockpile.ulf.fish - (vikingStockpile.ulf.badfish * 2);
-let sigridTotalGold = vikingStockpile.sigrid.gold - (vikingStockpile.sigrid.badgold * 2);
-let sigridTotalFish = vikingStockpile.sigrid.fish - (vikingStockpile.sigrid.badfish * 2);
+const ulfGoldStoNum = document.getElementById("ulf-gold-stockpile-number").textContent;
+const ulfFishStoNum = document.getElementById("ulf-fish-stockpile-number").textContent;
+const sigridGoldStoNum = document.getElementById("sigrid-gold-stockpile-number").textContent;
+const sigridFishStoNum = document.getElementById("sigrid-fish-stockpile-number").textContent;
 
-function updateStockpile(viking) {
-    // let totalGold = vikingStockpile[arena[0].viking].gold - (vikingStockpile[arena[0].viking].badgold * 2);
-    // let totalFish = vikingStockpile[arena[0].viking].fish - (vikingStockpile[arena[0].viking].badfish * 2);
+console.log("Hello!");
+console.log(ulfGoldStoNum);
+console.log(ulfFishStoNum)
+console.log(sigridGoldStoNum)
+console.log(sigridFishStoNum)
 
-    for (i = 0; i < ulfTotalGold; i++) {
-        const ulfGoldStoArea = document.getElementById("ulf-gold-stockpile");
-        let imgStoGold = document.createElement("img");
-            imgStoGold.src = "/goldtoken.png";
-            imgStoGold.id = "gold-stockpile-token-picture";
-            ulfGoldStoArea.appendChild(imgStoGold);
-    }
+
+function updateStockpile() {
+    // Keep these variables within the function, because of function run-path 
+
+    let ulfTotalGold = (vikingStockpile.ulf.gold - ((vikingStockpile.ulf.badgold) * 2));
+    let ulfTotalFish = vikingStockpile.ulf.fish - (vikingStockpile.ulf.badfish * 2);
+    let sigridTotalGold = vikingStockpile.sigrid.gold - (vikingStockpile.sigrid.badgold * 2);
+    let sigridTotalFish = vikingStockpile.sigrid.fish - (vikingStockpile.sigrid.badfish * 2);
+
+    console.log(`Ulf's TotalGold is ${ulfTotalGold}`)
+    
+
+
+
+
+
+
+
+    // This is for dynamic pictures within the stockpile area at bottom
+
+    // if (ulfTotalGold >= 0) {
+    //     // console.log(">= 0 is triggered")
+    //     let i = document.getElementById("gold-")
+    //     for (let i = 0; i < ulfTotalGold; i++) {
+    //         // add pictures accordingly
+    //         let imgStoGold = document.createElement("img");
+    //         imgStoGold.src = "/goldtoken.png";
+    //         imgStoGold.id = "gold-stockpile-token-picture";
+    //         ulfGoldStoArea.appendChild(imgStoGold);
+    //         console.log("Added one to Ulf's stockpile!");
+    //     }
+    // } else if (ulfTotalGold < 0) {
+    //     console.log("< 0 is triggered")
+    //         for (let i = 0; i > ulfTotalGold; i--) {
+    //             ulfGoldStoArea.removeChild(ulfGoldStoArea.firstChild);
+    //             vikingStockpile.ulf.badgold = 0;
+    //         }
+    //     //     console.log("Took one from Ulf's stockpile!");
+
+    // }
 }
 
-
-
-
-function adjustResources() {
-
-}
 
 
 

@@ -80,12 +80,29 @@
     border: 8px ridge rgb(56, 56, 56);
     background-color: rgba(32, 22, 16, 0.918);
     .stockpile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     background-size: 250px;
     padding: 5px;
-    img {
-        height: 22px;
-        width: 22px;
-    }
+        img {
+            height: 22px;
+            width: 22px;
+        }
+        span {
+            font-family: 'Carrois Gothic SC', sans-serif;
+            font-size: 24px;
+            text-transform: uppercase;
+            color: white;
+            // .gold-stockpile {
+            //     font-family: 'Norse', serif;
+            // }
+        }
+        .stockpile-num {
+            font-family: 'Norse', serif;
+            font-size: 38px;
+        }
+
     }
 
     h3 {

@@ -132,12 +132,25 @@ body {
   background-color: rgba(32, 22, 16, 0.918);
 }
 .game-window .player-board .stockpile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   background-size: 250px;
   padding: 5px;
 }
 .game-window .player-board .stockpile img {
   height: 22px;
   width: 22px;
+}
+.game-window .player-board .stockpile span {
+  font-family: "Carrois Gothic SC", sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: white;
+}
+.game-window .player-board .stockpile .stockpile-num {
+  font-family: "Norse", serif;
+  font-size: 38px;
 }
 .game-window .player-board h3 {
   font-family: "Norse", sans-serif;
