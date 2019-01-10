@@ -175,13 +175,13 @@ function placeRune(rune, viking) {
     
     collectPot();
 
+    // document.getElementById((arena[0].viking) + "-" + "rune" + rune).style.backgroundColor = "red";
+    // document.getElementById(viking + "-" + "rune" + rune).style.backgroundColor = "red";
+
+    
+
     arena.splice(0, 1);
-    // console.log(arena);
-    // console.log("Arena cleared!");
-    // Pot clear
     pot.splice(0, 8);
-    // console.log(pot);
-    // console.log("Pot cleared!");
 
     console.log("placeRune(rune,viking) complete!");
     
@@ -189,12 +189,14 @@ function placeRune(rune, viking) {
 };
 
 function collectPot() {
+    // Send the pot into the object of the winning viking:
     if (arena[0].rune > arena[1].rune) {
       // console.log("0 > 1 option triggered");
       arena.splice(1, 1);
     //   console.log(`${arena[0].viking} won! His/her stockpile changes are...`);
     //   console.log(vikingStockpile[arena[0].viking]);
-  
+    document.getElementById((arena[0].viking) + "-" + "rune" + arena[0].rune).style.backgroundColor = "red";
+    
       for (let i = 0; i < pot.length; i++) {
         vikingStockpile[arena[0].viking][pot[i]] =
           1 + vikingStockpile[arena[0].viking][pot[i]];
@@ -202,10 +204,11 @@ function collectPot() {
     //   console.log(vikingStockpile[arena[0].viking]);
   
     } else if (arena[1].rune > arena[0].rune) {
-      // console.log("1 > 0 option triggered");
       arena.splice(0, 1);
-      console.log(`${arena[0].viking} won! His/her stockpile changes are...`);
-      console.log(vikingStockpile[arena[0].viking]);
+    //   console.log(`${arena[0].viking} won! His/her stockpile changes are...`);
+    //   console.log(vikingStockpile[arena[0].viking]);
+    document.getElementById((arena[0].viking) + "-" + "rune" + arena[0].rune).style.backgroundColor = "red";
+
       for (let i = 0; i < pot.length; i++) {
         vikingStockpile[arena[0].viking][pot[i]] =
           1 + vikingStockpile[arena[0].viking][pot[i]];
@@ -227,13 +230,13 @@ function clearPotImages() {
     console.log("clearPotImages complete!");
 }
 
+const ulfGoldStoNum = document.getElementById("ulf-gold-stockpile-number");
+const ulfFishStoNum = document.getElementById("ulf-fish-stockpile-number");
+const sigridGoldStoNum = document.getElementById("sigrid-gold-stockpile-number");
+const sigridFishStoNum = document.getElementById("sigrid-fish-stockpile-number");
 
 function updateStockpile() {
     // Why does .textContent log the correct number, but does not allow updateStockpile() to overwrite it?
-    const ulfGoldStoNum = document.getElementById("ulf-gold-stockpile-number");
-    const ulfFishStoNum = document.getElementById("ulf-fish-stockpile-number");
-    const sigridGoldStoNum = document.getElementById("sigrid-gold-stockpile-number");
-    const sigridFishStoNum = document.getElementById("sigrid-fish-stockpile-number");
     // Keep these variables within the function, because of function run-path when drawCard is called
     let ulfTotalGold = (vikingStockpile.ulf.gold - ((vikingStockpile.ulf.badgold) * 2));
     let ulfTotalFish = (vikingStockpile.ulf.fish - (vikingStockpile.ulf.badfish * 2));
