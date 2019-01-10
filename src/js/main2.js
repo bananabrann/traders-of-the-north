@@ -125,6 +125,7 @@ const bag = [
   function drawCard(viking) {
     if (pot.length >= 8) {
       (function() {
+        gameMessage.innerHTML = `The market is full and the Boatsmen can't unload any more. YOU must bid!`;
         console.log("The market is full, you have to bet!");
         // Add CSS modifiers in the future here!
       })();
@@ -132,7 +133,8 @@ const bag = [
       pot.push(bag[Math.floor(Math.random() * bag.length)]);
   
       let lastInPot = pot.slice(-1).pop();
-  
+      gameMessage.innerHTML = `${lastInPot} is unloaded from the Longboat.`;
+    
       if (lastInPot === "gold") {
         (function() {
           let imgGold = document.createElement("img");
@@ -185,7 +187,7 @@ const bag = [
         rune: rune,
         viking: viking
       });
-  
+      gameMessage.innerHTML = `${arena[0].viking} has placed a ${arena[0].rune} Rune`;
       console.log(`${rune} has been pushed into the arena...`);
       // console.log("placeRune(rune,viking) complete!");
     } else if (arena.length === 1) {
@@ -193,7 +195,7 @@ const bag = [
         rune: rune,
         viking: viking
       });
-  
+      
       collectPot();
   
       arena.splice(0, 1);
@@ -215,10 +217,10 @@ const bag = [
     if (arena[0].rune > arena[1].rune) {
       //   console.log(`${arena[0].viking} won! His/her stockpile changes are...`);
       //   console.log(vikingStockpile[arena[0].viking]);
+      gameMessage.innerHTML = `${arena[1].viking} placed a ${arena[1].rune} Rune. ${arena[0].viking} won! An empty market awaits the eager boatsmen.`;
   
       arena.splice(1, 1);
       document.getElementById(arena[0].viking + "-" + "rune" + arena[0].rune).style.display = "none";
-  
       if (arena[0].viking === "ulf") {
         ulfRunesPlayed++;
       }
@@ -235,9 +237,9 @@ const bag = [
       //   console.log(`${arena[0].viking} won! His/her stockpile changes are...`);
       //   console.log(vikingStockpile[arena[0].viking]);
   
-      // document.getElementById(arena[0].viking + "-rune" + arena[0].rune).transform = "none";
       document.getElementById(arena[0].viking + "-rune" + arena[0].rune).style.transform = "none";
-  
+      gameMessage.innerHTML = `${arena[1].viking} has placed a ${arena[1].rune} Rune. ${arena[1].viking} won! An empty market looks appetizing to the boatsmen.`;
+
       console.log(`The rune in question is..`);
       console.log(arena[0].viking + "-rune" + arena[0].rune )
   

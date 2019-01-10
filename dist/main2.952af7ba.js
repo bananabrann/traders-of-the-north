@@ -190,11 +190,13 @@ var vikingStockpile = {
 function drawCard(viking) {
   if (pot.length >= 8) {
     (function () {
+      gameMessage.innerHTML = "The market is full and the Boatsmen can't unload any more. YOU must bid!";
       console.log("The market is full, you have to bet!"); // Add CSS modifiers in the future here!
     })();
   } else {
     pot.push(bag[Math.floor(Math.random() * bag.length)]);
     var lastInPot = pot.slice(-1).pop();
+    gameMessage.innerHTML = "".concat(lastInPot, " is unloaded from the Longboat.");
 
     if (lastInPot === "gold") {
       (function () {
@@ -242,6 +244,7 @@ function placeRune(rune, viking) {
       rune: rune,
       viking: viking
     });
+    gameMessage.innerHTML = "".concat(arena[0].viking, " has placed a ").concat(arena[0].rune, " Rune");
     console.log("".concat(rune, " has been pushed into the arena...")); // console.log("placeRune(rune,viking) complete!");
   } else if (arena.length === 1) {
     arena.push({
@@ -268,6 +271,7 @@ function collectPot() {
   if (arena[0].rune > arena[1].rune) {
     //   console.log(`${arena[0].viking} won! His/her stockpile changes are...`);
     //   console.log(vikingStockpile[arena[0].viking]);
+    gameMessage.innerHTML = "".concat(arena[1].viking, " placed a ").concat(arena[1].rune, " Rune. ").concat(arena[0].viking, " won! An empty market awaits the eager boatsmen.");
     arena.splice(1, 1);
     document.getElementById(arena[0].viking + "-" + "rune" + arena[0].rune).style.display = "none";
 
@@ -286,8 +290,8 @@ function collectPot() {
   } else if (arena[1].rune > arena[0].rune) {
     //   console.log(`${arena[0].viking} won! His/her stockpile changes are...`);
     //   console.log(vikingStockpile[arena[0].viking]);
-    // document.getElementById(arena[0].viking + "-rune" + arena[0].rune).transform = "none";
     document.getElementById(arena[0].viking + "-rune" + arena[0].rune).style.transform = "none";
+    gameMessage.innerHTML = "".concat(arena[1].viking, " has placed a ").concat(arena[1].rune, " Rune. ").concat(arena[1].viking, " won! An empty market looks appetizing to the boatsmen.");
     console.log("The rune in question is..");
     console.log(arena[0].viking + "-rune" + arena[0].rune);
     arena.splice(0, 1);
