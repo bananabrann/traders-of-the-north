@@ -114,6 +114,7 @@ var ulfGoldStoNum = document.getElementById("ulf-gold-stockpile-number");
 var ulfFishStoNum = document.getElementById("ulf-fish-stockpile-number");
 var sigridGoldStoNum = document.getElementById("sigrid-gold-stockpile-number");
 var sigridFishStoNum = document.getElementById("sigrid-fish-stockpile-number");
+var gameMessage = document.getElementById("message-board-content");
 var ulfRunesPlayed = 0;
 var sigridRunesPlayed = 0;
 var ulfFinalScore = 0;
@@ -287,7 +288,7 @@ function collectPot() {
     //   console.log(`${arena[0].viking} won! His/her stockpile changes are...`);
     //   console.log(vikingStockpile[arena[0].viking]);
     // document.getElementById(arena[0].viking + "-rune" + arena[0].rune).transform = "none";
-    document.getElementById(arena[0].viking + "-rune" + arena[0].rune).transform = "none";
+    document.getElementById(arena[0].viking + "-rune" + arena[0].rune).style.transform = "none";
     console.log("The rune in question is..");
     console.log(arena[0].viking + "-rune" + arena[0].rune);
     arena.splice(0, 1);
@@ -418,8 +419,15 @@ function checkVictory() {
     console.log("Gold added to Sigrid total.");
   }
 
-  console.log(ulfFinalScore);
-  console.log(sigridFinalScore); // Make message board display viking has won message
+  var winningViking = "";
+
+  if (ulfFinalScore > sigridFinalScore) {
+    winningViking = "Ulf";
+  } else if (sigridFinalScore > ulfFinalScore) {
+    winningViking = "Sigrid";
+  }
+
+  gameMessage.innerHTML = "The Day Is Over! Ulf's Honor is ".concat(ulfFinalScore, ". Sigrid's Honor is ").concat(sigridFinalScore, ". The most talked about viking at the LongHouse tonight is ").concat(winningViking); // Make message board display viking has won message
 }
 
 ; // ******************************************

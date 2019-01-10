@@ -79,7 +79,6 @@ body {
 .game-window #sigrid-runeboard {
   border-top: 8px ridge #464646;
   border-left: 8px ridge #464646;
-  border-bottom: 8px ridge #464646;
 }
 .game-window .buttonboard {
   background-image: url("wood.506e2291.jpg");
@@ -137,10 +136,10 @@ body {
 }
 .game-window #message-board p {
   font-family: "Carrois Gothic SC", sans-serif;
-  font-size: 40px;
+  font-size: 20px;
   text-align: center;
   color: #818181;
-  margin: 0px;
+  margin: 5px;
 }
 .game-window #pot {
   display: flex;

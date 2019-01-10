@@ -25,12 +25,10 @@
 #ulf-runeboard {
     border-top: 8px ridge rgb(70, 70, 70);
     border-right: 8px ridge rgb(70, 70, 70);
-    // border-bottom: 8px ridge rgb(70, 70, 70);
   }
-  #sigrid-runeboard {
+#sigrid-runeboard {
     border-top: 8px ridge rgb(70, 70, 70);
     border-left: 8px ridge rgb(70, 70, 70);
-    border-bottom: 8px ridge rgb(70, 70, 70);
   }
 
 
@@ -100,10 +98,10 @@
   border-radius: 20px;
   p {
     font-family: "Carrois Gothic SC", sans-serif;
-    font-size: 40px;
+    font-size: 20px;
     text-align: center;
     color: rgb(129, 129, 129);
-    margin: 0px;
+    margin: 5px;
   }
 }
 #pot {
