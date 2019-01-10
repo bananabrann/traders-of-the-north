@@ -192,39 +192,36 @@ function drawCard(viking) {
         var imgGold = document.createElement("img");
         imgGold.src = "/goldtoken.png";
         imgGold.id = "gold-token-picture";
-        foo.appendChild(imgGold);
-        console.log("Gold Token Displayed!");
+        foo.appendChild(imgGold); // console.log("Gold Token Displayed!");
       })();
     } else if (lastInPot === "fish") {
       (function () {
         var imgFish = document.createElement("img");
         imgFish.src = "/fishtoken.png";
         imgFish.id = "fish-token-picture";
-        foo.appendChild(imgFish);
-        console.log("Fish Token Displayed!");
+        foo.appendChild(imgFish); // console.log("Fish Token Displayed!");
       })();
     } else if (lastInPot === "badgold") {
       (function () {
         var imgBadGold = document.createElement("img");
         imgBadGold.src = "/badgoldtoken.png";
         imgBadGold.id = "badgold-token-picture";
-        foo.appendChild(imgBadGold);
-        console.log("Badgold Token Displayed!");
+        foo.appendChild(imgBadGold); // console.log("Badgold Token Displayed!");
       })();
     } else if (lastInPot === "badfish") {
       (function () {
         var imgBadfish = document.createElement("img");
         imgBadfish.src = "/badfishtoken.png";
         imgBadfish.id = "badfish-token-picture";
-        foo.appendChild(imgBadfish);
-        console.log("Badfish Token Displayed!");
+        foo.appendChild(imgBadfish); // console.log("Badfish Token Displayed!");
       })();
     }
 
-    ;
-    console.log("".concat(viking, " draws card ").concat(lastInPot, "."));
-    console.log("The pot is... ".concat(pot));
+    ; // console.log(`${viking} draws card ${lastInPot}.`);
+    // console.log(`The pot is... ${pot}`);
   }
+
+  console.log("drawCard complete!");
 }
 
 ;
@@ -236,21 +233,21 @@ function placeRune(rune, viking) {
       viking: viking
     });
     console.log("".concat(rune, " has been pushed into the arena..."));
+    console.log("placeRune(rune,viking) complete!");
   } else if (arena.length === 1) {
     arena.push({
       rune: rune,
       viking: viking
     });
     collectPot();
-    arena.splice(0, 1);
-    console.log(arena);
-    console.log("Arena cleared!"); // Pot clear
+    arena.splice(0, 1); // console.log(arena);
+    // console.log("Arena cleared!");
+    // Pot clear
 
-    pot.splice(0, 8);
-    console.log(pot);
-    console.log("Pot cleared!");
-    clearPotImages();
-    console.log("Rune comparrison complete and arena and pot successfully cleared.");
+    pot.splice(0, 8); // console.log(pot);
+    // console.log("Pot cleared!");
+
+    console.log("placeRune(rune,viking) complete!");
   }
 }
 
@@ -282,6 +279,8 @@ function collectPot() {
   } // adjustResources();
 
 
+  console.log("collectPot() complete!");
+  clearPotImages();
   updateStockpile();
 }
 
@@ -292,25 +291,40 @@ function clearPotImages() {
   }
 
   ;
+  console.log("clearPotImages complete!");
 }
 
-var ulfGoldStoNum = document.getElementById("ulf-gold-stockpile-number").textContent;
-var ulfFishStoNum = document.getElementById("ulf-fish-stockpile-number").textContent;
-var sigridGoldStoNum = document.getElementById("sigrid-gold-stockpile-number").textContent;
-var sigridFishStoNum = document.getElementById("sigrid-fish-stockpile-number").textContent;
-console.log("Hello!");
-console.log(ulfGoldStoNum);
-console.log(ulfFishStoNum);
-console.log(sigridGoldStoNum);
-console.log(sigridFishStoNum);
+var ulfGoldStoNum = document.getElementById("ulf-gold-stockpile-number");
+var ulfFishStoNum = document.getElementById("ulf-fish-stockpile-number");
+var sigridGoldStoNum = document.getElementById("sigrid-gold-stockpile-number");
+var sigridFishStoNum = document.getElementById("sigrid-fish-stockpile-number"); // Why does .textContent log the correct number, but does not allow updateStockpile() to overwrite it?
 
 function updateStockpile() {
-  // Keep these variables within the function, because of function run-path 
+  // Keep these variables within the function, because of function run-path when drawCard is called
   var ulfTotalGold = vikingStockpile.ulf.gold - vikingStockpile.ulf.badgold * 2;
   var ulfTotalFish = vikingStockpile.ulf.fish - vikingStockpile.ulf.badfish * 2;
   var sigridTotalGold = vikingStockpile.sigrid.gold - vikingStockpile.sigrid.badgold * 2;
-  var sigridTotalFish = vikingStockpile.sigrid.fish - vikingStockpile.sigrid.badfish * 2;
-  console.log("Ulf's TotalGold is ".concat(ulfTotalGold)); // This is for dynamic pictures within the stockpile area at bottom
+  var sigridTotalFish = vikingStockpile.sigrid.fish - vikingStockpile.sigrid.badfish * 2; // console.log(`Ulf's TotalGold is ${ulfTotalGold}`)
+
+  if (ulfTotalFish < 0) {
+    ulfTotalFish = 0;
+  }
+
+  (function () {
+    // ulfGoldStoNum.innerHTML(ulfTotalGold);
+    ulfGoldStoNum.innerHTML = ulfTotalGold;
+    ulfFishStoNum.innerHTML = ulfTotalFish;
+    sigridGoldStoNum.innerHTML = sigridTotalGold;
+    sigridFishStoNum.innerHTML = sigridTotalFish;
+  })(); // var p = document.createElement('p')
+  // var counter=0;
+  // var q1=prompt("what's your name?");
+  // if (q1==='akash'){
+  //   counter=counter+1;
+  //   //Update content of p element you created
+  //   p.innerHTML = 'yay right: ' + counter + '/ 5'
+  // }
+  // This is for dynamic pictures within the stockpile area at bottom
   // if (ulfTotalGold >= 0) {
   //     // console.log(">= 0 is triggered")
   //     let i = document.getElementById("gold-")
@@ -330,6 +344,9 @@ function updateStockpile() {
   //         }
   //     //     console.log("Took one from Ulf's stockpile!");
   // }
+
+
+  console.log("updateStockpile() complete!");
 } // ******************************************
 // ******************************************
 // CODE SCRAPYARD
