@@ -8,75 +8,66 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-//   align-content: space-around;
+  //   align-content: space-around;
   // ^^^ Why does this not work?
 
-//   flex-wrap: nowrap;
+  //   flex-wrap: nowrap;
   // If I edit anything with the grid, this CSS for justify-content fucks up. To correct it, put flex-wrap, save, then remove it, save. What? Lol
   img {
     max-height: 80%;
     max-width: 100%;
   }
   .rune {
-margin-top: 5px;
+    margin-top: 5px;
   }
-}
-.buttonboard {
-    background-color: teal;
-}
-#ulf-buttonboard {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: none;
-    justify-content: space-around;
-    align-content: center;
-}
-#sigrid-buttonboard {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: none;
-    justify-content: space-around;
-    align-content: center;
 }
 #ulf-runeboard {
     border-top: 8px ridge rgb(70, 70, 70);
     border-right: 8px ridge rgb(70, 70, 70);
-    border-bottom: 8px ridge rgb(70, 70, 70);
-}
-#sigrid-runeboard {
+    // border-bottom: 8px ridge rgb(70, 70, 70);
+  }
+  #sigrid-runeboard {
     border-top: 8px ridge rgb(70, 70, 70);
     border-left: 8px ridge rgb(70, 70, 70);
     border-bottom: 8px ridge rgb(70, 70, 70);
-}
-
-#sigrid-portrait {
-  text-align: right;
-}
-.character-portraits {
-    text-shadow: -30px 30px 30px;
-  img {
-    max-width: 100%;
-    height: 100%;
-    // See above for sigrid portrait right alignment
   }
-}
-.buttons-ind {
-  //   background-color: rgba(34, 15, 3, 0.884);
-  // background-image: url("../img/rockwall.jpg");
-  // background-size: 200px;
-  font-family: "Norse", serif;
-  font-size: 55px;
-  font-weight: 700;
+
+
+.buttonboard {
+  background-image: url("../img/wood.jpg");
+  margin-top: -5px;
+  text-align: center;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  color: rgb(29, 22, 6);
+  flex-grow: 100%;
+  justify-content: space-between;
+  // height: 100%;
+  // min-width: 100%;
+  .buttons-ind {
+      margin: 8px 0px 5px 0px;
+    font-family: "Norse", serif;
+    font-size: 55px;
+    font-weight: 700;
+    // display: flex;
+    width: 100%;
+    // flex-direction: row;
+    // justify-content: space-around;
+    color: rgb(29, 22, 6);
 
-  border: 4px ridge rgb(70, 70, 70);
-  border-radius: 30px;
-  p {
+    border: 4px ridge rgb(70, 70, 70);
+    border-radius: 30px;
+    p {
       margin: 2px;
+    }
   }
+}
+
+#ulf-buttonboard {
+  // border-top: 8px ridge rgb(70, 70, 70);
+  border-right: 8px ridge rgb(70, 70, 70);
+}
+#sigrid-buttonboard {
+    border-left: 8px ridge rgb(70, 70, 70);
 }
 .draw-button {
   background-color: rgba(74, 119, 74, 0.486);
@@ -88,10 +79,24 @@ margin-top: 5px;
   background-color: rgb(56, 56, 88);
 }
 
+
+
+#sigrid-portrait {
+  text-align: right;
+}
+.character-portraits {
+  text-shadow: -30px 30px 30px;
+  img {
+    max-width: 100%;
+    height: 100%;
+    // See above for sigrid portrait right alignment
+  }
+}
+
 #message-board {
   background-color: rgb(70, 64, 64);
-    background-image: url("../img/wood.jpg");
-    background-size: 330px;
+  background-image: url("../img/wood.jpg");
+  background-size: 330px;
 
   border: 4px ridge rgb(70, 70, 70);
   border-radius: 20px;
@@ -110,7 +115,7 @@ margin-top: 5px;
   align-content: center;
   flex-wrap: wrap;
   background-color: rgba(29, 18, 5, 0.8);
-//   box-shadow:  0px 0px 40px 40px #000000;
+  //   box-shadow:  0px 0px 40px 40px #000000;
   img {
     width: 120px;
     height: 120px;

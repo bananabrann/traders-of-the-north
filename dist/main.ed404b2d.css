@@ -71,32 +71,51 @@ body {
 .game-window .runeboard .rune {
   margin-top: 5px;
 }
-.game-window .buttonboard {
-  background-color: teal;
-}
-.game-window #ulf-buttonboard {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: none;
-  justify-content: space-around;
-  align-content: center;
-}
-.game-window #sigrid-buttonboard {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: none;
-  justify-content: space-around;
-  align-content: center;
-}
 .game-window #ulf-runeboard {
   border-top: 8px ridge #464646;
   border-right: 8px ridge #464646;
-  border-bottom: 8px ridge #464646;
 }
 .game-window #sigrid-runeboard {
   border-top: 8px ridge #464646;
   border-left: 8px ridge #464646;
   border-bottom: 8px ridge #464646;
+}
+.game-window .buttonboard {
+  background-image: url("wood.506e2291.jpg");
+  margin-top: -5px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 100%;
+  justify-content: space-between;
+}
+.game-window .buttonboard .buttons-ind {
+  margin: 8px 0px 5px 0px;
+  font-family: "Norse", serif;
+  font-size: 55px;
+  font-weight: 700;
+  width: 100%;
+  color: #1d1606;
+  border: 4px ridge #464646;
+  border-radius: 30px;
+}
+.game-window .buttonboard .buttons-ind p {
+  margin: 2px;
+}
+.game-window #ulf-buttonboard {
+  border-right: 8px ridge #464646;
+}
+.game-window #sigrid-buttonboard {
+  border-left: 8px ridge #464646;
+}
+.game-window .draw-button {
+  background-color: rgba(74, 119, 74, 0.486);
+}
+.game-window .bet-button {
+  background-color: #5c5c3d;
+}
+.game-window .decline-button {
+  background-color: #383858;
 }
 .game-window #sigrid-portrait {
   text-align: right;
@@ -107,29 +126,6 @@ body {
 .game-window .character-portraits img {
   max-width: 100%;
   height: 100%;
-}
-.game-window .buttons-ind {
-  font-family: "Norse", serif;
-  font-size: 55px;
-  font-weight: 700;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  color: #1d1606;
-  border: 4px ridge #464646;
-  border-radius: 30px;
-}
-.game-window .buttons-ind p {
-  margin: 2px;
-}
-.game-window .draw-button {
-  background-color: rgba(74, 119, 74, 0.486);
-}
-.game-window .bet-button {
-  background-color: #5c5c3d;
-}
-.game-window .decline-button {
-  background-color: #383858;
 }
 .game-window #message-board {
   background-color: #464040;
