@@ -2,18 +2,17 @@
     background-color: rgba(32, 22, 16, 0.918);
     background-image: url("../img/wood.jpg");
     background-size: 350px;
-    margin: 0;
-  //   max-height: 100px;
     
+     
     .stockpile {
+        margin-top: -25px;
+        background-size: 250px;
+        color: rgb(151, 138, 109);
+        text-shadow: 4px 4px 6px black;
         
       display: flex;
       flex-direction: row;
       justify-content: space-around;
-      background-size: 250px;
-      padding: 5px;
-      color: rgb(151, 138, 109);
-      text-shadow: 4px 4px black;
       img {
         height: 22px;
         width: 22px;

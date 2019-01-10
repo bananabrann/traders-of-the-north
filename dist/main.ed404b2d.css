@@ -67,9 +67,10 @@ body {
 .game-window #message-board p {
   font-family: "Carrois Gothic SC", sans-serif;
   font-size: 20px;
-  text-align: center;
-  color: #818181;
   margin: 5px;
+  text-align: center;
+  color: #978a6d;
+  text-shadow: 4px 4px 6px black;
 }
 .game-window #sigrid-portrait {
   text-align: right;
@@ -119,7 +120,6 @@ body {
 }
 .game-window .buttonboard {
   background-image: url("wood.506e2291.jpg");
-  margin-top: -5px;
   text-align: center;
 }
 .game-window .buttonboard .buttons-ind {
@@ -159,16 +159,15 @@ body {
   background-color: rgba(32, 22, 16, 0.918);
   background-image: url("wood.506e2291.jpg");
   background-size: 350px;
-  margin: 0;
 }
 .game-window .player-board .stockpile {
+  margin-top: -25px;
+  background-size: 250px;
+  color: #978a6d;
+  text-shadow: 4px 4px 6px black;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background-size: 250px;
-  padding: 5px;
-  color: #978a6d;
-  text-shadow: 4px 4px black;
 }
 .game-window .player-board .stockpile img {
   height: 22px;

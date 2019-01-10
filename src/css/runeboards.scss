@@ -11,13 +11,13 @@
     //   flex-wrap: nowrap;
     // If I edit anything with the grid, this CSS for justify-content fucks up. To correct it, put flex-wrap, save, then remove it, save. What? Lol
     img {
-    max-height: 80%;
-    max-width: 100%;
-    }
+        max-height: 80%;
+        max-width: 100%;
+         }
     .rune {
-    margin-top: 5px;
-    transition: 0.8s;
-    }
+        margin-top: 5px;
+        transition: 0.8s;
+        }
     }
     #ulf-runeboard {
     border-top: 8px ridge rgb(70, 70, 70);
