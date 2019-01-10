@@ -306,8 +306,31 @@ function updateStockpile() {
   var sigridTotalGold = vikingStockpile.sigrid.gold - vikingStockpile.sigrid.badgold * 2;
   var sigridTotalFish = vikingStockpile.sigrid.fish - vikingStockpile.sigrid.badfish * 2; // console.log(`Ulf's TotalGold is ${ulfTotalGold}`)
 
+  if (ulfTotalGold < 0) {
+    ulfTotalGold = 0;
+    vikingStockpile.ulf.gold = 0;
+    vikingStockpile.ulf.badgold = 0;
+  }
+
   if (ulfTotalFish < 0) {
     ulfTotalFish = 0;
+    vikingStockpile.ulf.fish = 0;
+    vikingStockpile.ulf.badfish = 0;
+  }
+
+  ;
+
+  if (sigridTotalGold < 0) {
+    sigridTotalGold = 0;
+    vikingStockpile.sigrid.gold = 0;
+    vikingStockpile.sigrid.badgold = 0;
+  }
+
+  ;
+
+  if (sigridTotalFish < 0) {
+    vikingStockpile.sigrid.fish = 0;
+    vikingStockpile.sigrid.badfish = 0;
   }
 
   (function () {
