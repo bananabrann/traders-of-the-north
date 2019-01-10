@@ -32,11 +32,11 @@ body {
 }
 .game-window #ulf-board {
   grid-column: 1/span 9;
-  grid-row: 10/span 1;
+  grid-row: 9/span 1;
 }
 .game-window #sigrid-board {
   grid-column: 10/span 9;
-  grid-row: 10/span 1;
+  grid-row: 9/span 1;
 }
 .game-window #ulf-portrait {
   grid-column: 1/span 5;
