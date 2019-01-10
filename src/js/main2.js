@@ -175,7 +175,12 @@ function drawCard(viking) {
 };
 
 function placeRune(rune, viking) {
+    
+    console.log(document.getElementById(viking + "-rune" + rune));
+
+
   if (arena.length < 1) {
+    document.getElementById(viking + "-rune" + rune).style.transform = "translateY(-30px)";
     arena.push({
       rune: rune,
       viking: viking
@@ -231,10 +236,15 @@ function collectPot() {
     //   console.log(`${arena[0].viking} won! His/her stockpile changes are...`);
     //   console.log(vikingStockpile[arena[0].viking]);
 
+    // document.getElementById(arena[0].viking + "-rune" + arena[0].rune).transform = "none";
+    document.getElementById(arena[0].viking + "-rune" + arena[0].rune).transform = "none";
+
+    console.log(`The rune in question is..`);
+    console.log(arena[0].viking + "-rune" + arena[0].rune )
+
     arena.splice(0, 1);
-    document.getElementById(
-      arena[0].viking + "-" + "rune" + arena[0].rune
-    ).style.display = "none";
+    document.getElementById(arena[0].viking + "-" + "rune" + arena[0].rune).style.display = "none";
+
     if (arena[0].viking === "ulf") {
       ulfRunesPlayed++;
     }

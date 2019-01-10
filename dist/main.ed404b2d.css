@@ -70,6 +70,7 @@ body {
 }
 .game-window .runeboard .rune {
   margin-top: 5px;
+  transition: 0.8s;
 }
 .game-window #ulf-runeboard {
   border-top: 8px ridge #464646;
@@ -84,10 +85,6 @@ body {
   background-image: url("wood.506e2291.jpg");
   margin-top: -5px;
   text-align: center;
-  display: flex;
-  flex-direction: row;
-  flex-grow: 100%;
-  justify-content: space-between;
 }
 .game-window .buttonboard .buttons-ind {
   margin: 8px 0px 5px 0px;
@@ -104,9 +101,13 @@ body {
 }
 .game-window #ulf-buttonboard {
   border-right: 8px ridge #464646;
+  display: flex;
+  flex-direction: row-reverse;
 }
 .game-window #sigrid-buttonboard {
   border-left: 8px ridge #464646;
+  display: flex;
+  flex-direction: row;
 }
 .game-window .draw-button {
   background-color: rgba(74, 119, 74, 0.486);
