@@ -5,7 +5,8 @@ body {
 }
 
 .game-window {
-  background-color: red;
+  background-image: url("market.d8d4b28e.jpg");
+  background-size: 100%;
   max-width: 1200px;
   max-height: 650px;
   min-width: 1050px;
@@ -73,17 +74,34 @@ body {
   grid-row: 8/span 1;
 }
 .game-window .runeboard {
-  background-color: #361e0d;
+  background-color: rgba(54, 30, 13, 0.8);
+  height: 130px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  flex-wrap: nowrap;
 }
 .game-window .runeboard img {
-  max-height: 75%;
+  max-height: 80%;
+  max-width: 100%;
+}
+.game-window .runeboard .rune {
+  margin-top: 5px;
+}
+.game-window #ulf-runeboard {
+  border-top: 8px ridge #464646;
+  border-right: 8px ridge #464646;
+  border-bottom: 8px ridge #464646;
+}
+.game-window #sigrid-runeboard {
+  border-top: 8px ridge #464646;
+  border-left: 8px ridge #464646;
+  border-bottom: 8px ridge #464646;
 }
 .game-window #sigrid-portrait {
   text-align: right;
+}
+.game-window .character-portraits {
+  text-shadow: -30px 30px 30px;
 }
 .game-window .character-portraits img {
   max-width: 100%;
@@ -91,7 +109,7 @@ body {
 }
 .game-window .buttons-ind {
   font-family: "Norse", serif;
-  font-size: 72px;
+  font-size: 55px;
   font-weight: 700;
   display: flex;
   flex-direction: row;

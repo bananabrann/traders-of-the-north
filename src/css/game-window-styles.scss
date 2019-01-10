@@ -2,23 +2,41 @@
 // All this is within .game-window
 
 .runeboard {
-  background-color: rgb(54, 30, 13);
+  background-color: rgba(54, 30, 13, 0.8);
+  height: 130px;
+
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  // align-content: space-around;
+//   align-content: space-around;
   // ^^^ Why does this not work?
-  flex-wrap: nowrap;
+
+//   flex-wrap: nowrap;
   // If I edit anything with the grid, this CSS for justify-content fucks up. To correct it, put flex-wrap, save, then remove it, save. What? Lol
   img {
-    max-height: 75%;
+    max-height: 80%;
+    max-width: 100%;
   }
+  .rune {
+margin-top: 5px;
+  }
+}
+#ulf-runeboard {
+    border-top: 8px ridge rgb(70, 70, 70);
+    border-right: 8px ridge rgb(70, 70, 70);
+    border-bottom: 8px ridge rgb(70, 70, 70);
+}
+#sigrid-runeboard {
+    border-top: 8px ridge rgb(70, 70, 70);
+    border-left: 8px ridge rgb(70, 70, 70);
+    border-bottom: 8px ridge rgb(70, 70, 70);
 }
 
 #sigrid-portrait {
   text-align: right;
 }
 .character-portraits {
+    text-shadow: -30px 30px 30px;
   img {
     max-width: 100%;
     height: 100%;
@@ -30,7 +48,7 @@
   // background-image: url("../img/rockwall.jpg");
   // background-size: 200px;
   font-family: "Norse", serif;
-  font-size: 72px;
+  font-size: 55px;
   font-weight: 700;
   display: flex;
   flex-direction: row;
