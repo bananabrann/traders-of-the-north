@@ -128,7 +128,7 @@ var userButton = {
       console.log("Ulf bet clicked!");
     }),
     decline: document.getElementById("ulf-button-decline").addEventListener("click", function () {
-      console.log("Ulf decline clicked!");
+      declineBet("ulf");
     }),
     rune: {
       r2: document.getElementById("ulf-rune2").addEventListener("click", function () {
@@ -153,7 +153,7 @@ var userButton = {
       console.log("Sigrid bet clicked!");
     }),
     decline: document.getElementById("sigrid-button-decline").addEventListener("click", function () {
-      console.log("Sigrid decline clicked!");
+      declineBet("sigrid");
     }),
     rune: {
       r3: document.getElementById("sigrid-rune3").addEventListener("click", function () {
@@ -253,8 +253,7 @@ function placeRune(rune, viking) {
     pot.splice(0, 8); // console.log("placeRune(rune,viking) complete!");
     // Simple, temp victory condition for GA presentation:
 
-    if (ulfRunesPlayed >= 4 || sigridRunesPlayed >= 4) {
-      //   console.log("Checking victory...");
+    if (ulfRunesPlayed >= 4 && sigridRunesPlayed >= 4) {
       checkVictory();
     }
   } //   console.log(`Ulf's final score is ${ulfFinalScore}`);
@@ -430,7 +429,11 @@ function checkVictory() {
   gameMessage.innerHTML = "The Day Is Over! Ulf's Honor is ".concat(ulfFinalScore, ". Sigrid's Honor is ").concat(sigridFinalScore, ". The most talked about viking at the LongHouse tonight is ").concat(winningViking); // Make message board display viking has won message
 }
 
-; // ******************************************
+;
+
+function declineBet(viking) {
+  placeRune(0, viking);
+} // ******************************************
 // ******************************************
 // CODE SCRAPYARD
 // ******************************************
