@@ -21,6 +21,23 @@
 margin-top: 5px;
   }
 }
+.buttonboard {
+    background-color: teal;
+}
+#ulf-buttonboard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: none;
+    justify-content: space-around;
+    align-content: center;
+}
+#sigrid-buttonboard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: none;
+    justify-content: space-around;
+    align-content: center;
+}
 #ulf-runeboard {
     border-top: 8px ridge rgb(70, 70, 70);
     border-right: 8px ridge rgb(70, 70, 70);

@@ -49,28 +49,12 @@ body {
   grid-column: 14/span 6;
   grid-row: 2/span 4;
 }
-.game-window #ulf-button-draw {
-  grid-column: 7/span 2;
+.game-window #ulf-buttonboard {
+  grid-column: 1/span 8;
   grid-row: 8/span 1;
 }
-.game-window #ulf-button-bet {
-  grid-column: 5/span 2;
-  grid-row: 8/span 1;
-}
-.game-window #ulf-button-decline {
-  grid-column: 3/span 2;
-  grid-row: 8/span 1;
-}
-.game-window #sigrid-button-draw {
-  grid-column: 11/span 2;
-  grid-row: 8/span 1;
-}
-.game-window #sigrid-button-bet {
-  grid-column: 13/span 2;
-  grid-row: 8/span 1;
-}
-.game-window #sigrid-button-decline {
-  grid-column: 15/span 2;
+.game-window #sigrid-buttonboard {
+  grid-column: 11/span 8;
   grid-row: 8/span 1;
 }
 .game-window .runeboard {
@@ -86,6 +70,23 @@ body {
 }
 .game-window .runeboard .rune {
   margin-top: 5px;
+}
+.game-window .buttonboard {
+  background-color: teal;
+}
+.game-window #ulf-buttonboard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: none;
+  justify-content: space-around;
+  align-content: center;
+}
+.game-window #sigrid-buttonboard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: none;
+  justify-content: space-around;
+  align-content: center;
 }
 .game-window #ulf-runeboard {
   border-top: 8px ridge #464646;
