@@ -1,7 +1,7 @@
 body {
-  background-image: url("vikingscene.c2a8a489.jpg");
-  background-repeat: no-repeat;
-  background-size: 100%;
+  background-image: url("rockwall.03d4b3ab.jpg");
+  background-repeat: round;
+  background-size: 300px;
 }
 
 .game-window {
@@ -10,6 +10,8 @@ body {
   max-height: 650px;
   min-width: 1050px;
   margin: 0 auto;
+  box-shadow: 15px 35px 60px;
+  border: 8px ridge #383838;
   display: grid;
   grid-template-columns: repeat(18, 1fr);
   grid-template-rows: repeat(9, 1fr);
@@ -93,8 +95,9 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  color: #1d1606;
   border: 4px ridge #464646;
-  border-radius: 20px;
+  border-radius: 30px;
 }
 .game-window .draw-button {
   background-color: rgba(74, 119, 74, 0.486);
@@ -106,7 +109,9 @@ body {
   background-color: #383858;
 }
 .game-window #message-board {
-  background-color: gray;
+  background-color: #464040;
+  border: 4px ridge #464646;
+  border-radius: 20px;
 }
 .game-window #message-board p {
   font-family: "Carrois Gothic SC", sans-serif;
@@ -127,8 +132,15 @@ body {
   height: 120px;
   margin: 8px 20px;
 }
+.game-window #ulf-board {
+  border-top: 8px ridge #383838;
+  border-right: 8px ridge #383838;
+}
+.game-window #sigrid-board {
+  border-top: 8px ridge #383838;
+  border-left: 8px ridge #383838;
+}
 .game-window .player-board {
-  border: 8px ridge #383838;
   background-color: rgba(32, 22, 16, 0.918);
 }
 .game-window .player-board .stockpile {

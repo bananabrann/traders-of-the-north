@@ -1,10 +1,5 @@
 // ALERT! ALERT! ALERT!
 // This only contains the grid layout for the game-window
-body {
-    background-image: url("../img/vikingscene.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
 .game-window {
     
     background-color: rgb(49, 49, 49);
@@ -12,6 +7,9 @@ body {
     max-height: 650px;
     min-width: 1050px;
     margin: 0 auto;
+
+    box-shadow: 15px 35px 60px;
+    border: 8px ridge rgb(56, 56, 56);
 
     display: grid;
     grid-template-columns: repeat(18, 1fr);

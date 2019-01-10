@@ -14,6 +14,7 @@
     max-height: 75%;
   }
 }
+
 #sigrid-portrait {
   text-align: right;
 }
@@ -33,9 +34,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  color: rgb(29, 22, 6);
 
     border: 4px ridge rgb(70, 70, 70);
-    border-radius: 20px;
+    border-radius: 30px;
     // border-image-source: url("../img/rockwall.jpg");
     // border-image-slice: 30 round;
     // border-image-width: 8px;
@@ -53,7 +55,9 @@
     
 
 #message-board {
-  background-color: gray;
+  background-color: rgb(70, 64, 64);
+  border: 4px ridge rgb(70, 70, 70);
+  border-radius: 20px;
   p {
     font-family: 'Carrois Gothic SC', sans-serif;
     font-size: 40px;
@@ -75,8 +79,15 @@
     //   background-color: yellow;
   }
 }
+#ulf-board {
+    border-top: 8px ridge rgb(56, 56, 56);
+    border-right: 8px ridge rgb(56, 56, 56);
+}
+#sigrid-board {
+    border-top: 8px ridge rgb(56, 56, 56);
+    border-left: 8px ridge rgb(56, 56, 56);
+}
 .player-board {
-    border: 8px ridge rgb(56, 56, 56);
     background-color: rgba(32, 22, 16, 0.918);
     .stockpile {
     display: flex;
