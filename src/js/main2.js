@@ -1,5 +1,6 @@
 const bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish", "badfish"];
 // *Repeats are not nessesary for randomizer, but repeats are here for tile ratios
+
 let pot = [];
 let arena = [];
 
@@ -191,14 +192,14 @@ function collectPot() {
     if (arena[0].rune > arena[1].rune) {
       // console.log("0 > 1 option triggered");
       arena.splice(1, 1);
-      console.log(`${arena[0].viking} won! His/her stockpile changes are...`);
-      console.log(vikingStockpile[arena[0].viking]);
+    //   console.log(`${arena[0].viking} won! His/her stockpile changes are...`);
+    //   console.log(vikingStockpile[arena[0].viking]);
   
       for (let i = 0; i < pot.length; i++) {
         vikingStockpile[arena[0].viking][pot[i]] =
           1 + vikingStockpile[arena[0].viking][pot[i]];
       }
-      console.log(vikingStockpile[arena[0].viking]);
+    //   console.log(vikingStockpile[arena[0].viking]);
   
     } else if (arena[1].rune > arena[0].rune) {
       // console.log("1 > 0 option triggered");
@@ -211,7 +212,6 @@ function collectPot() {
       }
       console.log(vikingStockpile[arena[0].viking]);
     }
-    // adjustResources();
     console.log("collectPot() complete!");
 
     clearPotImages();
@@ -227,38 +227,36 @@ function clearPotImages() {
     console.log("clearPotImages complete!");
 }
 
-let ulfGoldStoNum = document.getElementById("ulf-gold-stockpile-number");
-const ulfFishStoNum = document.getElementById("ulf-fish-stockpile-number");
-const sigridGoldStoNum = document.getElementById("sigrid-gold-stockpile-number");
-const sigridFishStoNum = document.getElementById("sigrid-fish-stockpile-number");
-// Why does .textContent log the correct number, but does not allow updateStockpile() to overwrite it?
 
 function updateStockpile() {
+    // Why does .textContent log the correct number, but does not allow updateStockpile() to overwrite it?
+    const ulfGoldStoNum = document.getElementById("ulf-gold-stockpile-number");
+    const ulfFishStoNum = document.getElementById("ulf-fish-stockpile-number");
+    const sigridGoldStoNum = document.getElementById("sigrid-gold-stockpile-number");
+    const sigridFishStoNum = document.getElementById("sigrid-fish-stockpile-number");
     // Keep these variables within the function, because of function run-path when drawCard is called
-
     let ulfTotalGold = (vikingStockpile.ulf.gold - ((vikingStockpile.ulf.badgold) * 2));
     let ulfTotalFish = (vikingStockpile.ulf.fish - (vikingStockpile.ulf.badfish * 2));
-    let sigridTotalGold = vikingStockpile.sigrid.gold - (vikingStockpile.sigrid.badgold * 2);
-    let sigridTotalFish = vikingStockpile.sigrid.fish - (vikingStockpile.sigrid.badfish * 2);
+    let sigridTotalGold = (vikingStockpile.sigrid.gold - (vikingStockpile.sigrid.badgold * 2));
+    let sigridTotalFish = (vikingStockpile.sigrid.fish - (vikingStockpile.sigrid.badfish * 2));
 
-    // console.log(`Ulf's TotalGold is ${ulfTotalGold}`)
-
-    if (ulfTotalGold < 0) {
+    if (ulfTotalGold <= 0) {
         ulfTotalGold = 0;
         vikingStockpile.ulf.gold = 0;
         vikingStockpile.ulf.badgold = 0;
     }
-    if (ulfTotalFish < 0) {
+    if (ulfTotalFish <= 0) {
         ulfTotalFish = 0;
         vikingStockpile.ulf.fish = 0;
         vikingStockpile.ulf.badfish = 0;
     };
-    if (sigridTotalGold < 0) {
+    if (sigridTotalGold <= 0) {
         sigridTotalGold = 0;
         vikingStockpile.sigrid.gold = 0;
         vikingStockpile.sigrid.badgold = 0;
     };
-    if (sigridTotalFish < 0) {
+    if (sigridTotalFish <= 0) {
+        sigridTotalFish = 0;
         vikingStockpile.sigrid.fish = 0;
         vikingStockpile.sigrid.badfish = 0;
     }
@@ -330,27 +328,6 @@ function updateStockpile() {
 // CODE SCRAPYARD
 // ******************************************
 // ******************************************
-// function zeroResources() {
-
-//     if (ulfTotalGold < 0) {
-//         ulfTotalGold = 0;
-//         console.log(`ulf's gold has dropped below 0!`)
-//     };
-//     if (ulfFish < 0) {
-//         ulfFish = 0;
-//         console.log(`ulf's fish ahs dropped below 0!`);
-//     }
-//     if (sigridGold < 0) {
-//         sigridGold = 0;
-//     }
-//     if (sigridFish < 0) {
-//         sigridFish = 0;
-//     }
-//     console.log(`Ulf's gold/fish: ${ulfGold + ulfFish}`);
-
-//     console.log(`Sigrids gold/fish: ${sigridGold + sigridFish}`);
-
-// }
 
 // calLBet() {
 
