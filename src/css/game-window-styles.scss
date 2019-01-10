@@ -26,99 +26,96 @@
   }
 }
 .buttons-ind {
-//   background-color: rgba(34, 15, 3, 0.884);
-// background-image: url("../img/rockwall.jpg");
-// background-size: 200px;
-  font-family: 'Norse', serif;
-  font-size: 48px;
+  //   background-color: rgba(34, 15, 3, 0.884);
+  // background-image: url("../img/rockwall.jpg");
+  // background-size: 200px;
+  font-family: "Norse", serif;
+  font-size: 72px;
+  font-weight: 700;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   color: rgb(29, 22, 6);
 
-    border: 4px ridge rgb(70, 70, 70);
-    border-radius: 30px;
-    // border-image-source: url("../img/rockwall.jpg");
-    // border-image-slice: 30 round;
-    // border-image-width: 8px;
-  
+  border: 4px ridge rgb(70, 70, 70);
+  border-radius: 30px;
+  p {
+      margin: 2px;
+  }
 }
-    .draw-button {
-        background-color: rgba(74, 119, 74, 0.486);
-    }
-    .bet-button {
-        background-color: rgb(92, 92, 61);
-    }
-    .decline-button {
-        background-color: rgb(56, 56, 88);
-    }
-    
+.draw-button {
+  background-color: rgba(74, 119, 74, 0.486);
+}
+.bet-button {
+  background-color: rgb(92, 92, 61);
+}
+.decline-button {
+  background-color: rgb(56, 56, 88);
+}
 
 #message-board {
   background-color: rgb(70, 64, 64);
   border: 4px ridge rgb(70, 70, 70);
   border-radius: 20px;
   p {
-    font-family: 'Carrois Gothic SC', sans-serif;
+    font-family: "Carrois Gothic SC", sans-serif;
     font-size: 40px;
     text-align: center;
     margin: 0px;
   }
 }
 #pot {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  flex-wrap: wrap;
   background-color: rgb(241, 241, 144);
   img {
-      width: 120px;
-      height: 120px;
-      margin: 8px 20px;
+    width: 120px;
+    height: 120px;
+    margin: 8px 20px;
     //   background-color: yellow;
   }
 }
 #ulf-board {
-    border-top: 8px ridge rgb(56, 56, 56);
-    border-right: 8px ridge rgb(56, 56, 56);
+  border-top: 8px ridge rgb(56, 56, 56);
+  border-right: 8px ridge rgb(56, 56, 56);
 }
 #sigrid-board {
-    border-top: 8px ridge rgb(56, 56, 56);
-    border-left: 8px ridge rgb(56, 56, 56);
+  border-top: 8px ridge rgb(56, 56, 56);
+  border-left: 8px ridge rgb(56, 56, 56);
 }
 .player-board {
-    background-color: rgba(32, 22, 16, 0.918);
-    .stockpile {
+  background-color: rgba(32, 22, 16, 0.918);
+  .stockpile {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     background-size: 250px;
     padding: 5px;
-        img {
-            height: 22px;
-            width: 22px;
-        }
-        span {
-            font-family: 'Carrois Gothic SC', sans-serif;
-            font-size: 24px;
-            text-transform: uppercase;
-            color: white;
-            // .gold-stockpile {
-            //     font-family: 'Norse', serif;
-            // }
-        }
-        .stockpile-num {
-            font-family: 'Norse', serif;
-            font-size: 38px;
-        }
-
+    img {
+      height: 22px;
+      width: 22px;
     }
-
-    h3 {
-        font-family: 'Norse', sans-serif;
-        font-size: 20px;
-        color: rgb(230, 230, 230);
-        
+    span {
+      font-family: "Carrois Gothic SC", sans-serif;
+      font-size: 24px;
+      text-transform: uppercase;
+      color: white;
+      // .gold-stockpile {
+      //     font-family: 'Norse', serif;
+      // }
     }
+    .stockpile-num {
+      font-family: "Norse", serif;
+      font-size: 38px;
+    }
+  }
+
+  h3 {
+    font-family: "Norse", sans-serif;
+    font-size: 20px;
+    color: rgb(230, 230, 230);
+  }
 }
