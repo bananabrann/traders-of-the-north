@@ -1,0 +1,49 @@
+.player-board {
+    background-color: rgba(32, 22, 16, 0.918);
+    background-image: url("../img/wood.jpg");
+    background-size: 350px;
+    margin: 0;
+  //   max-height: 100px;
+    
+    .stockpile {
+        
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      background-size: 250px;
+      padding: 5px;
+      color: rgb(151, 138, 109);
+      text-shadow: 4px 4px black;
+      img {
+        height: 22px;
+        width: 22px;
+      }
+      span {
+        font-family: "Carrois Gothic SC", sans-serif;
+        font-size: 22px;
+        text-transform: uppercase;
+  
+        // .gold-stockpile {
+        //     font-family: 'Norse', serif;
+        // }
+      }
+      .stockpile-num {
+        font-family: "Norse", serif;
+        font-size: 70px;
+      }
+    }
+  
+    h3 {
+      font-family: "Norse", sans-serif;
+      font-size: 20px;
+      color: rgb(230, 230, 230);
+    }
+  }
+#ulf-board {
+  border-top: 8px ridge rgb(56, 56, 56);
+  border-right: 8px ridge rgb(56, 56, 56);
+}
+#sigrid-board {
+  border-top: 8px ridge rgb(56, 56, 56);
+  border-left: 8px ridge rgb(56, 56, 56);
+}

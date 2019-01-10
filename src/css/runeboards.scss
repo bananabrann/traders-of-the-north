@@ -1,0 +1,29 @@
+.runeboard {
+    background-color: rgba(54, 30, 13, 0.8);
+    height: 130px;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    //   align-content: space-around;
+    // ^^^ Why does this not work?
+    
+    //   flex-wrap: nowrap;
+    // If I edit anything with the grid, this CSS for justify-content fucks up. To correct it, put flex-wrap, save, then remove it, save. What? Lol
+    img {
+    max-height: 80%;
+    max-width: 100%;
+    }
+    .rune {
+    margin-top: 5px;
+    transition: 0.8s;
+    }
+    }
+    #ulf-runeboard {
+    border-top: 8px ridge rgb(70, 70, 70);
+    border-right: 8px ridge rgb(70, 70, 70);
+    }
+    #sigrid-runeboard {
+    border-top: 8px ridge rgb(70, 70, 70);
+    border-left: 8px ridge rgb(70, 70, 70);
+    }
