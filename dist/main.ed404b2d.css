@@ -132,6 +132,8 @@ body {
 }
 .game-window #message-board {
   background-color: #464040;
+  background-image: url("wood.506e2291.jpg");
+  background-size: 330px;
   border: 4px ridge #464646;
   border-radius: 20px;
 }
@@ -139,6 +141,7 @@ body {
   font-family: "Carrois Gothic SC", sans-serif;
   font-size: 40px;
   text-align: center;
+  color: #818181;
   margin: 0px;
 }
 .game-window #pot {
@@ -147,7 +150,7 @@ body {
   justify-content: space-around;
   align-content: center;
   flex-wrap: wrap;
-  background-color: #f1f190;
+  background-color: rgba(29, 18, 5, 0.8);
 }
 .game-window #pot img {
   width: 120px;
@@ -164,6 +167,8 @@ body {
 }
 .game-window .player-board {
   background-color: rgba(32, 22, 16, 0.918);
+  background-image: url("wood.506e2291.jpg");
+  background-size: 350px;
 }
 .game-window .player-board .stockpile {
   display: flex;

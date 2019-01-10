@@ -73,12 +73,16 @@ margin-top: 5px;
 
 #message-board {
   background-color: rgb(70, 64, 64);
+    background-image: url("../img/wood.jpg");
+    background-size: 330px;
+
   border: 4px ridge rgb(70, 70, 70);
   border-radius: 20px;
   p {
     font-family: "Carrois Gothic SC", sans-serif;
     font-size: 40px;
     text-align: center;
+    color: rgb(129, 129, 129);
     margin: 0px;
   }
 }
@@ -88,7 +92,8 @@ margin-top: 5px;
   justify-content: space-around;
   align-content: center;
   flex-wrap: wrap;
-  background-color: rgb(241, 241, 144);
+  background-color: rgba(29, 18, 5, 0.8);
+//   box-shadow:  0px 0px 40px 40px #000000;
   img {
     width: 120px;
     height: 120px;
@@ -106,6 +111,8 @@ margin-top: 5px;
 }
 .player-board {
   background-color: rgba(32, 22, 16, 0.918);
+  background-image: url("../img/wood.jpg");
+  background-size: 350px;
   .stockpile {
     display: flex;
     flex-direction: row;
