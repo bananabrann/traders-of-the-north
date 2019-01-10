@@ -175,14 +175,11 @@ function placeRune(rune, viking) {
     
     collectPot();
 
-    // document.getElementById((arena[0].viking) + "-" + "rune" + rune).style.backgroundColor = "red";
-    // document.getElementById(viking + "-" + "rune" + rune).style.backgroundColor = "red";
-
-    
-
     arena.splice(0, 1);
     pot.splice(0, 8);
 
+    countRunesPlayed();
+    checkVictory();
     console.log("placeRune(rune,viking) complete!");
     
     }
@@ -321,7 +318,19 @@ function updateStockpile() {
     console.log("updateStockpile() complete!");
 }
 
+let runesPlayed = 0;
 
+function countRunesPlayed() {
+    runesPlayed++;
+    console.log(`${runesPlayed} runes have been played.`);
+}
+
+function checkVictory() {
+    // Simple victory condition:
+    if (runesPlayed >= 7) {
+        
+    }
+}
 
 
 
