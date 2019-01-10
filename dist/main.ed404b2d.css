@@ -7,12 +7,12 @@ body {
 .game-window {
   background-color: #313131;
   max-width: 1200px;
-  max-height: 850px;
+  max-height: 650px;
   min-width: 1050px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(18, 1fr);
-  grid-template-rows: repeat(12, 1fr);
+  grid-template-rows: repeat(9, 1fr);
 }
 .game-window #message-board {
   grid-column: 4/span 12;

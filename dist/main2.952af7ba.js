@@ -105,7 +105,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   // Override the current require with this new one
   return newRequire;
 })({"../js/main2.js":[function(require,module,exports) {
-var bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish"]; // *Repeats are not nessesary for randomizer, but repeats are here for tile ratios
+var bag = ["gold", "gold", "gold", "fish", "fish", "fish", "fish", "fish", "badgold", "badfish"]; // *Repeats are not nessesary for randomizer, but repeats are here for tile ratios
 
 var pot = [];
 var arena = [];
@@ -226,10 +226,11 @@ function drawCard(viking) {
     } // console.log(`${viking} draws card ${lastInPot}.`);
     // console.log(`The pot is... ${pot}`);
 
-  }
+  } //   console.log("drawCard complete!");
 
-  console.log("drawCard complete!");
 }
+
+;
 
 function placeRune(rune, viking) {
   if (arena.length < 1) {
@@ -237,8 +238,7 @@ function placeRune(rune, viking) {
       rune: rune,
       viking: viking
     });
-    console.log("".concat(rune, " has been pushed into the arena..."));
-    console.log("placeRune(rune,viking) complete!");
+    console.log("".concat(rune, " has been pushed into the arena...")); // console.log("placeRune(rune,viking) complete!");
   } else if (arena.length === 1) {
     arena.push({
       rune: rune,
@@ -246,15 +246,19 @@ function placeRune(rune, viking) {
     });
     collectPot();
     arena.splice(0, 1);
-    pot.splice(0, 8);
-    console.log("placeRune(rune,viking) complete!"); // Simple, temp victory condition for GA presentation:
+    pot.splice(0, 8); // console.log("placeRune(rune,viking) complete!");
+    // Simple, temp victory condition for GA presentation:
 
     if (ulfRunesPlayed >= 4 || sigridRunesPlayed >= 4) {
-      console.log("Checking victory...");
+      //   console.log("Checking victory...");
       checkVictory();
     }
-  }
+  } //   console.log(`Ulf's final score is ${ulfFinalScore}`);
+  //   console.log(`Ulf's final score is ${sigridFinalScore}`);
+
 }
+
+;
 
 function collectPot() {
   // Send the pot into the object of the winning viking:
@@ -302,6 +306,8 @@ function collectPot() {
   updateStockpile();
 }
 
+;
+
 function clearPotImages() {
   while (foo.firstChild) {
     foo.removeChild(foo.firstChild);
@@ -310,6 +316,8 @@ function clearPotImages() {
 
   console.log("clearPotImages complete!");
 }
+
+;
 
 function updateStockpile() {
   // Why does .textContent log the correct number, but does not allow updateStockpile() to overwrite it?
@@ -380,27 +388,34 @@ function updateStockpile() {
 
 
   console.log("updateStockpile() complete!");
-} // maybe put this in the vikingStockpie object
+}
 
+;
 
 function checkVictory() {
   if (ulfFishStoNum.textContent > sigridFishStoNum.textContent) {
     ulfFinalScore += 6;
-  } else if (sigridFishStoNum > ulfFishStoNum) {
+    console.log("Ulf has the most fish! Added 6 to total.");
+  } else if (sigridFishStoNum.textContent > ulfFishStoNum.textContent) {
     sigridFinalScore += 6;
+    console.log("Sigrid has the most fish! Adding 6 to total.");
   }
 
-  for (var i = 0; i < ulfGoldStoNum; i++) {
+  for (var i = 0; i < ulfGoldStoNum.textContent; i++) {
     ulfFinalScore++;
+    console.log("Gold added to Ulf's total.");
   }
 
-  for (var _i2 = 0; _i2 < sigridGoldStoNum; _i2++) {
+  for (var _i2 = 0; _i2 < sigridGoldStoNum.textContent; _i2++) {
     sigridFinalScore++;
+    console.log("Gold added to Sigrid total.");
   }
 
-  console.log("Ulf's final score is ".concat(ulfFinalScore));
-  console.log("Sigrid's final score is ".concat(sigridFinalScore)); // Make message board display viking has won message
-} // ******************************************
+  console.log(ulfFinalScore);
+  console.log(sigridFinalScore); // Make message board display viking has won message
+}
+
+; // ******************************************
 // ******************************************
 // CODE SCRAPYARD
 // ******************************************

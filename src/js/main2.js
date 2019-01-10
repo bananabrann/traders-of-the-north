@@ -1,6 +1,9 @@
 const bag = [
   "gold",
   "gold",
+  "gold",
+  "fish",
+  "fish",
   "fish",
   "fish",
   "fish",
@@ -165,12 +168,11 @@ function drawCard(viking) {
         // console.log("Badfish Token Displayed!");
       })();
     }
-
     // console.log(`${viking} draws card ${lastInPot}.`);
     // console.log(`The pot is... ${pot}`);
   }
-  console.log("drawCard complete!");
-}
+//   console.log("drawCard complete!");
+};
 
 function placeRune(rune, viking) {
   if (arena.length < 1) {
@@ -180,7 +182,7 @@ function placeRune(rune, viking) {
     });
 
     console.log(`${rune} has been pushed into the arena...`);
-    console.log("placeRune(rune,viking) complete!");
+    // console.log("placeRune(rune,viking) complete!");
   } else if (arena.length === 1) {
     arena.push({
       rune: rune,
@@ -192,15 +194,17 @@ function placeRune(rune, viking) {
     arena.splice(0, 1);
     pot.splice(0, 8);
 
-    console.log("placeRune(rune,viking) complete!");
+    // console.log("placeRune(rune,viking) complete!");
 
     // Simple, temp victory condition for GA presentation:
     if (ulfRunesPlayed >= 4 || sigridRunesPlayed >= 4) {
-      console.log("Checking victory...");
+    //   console.log("Checking victory...");
       checkVictory();
     }
   }
-}
+//   console.log(`Ulf's final score is ${ulfFinalScore}`);
+//   console.log(`Ulf's final score is ${sigridFinalScore}`);
+};
 
 function collectPot() {
   // Send the pot into the object of the winning viking:
@@ -209,9 +213,8 @@ function collectPot() {
     //   console.log(vikingStockpile[arena[0].viking]);
 
     arena.splice(1, 1);
-    document.getElementById(
-      arena[0].viking + "-" + "rune" + arena[0].rune
-    ).style.display = "none";
+    document.getElementById(arena[0].viking + "-" + "rune" + arena[0].rune).style.display = "none";
+
     if (arena[0].viking === "ulf") {
       ulfRunesPlayed++;
     }
@@ -249,7 +252,7 @@ function collectPot() {
   clearPotImages();
 
   updateStockpile();
-}
+};
 
 function clearPotImages() {
   while (foo.firstChild) {
@@ -257,18 +260,15 @@ function clearPotImages() {
     console.log("removing...");
   }
   console.log("clearPotImages complete!");
-}
-
+};
 
 function updateStockpile() {
   // Why does .textContent log the correct number, but does not allow updateStockpile() to overwrite it?
   // Keep these variables within the function, because of function run-path when drawCard is called
   let ulfTotalGold = vikingStockpile.ulf.gold - vikingStockpile.ulf.badgold * 2;
   let ulfTotalFish = vikingStockpile.ulf.fish - vikingStockpile.ulf.badfish * 2;
-  let sigridTotalGold =
-    vikingStockpile.sigrid.gold - vikingStockpile.sigrid.badgold * 2;
-  let sigridTotalFish =
-    vikingStockpile.sigrid.fish - vikingStockpile.sigrid.badfish * 2;
+  let sigridTotalGold = vikingStockpile.sigrid.gold - vikingStockpile.sigrid.badgold * 2;
+  let sigridTotalFish = vikingStockpile.sigrid.fish - vikingStockpile.sigrid.badfish * 2;
 
   if (ulfTotalGold <= 0) {
     ulfTotalGold = 0;
@@ -332,29 +332,35 @@ function updateStockpile() {
   //     //     console.log("Took one from Ulf's stockpile!");
   // }
   console.log("updateStockpile() complete!");
-}
-// maybe put this in the vikingStockpie object
-
-
+};
 
 function checkVictory() {
   if (ulfFishStoNum.textContent > sigridFishStoNum.textContent) {
     ulfFinalScore += 6;
-  } else if (sigridFishStoNum > ulfFishStoNum) {
+    console.log("Ulf has the most fish! Added 6 to total.");
+  } else if (sigridFishStoNum.textContent > ulfFishStoNum.textContent) {
     sigridFinalScore += 6;
+    console.log("Sigrid has the most fish! Adding 6 to total.");
   }
 
-  for (let i = 0; i < ulfGoldStoNum; i++) {
+  for (let i = 0; i < ulfGoldStoNum.textContent; i++) {
     ulfFinalScore++;
+    console.log("Gold added to Ulf's total.")
   }
-  for (let i = 0; i < sigridGoldStoNum; i++) {
+  for (let i = 0; i < sigridGoldStoNum.textContent; i++) {
     sigridFinalScore++;
-  }
+    console.log("Gold added to Sigrid total.")
 
-  console.log(`Ulf's final score is ${ulfFinalScore}`);
-  console.log(`Sigrid's final score is ${sigridFinalScore}`);
+  }
+  console.log(ulfFinalScore)
+  console.log(sigridFinalScore)
   // Make message board display viking has won message
-}
+};
+
+
+
+
+
 
 // ******************************************
 // ******************************************
