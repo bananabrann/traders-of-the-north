@@ -1,46 +1,46 @@
 // ALERT! ALERT! ALERT!
 // All this is within .game-window
 #message-board {
-background-color: rgb(70, 64, 64);
-background-image: url("../img/wood.jpg");
-background-size: 330px;
+  background-color: rgb(70, 64, 64);
+  background-image: url("../img/wood.jpg");
+  background-size: 330px;
 
-border: 4px ridge rgb(70, 70, 70);
-border-radius: 20px;
-p {
+  border: 4px ridge rgb(70, 70, 70);
+  border-radius: 20px;
+  p {
     font-family: "Carrois Gothic SC", sans-serif;
     font-size: 20px;
     margin: 5px;
     text-align: center;
     color: rgb(151, 138, 109);
     text-shadow: 4px 4px 6px black;
-}
+  }
 }
 #sigrid-portrait {
-text-align: right;
+  text-align: right;
 }
 .character-portraits {
-text-shadow: -30px 30px 30px;
-img {
+  text-shadow: -30px 30px 30px;
+  img {
     max-width: 100%;
     height: 100%;
     // See above for sigrid portrait right alignment
-}
+  }
 }
 #pot {
-display: flex;
-flex-direction: row;
-justify-content: space-around;
-align-content: center;
-flex-wrap: wrap;
-background-color: rgba(29, 18, 5, 0.8);
-//   box-shadow:  0px 0px 40px 40px #000000;
-img {
-width: 120px;
-height: 120px;
-margin: 8px 20px;
-//   background-color: yellow;
-}
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  flex-wrap: wrap;
+  background-color: rgba(29, 18, 5, 0.8);
+  //   box-shadow:  0px 0px 40px 40px #000000;
+  img {
+    width: 120px;
+    height: 120px;
+    margin: 8px 20px;
+    //   background-color: yellow;
+  }
 }
 @import "runeboards.scss";
 

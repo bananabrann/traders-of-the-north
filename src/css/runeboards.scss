@@ -1,6 +1,7 @@
 .runeboard {
     background-color: rgba(54, 30, 13, 0.8);
     height: 130px;
+    // margin-bottom: 40px;
     
     display: flex;
     flex-direction: row;
@@ -16,7 +17,10 @@
          }
     .rune {
         margin-top: 5px;
+        height: 100%;
+        // margin-bottom: 0px;
         transition: 0.8s;
+        // padding: 0px;
         }
     }
     #ulf-runeboard {

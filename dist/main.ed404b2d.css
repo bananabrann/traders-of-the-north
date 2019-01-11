@@ -108,6 +108,7 @@ body {
 }
 .game-window .runeboard .rune {
   margin-top: 5px;
+  height: 100%;
   transition: 0.8s;
 }
 .game-window #ulf-runeboard {
@@ -161,7 +162,7 @@ body {
   background-size: 350px;
 }
 .game-window .player-board .stockpile {
-  margin-top: -25px;
+  margin-top: -5px;
   background-size: 250px;
   color: #978a6d;
   text-shadow: 4px 4px 6px black;
