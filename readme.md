@@ -1,12 +1,4 @@
 ++++++++++++++++++++++++++
-HTML & CSS VALIDATOR
-++++++++++++++++++++++++++
-The HTML validators gives several warnings, none that I feel I need to change, as I see similar errors in realworld appications.
-The HTML validator gives and ERROR on Norse fonttype not having an href. The font is linked locally and carried within the file, and apparently does not need an href.
-
-
-
-++++++++++++++++++++++++++
 INSTRUCTIONS
 ++++++++++++++++++++++++++
 ~~~ TURN-BY-TURN ~~~
@@ -19,7 +11,7 @@ A longboat full of treasures and loot from a recent successfull raid has docked!
     2. Other viking will either place a Rune as a bet, or PASS, declining the bet.
     3. If other viking places Rune to bid, the original viking can choose not to place a Rune and the other viking takes the pot, spending that Rune.
     3. If other viking declines the bet, the other viking MUST BET and take the pot.
-- Players continue cycle until all Runes are exhausted.
+- Players continue cycle until all Runes are exhausted. See nuances sections for clarification on end-game.
 
 ~~~ PIECES ~~~
 Points are counted at the end of the documented
@@ -32,6 +24,26 @@ Points are counted at the end of the documented
 2. Once one viking has exhausted all of their Runes ...
     1. If remaining viking has two or more Runes, viking must press other viking's PASS button to accept Pot.
     2. If remaining viking has one last Rune, viking must press his own PASS button to accept the Pot.
+
+++++++++++++++++++++++++++
+BUILD THEORY
+++++++++++++++++++++++++++
+The technologies used in Traders of the North, V1.0 is CSS, HTML, and JavaScript. Building it, I used Pug and SCSS files, compiled by Parcel. The game design and concept comes largely from the board game classic Ra, though some minor changes in rules and play were implemented to make the game simpler both in logic and the player. It should be noted that I neither have plans to ever commerialize Traders of the North neither make money in any way off it.
+
+The majority of the game's operation and logic happens when a player, or "viking" as I might refer to it, places a Rune. The hardest challenges in this game were to make the code not redundant, by making the functions that handle the logic one function (as opposed to having two functions because of the two vikings). Another significant hurdle was collecting the pot, which is generated at random, into the -winning- viking's stockpile, an object. This one took a full day, but its challenge was recognized early and was one of the first functions tackled in development.
+
+++++++++++++++++++++++++++
+HTML & CSS VALIDATOR
+++++++++++++++++++++++++++
+The HTML validators gives several warnings, none that I feel I need to change, as I see similar errors in realworld appications.
+I do not know what "Error: The character encoding was not declared. Proceeding using windows-1252." is, and cannot find a reasonable solution for it. As it appears to not alter any code, I decided to leave it in.
+
+CSS validator passes with no issues!
+
+
+
+
+
 
 ~~~ THE FUTURE! ~~~
 Short Term:
