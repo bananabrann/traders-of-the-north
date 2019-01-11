@@ -201,28 +201,28 @@ function drawCard(viking) {
     if (lastInPot === "gold") {
       (function () {
         var imgGold = document.createElement("img");
-        imgGold.src = "./goldtoken.png";
+        imgGold.src = "../docs/goldtoken.png";
         imgGold.id = "gold-token-picture";
         foo.appendChild(imgGold); // console.log("Gold Token Displayed!");
       })();
     } else if (lastInPot === "fish") {
       (function () {
         var imgFish = document.createElement("img");
-        imgFish.src = "./fishtoken.png";
+        imgFish.src = "../docs/fishtoken.png";
         imgFish.id = "fish-token-picture";
         foo.appendChild(imgFish); // console.log("Fish Token Displayed!");
       })();
     } else if (lastInPot === "badgold") {
       (function () {
         var imgBadGold = document.createElement("img");
-        imgBadGold.src = "./badgoldtoken.png";
+        imgBadGold.src = "../docs/badgoldtoken.png";
         imgBadGold.id = "badgold-token-picture";
         foo.appendChild(imgBadGold); // console.log("Badgold Token Displayed!");
       })();
     } else if (lastInPot === "badfish") {
       (function () {
         var imgBadfish = document.createElement("img");
-        imgBadfish.src = "./badfishtoken.png";
+        imgBadfish.src = "../docs/badfishtoken.png";
         imgBadfish.id = "badfish-token-picture";
         foo.appendChild(imgBadfish); // console.log("Badfish Token Displayed!");
       })();
