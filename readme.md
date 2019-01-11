@@ -1,3 +1,14 @@
+++++++++++++++++++++++++++
+HTML & CSS VALIDATOR
+++++++++++++++++++++++++++
+The HTML validators gives several warnings, none that I feel I need to change, as I see similar errors in realworld appications.
+The HTML validator gives and ERROR on Norse fonttype not having an href. The font is linked locally and carried within the file, and apparently does not need an href.
+
+
+
+++++++++++++++++++++++++++
+INSTRUCTIONS
+++++++++++++++++++++++++++
 ~~~ TURN-BY-TURN ~~~
 A longboat full of treasures and loot from a recent successfull raid has docked! This has caught the attention of the settlment's top two traders: Ulf and Sigrid. The two vikings must use strategy and bet their way to take home the best loot!
 
@@ -10,20 +21,17 @@ A longboat full of treasures and loot from a recent successfull raid has docked!
     3. If other viking declines the bet, the other viking MUST BET and take the pot.
 - Players continue cycle until all Runes are exhausted.
 
-
 ~~~ PIECES ~~~
 Points are counted at the end of the documented
     1. Gold: 1 point
     2. Fish: The viking with the most fish at the end earns 6 points, all or nothing. Ties mean no fish.
     3. Bads: 2 points deducted from Pot. If Pot is in deficit, remainder will be taken from Stockpile. Stockpile cannot drop below 0.
 
-
 ~~~ NUANCES ~~~
 1. Bet button does not do anything.
 2. Once one viking has exhausted all of their Runes ...
     1. If remaining viking has two or more Runes, viking must press other viking's PASS button to accept Pot.
     2. If remaining viking has one last Rune, viking must press his own PASS button to accept the Pot.
-
 
 ~~~ THE FUTURE! ~~~
 Short Term:

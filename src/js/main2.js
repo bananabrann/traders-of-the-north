@@ -363,7 +363,7 @@ const bag = [
       console.log("Gold added to Sigrid total.")
   
     }
-    let winningViking = ""
+    let winningViking = "";
     if (ulfFinalScore > sigridFinalScore) {
         winningViking = "Ulf";
     } else if (sigridFinalScore > ulfFinalScore) {
