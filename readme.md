@@ -14,7 +14,7 @@ A longboat full of treasures and loot from a recent successfull raid has docked!
 To download and play, simlpy visit (Link Here)!
 
 # Instructions
-### Turn-byTurn
+### Turn-by-Turn
 
 
 1. On turn, players can either **draw** or **bet**.
