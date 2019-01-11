@@ -8,7 +8,7 @@
 * Validator Info
 
 # Traders of the North
-A longboat full of treasures and loot from a recent successfull raid has docked! This has caught the attention of the settlement's top two traders: Ulf and Sigrid. The two vikings must use whatever strategy nessesary and bet their way to the top to take home the best loot!
+A longboat full of treasures and loot from a recent successfull raid has docked! This has caught the attention of the settlement's top two traders: Ulf and Sigrid. The two vikings must use whatever strategy necessary and bet their way to the top to take home the best loot!
 
 # Getting Started
 To download and play, simlpy visit https://bananabrann.github.io/traders-of-the-north/
