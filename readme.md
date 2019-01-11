@@ -1,6 +1,21 @@
+## Contents
+* Traders of the North
+* Getting Started
+* Instructions
+* What's Next?
+* Contributing
+* Tech Used & Build Theory
+* Validator Info
+
+# Traders of the North
+A longboat full of treasures and loot from a recent successfull raid has docked! This has caught the attention of the settlment's top two traders: Ulf and Sigrid. The two vikings must use strategy and bet their way to take home the best loot!
+
+# Getting Started
+To download and play, simlpy visit (Link Here)!
+
 # Instructions
 ### Turn-byTurn
-A longboat full of treasures and loot from a recent successfull raid has docked! This has caught the attention of the settlment's top two traders: Ulf and Sigrid. The two vikings must use strategy and bet their way to take home the best loot!
+
 
 1. On turn, players can either **draw** or **bet**.
 1. On **draw**, a piece is taken a random and put into the Pot, and passes the turn. Be weary though, the Boatsmen will keep goods moving off the ship and force a trade should no one bet off the Pot!
@@ -23,6 +38,21 @@ Points are counted at the end of the documented
     1. If remaining viking has two or more Runes, viking must press other viking's PASS button to accept Pot.
     1. If remaining viking has one last Rune, viking must press his own PASS button to accept the Pot.
 
+# What's Next?
+Short Term:
+- Button disabler that enforces rules and actions.
+- Add feature so that the remaining viking can finish off their Runes without having to press the other viking's PASS button.
+
+Long Term:
+- Develop game picture/banner for presentation in Readme and game.
+- Additional game tile "Market Shutdown" that instantly triggers next player to bid.
+- Additional win condition where after X amount of market shutdowns, game is closed for the round and points are calculated.
+- Impletation of three rounds, or "market days", where Total Points are calculated, but stockpiles are refreshed.
+
+# Contributing
+I am very welcoming of any and all critiques of Traders of the North! Please simply send me a message on GitHub, https://github.com/bananabrann. I'd love to learn from you!
+If you would like to provide critiques, or offer support in the game's development, please send me a message on GitHub, and/or make a pull request on the game's repo. https://github.com/bananabrann/traders-of-the-north
+
 # Build Theory
 The technologies used in Traders of the North, V1.0 is CSS, HTML, and JavaScript. Building it, I used Pug and SCSS files, compiled by Parcel. The game design and concept comes largely from the board game classic Ra, though some minor changes in rules and play were implemented to make the game simpler both in logic and the player. It should be noted that I neither have plans to ever commerialize Traders of the North neither make money in any way off it.
 
@@ -34,12 +64,3 @@ I do not know what `Error: The character encoding was not declared. Proceeding u
 
 CSS validator passes with no issues!
 
-### The Future!
-Short Term:
-- Button disabler that enforces rules and actions.
-- Add feature so that the remaining viking can finish off their Runes without having to press the other viking's PASS button.
-
-Long Term:
-- Additional game tile "Market Shutdown" that instantly triggers next player to bid.
-- Additional win condition where after X amount of market shutdowns, game is closed for the round and points are calculated.
-- Impletation of three rounds, where Total Points are calculated, but stockpiles are refreshed.
