@@ -138,7 +138,7 @@ const bag = [
       if (lastInPot === "gold") {
         (function() {
           let imgGold = document.createElement("img");
-          imgGold.src = "../docs/goldtoken.png";
+          imgGold.src = "./goldtoken.png";
           imgGold.id = "gold-token-picture";
           foo.appendChild(imgGold);
           // console.log("Gold Token Displayed!");
@@ -146,7 +146,7 @@ const bag = [
       } else if (lastInPot === "fish") {
         (function() {
           let imgFish = document.createElement("img");
-          imgFish.src = "../docs/fishtoken.png";
+          imgFish.src = "./fishtoken.png";
           imgFish.id = "fish-token-picture";
           foo.appendChild(imgFish);
           // console.log("Fish Token Displayed!");
@@ -154,7 +154,7 @@ const bag = [
       } else if (lastInPot === "badgold") {
         (function() {
           let imgBadGold = document.createElement("img");
-          imgBadGold.src = "../docs/badgoldtoken.png";
+          imgBadGold.src = "./badgoldtoken.png";
           imgBadGold.id = "badgold-token-picture";
           foo.appendChild(imgBadGold);
           // console.log("Badgold Token Displayed!");
@@ -162,7 +162,7 @@ const bag = [
       } else if (lastInPot === "badfish") {
         (function() {
           let imgBadfish = document.createElement("img");
-          imgBadfish.src = "../docs/badfishtoken.png";
+          imgBadfish.src = "./badfishtoken.png";
           imgBadfish.id = "badfish-token-picture";
           foo.appendChild(imgBadfish);
           // console.log("Badfish Token Displayed!");
