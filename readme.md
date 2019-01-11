@@ -8,23 +8,22 @@
 * Validator Info
 
 # Traders of the North
-A longboat full of treasures and loot from a recent successfull raid has docked! This has caught the attention of the settlment's top two traders: Ulf and Sigrid. The two vikings must use strategy and bet their way to take home the best loot!
+A longboat full of treasures and loot from a recent successfull raid has docked! This has caught the attention of the settlement's top two traders: Ulf and Sigrid. The two vikings must use whatever strategy nessesary and bet their way to the top to take home the best loot!
 
 # Getting Started
-To download and play, simlpy visit (Link Here)!
+To download and play, simlpy visit https://bananabrann.github.io/traders-of-the-north/
 
 # Instructions
 ### Turn-by-Turn
-
-
+The object of the game is have the most amount of points by the time the final viking has played all their Runes. The total number of gold and fish a player has is displayed at the bottom. *This is not your score.*
 1. On turn, players can either **draw** or **bet**.
-1. On **draw**, a piece is taken a random and put into the Pot, and passes the turn. Be weary though, the Boatsmen will keep goods moving off the ship and force a trade should no one bet off the Pot!
+1. On **draw**, a piece is taken at random and put into the Pot, and passes the turn. Be weary though, the Boatsmen will keep goods moving off the ship and force a trade should no one bet off the Pot!
 1. On **bet**...
-    1. Viking who called bet passes turn to other viking.
+    1. Viking who called bet passes the turn to other viking.
     1. Other viking will either place a Rune as a bet, or PASS, declining the bet.
-    1. If other viking *places* Rune to bid, the original viking can choose *not* to place a Rune and the other viking takes the pot, spending that Rune.
-    1. If other viking *declines* the bet, the original viking *must bet* and take the pot.
-1. Players continue cycle until all Runes are exhausted. See nuances sections for clarification on end-game.
+    1. If the other viking *birds*, the original viking can choose *not* to place a Rune and the other viking takes the pot, spending that Rune. This is effectively a bluff.
+    1. If the other viking *declines* the bet, the original viking *must bet* and take the pot. **Basically, if a bet is called, someone has to bet. The person who calls the bet has the advantage of going last.**
+1. Players continue cycle until all Runes are exhausted. See nuances sections for clarification of this specific version of Traders of the North.
 
 ### Pieces
 Points are counted at the end of the documented
