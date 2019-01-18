@@ -1,4 +1,4 @@
-## Contents
+# Contents
 * Traders of the North
 * Getting Started
 * Instructions
