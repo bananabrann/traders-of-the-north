@@ -56,6 +56,26 @@ If you would like to provide critiques, or offer support in the game's developme
 The technologies used in Traders of the North, V1.0 is CSS, HTML, and JavaScript. Building it, I used Pug and SCSS files, compiled by Parcel. The game design and concept comes largely from the board game classic Ra, though some minor changes in rules and play were implemented to make the game simpler both in logic and the player. It should be noted that I neither have plans to ever commerialize Traders of the North neither make money in any way off it.
 
 The majority of the game's operation and logic happens when a player, or "viking" as I might refer to it, places a Rune. The hardest challenges in this game were to make the code not redundant, by making the functions that handle the logic one function (as opposed to having two functions because of the two vikings). Another significant hurdle was collecting the pot, which is generated at random, into the *winning* viking's stockpile, an object. This one took a full day, but its challenge was recognized early and was one of the first functions tackled in development.
+___
+# 2. Traders of North, but 1p VS Computer
+Traders of the North was my Project 1 game. I'm very passionate about this game, as I think it's fun (when you know how to play... potentially) and does a great job at showing off JavaScript and CSS in logic and styling, respectfully. For the final project, this version of the game would be a production-ready game to be proudly displayed in portfolios for years to come.
+
+## Medals
+<details><summary>Click Me!</summary>
+
+### 🥉Bronze Medal, MVP
+- [ ] Reintegrated user interface optimized for a 1 player environment.
+- [ ] Have a fully functional computer opponent.
+
+### 🥈Silver Medal
+- [ ] Be able to select which viking to play as.
+- [ ] Have a fully-functional tutorial and manual.
+
+### 🥇Gold Medal
+- [ ] Be legally publishable. This primarily means include original, non-copyrighted artwork.
+- [ ] Figure out what to do with mobile.
+
+</details>
 
 ### Validators
 The HTML validators gives several warnings, none that I feel I need to change, as I see similar errors in realworld appications.
