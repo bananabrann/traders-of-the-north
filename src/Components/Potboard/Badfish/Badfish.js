@@ -4,7 +4,7 @@ class Badfish extends Component {
     render() {
         return (
             <div>
-                
+                Badfish
             </div>
         );
     }

@@ -4,7 +4,7 @@ class Bet extends Component {
     render() {
         return (
             <div>
-                
+                Bet
             </div>
         );
     }

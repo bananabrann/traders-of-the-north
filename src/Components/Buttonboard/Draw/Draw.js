@@ -4,7 +4,7 @@ class Draw extends Component {
     render() {
         return (
             <div>
-                
+                Draw
             </div>
         );
     }

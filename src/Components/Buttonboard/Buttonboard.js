@@ -4,7 +4,7 @@ class Buttonboard extends Component {
     render() {
         return (
             <div>
-                
+                Buttonboard
             </div>
         );
     }

@@ -4,7 +4,7 @@ class Potboard extends Component {
     render() {
         return (
             <div>
-                
+                Potboard
             </div>
         );
     }

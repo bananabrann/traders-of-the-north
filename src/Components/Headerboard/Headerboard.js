@@ -4,7 +4,7 @@ class Headerboard extends Component {
     render() {
         return (
             <div>
-                
+                Headerboard
             </div>
         );
     }

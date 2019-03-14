@@ -4,7 +4,7 @@ class Gold extends Component {
     render() {
         return (
             <div>
-                
+                Gold
             </div>
         );
     }

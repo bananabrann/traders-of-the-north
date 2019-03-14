@@ -4,7 +4,7 @@ class Badgold extends Component {
     render() {
         return (
             <div>
-                
+                Badgold
             </div>
         );
     }
