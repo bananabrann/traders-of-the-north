@@ -7,23 +7,21 @@ import Potboard from "../Potboard/Potboard";
 import Runeboard from "../Runeboard/Runeboard";
 import Scoreboard from "../Scoreboard/Scoreboard";
 
-const userViking = {
+const bag = ["fish", "gold", "badgold", "badfish"]
 
-}
-const player2 = {
-
-}
-
+const userViking = {};
+const player2 = {};
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            pot: [],
             potTotal: 0,
-            potGold: 0,
-            potFish: 0,
-            potBadGold: 0,
-            PotBadFish: 0,
+            // potGold: 0,
+            // potFish: 0,
+            // potBadGold: 0,
+            // potBadFish: 0,
 
             usersTurn: null,
             inBet: false,
@@ -34,16 +32,25 @@ class App extends Component {
         this.bet = this.bet.bind(this);
         this.call = this.call.bind(this);
         this.pass = this.pass.bind(this);
-
     }
 
     draw() {
-        if (this.state.potTotal >= 8) {
-            console.log("GAME ERROR: max draw");
-            // Make CSS on Draw button darkened
-            return null;
+        if (this.state.potTotal < 8) {
+            let newDraw = bag[Math.floor(Math.random()*bag.length)];
+            console.log(`${newDraw} has been drawn`)
+
+            this.setState({
+                potTotal: this.state.potTotal + 1,
+                pot: [...this.state.pot, newDraw]
+            }, () => {
+                console.log(this.state.pot)
+                console.log(`potTotal is ${this.state.potTotal}`);
+            })
         } else {
-            this.setState({potTotal: this.state.potTotal + 1}, () => { console.log(this.state.potTotal); });
+            // Make CSS on Draw button darkened
+            console.log("GAME ERROR: max draw");
+            return null;
+
         }
     }
 
@@ -51,7 +58,7 @@ class App extends Component {
         if (!this.state.inBet) {
             this.setState({
                 inBet: true
-            })
+            });
             console.log("'bet'");
             // Bet logic here
         } else {
@@ -64,18 +71,17 @@ class App extends Component {
 
     call() {
         if (this.state.inBet) {
-            console.log("'call'")
+            console.log("'call'");
             // Show the pass button CSS
 
             // Check runes for victory
 
             this.setState({
                 inBet: false
-            })
-
+            });
         } else {
             // Hide and disable the pass button
-            console.log("GAME ERROR: 'call' activated but inBet is false")
+            console.log("GAME ERROR: 'call' activated but inBet is false");
             return null;
         }
     }
@@ -89,13 +95,12 @@ class App extends Component {
             this.setState({
                 mustBet: true,
                 inBet: false
-            })
+            });
         } else {
-            console.log("GAME ERROR: 'pass' called but inBet is false")
+            console.log("GAME ERROR: 'pass' called but inBet is false");
             return null;
         }
     }
-
 
     componentDidUpdate() {
         // console.log("Update!");
@@ -107,10 +112,28 @@ class App extends Component {
             <div className="App">
                 <p>
                     <Headerboard />
-                    <Potboard potTotal={this.state.potTotal} potGold={this.state.potGold} potFish={this.state.potFish} potBadGold={this.state.potBadGold} potBadFish={this.state.PotBadFish} />
+                    <Potboard
+                        potTotal={this.state.potTotal}
+                        potGold={this.state.potGold}
+                        potFish={this.state.potFish}
+                        potBadGold={this.state.potBadGold}
+                        potBadFish={this.state.PotBadFish}
+                    />
                     <Runeboard />
-                    <Buttonboard draw={this.draw} bet={this.bet} call={this.call} pass={this.pass} potTotal={this.state.potTotal} />
-                    <Scoreboard potTotal={this.state.potTotal} potGold={this.state.potGold} potFish={this.state.potFish} potBadGold={this.state.potBadGold} potBadFish={this.state.PotBadFish} />
+                    <Buttonboard
+                        draw={this.draw}
+                        bet={this.bet}
+                        call={this.call}
+                        pass={this.pass}
+                        potTotal={this.state.potTotal}
+                    />
+                    <Scoreboard
+                        potTotal={this.state.potTotal}
+                        potGold={this.state.potGold}
+                        potFish={this.state.potFish}
+                        potBadGold={this.state.potBadGold}
+                        potBadFish={this.state.PotBadFish}
+                    />
                 </p>
             </div>
         );
