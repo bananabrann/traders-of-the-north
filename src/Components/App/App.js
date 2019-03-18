@@ -5,6 +5,7 @@ import Buttonboard from "../Buttonboard/Buttonboard";
 import Headerboard from "../Headerboard/Headerboard";
 import Potboard from "../Potboard/Potboard";
 import Runeboard from "../Runeboard/Runeboard";
+import Scoreboard from "../Scoreboard/Scoreboard";
 
 const userViking = {
 
@@ -81,7 +82,7 @@ class App extends Component {
 
     pass() {
         if (this.state.inBet) {
-            console.log('passed');
+            console.log("'passed'");
             // Show the pass button CSS
 
             // Passes turn and forces bet
@@ -106,9 +107,10 @@ class App extends Component {
             <div className="App">
                 <p>
                     <Headerboard />
-                    <Potboard potTotal={this.state.potTotal} />
-                    <Buttonboard draw={this.draw} bet={this.bet} call={this.call} pass={this.pass} potTotal={this.state.potTotal} />
+                    <Potboard potTotal={this.state.potTotal} potGold={this.state.potGold} potFish={this.state.potFish} potBadGold={this.state.potBadGold} potBadFish={this.state.PotBadFish} />
                     <Runeboard />
+                    <Buttonboard draw={this.draw} bet={this.bet} call={this.call} pass={this.pass} potTotal={this.state.potTotal} />
+                    <Scoreboard potTotal={this.state.potTotal} potGold={this.state.potGold} potFish={this.state.potFish} potBadGold={this.state.potBadGold} potBadFish={this.state.PotBadFish} />
                 </p>
             </div>
         );

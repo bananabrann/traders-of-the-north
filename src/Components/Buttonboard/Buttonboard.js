@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import Draw from "./Draw/Draw";
-import Bet from "./Bet/Bet";
-import Scoreboard from "./Scoreboard/Scoreboard";
 
 class Buttonboard extends Component {
     constructor(props) {
@@ -19,7 +16,6 @@ class Buttonboard extends Component {
                 </div>
                 {/* <Draw pot={this.props.pot} /> */}
                 {/* <Bet /> */}
-                <Scoreboard />
             </div>
         );
     }
