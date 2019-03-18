@@ -1,68 +1,85 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Contents
+* Traders of the North
+* Getting Started
+* Instructions
+* What's Next?
+* Contributing
+* Tech Used & Build Theory
+* Validator Info
 
-## Available Scripts
+# Traders of the North
+A longboat full of treasures and loot from a recent successfull raid has docked! This has caught the attention of the settlement's top two traders: Ulf and Sigrid. The two vikings must use whatever strategy necessary and bet their way to the top to take home the best loot!
 
-In the project directory, you can run:
+# Getting Started
+To download and play, simlpy visit https://bananabrann.github.io/traders-of-the-north/
 
-### `npm start`
+# Instructions
+### Turn-by-Turn
+The object of the game is have the most amount of points by the time the final viking has played all their Runes. The total number of gold and fish a player has is displayed at the bottom. *This is not your score.*
+1. On turn, players can either **draw** or **bet**.
+1. On **draw**, a piece is taken at random and put into the Pot, and passes the turn. Be weary though, the Boatsmen will keep goods moving off the ship and force a trade should no one bet off the Pot!
+1. On **bet**...
+    1. Viking who called bet passes the turn to other viking.
+    1. Other viking will either place a Rune as a bet, or PASS, declining the bet.
+    1. If the other viking *birds*, the original viking can choose *not* to place a Rune and the other viking takes the pot, spending that Rune. This is effectively a bluff.
+    1. If the other viking *declines* the bet, the original viking *must bet* and take the pot. **Basically, if a bet is called, someone has to bet. The person who calls the bet has the advantage of going last.**
+1. Players continue cycle until all Runes are exhausted. See nuances sections for clarification of this specific version of Traders of the North.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Pieces
+Points are counted at the end of the documented
+    1. Gold: 1 point
+    2. Fish: The viking with the most fish at the end earns 6 points, all or nothing. Ties mean no fish.
+    3. Bads: 2 points deducted from Pot. If Pot is in deficit, remainder will be taken from Stockpile. Stockpile cannot drop below 0.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Nuances
+1. Bet button does not do anything.
+1. Once one viking has exhausted all of their Runes ...
+    1. If remaining viking has two or more Runes, viking must press other viking's PASS button to accept Pot.
+    1. If remaining viking has one last Rune, viking must press his own PASS button to accept the Pot.
 
-### `npm test`
+# What's Next?
+Short Term:
+- Button disabler that enforces rules and actions.
+- Add feature so that the remaining viking can finish off their Runes without having to press the other viking's PASS button.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Long Term:
+- Develop game picture/banner for presentation in Readme and game.
+- Additional game tile "Market Shutdown" that instantly triggers next player to bid.
+- Additional win condition where after X amount of market shutdowns, game is closed for the round and points are calculated.
+- Impletation of three rounds, or "market days", where Total Points are calculated, but stockpiles are refreshed.
 
-### `npm run build`
+# Contributing
+I am very welcoming of any and all critiques of Traders of the North! Please simply send me a message on GitHub, https://github.com/bananabrann. I'd love to learn from you!
+If you would like to provide critiques, or offer support in the game's development, please send me a message on GitHub, and/or make a pull request on the game's repo. https://github.com/bananabrann/traders-of-the-north
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Build Theory
+The technologies used in Traders of the North, V1.0 is CSS, HTML, and JavaScript. Building it, I used Pug and SCSS files, compiled by Parcel. The game design and concept comes largely from the board game classic Ra, though some minor changes in rules and play were implemented to make the game simpler both in logic and the player. It should be noted that I neither have plans to ever commerialize Traders of the North neither make money in any way off it.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+The majority of the game's operation and logic happens when a player, or "viking" as I might refer to it, places a Rune. The hardest challenges in this game were to make the code not redundant, by making the functions that handle the logic one function (as opposed to having two functions because of the two vikings). Another significant hurdle was collecting the pot, which is generated at random, into the *winning* viking's stockpile, an object. This one took a full day, but its challenge was recognized early and was one of the first functions tackled in development.
+___
+# 2. Traders of North, but 1p VS Computer
+Traders of the North was my Project 1 game. I'm very passionate about this game, as I think it's fun (when you know how to play... potentially) and does a great job at showing off JavaScript and CSS in logic and styling, respectfully. For the final project, this version of the game would be a production-ready game to be proudly displayed in portfolios for years to come.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Medals
+<details><summary>Click Me!</summary>
 
-### `npm run eject`
+### 🥉Bronze Medal, MVP
+- [ ] Reintegrated user interface optimized for a 1 player environment.
+- [ ] Have a fully functional computer opponent.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 🥈Silver Medal
+- [ ] Be able to select which viking to play as.
+- [ ] Have a fully-functional tutorial and manual.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 🥇Gold Medal
+- [ ] Be legally publishable. This primarily means include original, non-copyrighted artwork.
+- [ ] Figure out what to do with mobile.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+</details>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Validators
+The HTML validators gives several warnings, none that I feel I need to change, as I see similar errors in realworld appications.
+I do not know what `Error: The character encoding was not declared. Proceeding using windows-1252.` is, and cannot find a reasonable solution for it. As it appears to not alter any code, I decided to leave it in.
 
-## Learn More
+CSS validator passes with no issues!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
