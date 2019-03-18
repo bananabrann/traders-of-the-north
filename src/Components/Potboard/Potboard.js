@@ -8,7 +8,7 @@ class Potboard extends Component {
     render() {
         return (
             <div>
-                <p>Pot {this.props.pot}</p>
+                <p>Pot {this.props.potTotal}</p>
             </div>
         );
     }
