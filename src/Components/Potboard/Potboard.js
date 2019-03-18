@@ -8,7 +8,7 @@ class Potboard extends Component {
     render() {
         return (
             <div>
-                Potboard
+                <p>Pot {this.props.pot}</p>
             </div>
         );
     }

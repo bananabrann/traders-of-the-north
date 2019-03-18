@@ -12,15 +12,25 @@ class App extends Component {
         this.state = {
             pot: 0
         }
+        this.draw = this.draw.bind(this);
     }
+
+    draw() {
+        this.setState({
+            pot: this.state.pot + 1
+
+        })
+        console.log(this.state.pot)
+    }
+
   render() {
     return (
       <div className="App">
           <p>
             Edit <code>src/App.js</code> and save to reload.
             <Headerboard />
-            <Potboard />
-            <Buttonboard pot={this.state.pot}/>
+            <Potboard pot={this.state.pot}/>
+            <Buttonboard draw={this.draw} pot={this.state.pot}/>
             <Runeboard />
           </p>
       </div>

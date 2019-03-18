@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import Draw from "./Draw/Draw";
 import Bet from "./Bet/Bet";
 import Scoreboard from "./Scoreboard/Scoreboard";
 
 class Buttonboard extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            pot: this.props.pot
-        }
-    }
+   constructor(props) {
+      super(props);
+   }
 
-    render() {
-        return (
+   render() {
+      return (
+         <div>
             <div>
-                <Draw pot={this.state.pot}/>
-                <Bet />
-                <Scoreboard />
+               <button onClick={this.props.draw}>Draw</button>
             </div>
-        );
-    }
+            {/* <Draw pot={this.props.pot} /> */}
+            <Bet />
+            <Scoreboard />
+         </div>
+      );
+   }
 }
 
 export default Buttonboard;
