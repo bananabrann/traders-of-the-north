@@ -113,11 +113,12 @@ class App extends Component {
                 <p>
                     <Headerboard />
                     <Potboard
+                        pot={this.state.pot}
                         potTotal={this.state.potTotal}
-                        potGold={this.state.potGold}
-                        potFish={this.state.potFish}
-                        potBadGold={this.state.potBadGold}
-                        potBadFish={this.state.PotBadFish}
+                        // potGold={this.state.potGold}
+                        // potFish={this.state.potFish}
+                        // potBadGold={this.state.potBadGold}
+                        // potBadFish={this.state.PotBadFish}
                     />
                     <Runeboard />
                     <Buttonboard
@@ -128,11 +129,12 @@ class App extends Component {
                         potTotal={this.state.potTotal}
                     />
                     <Scoreboard
+                        pot={this.state.pot}
                         potTotal={this.state.potTotal}
-                        potGold={this.state.potGold}
-                        potFish={this.state.potFish}
-                        potBadGold={this.state.potBadGold}
-                        potBadFish={this.state.PotBadFish}
+                        // potGold={this.state.potGold}
+                        // potFish={this.state.potFish}
+                        // potBadGold={this.state.potBadGold}
+                        // potBadFish={this.state.PotBadFish}
                     />
                 </p>
             </div>
