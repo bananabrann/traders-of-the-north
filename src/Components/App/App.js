@@ -7,7 +7,7 @@ import Potboard from "../Potboard/Potboard";
 import Runeboard from "../Runeboard/Runeboard";
 import Scoreboard from "../Scoreboard/Scoreboard";
 
-const bag = ["fish", "gold", "badgold", "badfish"]
+const bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish"]
 
 const player = {
     gold: 0,
