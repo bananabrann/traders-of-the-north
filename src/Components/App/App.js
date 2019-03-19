@@ -9,8 +9,18 @@ import Scoreboard from "../Scoreboard/Scoreboard";
 
 const bag = ["fish", "gold", "badgold", "badfish"]
 
-const userViking = {};
-const player2 = {};
+const player = {
+    gold: 0,
+    fish: 0,
+    badGold: 0,
+    badFish: 0
+};
+const opp = {
+    gold: 0,
+    fish: 0,
+    badGold: 0,
+    badFish: 0
+};
 
 class App extends Component {
     constructor(props) {
@@ -18,10 +28,6 @@ class App extends Component {
         this.state = {
             pot: [],
             potTotal: 0,
-            // potGold: 0,
-            // potFish: 0,
-            // potBadGold: 0,
-            // potBadFish: 0,
 
             usersTurn: null,
             inBet: false,
@@ -118,34 +124,24 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <p>
-                    <Headerboard />
-                    <Potboard
-                        pot={this.state.pot}
-                        potTotal={this.state.potTotal}
-                        // potGold={this.state.potGold}
-                        // potFish={this.state.potFish}
-                        // potBadGold={this.state.potBadGold}
-                        // potBadFish={this.state.PotBadFish}
-                    />
-                    <Runeboard />
-                    <Buttonboard
-                        potTotal={this.state.potTotal}
-                        draw={this.draw}
-                        bet={this.bet}
-                        call={this.call}
-                        pass={this.pass}
-                        toggleManual={this.toggleManual}
-                    />
-                    <Scoreboard
-                        pot={this.state.pot}
-                        potTotal={this.state.potTotal}
-                        // potGold={this.state.potGold}
-                        // potFish={this.state.potFish}
-                        // potBadGold={this.state.potBadGold}
-                        // potBadFish={this.state.PotBadFish}
-                    />
-                </p>
+                <Headerboard />
+                <Potboard
+                    pot={this.state.pot}
+                    potTotal={this.state.potTotal}
+                />
+                <Runeboard />
+                <Buttonboard
+                    potTotal={this.state.potTotal}
+                    draw={this.draw}
+                    bet={this.bet}
+                    call={this.call}
+                    pass={this.pass}
+                    toggleManual={this.toggleManual}
+                />
+                <Scoreboard
+                    pot={this.state.pot}
+                    potTotal={this.state.potTotal}
+                />
             </div>
         );
     }
