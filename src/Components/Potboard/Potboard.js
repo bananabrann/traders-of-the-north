@@ -8,8 +8,7 @@ import "./Potboard.css";
 
 class Potboard extends Component {
     render() {
-        // let potItems = [];
-        
+
         let potItems = this.props.pot.map((item, index) => {
             return (
                 <div>

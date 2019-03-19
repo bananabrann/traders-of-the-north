@@ -32,10 +32,11 @@ class App extends Component {
         this.bet = this.bet.bind(this);
         this.call = this.call.bind(this);
         this.pass = this.pass.bind(this);
+        this.toggleManual = this.toggleManual.bind(this);
     }
 
     draw() {
-        if (this.state.potTotal < 8) {
+        if (this.state.potTotal < 8 && !this.state.inBet) {
             let newDraw = bag[Math.floor(Math.random()*bag.length)];
             console.log(`${newDraw} has been drawn`)
 
@@ -48,9 +49,8 @@ class App extends Component {
             })
         } else {
             // Make CSS on Draw button darkened
-            console.log("GAME ERROR: max draw");
+            console.log(`GAME ERROR: max draw or inBet is true. totalPot is ${this.state.potTotal}`);
             return null;
-
         }
     }
 
@@ -102,6 +102,14 @@ class App extends Component {
         }
     }
 
+    toggleManual() {
+        this.setState({
+            manualActive: !this.state.manualActive
+        }, () => {
+            console.log(`show manual: ${this.state.manualActive}`)
+        })
+    }
+
     componentDidUpdate() {
         // console.log("Update!");
         // Check the pot and display its pictures according to what was drawn
@@ -122,11 +130,12 @@ class App extends Component {
                     />
                     <Runeboard />
                     <Buttonboard
+                        potTotal={this.state.potTotal}
                         draw={this.draw}
                         bet={this.bet}
                         call={this.call}
                         pass={this.pass}
-                        potTotal={this.state.potTotal}
+                        toggleManual={this.toggleManual}
                     />
                     <Scoreboard
                         pot={this.state.pot}
