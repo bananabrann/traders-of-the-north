@@ -7,7 +7,7 @@ import Potboard from "../Potboard/Potboard";
 import Runeboard from "../Runeboard/Runeboard";
 import Scoreboard from "../Scoreboard/Scoreboard";
 
-const bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish"]
+const bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish"];
 
 const player = {
     gold: 0,
@@ -26,6 +26,8 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            message: "",
+
             pot: [],
             potTotal: 0,
 
@@ -39,22 +41,38 @@ class App extends Component {
         this.call = this.call.bind(this);
         this.pass = this.pass.bind(this);
         this.toggleManual = this.toggleManual.bind(this);
+        this.setMessage = this.setMessage.bind(this);
     }
 
     draw() {
         if (this.state.potTotal < 8 && !this.state.inBet) {
-            let newDraw = bag[Math.floor(Math.random()*bag.length)];
-            console.log(`${newDraw} has been drawn`)
+            let newDraw = bag[Math.floor(Math.random() * bag.length)];
+            console.log(`${newDraw} has been drawn`);
+            this.setMessage(`${newDraw} is unloaded off the longboat!`);
 
-            this.setState({
-                potTotal: this.state.potTotal + 1,
-                pot: [...this.state.pot, newDraw]
-            }, () => {
-                console.log(this.state.pot)
-                console.log(`potTotal is ${this.state.potTotal}`);
-            })
+            if (newDraw === "gold" || newDraw === "fish") {
+                this.setMessage(`${newDraw} is unloaded off the longboat`);
+            } else if (newDraw === "badgold") {
+                this.setMessage("A bad omen from an unknown land is unloaded...");
+            } else if (newDraw === "badfish") {
+                this.setMessage("Fish has gone bad on the voyage, and is unloaded from the boat");
+            } else {
+                this.setMessage("An ERROR has occured in draw()");
+            }
+
+            this.setState(
+                {
+                    potTotal: this.state.potTotal + 1,
+                    pot: [...this.state.pot, newDraw]
+                },
+                () => {
+                    console.log(this.state.pot);
+                    console.log(`potTotal is ${this.state.potTotal}`);
+                }
+            );
         } else {
             // Make CSS on Draw button darkened
+            this.setMessage("The market is full, you must bet!");
             console.log(`GAME ERROR: max draw or inBet is true. totalPot is ${this.state.potTotal}`);
             return null;
         }
@@ -104,16 +122,24 @@ class App extends Component {
             });
         } else {
             console.log("GAME ERROR: 'pass' called but inBet is false");
+
+            this.setMessage(
+                "You cannot PASS because your opponent has not bet!"
+            );
             return null;
         }
     }
 
     toggleManual() {
+        this.setState({ manualActive: !this.state.manualActive }, () => {
+            console.log(`show manual: ${this.state.manualActive}`);
+        });
+    }
+
+    setMessage(content) {
         this.setState({
-            manualActive: !this.state.manualActive
-        }, () => {
-            console.log(`show manual: ${this.state.manualActive}`)
-        })
+            message: content
+        });
     }
 
     componentDidUpdate() {
@@ -124,11 +150,8 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <Headerboard />
-                <Potboard
-                    pot={this.state.pot}
-                    potTotal={this.state.potTotal}
-                />
+                <Headerboard message={this.state.message} />
+                <Potboard pot={this.state.pot} potTotal={this.state.potTotal} />
                 <Runeboard />
                 <Buttonboard
                     potTotal={this.state.potTotal}
