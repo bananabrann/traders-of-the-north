@@ -6,8 +6,11 @@ class Runeboard extends Component {
         return (
             <div>
                 Runeboard
-                <Rune />
-                <Rune />
+                <div onClick={() => this.props.bet(2)}> 2 </div>
+                <div onClick={() => this.props.bet(5)}> 5 </div>
+                <div onClick={() => this.props.bet(6)}> 6 </div>
+                <div onClick={() => this.props.bet(9)}> 9 </div>
+                <br />
             </div>
         );
     }

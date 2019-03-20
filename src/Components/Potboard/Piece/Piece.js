@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import "./Piece.css";
 
-class Badgold extends Component {
+class Piece extends Component {
     render() {
         return (
             <div>
-                Badgold
+                {this.props.tokenValue}
             </div>
         );
     }
 }
 
-export default Badgold;
+export default Piece;

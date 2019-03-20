@@ -4,7 +4,9 @@ class Headerboard extends Component {
     render() {
         return (
             <div>
-                Headerboard
+                Message: {this.props.message}
+                <br />
+                <br />
             </div>
         );
     }
