@@ -5,6 +5,8 @@ class Headerboard extends Component {
         return (
             <div>
                 Message: {this.props.message}
+                <br />
+                <br />
             </div>
         );
     }

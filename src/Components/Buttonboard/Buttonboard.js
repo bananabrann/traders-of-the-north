@@ -6,7 +6,9 @@ class Buttonboard extends Component {
             <div>
                 <div>
                     <button onClick={this.props.draw}>Draw</button>
-                    <button onClick={this.props.bet}>Bet</button>
+
+                    {/* <button onClick={this.props.bet}>Bet (Runes be here)</button> */}
+
                     <button onClick={this.props.call}>Call</button>
                     <button onClick={this.props.pass}>Pass</button>
                     <button onClick={this.props.toggleManual}>Manual</button>

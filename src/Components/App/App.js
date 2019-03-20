@@ -7,6 +7,8 @@ import Potboard from "../Potboard/Potboard";
 import Runeboard from "../Runeboard/Runeboard";
 import Scoreboard from "../Scoreboard/Scoreboard";
 
+import OppLogic from "../OppLogic/OppLogic"
+
 const bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish"];
 
 const player = {
@@ -36,6 +38,8 @@ class App extends Component {
             mustBet: false,
             manualActive: false
         };
+        this.methodTester = this.methodTester.bind(this);
+
         this.draw = this.draw.bind(this);
         this.bet = this.bet.bind(this);
         this.call = this.call.bind(this);
@@ -44,10 +48,15 @@ class App extends Component {
         this.setMessage = this.setMessage.bind(this);
     }
 
+    methodTester(content) {
+        // this is for testing passing methods to components
+        console.log(content);
+    }
+
     draw() {
         if (this.state.potTotal < 8 && !this.state.inBet) {
             let newDraw = bag[Math.floor(Math.random() * bag.length)];
-            console.log(`${newDraw} has been drawn`);
+            // console.log(`${newDraw} has been drawn`);
             this.setMessage(`${newDraw} is unloaded off the longboat!`);
 
             if (newDraw === "gold" || newDraw === "fish") {
@@ -63,27 +72,33 @@ class App extends Component {
             this.setState(
                 {
                     potTotal: this.state.potTotal + 1,
-                    pot: [...this.state.pot, newDraw]
+                    pot: [...this.state.pot, newDraw],
+                    usersTurn: !this.state.usersTurn
                 },
                 () => {
-                    console.log(this.state.pot);
-                    console.log(`potTotal is ${this.state.potTotal}`);
+                    // console.log(this.state.pot);
+                    // console.log(`potTotal is ${this.state.potTotal}`);
                 }
             );
         } else {
             // Make CSS on Draw button darkened
             this.setMessage("The market is full, you must bet!");
-            console.log(`GAME ERROR: max draw or inBet is true. totalPot is ${this.state.potTotal}`);
+            this.setState({
+                mustBet: true
+            })
+            // console.log(`GAME ERROR: max draw or inBet is true. totalPot is ${this.state.potTotal}`);
             return null;
         }
     }
 
-    bet() {
+    bet(rune) {
         if (!this.state.inBet) {
             this.setState({
-                inBet: true
+                inBet: true,
+                usersTurn: !this.state.usersTurn
             });
-            console.log("'bet'");
+            console.log(`${rune} has been bet`);
+
             // Bet logic here
         } else {
             console.log("GAME ERROR: 'bet' called but inBet is true");
@@ -101,7 +116,7 @@ class App extends Component {
             // Check runes for victory
 
             this.setState({
-                inBet: false
+                inBet: false,
             });
         } else {
             // Hide and disable the pass button
@@ -118,7 +133,8 @@ class App extends Component {
             // Passes turn and forces bet
             this.setState({
                 mustBet: true,
-                inBet: false
+                inBet: false,
+                usersTurn: !this.state.usersTurn
             });
         } else {
             console.log("GAME ERROR: 'pass' called but inBet is false");
@@ -145,6 +161,7 @@ class App extends Component {
     componentDidUpdate() {
         // console.log("Update!");
         // Check the pot and display its pictures according to what was drawn
+        console.log(this.state)
     }
 
     render() {
@@ -152,7 +169,7 @@ class App extends Component {
             <div className="App">
                 <Headerboard message={this.state.message} />
                 <Potboard pot={this.state.pot} potTotal={this.state.potTotal} />
-                <Runeboard />
+                <Runeboard bet={this.bet}/>
                 <Buttonboard
                     potTotal={this.state.potTotal}
                     draw={this.draw}
@@ -164,6 +181,11 @@ class App extends Component {
                 <Scoreboard
                     pot={this.state.pot}
                     potTotal={this.state.potTotal}
+                />
+
+                <OppLogic 
+                    usersTurn={this.state.usersTurn}
+
                 />
             </div>
         );
