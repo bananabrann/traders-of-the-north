@@ -28,7 +28,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            message: "",
+            message: "The longboat has landed! May the best trader take home the most loot!",
 
             pot: [],
             potTotal: 0,
@@ -51,6 +51,18 @@ class App extends Component {
     methodTester(content) {
         // this is for testing passing methods to components
         console.log(content);
+    }
+
+    toggleManual() {
+        this.setState({ manualActive: !this.state.manualActive }, () => {
+            console.log(`show manual: ${this.state.manualActive}`);
+        });
+    }
+
+    setMessage(content) {
+        this.setState({
+            message: content
+        });
     }
 
     draw() {
@@ -146,22 +158,32 @@ class App extends Component {
         }
     }
 
-    toggleManual() {
-        this.setState({ manualActive: !this.state.manualActive }, () => {
-            console.log(`show manual: ${this.state.manualActive}`);
-        });
-    }
 
-    setMessage(content) {
-        this.setState({
-            message: content
-        });
-    }
 
     componentDidUpdate() {
-        // console.log("Update!");
+        if (this.state.potTotal === 0) {this.setMessage("An empty market looks appetizing to the boatsmen...")};
+
+
+
+        // const displayedImgs = 
+        // const pot = this.state.pot;
+
+
+
         // Check the pot and display its pictures according to what was drawn
-        console.log(this.state)
+        // ...
+        // ...
+        // ...
+
+        if (this.state.potTotal === 8) {
+            this.setMessage("The market is full! You must bet!");
+
+            // check CSS to disable the accordingly buttons
+
+            this.setState({
+                mustBet: true
+            })
+        }
     }
 
     render() {
