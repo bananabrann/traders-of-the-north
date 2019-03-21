@@ -32,6 +32,7 @@ class App extends Component {
 
             pot: [],
             potTotal: 0,
+            runesInPlay: [],
 
             usersTurn: null,
             inBet: false,
@@ -39,13 +40,17 @@ class App extends Component {
             manualActive: false
         };
         this.methodTester = this.methodTester.bind(this);
+        this.changeTurn = this.changeTurn.bind(this);
+        this.toggleManual = this.toggleManual.bind(this);
+        this.setMessage = this.setMessage.bind(this);
+        this.activateRune = this.activateRune.bind(this);
 
         this.draw = this.draw.bind(this);
         this.bet = this.bet.bind(this);
         this.call = this.call.bind(this);
         this.pass = this.pass.bind(this);
-        this.toggleManual = this.toggleManual.bind(this);
-        this.setMessage = this.setMessage.bind(this);
+
+
     }
 
     methodTester(content) {
@@ -65,8 +70,14 @@ class App extends Component {
         });
     }
 
+    changeTurn() {
+        this.setState({
+            usersTurn: !this.state.usersTurn
+        })
+    }
+
     draw() {
-        if (this.state.potTotal < 8 && !this.state.inBet) {
+        if (this.state.potTotal < 8 && (!this.state.inBet && !this.state.mustBet)) {
             let newDraw = bag[Math.floor(Math.random() * bag.length)];
             // console.log(`${newDraw} has been drawn`);
             this.setMessage(`${newDraw} is unloaded off the longboat!`);
@@ -81,82 +92,116 @@ class App extends Component {
                 this.setMessage("An ERROR has occured in draw()");
             }
 
-            this.setState(
-                {
+            this.setState({
                     potTotal: this.state.potTotal + 1,
                     pot: [...this.state.pot, newDraw],
-                    usersTurn: !this.state.usersTurn
-                },
-                () => {
-                    // console.log(this.state.pot);
-                    // console.log(`potTotal is ${this.state.potTotal}`);
-                }
+                }, () => { this.changeTurn() }
             );
         } else {
             // Make CSS on Draw button darkened
-            this.setMessage("The market is full, you must bet!");
-            this.setState({
-                mustBet: true
-            })
-            // console.log(`GAME ERROR: max draw or inBet is true. totalPot is ${this.state.potTotal}`);
-            return null;
+            if (this.state.potTotal === 8) {
+                this.setMessage("The market is full, you must bet!");
+                this.setState({
+                    mustBet: true
+                },() => { return null; })
+            } else if (this.state.inBet && !this.state.mustBet) {
+                this.setMessage("You have been called to bet! Either place a rune, or pass to force your opponent to place a rune.");
+            } else if (this.state.inBet && this.state.mustBet) {
+                this.setMessage("Your opponent passes. You must place a rune!");
+            }
+
         }
     }
+
+    activateRune(rune) {
+        if (this.state.inBet || this.state.mustBet) {
+            this.call(rune)
+        } else if (!this.state.inBet) {
+            this.setMessage("You cannot place a rune first!")
+        }
+    }
+
+
 
     bet(rune) {
         if (!this.state.inBet) {
             this.setState({
                 inBet: true,
-                usersTurn: !this.state.usersTurn
+            }, () => {
+                this.changeTurn();
+                if (this.state.usersTurn) {
+                    this.setMessage("You made a bet!");
+                } else if (!this.state.usersTurn) {
+                    this.setMessage("Your opponent has called a bet. Use a rune, or PASS to force your opponent to rune!");
+                }
             });
-            console.log(`${rune} has been bet`);
 
             // Bet logic here
         } else {
             console.log("GAME ERROR: 'bet' called but inBet is true");
             // Make Bet CSS darkened and unavailable
+            this.setMessage("There is already a trade in effect!");
 
             return null;
         }
     }
 
-    call() {
-        if (this.state.inBet) {
+    call(rune) {
+        this.state.runesInPlay.push(rune);
+
+        if (this.state.inBet && this.state.runesInPlay.length === 2) {
             console.log("'call'");
             // Show the pass button CSS
 
             // Check runes for victory
+            
+            this.state.runesInPlay.splice(0, 2);
 
             this.setState({
                 inBet: false,
+                mustBet: false,
+            }, () => {
+                this.changeTurn()
             });
-        } else {
-            // Hide and disable the pass button
-            console.log("GAME ERROR: 'call' activated but inBet is false");
+        } else if (this.state.inBet && this.state.runesInPlay.length !== 2){
+            this.setState({
+
+            }, () => { this.changeTurn() })
             return null;
         }
     }
 
     pass() {
-        if (this.state.inBet) {
+        if (this.state.inBet && !this.state.mustBet) {
             console.log("'passed'");
             // Show the pass button CSS
-
+            if (this.state.usersTurn) {
+                this.setMessage("You have declined the trade.");
+            } else {
+                this.setMessage("Your opponent has declined the trade")
+            }
             // Passes turn and forces bet
             this.setState({
-                mustBet: true,
-                inBet: false,
-                usersTurn: !this.state.usersTurn
+                mustBet: true
+            }, () => {
+
             });
         } else {
-            console.log("GAME ERROR: 'pass' called but inBet is false");
+            if (this.state.mustBet) {
+                this.setMessage("Your opponent has passed your bet. You must place a rune!");
+            } else {
+                console.log("GAME ERROR: 'pass' called but inBet is false");
 
-            this.setMessage(
-                "You cannot PASS because your opponent has not bet!"
-            );
-            return null;
+                this.setMessage(
+                    "You cannot PASS because your opponent has not bet!"
+                );
+
+                return null;
+            }
         }
     }
+
+    // make a rule checker that elimates the need for tons of if statements within the code, instead passing a pair of parameters that is then executed in this function to set the messageboard.
 
 
 
@@ -182,12 +227,12 @@ class App extends Component {
             <div className="App">
                 <Headerboard message={this.state.message} />
                 <Potboard pot={this.state.pot} potTotal={this.state.potTotal} />
-                <Runeboard bet={this.bet}/>
+                <Runeboard activateRune={this.activateRune}/>
                 <Buttonboard
                     potTotal={this.state.potTotal}
                     draw={this.draw}
                     bet={this.bet}
-                    call={this.call}
+                    activateRune={this.activateRune}
                     pass={this.pass}
                     toggleManual={this.toggleManual}
                 />
