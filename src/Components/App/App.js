@@ -154,7 +154,7 @@ class App extends Component {
             // Show the pass button CSS
 
             // Check runes for victory
-            
+
             this.state.runesInPlay.splice(0, 2);
 
             this.setState({
@@ -171,8 +171,20 @@ class App extends Component {
         }
     }
 
+
+
+
     pass() {
-        if (this.state.inBet && !this.state.mustBet) {
+        if (this.state.inBet && !this.state.mustBet && this.state.runesInPlay.length === 1) {
+            this.setMessage("Betting player passes!");
+            this.setState({
+                inBet: false,
+                mustBet: false,
+                usersTurn: !this.state.usersTurn
+            },() => {
+                this.state.runesInPlay.splice(0, 1);
+            })
+        } else if (this.state.inBet && !this.state.mustBet) {
             console.log("'passed'");
             // Show the pass button CSS
             if (this.state.usersTurn) {
@@ -180,6 +192,7 @@ class App extends Component {
             } else {
                 this.setMessage("Your opponent has declined the trade")
             }
+
             // Passes turn and forces bet
             this.setState({
                 mustBet: true
@@ -199,6 +212,7 @@ class App extends Component {
                 return null;
             }
         }
+    
     }
 
     // make a rule checker that elimates the need for tons of if statements within the code, instead passing a pair of parameters that is then executed in this function to set the messageboard.
