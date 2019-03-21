@@ -175,15 +175,6 @@ class App extends Component {
         // ...
         // ...
 
-        if (this.state.potTotal === 8) {
-            this.setMessage("The market is full! You must bet!");
-
-            // check CSS to disable the accordingly buttons
-
-            this.setState({
-                mustBet: true
-            })
-        }
     }
 
     render() {
