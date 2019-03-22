@@ -5,7 +5,7 @@ class Piece extends Component {
     render() {
         return (
             <div>
-                {this.props.tokenValue}
+                <img className="pot-item" ref="image" src={this.props.imgUrl} />
             </div>
         );
     }
