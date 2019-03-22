@@ -11,13 +11,13 @@ import OppLogic from "../OppLogic/OppLogic"
 
 const bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish"];
 
-const player = {
+const user = {
     gold: 0,
     fish: 0,
     badGold: 0,
     badFish: 0
 };
-const opp = {
+const opponent = {
     gold: 0,
     fish: 0,
     badGold: 0,
@@ -47,6 +47,7 @@ class App extends Component {
         this.toggleManual = this.toggleManual.bind(this);
         this.setMessage = this.setMessage.bind(this);
         this.activateRune = this.activateRune.bind(this);
+        this.checkVictory = this.checkVictory.bind(this);
 
         this.draw = this.draw.bind(this);
         this.bet = this.bet.bind(this);
@@ -157,7 +158,8 @@ class App extends Component {
             // Show the pass button CSS
 
             // Check runes for victory
-
+            this.checkVictory(this.state.runesInPlay[0], this.state.runesInPlay[1]);
+            
             this.state.runesInPlay.splice(0, 2);
 
             this.setState({
@@ -221,6 +223,51 @@ class App extends Component {
     // make a rule checker that elimates the need for tons of if statements within the code, instead passing a pair of parameters that is then executed in this function to set the messageboard.
 
 
+    checkVictory(rune1, rune2) {
+        console.log(`rune1 is ${rune1}, rune2 is ${rune2}`);
+
+        const highestRuneValue = Math.floor(rune1, rune2);
+        let userVikkingMadeLastCall = null;
+        let winningViking = null;
+
+        if (this.state.usersTurn) {
+            userVikkingMadeLastCall = true;
+        } else {
+            userVikkingMadeLastCall = false;
+        }
+
+        console.log(`the user made the last move: ${userVikkingMadeLastCall}`)
+
+        if ( (userVikkingMadeLastCall && (highestRuneValue === rune2)) || (!userVikkingMadeLastCall && (highestRuneValue === rune1)) ) {
+            // I don't know where this is getting flipped, but oh well
+            // winningViking = {opponent}
+
+            // for (let i = 0; i < this.state.pot; i++) {
+            //     for (const prop in opponent) {
+            //         opponent[prop] = opponent[prop] + 1
+            //     }
+            // }
+
+            for (let i = 0; i < this.state.pot; i++) {
+                opponent[this.state.pot[i]] = opponent[this.state.pot[i]] + 1
+            }
+
+
+        } else if ( (!userVikkingMadeLastCall && (highestRuneValue === rune2)) || (userVikkingMadeLastCall && (highestRuneValue === rune1)) ) {
+            // winningViking = {user}
+            for (let i = 0; i < this.state.pot; i++) {
+                user[this.state.pot[i]] = user[this.state.pot[i]] + 1
+            }
+        }
+        // console.log(`the winner is ${winningViking}`)
+
+        // console.log(winningViking)
+
+
+        // console.log(winningViking)
+        console.log(user)
+        console.log(opponent)
+    }
 
     componentDidUpdate() {
         // if (this.state.potTotal === 0) {this.setMessage("An empty market looks appetizing to the boatsmen...")};
