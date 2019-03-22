@@ -11,20 +11,33 @@ import OppLogic from "../OppLogic/OppLogic"
 
 const bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish"];
 
+
+
 const user = {
-    name: "Sigrid",
     gold: 0,
     fish: 0,
     badgold: 0,
-    badfish: 0
+    badfish: 0,
+    firstName: "Sigrid",
+    lastName: "Treasureborn"
 };
 const opponent = {
-    name: "Ulf",
     gold: 0,
     fish: 0,
     badgold: 0,
-    badfish: 0
+    badfish: 0,
+    firstName: "Ulf",
+    lastName: "Goldkeeper"
 };
+
+
+
+// Things for future work:
+
+// Make a rule checker that elimates the need for tons of if statements within the code, instead passing a pair of parameters that is then executed in this function to set the messageboard.
+// Make a single function to handle the sets of messages.
+
+
 
 class App extends Component {
     constructor(props) {
@@ -159,8 +172,6 @@ class App extends Component {
 
             // Check runes for victory
             this.checkVictory(this.state.runesInPlay[0], this.state.runesInPlay[1]);
-            
-            this.state.runesInPlay.splice(0, 2);
 
             this.setState({
                 inBet: false,
@@ -217,9 +228,6 @@ class App extends Component {
     
     }
 
-    // make a rule checker that elimates the need for tons of if statements within the code, instead passing a pair of parameters that is then executed in this function to set the messageboard.
-
-
     checkVictory(rune1, rune2) {
         // console.log(`rune1 is ${rune1}, rune2 is ${rune2}`);
 
@@ -227,9 +235,9 @@ class App extends Component {
         let userVikkingMadeLastCall = null;
         let winningViking = {};
         const victoryMessages = [
-            `What a display! ${winningViking.name} takes home the treasures!`,
-            `A cunning move... ${winningViking.name} prevails!`,
-            `Blessings from Odin, ${winningViking.name} is quick to the tongue!`
+            `What a display! ${winningViking.firstName} takes home the treasures!`,
+            `A cunning move... ${winningViking.firstName} prevails!`,
+            `Blessings from Odin, ${winningViking.firstName} is quick to the tongue!`
         ]
 
         if (this.state.usersTurn) {
@@ -238,14 +246,14 @@ class App extends Component {
             userVikkingMadeLastCall = false;
         }
 
-        console.log(`the user made the last move: ${userVikkingMadeLastCall}`)
-
         if ( (userVikkingMadeLastCall && (highestRuneValue === rune2)) || (!userVikkingMadeLastCall && (highestRuneValue === rune1)) ) {
             winningViking = opponent;
         } else if ( (!userVikkingMadeLastCall && (highestRuneValue === rune2)) || (userVikkingMadeLastCall && (highestRuneValue === rune1)) ) {
             winningViking = user;
+        } else {
+            console.log("GAME ERROR: checkVictory")
         }
-
+        
         this.state.pot.forEach((potItem, i) => {
             for(const key in winningViking) {
                 if (potItem === key) {
@@ -253,13 +261,16 @@ class App extends Component {
                 }
             }
         })
-
+        
         this.setMessage(victoryMessages[Math.floor(Math.random()*victoryMessages.length)]);
 
-        console.log("User's stockpile:")
-        console.log(user)
-        console.log("Opponents's stockpile:")
-        console.log(opponent)
+        this.state.runesInPlay.splice(0, 2);
+
+        // console.log(`the user made the last move?: ${userVikkingMadeLastCall}`)
+        console.log("User's stockpile:");
+        console.log(user);
+        console.log("Opponents's stockpile:");
+        console.log(opponent);
     }
 
     componentDidUpdate() {
