@@ -14,14 +14,14 @@ const bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish"];
 const user = {
     gold: 0,
     fish: 0,
-    badGold: 0,
-    badFish: 0
+    badgold: 0,
+    badfish: 0
 };
 const opponent = {
     gold: 0,
     fish: 0,
-    badGold: 0,
-    badFish: 0
+    badgold: 0,
+    badfish: 0
 };
 
 class App extends Component {
@@ -224,11 +224,11 @@ class App extends Component {
 
 
     checkVictory(rune1, rune2) {
-        console.log(`rune1 is ${rune1}, rune2 is ${rune2}`);
+        // console.log(`rune1 is ${rune1}, rune2 is ${rune2}`);
 
         const highestRuneValue = Math.floor(rune1, rune2);
         let userVikkingMadeLastCall = null;
-        let winningViking = null;
+        let winningViking = "";
 
         if (this.state.usersTurn) {
             userVikkingMadeLastCall = true;
@@ -240,24 +240,44 @@ class App extends Component {
 
         if ( (userVikkingMadeLastCall && (highestRuneValue === rune2)) || (!userVikkingMadeLastCall && (highestRuneValue === rune1)) ) {
             // I don't know where this is getting flipped, but oh well
-            // winningViking = {opponent}
+
+            this.state.pot.forEach((potItem, i) => {
+                // console.log("potItem detected")
+                for (const key in opponent) {
+                    console.log(`key: ${key}`)
+                    // console.log(opponent[key])
+                    if (potItem === key) {
+                        console.log("match")
+                        return opponent[key] = opponent[key] + 1;
+                    }
+                }
+            })
 
             // for (let i = 0; i < this.state.pot; i++) {
-            //     for (const prop in opponent) {
-            //         opponent[prop] = opponent[prop] + 1
-            //     }
+            //     opponent[this.state.pot[i]] = opponent[this.state.pot[i]] + 1
             // }
-
-            for (let i = 0; i < this.state.pot; i++) {
-                opponent[this.state.pot[i]] = opponent[this.state.pot[i]] + 1
-            }
 
 
         } else if ( (!userVikkingMadeLastCall && (highestRuneValue === rune2)) || (userVikkingMadeLastCall && (highestRuneValue === rune1)) ) {
-            // winningViking = {user}
-            for (let i = 0; i < this.state.pot; i++) {
-                user[this.state.pot[i]] = user[this.state.pot[i]] + 1
-            }
+            // winningViking = "user"
+            // for (let i = 0; i < this.state.pot; i++) {
+            //     user[this.state.pot[i]] = user[this.state.pot[i]] + 1
+            // }
+
+
+            this.state.pot.forEach((potItem, i) => {
+                // console.log("potItem detected")
+                for (const key in opponent) {
+                    console.log(`key: ${key}`)
+                    // console.log(opponent[key])
+                    if (potItem === key) {
+                        console.log("match")
+                        return opponent[key] = opponent[key] + 1;
+                    }
+                }
+            })
+
+
         }
         // console.log(`the winner is ${winningViking}`)
 
