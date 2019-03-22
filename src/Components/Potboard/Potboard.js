@@ -20,8 +20,8 @@ class Potboard extends Component {
 
         const potItems = piecePicUrl.map((item, index) => {
             return (
-                <div>
-                    <Piece tokenValue={item} imgUrl={piecePicUrl[index]} alt="game-piece-img" key={index}  />
+                <div key={index}>
+                    <Piece tokenValue={item} imgUrl={piecePicUrl[index]} alt="game-piece-img"   />
                 </div>
             )
         })

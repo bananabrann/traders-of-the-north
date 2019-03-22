@@ -6,8 +6,8 @@ class Runeboard extends Component {
     render() {
         let runes = this.props.usersRunes.map((runeValue, i) => {
             return(
-                <div>
-                    <Rune activateRune={this.props.activateRune} runeValue={runeValue} key={i} />
+                <div key={i}>
+                    <Rune activateRune={this.props.activateRune} runeValue={runeValue} />
                 </div>
             )
         })
