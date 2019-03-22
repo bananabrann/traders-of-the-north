@@ -28,6 +28,9 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            usersRunes: [2, 5, 6, 9],
+            oppsRunes: [],
+
             message: "The longboat has landed! May the best trader take home the most loot!",
 
             pot: [],
@@ -220,20 +223,7 @@ class App extends Component {
 
 
     componentDidUpdate() {
-        if (this.state.potTotal === 0) {this.setMessage("An empty market looks appetizing to the boatsmen...")};
-
-
-
-        // const displayedImgs = 
-        // const pot = this.state.pot;
-
-
-
-        // Check the pot and display its pictures according to what was drawn
-        // ...
-        // ...
-        // ...
-
+        // if (this.state.potTotal === 0) {this.setMessage("An empty market looks appetizing to the boatsmen...")};
     }
 
     render() {
@@ -241,7 +231,10 @@ class App extends Component {
             <div className="App">
                 <Headerboard message={this.state.message} />
                 <Potboard pot={this.state.pot} potTotal={this.state.potTotal} />
-                <Runeboard activateRune={this.activateRune}/>
+                <Runeboard
+                    activateRune={this.activateRune}
+                    usersRunes={this.state.usersRunes}
+                />
                 <Buttonboard
                     potTotal={this.state.potTotal}
                     draw={this.draw}

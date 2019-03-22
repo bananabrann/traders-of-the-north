@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
+import Rune from "./Rune/Rune";
 
 class Runeboard extends Component {
+
     render() {
-        return (
+        let runes = this.props.usersRunes.map((runeValue, i) => {
+            return(
+                <div>
+                    <Rune activateRune={this.props.activateRune} runeValue={runeValue} key={i} />
+                </div>
+            )
+        })
+
+        return(
             <div>
-                Runeboard
-                <span onClick={() => this.props.activateRune(2)}> 2 </span>
-                <span onClick={() => this.props.activateRune(5)}> 5 </span>
-                <span onClick={() => this.props.activateRune(6)}> 6 </span>
-                <span onClick={() => this.props.activateRune(9)}> 9 </span>
-                <br />
-                <br />
+                {runes}
             </div>
-        );
+        )
     }
 }
 
