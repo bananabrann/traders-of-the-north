@@ -1,18 +1,14 @@
 import React, { Component } from "react";
-import "./Reset.css";
-import "./App.css";
 import Buttonboard from "../Buttonboard/Buttonboard";
 import Headerboard from "../Headerboard/Headerboard";
 import Potboard from "../Potboard/Potboard";
 import Runeboard from "../Runeboard/Runeboard";
 import Scoreboard from "../Scoreboard/Scoreboard";
-
 import OppLogic from "../OppLogic/OppLogic"
+import "./Reset.css";
+import "./App.css";
 
 const bag = ["gold", "gold", "fish", "fish", "fish", "badgold", "badfish"];
-
-
-
 const user = {
     gold: 0,
     fish: 0,
