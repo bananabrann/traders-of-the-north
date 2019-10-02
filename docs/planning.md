@@ -43,13 +43,24 @@ State needs to keep track of...
 ## Title
 Purpose: Contains the details of the title page
 
-The title page should display...
+The title should display...
 - [ ] The main logo of the page
 - [ ] A "play" option
 - [ ] An "instructions option
 - ~~[ ] A "credits/info" option~~
 - [ ] Display credits and information
 
-The title page should have a function...
+The title should have a function...
 - [ ] That sets state operators when User clicks "play" option
 - [ ] That sets state operators when User clicks "instructions" option
+
+## Instructions
+Purpose: Display the instructions for the game
+
+The instructions should...
+- [ ] Detail on how to play the game
+- [ ] Have an option to return to the Title
+
+The instructions should have a fucntion...
+- [ ] That sets state operators when User clicks "title" option
+
