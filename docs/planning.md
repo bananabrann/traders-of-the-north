@@ -9,13 +9,14 @@ This planning document will attempt to _not_ assume any states, variable types, 
 # Table of Contents
 1. [Available Features](#available-features)
 1. [App](#app)
-1. [Title Page](#title)
+1. [Title](#title)
+1. [Instructions](#instructions)
 
 ## Available Features
 In MVP status, Traders of the North should...
-- [ ] Have a title page
+- [ ] Have a title page 
 - [ ] Have a game page
-- [ ] Have instructions page
+- [ ] Have instructions
 - ~~[ ] Have credits/info page~~
 - [ ] Be able to quit game and return to title page
 - [ ] Pages render on one root URL path _(So that Router package is not passing variables; avoid additional state management packages)_
@@ -32,13 +33,6 @@ State needs to keep track of...
 - [ ] If User is on the game page
 - [ ] If User is on the instructions page
 - [ ] If User is on the credits/info page
-- [ ] User viking's first and last name
-- [ ] Opponent viking's first and last name
-- [ ] User's current runes
-- [ ] Opponent's current runes
-- [ ] User's stockpile of gold, fish, totems, and seaweed
-- [ ] Opponent's stockpile of gold, fish, totems, and seaweed
-- [ ] Who's turn it is
 
 ## Title
 Purpose: Contains the details of the title page
@@ -64,3 +58,33 @@ The instructions should...
 The instructions should have a fucntion...
 - [ ] That sets state operators when User clicks "title" option
 
+## Game
+Purpose: The main component for the game
+
+The game state should keep track of...
+- [ ] User viking's first and last name
+- [ ] Opponent viking's first and last name
+- [ ] User's current runes
+- [ ] Opponent's current runes
+- [ ] User's stockpile of gold, fish, totems, and seaweed
+- [ ] Opponent's stockpile of gold, fish, totems, and seaweed
+- [ ] Who's turn it is
+
+The game should display...
+- [ ] Header-style logo bordering the top
+- [ ] Button for "Draw"
+- [ ] Button for "Bet"
+- [ ] Button for "Pass"
+- [ ] Button to return to Title
+- [ ] User's stockpile
+- [ ] Opponent's stockpile
+- [ ] The pot
+
+The game functions should include...
+- [ ] Draw() - _add pseudocode here_
+- [ ] Pass() - _add pseudocode here_
+- [ ] Bet() - _add pseudocode here_
+
+Intentional exludes:
+- Note: Keep the methods in the game, so to avoid state control packages. E.g., don't put pot handlers in the pot component.
+- Excludee: A button to view instructions
