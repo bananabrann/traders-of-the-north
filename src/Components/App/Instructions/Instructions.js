@@ -10,7 +10,7 @@ class Instructions extends React.Component {
 
   render() {
     return(
-      <div>
+      <div id="Instructions">
         Instructions Screen
       </div>
     )

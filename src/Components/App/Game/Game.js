@@ -10,7 +10,7 @@ class Game extends React.Component {
 
   render() {
     return(
-      <div>
+      <div id="Game">
         Game Screen
       </div>
     )
