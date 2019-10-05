@@ -71,6 +71,10 @@ The game state should keep track of...
 - [ ] Opponent's stockpile of gold, fish, totems, and seaweed
 - [ ] Who's turn it is
 - [ ] The message board content
+- [ ] If the draw button should be displayed
+- [ ] If the bet button should be displayed
+- [ ] If the pass button should be displayed
+- [ ] If the player or opponent must play a rune
 
 The game should display...
 - [ ] Header-style logo bordering the top
@@ -81,11 +85,14 @@ The game should display...
 - [ ] User's stockpile
 - [ ] Opponent's stockpile
 - [ ] The pot
+- [ ] A message board
 
-The game functions should include...
-- [ ] Draw() - _add pseudocode here_
-- [ ] Pass() - _add pseudocode here_
-- [ ] Bet() - _add pseudocode here_
+The game functions should include, and potentially affect...
+- [ ] draw()
+- [ ] pass()
+- [ ] bet()
+- [ ] placeRune(rune: int)
+
 
 Intentional exludes:
 - Note: Keep the methods in the game, so to avoid state control packages. E.g., don't put pot handlers in the pot component.
