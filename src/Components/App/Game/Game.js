@@ -1,5 +1,7 @@
 import React from 'react';
 
+import "./Game.scss"
+
 class Game extends React.Component {
   constructor() {
     super();

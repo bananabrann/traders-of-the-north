@@ -1,0 +1,20 @@
+#Game {
+  background-color: coral;
+
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-areas:
+    "topbar topbar topbar topbar logo logo logo logo logo logo logo logo topbar topbar topbar topbar"
+    ". . . . logo logo logo logo logo logo logo logo . . . ."
+    ". pot pot pot pot pot pot pot pot pot pot pot pot pot pot ."
+    ". pot pot pot pot pot pot pot pot pot pot pot pot pot pot ."
+    ". pot pot pot pot pot pot pot pot pot pot pot pot pot pot ."
+    ". pot pot pot pot pot pot pot pot pot pot pot pot pot pot ."
+    ". pot pot pot pot pot pot pot pot pot pot pot pot pot pot mini-btn"
+    "btn-board btn-board btn-board btn-board rune-board rune-board rune-board rune-board rune-board rune-board rune-board info-board info-board info-board info-board info-board"
+    "btn-board btn-board btn-board btn-board rune-board rune-board rune-board rune-board rune-board rune-board rune-board info-board info-board info-board info-board info-board"
+    "btn-board btn-board btn-board btn-board rune-board rune-board rune-board rune-board rune-board rune-board rune-board info-board info-board info-board info-board info-board";
+}
