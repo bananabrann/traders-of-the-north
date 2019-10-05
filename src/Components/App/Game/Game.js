@@ -11,7 +11,8 @@ class Game extends React.Component {
   render() {
     return(
       <div id="Game">
-        Game Screen
+        <h1>Game Screen</h1>
+        <div onClick={() => this.props.handleScreenSelectionClick("title")}>Title</div>
       </div>
     )
   }

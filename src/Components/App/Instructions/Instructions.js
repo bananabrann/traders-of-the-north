@@ -11,7 +11,8 @@ class Instructions extends React.Component {
   render() {
     return(
       <div id="Instructions">
-        Instructions Screen
+        <h1>Instructions Screen</h1>
+        <div onClick={() => this.props.handleScreenSelectionClick("title")}>Title</div>
       </div>
     )
   }

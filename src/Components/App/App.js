@@ -44,6 +44,7 @@ class App extends Component {
     return (
       <div id="App">
         <h1>Traders of the North</h1>
+        
         {this.state.shouldDisplayTitle ? (
           <Title handleScreenSelectionClick={this.handleScreenSelectionClick} />
         ) : null}
