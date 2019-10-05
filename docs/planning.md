@@ -25,10 +25,6 @@ In MVP status, Traders of the North should...
 ## App
 Purpose: Main container, state control, variable declarations
 
-A variable needs to define...
-- [ ] Bag of possible pieces
-- [ ] Base runes on reset or new game
-
 State needs to keep track of...
 - [ ] If User is viewing title page
 - [ ] If User is on the game page
@@ -89,3 +85,4 @@ The game functions should include...
 Intentional exludes:
 - Note: Keep the methods in the game, so to avoid state control packages. E.g., don't put pot handlers in the pot component.
 - Excludee: A button to view instructions
+
