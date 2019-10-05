@@ -23,19 +23,19 @@ class App extends Component {
       shouldDisplayTitle: true,
       shouldDisplayGame: false,
       shouldDisplayInstructions: false
-    }) : null
+    }) : void
     // prettier-ignore
     desiredPage === "game" ? this.setState({
       shouldDisplayTitle: false,
       shouldDisplayGame: true,
       shouldDisplayInstructions: false
-    }) : null
+    }) : void
     // prettier-ignore
     desiredPage === "instructions" ? this.setState({
       shouldDisplayTitle: false,
       shouldDisplayGame: false,
       shouldDisplayInstructions: true
-    }) : null
+    }) : console.log("ERROR - handleScreenSelectionClick(desiredPage: String did not have a parameter passed to it that passed conditional statements\n")
   }
 
   render() {

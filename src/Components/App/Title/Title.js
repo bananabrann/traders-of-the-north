@@ -10,7 +10,7 @@ class Title extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="Title">
         Title Screen
       </div>
     )
