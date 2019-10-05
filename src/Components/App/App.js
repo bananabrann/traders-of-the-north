@@ -18,33 +18,43 @@ class App extends Component {
   }
 
   handleScreenSelectionClick(desiredPage) {
+    console.log("handleScreenSelectionClick(desiredPage: String) called")
+
     // prettier-ignore
     desiredPage === "title" ? this.setState({
       shouldDisplayTitle: true,
       shouldDisplayGame: false,
       shouldDisplayInstructions: false
-    }) : void
+    }) : void(0)
     // prettier-ignore
     desiredPage === "game" ? this.setState({
       shouldDisplayTitle: false,
       shouldDisplayGame: true,
       shouldDisplayInstructions: false
-    }) : void
+    }) : void(0)
     // prettier-ignore
     desiredPage === "instructions" ? this.setState({
       shouldDisplayTitle: false,
       shouldDisplayGame: false,
       shouldDisplayInstructions: true
-    }) : console.log("ERROR - handleScreenSelectionClick(desiredPage: String did not have a parameter passed to it that passed conditional statements\n")
+    }) : void(0)
   }
 
   render() {
     return (
       <div className="App">
         <h1>Traders of the North</h1>
-        {this.state.shouldDisplayTitle ? <Title /> : null}
-        {this.state.shouldDisplayGame ? <Game /> : null}
-        {this.state.shouldDisplayInstructions ? <Instructions /> : null}
+        {this.state.shouldDisplayTitle ? (
+          <Title handleScreenSelectionClick={this.handleScreenSelectionClick} />
+        ) : null}
+        {this.state.shouldDisplayGame ? (
+          <Game handleScreenSelectionClick={this.handleScreenSelectionClick} />
+        ) : null}
+        {this.state.shouldDisplayInstructions ? (
+          <Instructions
+            handleScreenSelectionClick={this.handleScreenSelectionClick}
+          />
+        ) : null}
       </div>
     )
   }

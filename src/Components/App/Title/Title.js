@@ -11,7 +11,11 @@ class Title extends React.Component {
   render() {
     return(
       <div className="Title">
-        Title Screen
+        <h1>Title Screen</h1>
+        <div id="title-page-selection-wrapper">
+          <div onClick={() => this.props.handleScreenSelectionClick("game")}>Play Game</div>
+          <div onClick={() => this.props.handleScreenSelectionClick("instructions")}>Instructions</div>
+        </div>
       </div>
     )
   }
