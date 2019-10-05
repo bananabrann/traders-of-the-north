@@ -58,6 +58,10 @@ The instructions should have a fucntion...
 ## Game
 Purpose: The main component for the game
 
+A variable needs to define...
+- [ ] Bag of possible pieces
+- [ ] Base runes on reset or new game
+
 The game state should keep track of...
 - [ ] User viking's first and last name
 - [ ] Opponent viking's first and last name
@@ -66,6 +70,7 @@ The game state should keep track of...
 - [ ] User's stockpile of gold, fish, totems, and seaweed
 - [ ] Opponent's stockpile of gold, fish, totems, and seaweed
 - [ ] Who's turn it is
+- [ ] The message board content
 
 The game should display...
 - [ ] Header-style logo bordering the top
