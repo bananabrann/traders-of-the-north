@@ -11,6 +11,7 @@ This planning document will attempt to _not_ assume any states, variable types, 
 1. [App](#app)
 1. [Title](#title)
 1. [Instructions](#instructions)
+1. [Game] (#game)
 
 ## Available Features
 In MVP status, Traders of the North should...
