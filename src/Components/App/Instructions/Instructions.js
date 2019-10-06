@@ -12,7 +12,7 @@ class Instructions extends React.Component {
     return(
       <div id="Instructions">
         <h1>Instructions Screen</h1>
-        <div onClick={() => this.props.handleScreenSelectionClick("title")}>Title</div>
+        <div onClick={() => this.props.handleScreenSelectionClick("title")}>Title</div> 
       </div>
     )
   }
