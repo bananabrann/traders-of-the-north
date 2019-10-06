@@ -37,7 +37,36 @@ class Game extends React.Component {
       mustBet: false,
       messageBoardContent: ""
     }
+    this.draw = this.draw.bind(this)
+    this.bet = this.bet.bind(this)
+    this.pass = this.pass.bind(this)
+    this.placeRune = this.placeRune.bind(this)
     this.setButtonDisplayVisibility = this.setButtonDisplayVisibility.bind(this)
+    this.checkConditionsForForcedBet = this.checkConditionsForForcedBet.bind(this)
+  }
+
+  draw() {
+    const drawnPiece = bag[Math.floor(Math.random()*bag.length)]
+    this.state.pot.push(drawnPiece)
+
+    this.setState({
+      isUsersTurn: !this.state.isUsersTurn
+    })
+
+    console.log("Drawed")
+    console.table(this.state)
+  }
+
+  bet() {
+
+  }
+
+  pass() {
+
+  }
+
+  placeRune(rune) {
+
   }
 
   setButtonDisplayVisibility(affectedButton, value) {
@@ -55,6 +84,13 @@ class Game extends React.Component {
     (affectedButton === "pass") ? this.setState({
       shouldDisplayDrawButton: value
     }) : void(0)
+  }
+
+  checkConditionsForForcedBet() {
+  }
+
+  componentDidUpdate() {
+    console.log("Checking for forced bet...")
   }
 
   componentDidMount() {}
@@ -75,6 +111,15 @@ class Game extends React.Component {
         </div>
         <div id="button-board">
           Button Board be here
+          <div className="action-btn" onClick={() => this.draw()}>
+            Draw
+          </div>
+          <div className="action-btn" onClick={() => this.bet()}>
+            Bet
+          </div>
+          <div className="action-btn" onClick={() => this.pass()}>
+            Pass
+          </div>
         </div>
         <div id="rune-board">
           Rune Board be here
