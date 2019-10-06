@@ -37,22 +37,21 @@ class Game extends React.Component {
       isOutsideRecommendedWidth: false,
       shouldDisplayDrawButton: true,
       shouldDisplayBetButton: true,
-      shouldDisplayPassButton: true,
+      shouldDisplayPassButton: false,
+      shouldAllowRunePlacement: false,
+      betWasCalled: false,
       mustBet: false,
+      mustPlaceRune: false,
       messageBoardContent: ""
     }
     this.draw = this.draw.bind(this)
     this.bet = this.bet.bind(this)
     this.pass = this.pass.bind(this)
     this.handlePlaceRune = this.handlePlaceRune.bind(this)
-    this.setButtonDisplayVisibility = this.setButtonDisplayVisibility.bind(this)
-    // prettier-ignore
-    this.checkConditionsForForcedBet = this.checkConditionsForForcedBet.bind(this)
+    this.checkForcedBet = this.checkForcedBet.bind(this)
   }
 
   draw() {
-    // console.log("draw() called")
-
     if (this.state.mustBet) {
       return console.log("you can't draw, you must bet")
     } else {
@@ -61,59 +60,85 @@ class Game extends React.Component {
       this.setState({
         isUsersTurn: !this.state.isUsersTurn
       })
-      console.log(
-        `${drawnPiece} drawed. Pot: ${this.state.pot}. usersTurn: ${this.state.isUsersTurn}`
-      )
+      // console.log(
+      //   `${drawnPiece} drawed. Pot: ${this.state.pot}. usersTurn: ${this.state.isUsersTurn}`
+      // )
     }
-    // console.table(this.state)
   }
 
   bet() {
     console.log("bet() called")
+    this.setState({
+      betWasCalled: true,
+      isUsersTurn: !this.state.isUsersTurn,
+      shouldDisplayBetButton: false,
+      shouldDisplayDrawButton: false,
+      shouldDisplayPassButton: true,
+      shouldAllowRunePlacement: true
+    })
   }
 
   pass() {
     console.log("pass() called")
+    this.setState({isUsersTurn: !this.state.isUsersTurn})
+
+    if (this.state.isUsersTurn) {
+      this.setState({
+        mustBet: false,
+        mustPlaceRune: true,
+        shouldDisplayPassButton: true
+      })
+    }
   }
 
   handlePlaceRune(rune) {
     console.log(`The ${rune} has been placed`)
   }
 
-  setButtonDisplayVisibility(affectedButton, value) {
-    // TODO: These can be written out dynamically, so that I don't have to do an if for each possible
-    // NOTE: This method is not tested
 
-    // prettier-ignore
-    (affectedButton === "draw") ? this.setState({
-      shouldDisplayDrawButton: value
-    }) : void(0)
-    // prettier-ignore
-    (affectedButton === "bet") ? this.setState({
-      shouldDisplayBetButton: value
-    }) : void(0)
-    // prettier-ignore
-    (affectedButton === "pass") ? this.setState({
-      shouldDisplayDrawButton: value
-    }) : void(0)
-  }
+  checkForcedBet() {
+    const isUsersTurn = this.state.isUsersTurn
+    const betWasCalled = this.state.betWasCalled
+    const pot = this.state.pot
 
-  checkConditionsForForcedBet() {
-    if (this.state.pot.length >= 8) {
+    if (pot.length >= 8) {
       this.setState({
-        mustBet: true
+        mustBet: true,
+        mustPlaceRune: true,
+        shouldDisplayBetButton: true,
+        shouldDisplayDrawButton: false,
+        shouldDisplayPassButton: false,
+        shouldAllowRunePlacement: false
       })
+    }
+    if (betWasCalled) {
+      if (isUsersTurn) {
+        this.setState({
+          mustBet: false,
+          mustPlaceRune: false,
+          shouldDisplayBetButton: false,
+          shouldDisplayDrawButton: false,
+          shouldDisplayPassButton: true,
+          shouldAllowRunePlacement: true
+        })
+      } else if (!isUsersTurn) {
+        console.log("Not users turn, ")
+        // Call opponent logic
+      }
     }
   }
 
   componentDidUpdate() {
     // console.log("Checking for forced bet...")
-    if (!this.state.mustBet) {
-      this.checkConditionsForForcedBet()
+    if (!this.state.mustBet && !this.state.mustPlaceRune && !this.state.betWasCalled) {
+      this.checkForcedBet()
     }
+    console.log(`isUsersTurn: ${this.state.isUsersTurn} betWasCalled: ${this.state.betWasCalled}`)
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    document.title = "Traders of the North"
+  }
 
   render() {
     return (
@@ -129,9 +154,7 @@ class Game extends React.Component {
         <div id="logo-header"></div>
 
         <div id="pot">
-          <PotBoard 
-            pot={this.state.pot}
-          />
+          <PotBoard pot={this.state.pot} />
         </div>
 
         <div id="button-board">

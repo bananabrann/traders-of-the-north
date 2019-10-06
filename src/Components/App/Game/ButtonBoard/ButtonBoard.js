@@ -17,7 +17,7 @@ class ButtonBoard extends React.Component {
 
     return (
       <div>
-        {shouldDisplayBetButton ? (
+        {shouldDisplayDrawButton ? (
           <div className="action-btn" onClick={() => this.props.draw()}>
             Draw
           </div>
