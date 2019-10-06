@@ -3,6 +3,7 @@ import ButtonBoard from "./ButtonBoard/ButtonBoard"
 import InfoBoard from "./InfoBoard/InfoBoard"
 import PotBoard from "./PotBoard/PotBoard"
 import RuneBoard from "./RuneBoard/RuneBoard"
+import Opponent from "../../../Opponent"
 
 import "./Game.scss"
 
@@ -52,6 +53,7 @@ class Game extends React.Component {
   }
 
   draw() {
+    Opponent.draw()
     if (this.state.mustBet) {
       return console.log("you can't draw, you must bet")
     } else {
