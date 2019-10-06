@@ -5,15 +5,13 @@ const uuid = require("uuid-js")
 
 class PotBoard extends React.Component {
   render() {
-    console.log("RENDER")
-    
     return (
       <div>
         {this.props.pot.map((item, idx) => {
           // TODO: This might be able to refactor
           {
             let uuid1 = uuid.create(1).toString()
-            
+
             if (item === "gold") {
               return <img key={uuid1} alt="gold" src="" />
             } else if (item === "fish") {
