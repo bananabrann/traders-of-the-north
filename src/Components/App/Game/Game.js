@@ -1,4 +1,5 @@
 import React from "react"
+import ButtonBoard from "./ButtonBoard/ButtonBoard"
 import InfoBoard from "./InfoBoard/InfoBoard"
 import RuneBoard from "./RuneBoard/RuneBoard"
 
@@ -33,9 +34,9 @@ class Game extends React.Component {
       pot: [],
       isUsersTurn: true,
       isOutsideRecommendedWidth: false,
-      shouldDisplayDrawButton: false,
-      shouldDisplayBetButton: false,
-      shouldDisplayPassButton: false,
+      shouldDisplayDrawButton: true,
+      shouldDisplayBetButton: true,
+      shouldDisplayPassButton: true,
       mustBet: false,
       messageBoardContent: ""
     }
@@ -49,20 +50,24 @@ class Game extends React.Component {
   }
 
   draw() {
-    const drawnPiece = bag[Math.floor(Math.random() * bag.length)]
-    this.state.pot.push(drawnPiece)
+    console.log("draw() called")
+    // const drawnPiece = bag[Math.floor(Math.random() * bag.length)]
+    // this.state.pot.push(drawnPiece)
 
-    this.setState({
-      isUsersTurn: !this.state.isUsersTurn
-    })
+    // this.setState({
+    //   isUsersTurn: !this.state.isUsersTurn
+    // })
 
-    console.log("Drawed")
-    console.table(this.state)
+    // console.table(this.state)
   }
 
-  bet() {}
+  bet() {
+    console.log("bet() called")
+  }
 
-  pass() {}
+  pass() {
+    console.log("pass() called")
+  }
 
   handlePlaceRune(rune) {
     console.log(`The ${rune} has been placed`)
@@ -110,16 +115,14 @@ class Game extends React.Component {
         <div id="pot">Pot be here</div>
 
         <div id="button-board">
-          Button Board be here
-          <div className="action-btn" onClick={() => this.draw()}>
-            Draw
-          </div>
-          <div className="action-btn" onClick={() => this.bet()}>
-            Bet
-          </div>
-          <div className="action-btn" onClick={() => this.pass()}>
-            Pass
-          </div>
+          <ButtonBoard
+            shouldDisplayBetButton={this.state.shouldDisplayBetButton}
+            shouldDisplayDrawButton={this.state.shouldDisplayDrawButton}
+            shouldDisplayPassButton={this.state.shouldDisplayPassButton}
+            bet={this.bet}
+            draw={this.draw}
+            pass={this.pass}
+          />
         </div>
 
         <div id="rune-board">
