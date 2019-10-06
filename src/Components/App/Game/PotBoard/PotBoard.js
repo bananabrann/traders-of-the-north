@@ -2,7 +2,6 @@ import React from "react"
 
 const uuid = require("uuid-js")
 
-
 class PotBoard extends React.Component {
   render() {
     return (
@@ -28,7 +27,6 @@ class PotBoard extends React.Component {
       </div>
     )
   }
-
 }
 
 export default PotBoard
