@@ -42,7 +42,7 @@ class Game extends React.Component {
     this.draw = this.draw.bind(this)
     this.bet = this.bet.bind(this)
     this.pass = this.pass.bind(this)
-    this.placeRune = this.placeRune.bind(this)
+    this.handlePlaceRune = this.handlePlaceRune.bind(this)
     this.setButtonDisplayVisibility = this.setButtonDisplayVisibility.bind(this)
     // prettier-ignore
     this.checkConditionsForForcedBet = this.checkConditionsForForcedBet.bind(this)
@@ -64,7 +64,9 @@ class Game extends React.Component {
 
   pass() {}
 
-  placeRune(rune) {}
+  handlePlaceRune(rune) {
+    console.log(`The ${rune} has been placed`)
+  }
 
   setButtonDisplayVisibility(affectedButton, value) {
     // TODO: These can be written out dynamically, so that I don't have to do an if for each possible
@@ -121,7 +123,10 @@ class Game extends React.Component {
         </div>
 
         <div id="rune-board">
-          <RuneBoard usersRunes={this.state.user.rune} />
+          <RuneBoard
+            handlePlaceRune={this.handlePlaceRune}
+            usersRunes={this.state.user.rune}
+          />
         </div>
 
         <div id="info-board">

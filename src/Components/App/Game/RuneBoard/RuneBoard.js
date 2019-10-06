@@ -13,8 +13,14 @@ class RuneBoard extends React.Component {
     return (
       <div>
         {this.props.usersRunes.map((r, i) => {
-            return <Rune key={i} runeValue={r} />
-          })}
+          return (
+            <Rune
+              key={i}
+              runeValue={r}
+              handlePlaceRune={this.props.handlePlaceRune}
+            />
+          )
+        })}
       </div>
     )
   }
