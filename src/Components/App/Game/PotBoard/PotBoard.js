@@ -1,20 +1,27 @@
 import React from "react"
 
+const uuid = require("uuid-js")
+
+
 class PotBoard extends React.Component {
   render() {
+    console.log("RENDER")
+    
     return (
       <div>
         {this.props.pot.map((item, idx) => {
           // TODO: This might be able to refactor
           {
-            if (this.props.pot[idx] === "gold") {
-              return <p>gold image here</p>
-            } else if (this.props.pot[idx] === "fish") {
-              return <p>fish image here</p>
-            } else if (this.props.pot[idx] === "totem") {
-              return <p>totem image here</p>
-            } else if (this.props.pot[idx] === "seaweed") {
-              return <p>seaweed image here</p>
+            let uuid1 = uuid.create(1).toString()
+            
+            if (item === "gold") {
+              return <img key={uuid1} alt="gold" src="" />
+            } else if (item === "fish") {
+              return <img key={uuid1} alt="fish" src="" />
+            } else if (item === "totem") {
+              return <img key={uuid1} alt="totem" src="" />
+            } else if (item === "seaweed") {
+              return <img key={uuid1} alt="seaweed" src="" />
             } else {
               return <err>Error</err>
             }
