@@ -1,13 +1,17 @@
+$dev-c: rgba(255, 0, 0, 0.082);
 #Game {
-  background-color: coral;
+  // * {
+  //   background-color: $dev-c;
+  // }
+  background-color: $dev-c;
 
   width: 100vw;
   height: 100vh;
   display: grid;
   grid-template-rows: repeat(10, 1fr);
-  grid-template-columns: repeat(15, 1fr);
+  grid-template-columns: repeat(16, 1fr);
   grid-template-areas:
-    "topbar topbar topbar topbar logo logo logo logo logo logo logo logo topbar topbar topbar topbar"
+    "back-btn topbar-l topbar-l topbar-l logo logo logo logo logo logo logo logo topbar-r topbar-r topbar-r topbar-r"
     ". . . . logo logo logo logo logo logo logo logo . . . ."
     ". pot pot pot pot pot pot pot pot pot pot pot pot pot pot ."
     ". pot pot pot pot pot pot pot pot pot pot pot pot pot pot ."
@@ -18,5 +22,33 @@
     "btn-board btn-board btn-board btn-board rune-board rune-board rune-board rune-board rune-board rune-board rune-board info-board info-board info-board info-board info-board"
     "btn-board btn-board btn-board btn-board rune-board rune-board rune-board rune-board rune-board rune-board rune-board info-board info-board info-board info-board info-board";
 
-    
+  #return-to-title-btn {
+    grid-area: back-btn;
+    background-color: $dev-c;
+  }
+
+  #logo-header {
+    grid-area: logo;
+    background-color: $dev-c;
+  }
+
+  #pot {
+    grid-area: pot;
+    background-color: $dev-c;
+  }
+
+  #button-board {
+    grid-area: btn-board;
+    background-color: $dev-c;
+  }
+
+  #rune-board {
+    grid-area: rune-board;
+    background-color: $dev-c;
+  }
+
+  #info-board {
+    grid-area: info-board;
+    background-color: $dev-c;
+  }
 }

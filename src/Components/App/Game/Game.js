@@ -28,7 +28,9 @@ class Game extends React.Component {
         totem: 0,
         seaweed: 0
       },
+      pot: [],
       isUsersTurn: true,
+      isOutsideRecommendedWidth: false,
       shouldDisplayDrawButton: false,
       shouldDisplayBetButton: false,
       shouldDisplayPassButton: false,
@@ -60,9 +62,26 @@ class Game extends React.Component {
   render() {
     return (
       <div id="Game">
-        <h1>Game Screen</h1>
-        {/* prettier-ignore */}
-        <div className="topbar-button" onClick={() => this.props.handleScreenSelectionClick("title")}>Return Home</div>
+        <div
+          id="return-to-title-btn"
+          className="topbar-btn"
+          onClick={() => this.props.handleScreenSelectionClick("title")}
+        >
+          Return Home
+        </div>
+        <div id="logo-header"></div>
+        <div id="pot">
+          Pot be here
+        </div>
+        <div id="button-board">
+          Button Board be here
+        </div>
+        <div id="rune-board">
+          Rune Board be here
+        </div>
+        <div id="info-board">
+          Info Board be here
+        </div>
       </div>
     )
   }
