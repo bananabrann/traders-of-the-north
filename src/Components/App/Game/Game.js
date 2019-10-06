@@ -3,7 +3,6 @@ import ButtonBoard from "./ButtonBoard/ButtonBoard"
 import InfoBoard from "./InfoBoard/InfoBoard"
 import PotBoard from "./PotBoard/PotBoard"
 import RuneBoard from "./RuneBoard/RuneBoard"
-import Opponent from "../../../Opponent"
 
 import "./Game.scss"
 
@@ -17,9 +16,10 @@ class Game extends React.Component {
   constructor() {
     super()
     this.state = {
+      isOutsideRecommendedWidth: false,
       user: {
         name: "Sigrid Treasureborn",
-        rune: baseRunes.pack1,
+        runes: baseRunes.pack1,
         gold: 0,
         fish: 0,
         totem: 0,
@@ -27,7 +27,7 @@ class Game extends React.Component {
       },
       opponent: {
         name: "Ulf Goldkeeper",
-        rune: baseRunes.pack2,
+        runes: baseRunes.pack2,
         gold: 0,
         fish: 0,
         totem: 0,
@@ -35,15 +35,15 @@ class Game extends React.Component {
       },
       pot: [],
       isUsersTurn: true,
-      isOutsideRecommendedWidth: false,
-      shouldDisplayDrawButton: true,
-      shouldDisplayBetButton: true,
-      shouldDisplayPassButton: false,
-      shouldAllowRunePlacement: false,
       betWasCalled: false,
       mustBet: false,
       mustPlaceRune: false,
-      messageBoardContent: ""
+      messageBoardContent: "",
+
+      shouldDisplayDrawButton: true,
+      shouldDisplayBetButton: true,
+      shouldDisplayPassButton: false,
+      shouldAllowRunePlacement: false
     }
     this.draw = this.draw.bind(this)
     this.bet = this.bet.bind(this)
@@ -53,18 +53,15 @@ class Game extends React.Component {
   }
 
   draw() {
-    Opponent.draw()
     if (this.state.mustBet) {
       return console.log("you can't draw, you must bet")
     } else {
       const drawnPiece = bag[Math.floor(Math.random() * bag.length)]
+      
       this.state.pot.push(drawnPiece)
       this.setState({
         isUsersTurn: !this.state.isUsersTurn
       })
-      // console.log(
-      //   `${drawnPiece} drawed. Pot: ${this.state.pot}. usersTurn: ${this.state.isUsersTurn}`
-      // )
     }
   }
 
@@ -82,13 +79,14 @@ class Game extends React.Component {
 
   pass() {
     console.log("pass() called")
-    this.setState({isUsersTurn: !this.state.isUsersTurn})
+    this.setState({
+      isUsersTurn: !this.state.isUsersTurn
+    })
 
     if (this.state.isUsersTurn) {
       this.setState({
         mustBet: false,
-        mustPlaceRune: true,
-        shouldDisplayPassButton: true
+        mustPlaceRune: true
       })
     }
   }
@@ -96,7 +94,6 @@ class Game extends React.Component {
   handlePlaceRune(rune) {
     console.log(`The ${rune} has been placed`)
   }
-
 
   checkForcedBet() {
     const isUsersTurn = this.state.isUsersTurn
@@ -131,11 +128,9 @@ class Game extends React.Component {
   }
 
   componentDidUpdate() {
-    // console.log("Checking for forced bet...")
     if (!this.state.mustBet && !this.state.mustPlaceRune && !this.state.betWasCalled) {
       this.checkForcedBet()
     }
-    console.log(`isUsersTurn: ${this.state.isUsersTurn} betWasCalled: ${this.state.betWasCalled}`)
   }
 
   componentDidMount() {
@@ -173,14 +168,14 @@ class Game extends React.Component {
         <div id="rune-board">
           <RuneBoard
             handlePlaceRune={this.handlePlaceRune}
-            usersRunes={this.state.user.rune}
+            usersRunes={this.state.user.runes}
           />
         </div>
 
         <div id="info-board">
           <InfoBoard
             handleInfoBoardTabSelection={this.handleInfoBoardTabSelection}
-          ></InfoBoard>
+          />
         </div>
       </div>
     )
