@@ -8,23 +8,30 @@ class InfoBoard extends React.Component {
       shouldDisplayStockpileTab: false,
       shouldDisplaySettingsTab: false
     }
+    // prettier-ignore
     this.handleInfoBoardTabSelection = this.handleInfoBoardTabSelection.bind(this)
   }
 
   handleInfoBoardTabSelection(desiredTab) {
-    if(desiredTab==="messages") { this.setState({
-      shouldDisplayMessagesTab: true,
-      shouldDisplayStockpileTab: false,
-      shouldDisplaySettingsTab: false
-    })} else if (desiredTab === "stockpile") { this.setState({
-      shouldDisplayMessagesTab: false,
-      shouldDisplayStockpileTab: true,
-      shouldDisplaySettingsTab: false
-    })} else if (desiredTab === "settings") { this.setState({
-      shouldDisplayMessagesTab: false,
-      shouldDisplayStockpileTab: false,
-      shouldDisplaySettingsTab: true
-    })}
+    if (desiredTab === "messages") {
+      this.setState({
+        shouldDisplayMessagesTab: true,
+        shouldDisplayStockpileTab: false,
+        shouldDisplaySettingsTab: false
+      })
+    } else if (desiredTab === "stockpile") {
+      this.setState({
+        shouldDisplayMessagesTab: false,
+        shouldDisplayStockpileTab: true,
+        shouldDisplaySettingsTab: false
+      })
+    } else if (desiredTab === "settings") {
+      this.setState({
+        shouldDisplayMessagesTab: false,
+        shouldDisplayStockpileTab: false,
+        shouldDisplaySettingsTab: true
+      })
+    }
 
     // BUG: Why does the above work but not the below?
 
@@ -45,7 +52,6 @@ class InfoBoard extends React.Component {
     //   shouldDisplayStockpileTab: false,
     //   shouldDisplaySettingsTab: true
     // }) : void(0)
-
   }
 
   render() {

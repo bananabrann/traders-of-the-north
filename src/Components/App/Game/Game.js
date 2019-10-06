@@ -43,12 +43,12 @@ class Game extends React.Component {
     this.pass = this.pass.bind(this)
     this.placeRune = this.placeRune.bind(this)
     this.setButtonDisplayVisibility = this.setButtonDisplayVisibility.bind(this)
+    // prettier-ignore
     this.checkConditionsForForcedBet = this.checkConditionsForForcedBet.bind(this)
-    // this.handleInfoBoardTabSelection = this.handleInfoBoardTabSelection.bind(this)
   }
 
   draw() {
-    const drawnPiece = bag[Math.floor(Math.random()*bag.length)]
+    const drawnPiece = bag[Math.floor(Math.random() * bag.length)]
     this.state.pot.push(drawnPiece)
 
     this.setState({
@@ -59,17 +59,11 @@ class Game extends React.Component {
     console.table(this.state)
   }
 
-  bet() {
+  bet() {}
 
-  }
+  pass() {}
 
-  pass() {
-
-  }
-
-  placeRune(rune) {
-
-  }
+  placeRune(rune) {}
 
   setButtonDisplayVisibility(affectedButton, value) {
     // TODO: These can be written out dynamically, so that I don't have to do an if for each possible
@@ -89,12 +83,7 @@ class Game extends React.Component {
     }) : void(0)
   }
 
-  checkConditionsForForcedBet() {
-  }
-
-  // handleInfoBoardTabSelection(desiredTab) {
-
-  // }
+  checkConditionsForForcedBet() {}
 
   componentDidUpdate() {
     console.log("Checking for forced bet...")
@@ -115,9 +104,7 @@ class Game extends React.Component {
 
         <div id="logo-header"></div>
 
-        <div id="pot">
-          Pot be here
-        </div>
+        <div id="pot">Pot be here</div>
 
         <div id="button-board">
           Button Board be here
@@ -132,14 +119,13 @@ class Game extends React.Component {
           </div>
         </div>
 
-        <div id="rune-board">
-          Rune Board be here
-        </div>
+        <div id="rune-board">Rune Board be here</div>
 
         <div id="info-board">
-          <InfoBoard handleInfoBoardTabSelection={this.handleInfoBoardTabSelection}></InfoBoard>
+          <InfoBoard
+            handleInfoBoardTabSelection={this.handleInfoBoardTabSelection}
+          ></InfoBoard>
         </div>
-
       </div>
     )
   }
