@@ -1,4 +1,5 @@
 import React from "react"
+import InfoBoard from "./InfoBoard/InfoBoard"
 
 import "./Game.scss"
 
@@ -43,6 +44,7 @@ class Game extends React.Component {
     this.placeRune = this.placeRune.bind(this)
     this.setButtonDisplayVisibility = this.setButtonDisplayVisibility.bind(this)
     this.checkConditionsForForcedBet = this.checkConditionsForForcedBet.bind(this)
+    // this.handleInfoBoardTabSelection = this.handleInfoBoardTabSelection.bind(this)
   }
 
   draw() {
@@ -71,6 +73,7 @@ class Game extends React.Component {
 
   setButtonDisplayVisibility(affectedButton, value) {
     // TODO: These can be written out dynamically, so that I don't have to do an if for each possible
+    // NOTE: This method is not tested
 
     // prettier-ignore
     (affectedButton === "draw") ? this.setState({
@@ -89,6 +92,10 @@ class Game extends React.Component {
   checkConditionsForForcedBet() {
   }
 
+  // handleInfoBoardTabSelection(desiredTab) {
+
+  // }
+
   componentDidUpdate() {
     console.log("Checking for forced bet...")
   }
@@ -105,10 +112,13 @@ class Game extends React.Component {
         >
           Return Home
         </div>
+
         <div id="logo-header"></div>
+
         <div id="pot">
           Pot be here
         </div>
+
         <div id="button-board">
           Button Board be here
           <div className="action-btn" onClick={() => this.draw()}>
@@ -121,12 +131,15 @@ class Game extends React.Component {
             Pass
           </div>
         </div>
+
         <div id="rune-board">
           Rune Board be here
         </div>
+
         <div id="info-board">
-          Info Board be here
+          <InfoBoard handleInfoBoardTabSelection={this.handleInfoBoardTabSelection}></InfoBoard>
         </div>
+
       </div>
     )
   }
