@@ -9,21 +9,27 @@ class ButtonBoard extends React.Component {
   }
 
   render() {
+    // TODO: I think these can be refactored into a props spread opperator
+    const shouldDisplayBetButton = this.props.shouldDisplayBetButton
+    const shouldDisplayDrawButton = this.props.shouldDisplayDrawButton
+    const shouldDisplayPassButton = this.props.shouldDisplayPassButton
+
+
     return (
       <div>
-        {this.props.shouldDisplayDrawButton ? (
+        {shouldDisplayBetButton ? (
           <div className="action-btn" onClick={() => this.props.draw()}>
             Draw
           </div>
         ) : null}
 
-        {this.props.shouldDisplayBetButton ? (
+        {shouldDisplayBetButton ? (
           <div className="action-btn" onClick={() => this.props.bet()}>
             Bet
           </div>
         ) : null}
 
-        {this.props.shouldDisplayPassButton ? (
+        {shouldDisplayPassButton ? (
           <div className="action-btn" onClick={() => this.props.pass()}>
             Pass
           </div>
