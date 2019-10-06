@@ -18,8 +18,6 @@ class App extends Component {
   }
 
   handleScreenSelectionClick(desiredPage) {
-    console.log("handleScreenSelectionClick(desiredPage: String) called")
-
     // prettier-ignore
     desiredPage === "title" ? this.setState({
       shouldDisplayTitle: true,
