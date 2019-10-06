@@ -50,14 +50,20 @@ class Game extends React.Component {
   }
 
   draw() {
-    console.log("draw() called")
-    // const drawnPiece = bag[Math.floor(Math.random() * bag.length)]
-    // this.state.pot.push(drawnPiece)
+    // console.log("draw() called")
 
-    // this.setState({
-    //   isUsersTurn: !this.state.isUsersTurn
-    // })
-
+    if (this.state.mustBet) {
+      return console.log("you can't draw, you must bet")
+    } else {
+      const drawnPiece = bag[Math.floor(Math.random() * bag.length)]
+      this.state.pot.push(drawnPiece)
+      this.setState({
+        isUsersTurn: !this.state.isUsersTurn
+      })
+      console.log(
+        `${drawnPiece} drawed. Pot: ${this.state.pot}. usersTurn: ${this.state.isUsersTurn}`
+      )
+    }
     // console.table(this.state)
   }
 
@@ -91,10 +97,19 @@ class Game extends React.Component {
     }) : void(0)
   }
 
-  checkConditionsForForcedBet() {}
+  checkConditionsForForcedBet() {
+    if (this.state.pot.length >= 8) {
+      this.setState({
+        mustBet: true
+      })
+    }
+  }
 
   componentDidUpdate() {
-    console.log("Checking for forced bet...")
+    // console.log("Checking for forced bet...")
+    if (!this.state.mustBet) {
+      this.checkConditionsForForcedBet()
+    }
   }
 
   componentDidMount() {}
