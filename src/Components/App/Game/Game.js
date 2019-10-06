@@ -33,16 +33,36 @@ class Game extends React.Component {
       shouldDisplayBetButton: false,
       shouldDisplayPassButton: false,
       mustBet: false,
-      messageBoardContent: "",
+      messageBoardContent: ""
     }
+    this.setButtonDisplayVisibility = this.setButtonDisplayVisibility.bind(this)
   }
+
+  setButtonDisplayVisibility(affectedButton, value) {
+    // TODO: These can be written out dynamically, so that I don't have to do an if for each possible
+
+    // prettier-ignore
+    (affectedButton === "draw") ? this.setState({
+      shouldDisplayDrawButton: value
+    }) : void(0)
+    // prettier-ignore
+    (affectedButton === "bet") ? this.setState({
+      shouldDisplayBetButton: value
+    }) : void(0)
+    // prettier-ignore
+    (affectedButton === "pass") ? this.setState({
+      shouldDisplayDrawButton: value
+    }) : void(0)
+  }
+
+  componentDidMount() {}
 
   render() {
     return (
       <div id="Game">
         <h1>Game Screen</h1>
         {/* prettier-ignore */}
-        <div onClick={() => this.props.handleScreenSelectionClick("title")}>Title</div>
+        <div className="topbar-button" onClick={() => this.props.handleScreenSelectionClick("title")}>Return Home</div>
       </div>
     )
   }

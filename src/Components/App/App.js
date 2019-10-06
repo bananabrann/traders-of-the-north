@@ -40,6 +40,10 @@ class App extends Component {
     }) : void(0)
   }
 
+  componentDidMount() {
+    document.title = "Traders of the North"
+  }
+
   render() {
     return (
       <div id="App">
