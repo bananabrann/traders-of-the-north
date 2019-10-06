@@ -1,5 +1,6 @@
 import React from "react"
 import InfoBoard from "./InfoBoard/InfoBoard"
+import RuneBoard from "./RuneBoard/RuneBoard"
 
 import "./Game.scss"
 
@@ -119,7 +120,9 @@ class Game extends React.Component {
           </div>
         </div>
 
-        <div id="rune-board">Rune Board be here</div>
+        <div id="rune-board">
+          <RuneBoard usersRunes={this.state.user.rune} />
+        </div>
 
         <div id="info-board">
           <InfoBoard
