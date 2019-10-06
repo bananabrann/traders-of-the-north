@@ -1,6 +1,7 @@
 import React from "react"
 import ButtonBoard from "./ButtonBoard/ButtonBoard"
 import InfoBoard from "./InfoBoard/InfoBoard"
+import PotBoard from "./PotBoard/PotBoard"
 import RuneBoard from "./RuneBoard/RuneBoard"
 
 import "./Game.scss"
@@ -127,7 +128,11 @@ class Game extends React.Component {
 
         <div id="logo-header"></div>
 
-        <div id="pot">Pot be here</div>
+        <div id="pot">
+          <PotBoard 
+            pot={this.state.pot}
+          />
+        </div>
 
         <div id="button-board">
           <ButtonBoard
