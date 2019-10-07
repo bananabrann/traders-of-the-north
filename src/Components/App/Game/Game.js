@@ -34,6 +34,7 @@ class Game extends React.Component {
         seaweed: 0
       },
       pot: [],
+      arena: [],
       isUsersTurn: true,
       betWasCalled: false,
       mustBet: false,
@@ -50,9 +51,11 @@ class Game extends React.Component {
     this.pass = this.pass.bind(this)
     this.handlePlaceRune = this.handlePlaceRune.bind(this)
     this.checkForcedBet = this.checkForcedBet.bind(this)
+    this.handleButtonVisibilities = this.handleButtonVisibilities.bind(this)
   }
 
   draw() {
+    console.log("draw()")
     if (this.state.mustBet) {
       return console.log("you can't draw, you must bet")
     } else {
@@ -63,10 +66,11 @@ class Game extends React.Component {
         isUsersTurn: !this.state.isUsersTurn
       })
     }
+    this.handleButtonVisibilities()
   }
 
   bet() {
-    console.log("bet() called")
+    console.log("bet()")
     this.setState({
       betWasCalled: true,
       isUsersTurn: !this.state.isUsersTurn,
@@ -75,27 +79,45 @@ class Game extends React.Component {
       shouldDisplayPassButton: true,
       shouldAllowRunePlacement: true
     })
+    this.handleButtonVisibilities()
   }
 
   pass() {
-    console.log("pass() called")
+    console.log("pass()")
     this.setState({
-      isUsersTurn: !this.state.isUsersTurn
+      isUsersTurn: !this.state.isUsersTurn,
+      mustPlaceRune: true
     })
+    this.handleButtonVisibilities()
+  }
 
-    if (this.state.isUsersTurn) {
+  handlePlaceRune(rune) {
+    console.log(`handlePlaceRune(${rune})`)
+  }
+
+  handleButtonVisibilities() {
+    console.log("handleButtonVisibilies()")
+    if (this.isUsersTurn && this.state.mustBet) {
+      console.log("handleButtonVisibilities() - user turn and must bet")
       this.setState({
-        mustBet: false,
-        mustPlaceRune: true
+        shouldDisplayBetButton: true,
+        shouldDisplayDrawButton: false,
+        shouldDisplayPassButton: false,
+        shouldAllowRunePlacement: false
+      })
+    } else if (this.isUsersTurn && this.state.mustPlaceRune) {
+      console.log("handleBUttonVisibilities() - user turn and must place run")
+      this.setState({
+        shouldDisplayBetButton: false,
+        shouldDisplayDrawButton: false,
+        shouldDisplayPassButton: false,
+        shouldAllowRunePlacement: false
       })
     }
   }
 
-  handlePlaceRune(rune) {
-    console.log(`The ${rune} has been placed`)
-  }
-
   checkForcedBet() {
+    console.log("checkForcedBet()")
     const isUsersTurn = this.state.isUsersTurn
     const betWasCalled = this.state.betWasCalled
     const pot = this.state.pot
@@ -110,27 +132,10 @@ class Game extends React.Component {
         shouldAllowRunePlacement: false
       })
     }
-    if (betWasCalled) {
-      if (isUsersTurn) {
-        this.setState({
-          mustBet: false,
-          mustPlaceRune: false,
-          shouldDisplayBetButton: false,
-          shouldDisplayDrawButton: false,
-          shouldDisplayPassButton: true,
-          shouldAllowRunePlacement: true
-        })
-      } else if (!isUsersTurn) {
-        console.log("Not users turn, ")
-        // Call opponent logic
-      }
-    }
   }
 
   componentDidUpdate() {
-    if (!this.state.mustBet && !this.state.mustPlaceRune && !this.state.betWasCalled) {
-      this.checkForcedBet()
-    }
+    if (!this.state.mustBet) {this.checkForcedBet()}
   }
 
   componentDidMount() {
