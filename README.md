@@ -32,4 +32,6 @@ This section will hope to describe describe all the vocabulary used in Traders o
 - **Bag**: The possible game pieces stored in an array to detemrine ratio.
 
 # Contributing
-This is not contributing policy. If you would like to contribute, please open an issue. I appreciate any and all folks who want to contribute to the game!
+This is not contributing policy. If you would like to contribute, simply open an issue of discussion or pull request and please outline what it is you have done or plan to do.
+
+I appreciate any and all folks who want to contribute to the game!
