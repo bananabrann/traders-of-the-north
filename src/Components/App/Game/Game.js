@@ -121,10 +121,12 @@ class Game extends React.Component {
     if (!this.state.mustBet) {
       this.checkForcedBet()
     }
-    Opponent.act(this.state, this.draw, this.bet, this.pass, this.handlePlaceRune)
+    if (!this.isUsersTurn){
+      Opponent.act(this.state, this.draw, this.bet, this.pass, this.handlePlaceRune)
+    }
     // console.log(Opponent.act(this.state, this.draw, this.bet, this.pass, this.handlePlaceRune))
 
-    // ------------- Dev Tracking
+    // ------------- Dev Turn Tracking
     let whosTurnIsIt = this.state.isUsersTurn ? "User" : "Opponent"
     console.log(`----------${whosTurnIsIt}----------`)
   }

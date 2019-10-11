@@ -2,8 +2,11 @@ import { SSL_OP_EPHEMERAL_RSA } from "constants"
 
 class Opponent {
   static act(state, draw, bet, pass, placeRune) {
-    this.sleep(500).then(() => {
+    this.sleep(1000).then(() => {
       if (state.isUsersTurn) { return null}         // If it is not the opponent's turn, don't do anything
+      else if (state.mustBet) {
+        return bet()
+      } else return draw()
     })
 
   }
