@@ -36,11 +36,10 @@ class Game extends React.Component {
       pot: [],
       arena: [],
       isUsersTurn: true,
-      betWasCalled: false,
       mustBet: false,
       mustPlaceRune: false,
-      messageBoardContent: "",
 
+      messageBoardContent: "",
       shouldDisplayDrawButton: true,
       shouldDisplayBetButton: true,
       shouldDisplayPassButton: false,
@@ -51,7 +50,6 @@ class Game extends React.Component {
     this.pass = this.pass.bind(this)
     this.handlePlaceRune = this.handlePlaceRune.bind(this)
     this.checkForcedBet = this.checkForcedBet.bind(this)
-    this.handleButtonVisibilities = this.handleButtonVisibilities.bind(this)
   }
 
   draw() {
@@ -95,36 +93,13 @@ class Game extends React.Component {
       isUsersTurn: !this.state.isUsersTurn,
       arena: [...prevState.arena, rune]
     }))
-
-    // console.log(`Arena: ${this.state.arena}`)      // Note: the console log is one step behind, unknown why
-  }
-
-  handleButtonVisibilities() {
-    if (this.state.mustBet) {
-      console.log("handleButtonVisibilities() - must bet")
-      this.setState({
-        shouldDisplayBetButton: true,
-        shouldDisplayDrawButton: false,
-        shouldDisplayPassButton: false,
-        shouldAllowRunePlacement: false
-      })
-    } else if (this.state.mustPlaceRune) {
-      console.log("handleBUttonVisibilities() - must place run")
-      this.setState({
-        shouldDisplayBetButton: false,
-        shouldDisplayDrawButton: false,
-        shouldDisplayPassButton: false,
-        shouldAllowRunePlacement: false
-      })
-    } else {
-      console.log("handleButtonVisibilities() - nothing passed")
-    }
   }
 
   checkForcedBet() {
     console.log("checkForcedBet()")
 
     const pot = this.state.pot
+
     if (pot.length >= 8) {
       this.setState({
         mustBet: true,
