@@ -51,6 +51,11 @@ class Game extends React.Component {
     this.pass = this.pass.bind(this)
     this.handlePlaceRune = this.handlePlaceRune.bind(this)
     this.checkForcedBet = this.checkForcedBet.bind(this)
+    this.testHello = this.testHello.bind(this)
+  }
+
+  testHello() {
+    console.log("hello ;)")
   }
 
   draw() {
@@ -116,7 +121,12 @@ class Game extends React.Component {
     if (!this.state.mustBet) {
       this.checkForcedBet()
     }
-    Opponent.act(this.state)
+    Opponent.act(this.state, this.draw, this.bet, this.pass, this.handlePlaceRune)
+    // console.log(Opponent.act(this.state, this.draw, this.bet, this.pass, this.handlePlaceRune))
+
+    // ------------- Dev Tracking
+    let whosTurnIsIt = this.state.isUsersTurn ? "User" : "Opponent"
+    console.log(`----------${whosTurnIsIt}----------`)
   }
 
   componentDidMount() {

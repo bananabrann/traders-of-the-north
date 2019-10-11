@@ -1,8 +1,15 @@
-class Opponent {
-  static act(gameState) {
-    console.log("FROM OPPONENT")
+import { SSL_OP_EPHEMERAL_RSA } from "constants"
 
-    console.log(gameState.mustBet)
+class Opponent {
+  static act(state, draw, bet, pass, placeRune) {
+    this.sleep(500).then(() => {
+      if (state.isUsersTurn) { return null}         // If it is not the opponent's turn, don't do anything
+    })
+
+  }
+
+  static sleep(amount) {
+    return new Promise((resolve) => setTimeout(resolve, amount))
   }
 
   static bet() {
