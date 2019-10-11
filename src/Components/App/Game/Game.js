@@ -3,6 +3,7 @@ import ButtonBoard from "./ButtonBoard/ButtonBoard"
 import InfoBoard from "./InfoBoard/InfoBoard"
 import PotBoard from "./PotBoard/PotBoard"
 import RuneBoard from "./RuneBoard/RuneBoard"
+import Opponent from "../../../Opponent"
 
 import "./Game.scss"
 
@@ -115,6 +116,7 @@ class Game extends React.Component {
     if (!this.state.mustBet) {
       this.checkForcedBet()
     }
+    Opponent.act(this.state)
   }
 
   componentDidMount() {

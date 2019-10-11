@@ -1,21 +1,8 @@
 class Opponent {
-  static act(...input) {
-    const state = input[0]
-    const runes = state.opponent.runes
-    // const thought = ["b", "b", "d", "d", "d"]
+  static act(gameState) {
+    console.log("FROM OPPONENT")
 
-    // draw
-    if (state.mustPlaceRun) {
-      const x = runes[Math.floor(Math.random()*runes.length)];
-      return x
-    }
-
-    // bet
-    if (state.mustBet) {
-
-    }
-
-    // pass
+    console.log(gameState.mustBet)
   }
 
   static bet() {
