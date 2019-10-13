@@ -97,13 +97,13 @@ class Game extends React.Component {
   handlePlaceRune(rune) {
     console.log(`---handlePlaceRune(${rune})`)
 
-    // NOTE: The hidden code below makes the placeRune() method buggy, as when this version of code sets state, it does not affect it immediately which inturn forces the opponent's placeRune() method to call twice.
+        // NOTE: The hidden code below makes the placeRune() method buggy, as when this version of code sets state, it does not affect it immediately which inturn forces the opponent's placeRune() method to call twice.
 
-    // this.setState(prevState => ({
-    //   isUsersTurn: !this.state.isUsersTurn,
-    //   arena: [...prevState.arena, rune]
-    // }))
-    
+        // this.setState(prevState => ({
+        //   isUsersTurn: !this.state.isUsersTurn,
+        //   arena: [...prevState.arena, rune]
+        // }))
+        
     this.state.arena.push(rune)
     this.setState({
       isUsersTurn: !this.state.isUsersTurn
@@ -114,11 +114,27 @@ class Game extends React.Component {
   
   handleRuneComparisson() {
     console.log("---handleRuneComparisson()")
-    console.log(`The arena is: ${this.state.arena}`)
+
     let tempArena = []            // NOTE: I do this because I do not want to mutate state directly
+    let winner = ""
+
     tempArena = this.state.arena
 
-    if (tempArena)
+    if (this.state.opponent.runes.includes(tempArena[0])) tempArena.reverse()   // If the opponent placed a rune first, switch the array
+    if (tempArena[0] > tempArena [1]) {
+      console.log("user won")
+      winner = "user"
+
+    } else if (tempArena[1] > tempArena[0]) {
+      console.log("oppo won")
+      winner = "oopponent"
+    } else {
+      console.log("*** BUG *** handleRuneComparisson() - neither the user nor opponent won?..")
+    }
+
+    for (let i = 0; i < this.state.pot.length; i++){
+      this.state[winner][this.state.pot[i]] = this.state[winner][this.state.pot[i]] + 1
+    }
     
     this.setState({
       arena: [],
@@ -148,7 +164,7 @@ class Game extends React.Component {
 
   componentDidUpdate() {
     console.log("---componentDidUpdate()")
-    console.log(`isUsersTurn: ${this.state.isUsersTurn}, isInBet: ${this.state.isInBet}, arena: ${this.state.arena}`)
+    // console.log(`isUsersTurn: ${this.state.isUsersTurn}, isInBet: ${this.state.isInBet}, arena: ${this.state.arena}`)
     if (!this.state.mustBet) {
       this.checkForcedBet()
     }
@@ -157,16 +173,17 @@ class Game extends React.Component {
     }
     // console.log(Opponent.act(this.state, this.draw, this.bet, this.pass, this.handlePlaceRune))
 
-    console.log(`isUsersTurn: ${this.state.isUsersTurn}, isInBet: ${this.state.isInBet}, arena: ${this.state.arena}`)
+    // console.log(`isUsersTurn: ${this.state.isUsersTurn}, isInBet: ${this.state.isInBet}, arena: ${this.state.arena}`)
 
     // ------------- Dev Turn Tracking
-    // let whosTurnIsIt = this.state.isUsersTurn ? "User" : "Opponent"
-    // console.log(`----------${whosTurnIsIt}----------`)
+    let whosTurnIsIt = this.state.isUsersTurn ? "User" : "Opponent"
+    console.log(`----------${whosTurnIsIt}----------`)
   }
 
   componentDidMount() {
-    // let whosTurnIsIt = this.state.isUsersTurn ? "User" : "Opponent"
-    // console.log(`----------${whosTurnIsIt}----------`)
+    let whosTurnIsIt = this.state.isUsersTurn ? "User" : "Opponent"
+    console.log(`----------${whosTurnIsIt}----------`)
+
     document.title = "Traders of the North"
   }
 
