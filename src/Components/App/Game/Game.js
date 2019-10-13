@@ -97,19 +97,25 @@ class Game extends React.Component {
   handlePlaceRune(rune) {
     console.log(`---handlePlaceRune(${rune})`)
 
-        // NOTE: The hidden code below makes the placeRune() method buggy, as when this version of code sets state, it does not affect it immediately which inturn forces the opponent's placeRune() method to call twice.
+    if (!this.state.isInBet) {
+      console.log("You cannot place a rune without being in a bet!")
+    } else {
+      // NOTE: The hidden code below makes the placeRune() method buggy, as when this version of code sets state, it does not affect it immediately which inturn forces the opponent's placeRune() method to call twice.
+  
+      // this.setState(prevState => ({
+      //   isUsersTurn: !this.state.isUsersTurn,
+      //   arena: [...prevState.arena, rune]
+      // }))
+      
+      this.state.arena.push(rune)
+      this.setState({
+        isUsersTurn: !this.state.isUsersTurn
+      })
+  
+      if (this.state.arena.length >= 2) this.handleRuneComparisson()
 
-        // this.setState(prevState => ({
-        //   isUsersTurn: !this.state.isUsersTurn,
-        //   arena: [...prevState.arena, rune]
-        // }))
-        
-    this.state.arena.push(rune)
-    this.setState({
-      isUsersTurn: !this.state.isUsersTurn
-    })
+      }
 
-    if (this.state.arena.length >= 2) { this.handleRuneComparisson() }
   }
   
   handleRuneComparisson() {
