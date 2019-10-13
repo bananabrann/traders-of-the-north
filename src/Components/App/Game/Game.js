@@ -61,7 +61,7 @@ class Game extends React.Component {
   }
 
   draw() {
-    console.log("draw()")
+    console.log("---draw()")
     if (this.state.mustBet) {
       return console.log("you can't draw, you must bet")
     } else {
@@ -75,7 +75,7 @@ class Game extends React.Component {
   }
 
   bet() {
-    console.log("bet()")
+    console.log("---bet()")
     this.setState({
       isInBet: true,
       isUsersTurn: !this.state.isUsersTurn,
@@ -87,7 +87,7 @@ class Game extends React.Component {
   }
 
   pass() {
-    console.log("pass()")
+    console.log("---pass()")
     this.setState({
       isUsersTurn: !this.state.isUsersTurn,
       mustPlaceRune: true
@@ -95,23 +95,43 @@ class Game extends React.Component {
   }
 
   handlePlaceRune(rune) {
-    console.log(`handlePlaceRune(${rune})`)
+    console.log(`---handlePlaceRune(${rune})`)
 
-    this.setState(prevState => ({
-      isUsersTurn: !this.state.isUsersTurn,
-      arena: [...prevState.arena, rune]
-    }))
+    // NOTE: The hidden code below makes the placeRune() method buggy, as when this version of code sets state, it does not affect it immediately which inturn forces the opponent's placeRune() method to call twice.
+
+    // this.setState(prevState => ({
+    //   isUsersTurn: !this.state.isUsersTurn,
+    //   arena: [...prevState.arena, rune]
+    // }))
+    
+    this.state.arena.push(rune)
+    this.setState({
+      isUsersTurn: !this.state.isUsersTurn
+    })
 
     if (this.state.arena.length >= 2) { this.handleRuneComparisson() }
-    console.log(`The arena is: ${this.state.arena}`)
   }
-
+  
   handleRuneComparisson() {
-    console.log("handleRuneComparisson()")
+    console.log("---handleRuneComparisson()")
+    console.log(`The arena is: ${this.state.arena}`)
+    let tempArena = []            // NOTE: I do this because I do not want to mutate state directly
+    tempArena = this.state.arena
+
+    if (tempArena)
+    
+    this.setState({
+      arena: [],
+      isInBet: false,
+      shouldDisplayBetButton: true,
+      shouldDisplayDrawButton: true,
+      shouldDisplayPassButton: false,
+      shouldAllowRunePlacement: false
+    })
   }
 
   checkForcedBet() {
-    console.log("checkForcedBet()")
+    console.log("---checkForcedBet()")
 
     const pot = this.state.pot
 
@@ -127,6 +147,8 @@ class Game extends React.Component {
   }
 
   componentDidUpdate() {
+    console.log("---componentDidUpdate()")
+    console.log(`isUsersTurn: ${this.state.isUsersTurn}, isInBet: ${this.state.isInBet}, arena: ${this.state.arena}`)
     if (!this.state.mustBet) {
       this.checkForcedBet()
     }
@@ -135,16 +157,16 @@ class Game extends React.Component {
     }
     // console.log(Opponent.act(this.state, this.draw, this.bet, this.pass, this.handlePlaceRune))
 
-
+    console.log(`isUsersTurn: ${this.state.isUsersTurn}, isInBet: ${this.state.isInBet}, arena: ${this.state.arena}`)
 
     // ------------- Dev Turn Tracking
-    let whosTurnIsIt = this.state.isUsersTurn ? "User" : "Opponent"
-    console.log(`----------${whosTurnIsIt}----------`)
+    // let whosTurnIsIt = this.state.isUsersTurn ? "User" : "Opponent"
+    // console.log(`----------${whosTurnIsIt}----------`)
   }
 
   componentDidMount() {
-    let whosTurnIsIt = this.state.isUsersTurn ? "User" : "Opponent"
-    console.log(`----------${whosTurnIsIt}----------`)
+    // let whosTurnIsIt = this.state.isUsersTurn ? "User" : "Opponent"
+    // console.log(`----------${whosTurnIsIt}----------`)
     document.title = "Traders of the North"
   }
 
