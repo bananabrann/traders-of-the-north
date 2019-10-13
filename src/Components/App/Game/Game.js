@@ -52,6 +52,7 @@ class Game extends React.Component {
     this.pass = this.pass.bind(this)
     this.handlePlaceRune = this.handlePlaceRune.bind(this)
     this.checkForcedBet = this.checkForcedBet.bind(this)
+    this.handleRuneComparisson = this.handleRuneComparisson.bind(this)
     this.testHello = this.testHello.bind(this)
   }
 
@@ -100,6 +101,13 @@ class Game extends React.Component {
       isUsersTurn: !this.state.isUsersTurn,
       arena: [...prevState.arena, rune]
     }))
+
+    if (this.state.arena.length >= 2) { this.handleRuneComparisson() }
+    console.log(`The arena is: ${this.state.arena}`)
+  }
+
+  handleRuneComparisson() {
+    console.log("handleRuneComparisson()")
   }
 
   checkForcedBet() {
