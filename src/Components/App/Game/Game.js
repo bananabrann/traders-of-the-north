@@ -225,6 +225,7 @@ class Game extends React.Component {
 
         <div id="info-board">
           <InfoBoard
+            state={this.state}
             handleInfoBoardTabSelection={this.handleInfoBoardTabSelection}
           />
         </div>
