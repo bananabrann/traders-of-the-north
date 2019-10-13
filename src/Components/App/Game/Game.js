@@ -37,6 +37,7 @@ class Game extends React.Component {
       pot: [],
       arena: [],
       isUsersTurn: true,
+      isInBet: false,
       mustBet: false,
       mustPlaceRune: false,
 
@@ -75,7 +76,7 @@ class Game extends React.Component {
   bet() {
     console.log("bet()")
     this.setState({
-      betWasCalled: true,
+      isInBet: true,
       isUsersTurn: !this.state.isUsersTurn,
       shouldDisplayBetButton: false,
       shouldDisplayDrawButton: false,
@@ -121,10 +122,12 @@ class Game extends React.Component {
     if (!this.state.mustBet) {
       this.checkForcedBet()
     }
-    if (!this.isUsersTurn){
+    if (!this.state.isUsersTurn) { 
       Opponent.act(this.state, this.draw, this.bet, this.pass, this.handlePlaceRune)
     }
     // console.log(Opponent.act(this.state, this.draw, this.bet, this.pass, this.handlePlaceRune))
+
+
 
     // ------------- Dev Turn Tracking
     let whosTurnIsIt = this.state.isUsersTurn ? "User" : "Opponent"
@@ -132,6 +135,8 @@ class Game extends React.Component {
   }
 
   componentDidMount() {
+    let whosTurnIsIt = this.state.isUsersTurn ? "User" : "Opponent"
+    console.log(`----------${whosTurnIsIt}----------`)
     document.title = "Traders of the North"
   }
 
@@ -157,6 +162,7 @@ class Game extends React.Component {
             shouldDisplayBetButton={this.state.shouldDisplayBetButton}
             shouldDisplayDrawButton={this.state.shouldDisplayDrawButton}
             shouldDisplayPassButton={this.state.shouldDisplayPassButton}
+            isUsersTurn = {this.state.isUsersTurn}
             bet={this.bet}
             draw={this.draw}
             pass={this.pass}
