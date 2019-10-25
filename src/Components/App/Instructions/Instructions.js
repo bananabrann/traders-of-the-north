@@ -8,6 +8,10 @@ class Instructions extends React.Component {
     };
   }
 
+  componentDidMount() {
+    document.title = "Traders of the North - Instructions"
+  }
+
   render() {
     return(
       <div id="Instructions">

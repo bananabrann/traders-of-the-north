@@ -208,7 +208,7 @@ class Game extends React.Component {
     let whosTurnIsIt = this.state.isUsersTurn ? "User" : "Opponent"
     console.log(`----------${whosTurnIsIt}----------`)
 
-    document.title = "Traders of the North"
+    document.title = "Play Traders of the North"
   }
 
   render() {
