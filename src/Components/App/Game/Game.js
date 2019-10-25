@@ -108,34 +108,41 @@ class Game extends React.Component {
       // }))
       
       this.state.arena.push(rune)
+
+      if(this.state.mustPlaceRune) this.handleRuneComparisson(true)
+      if (this.state.arena.length >= 2) this.handleRuneComparisson()
+
       this.setState({
         isUsersTurn: !this.state.isUsersTurn
       })
   
-      if (this.state.arena.length >= 2) this.handleRuneComparisson()
 
       }
 
   }
   
-  handleRuneComparisson() {
+  handleRuneComparisson(soloRuneVictory) {
     console.log("---handleRuneComparisson()")
 
     let tempArena = []            // NOTE: I do this because I do not want to mutate state directly
     let winner = ""
 
-    tempArena = this.state.arena
-
-    if (this.state.opponent.runes.includes(tempArena[0])) tempArena.reverse()   // If the opponent placed a rune first, switch the array
-    if (tempArena[0] > tempArena [1]) {
-      console.log("user won")
-      winner = "user"
-
-    } else if (tempArena[1] > tempArena[0]) {
-      console.log("oppo won")
-      winner = "oopponent"
+    if (soloRuneVictory) {
+      winner = this.state.isUsersTurn ? "user" : "opponent"
     } else {
-      console.log("*** BUG *** handleRuneComparisson() - neither the user nor opponent won?..")
+      tempArena = this.state.arena
+  
+      if (this.state.opponent.runes.includes(tempArena[0])) tempArena.reverse()   // If the opponent placed a rune first, switch the array
+      if (tempArena[0] > tempArena [1]) {
+        console.log("user won")
+        winner = "user"
+  
+      } else if (tempArena[1] > tempArena[0]) {
+        console.log("oppo won")
+        winner = "opponent"
+      } else {
+        console.log("*** BUG *** handleRuneComparisson() - neither the user nor opponent won?..")
+      }
     }
 
     for (let i = 0; i < this.state.pot.length; i++){
@@ -146,6 +153,7 @@ class Game extends React.Component {
       arena: [],
       pot: [],
       isInBet: false,
+      mustPlaceRune: false,
       shouldDisplayBetButton: true,
       shouldDisplayDrawButton: true,
       shouldDisplayPassButton: false,

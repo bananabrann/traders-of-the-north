@@ -4,10 +4,10 @@ class Opponent {
       if (state.isUsersTurn) {return null}          // If it is not the opponent's turn, don't do anything
       else if (state.mustBet) {
         return bet()
+      } else if (state.mustPlaceRune) {
+        return placeRune(state.opponent.runes[0])
       } else if (state.isInBet) {
         this.respondToBet(state, pass, placeRune)
-      } else if (state.mustPlaceRune) {
-        return state.opponent.runes
       } else {
         if (this.think(state.pot) > 9) {
           return bet()
