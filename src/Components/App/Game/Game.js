@@ -143,24 +143,35 @@ class Game extends React.Component {
       }
     }
 
-    console.log(`Winning rune: ${winningRune}`)
-
-    for (let i = 0; i < this.state.pot.length; i++) {
-      this.state[winner][this.state.pot[i]] = this.state[winner][this.state.pot[i]] + 1
-    }
-
     const winnersNewRuneArray = [...this.state[winner].runes].filter(
       (value, index, arr) => {
         if (value !== winningRune) return value
       }
     )
 
-    console.log("Winners runes:")
-    console.log(winnersNewRuneArray)
+    const winnersGold = this.state[winner].gold += this.state.pot.filter(x => {
+        return (x === "gold")
+      }).length
+
+      const winnersFish = this.state[winner].fish += this.state.pot.filter(x => {
+        return (x === "fish")
+      }).length
+
+      const winnersTotem = this.state[winner].totem += this.state.pot.filter(x => {
+        return (x === "totem")
+      }).length
+
+      const winnersSeaweed = this.state[winner].seaweed += this.state.pot.filter(x => {
+        return (x === "seaweed")
+      }).length
 
     this.setState(() => ({
       [winner]: {
-        runes: winnersNewRuneArray
+        runes: winnersNewRuneArray,
+        gold: winnersGold,
+        fish: winnersFish,
+        totem: winnersTotem,
+        seaweed: winnersSeaweed
       },
       arena: [],
       pot: [],
