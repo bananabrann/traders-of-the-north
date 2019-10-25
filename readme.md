@@ -1,3 +1,5 @@
+> **This is a legacy build. This verison of the game is no longer supported and hosted.**
+
 # Contents
 * Traders of the North
 * Getting Started
@@ -11,7 +13,10 @@
 A longboat full of treasures and loot from a recent successfull raid has docked! This has caught the attention of the settlement's top two traders: Ulf and Sigrid. The two vikings must use whatever strategy necessary and bet their way to the top to take home the best loot!
 
 # Getting Started
-To download and play, simlpy visit https://bananabrann.github.io/traders-of-the-north/
+~~To download and play, simlpy visit https://bananabrann.github.io/traders-of-the-north/~~
+
+1. Execute `src/html/index.pug`. Example: `parcel src/html/index.pug`
+
 
 # Instructions
 ### Turn-by-Turn
