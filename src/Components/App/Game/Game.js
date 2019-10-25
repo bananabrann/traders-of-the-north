@@ -123,6 +123,7 @@ class Game extends React.Component {
 
     if (soloRuneVictory) {
       winner = this.state.isUsersTurn ? "user" : "opponent"
+      winningRune = this.state.arena[0]
     } else {
       tempArena = this.state.arena
 
@@ -141,6 +142,8 @@ class Game extends React.Component {
         )
       }
     }
+
+    console.log(`Winning rune: ${winningRune}`)
 
     for (let i = 0; i < this.state.pot.length; i++) {
       this.state[winner][this.state.pot[i]] = this.state[winner][this.state.pot[i]] + 1

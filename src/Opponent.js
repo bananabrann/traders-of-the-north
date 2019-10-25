@@ -39,7 +39,7 @@ class Opponent {
   }
 
   static respondToBet(state, pass, placeRune) {
-    console.log(`> respondToBet(${state}, ${pass}, ${placeRune})`)
+    console.log(`> respondToBet(...)`)
     const weightCap = 100
     let passWeight = 0
     let placeRuneWeight = 50   // Note will be zero
