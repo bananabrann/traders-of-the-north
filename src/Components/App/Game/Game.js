@@ -126,6 +126,7 @@ class Game extends React.Component {
 
     let tempArena = []            // NOTE: I do this because I do not want to mutate state directly
     let winner = ""
+    let winningRune = 0
 
     if (soloRuneVictory) {
       winner = this.state.isUsersTurn ? "user" : "opponent"
@@ -136,10 +137,11 @@ class Game extends React.Component {
       if (tempArena[0] > tempArena [1]) {
         console.log("user won")
         winner = "user"
-  
+        winningRune = tempArena[0]
       } else if (tempArena[1] > tempArena[0]) {
         console.log("oppo won")
         winner = "opponent"
+        winningRune = tempArena[1]
       } else {
         console.log("*** BUG *** handleRuneComparisson() - neither the user nor opponent won?..")
       }
@@ -148,8 +150,19 @@ class Game extends React.Component {
     for (let i = 0; i < this.state.pot.length; i++){
       this.state[winner][this.state.pot[i]] = this.state[winner][this.state.pot[i]] + 1
     }
+
+    // const winnersNewRuneArray = [...this.state[winner].runes]
+    const winnersNewRuneArray = [...this.state[winner].runes].filter((value, index, arr) => {
+      if (value !== winningRune) return value
+    })
+  
+    console.log("Winners runes:")
+    console.log(winnersNewRuneArray)
     
-    this.setState({
+    this.setState(prevState => ({
+      [winner]: {
+        runes: winnersNewRuneArray
+      },
       arena: [],
       pot: [],
       isInBet: false,
@@ -158,7 +171,7 @@ class Game extends React.Component {
       shouldDisplayDrawButton: true,
       shouldDisplayPassButton: false,
       shouldAllowRunePlacement: false
-    })
+    }))
   }
 
   checkForcedBet() {
