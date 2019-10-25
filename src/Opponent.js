@@ -9,7 +9,7 @@ class Opponent {
       } else if (state.mustPlaceRune) {
         return state.opponent.runes
       } else {
-        if (this.think() > 70) {
+        if (this.think(state.pot) > 9) {
           return bet()
         } else {
           return draw()
@@ -23,10 +23,17 @@ class Opponent {
     return new Promise((resolve) => setTimeout(resolve, amount))
   }
 
-  static think() {
+  static think(pot) {
     const weightCap = 100
-    let betWeight = 0                  // TODO: This is the probability of 
-    // TODO: Calculation functions to determine action
+    let betWeight = 0
+
+    pot.forEach(item => {
+      if (item === "gold") betWeight += 5
+      if (item === "fish") betWeight += 5
+      if (item === "totem") betWeight -= 7
+      if (item === "seaweed") betWeight -= 7
+    })
+
     return betWeight
   }
 
