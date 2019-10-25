@@ -139,8 +139,7 @@ class Game extends React.Component {
     }
 
     for (let i = 0; i < this.state.pot.length; i++) {
-      this.state[winner][this.state.pot[i]] =
-        this.state[winner][this.state.pot[i]] + 1
+      this.state[winner][this.state.pot[i]] = this.state[winner][this.state.pot[i]] + 1
     }
 
     const winnersNewRuneArray = [...this.state[winner].runes].filter(
