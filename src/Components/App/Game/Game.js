@@ -100,31 +100,20 @@ class Game extends React.Component {
     if (!this.state.isInBet) {
       console.log("You cannot place a rune without being in a bet!")
     } else {
-      // NOTE: The hidden code below makes the placeRune() method buggy, as when this version of code sets state, it does not affect it immediately which inturn forces the opponent's placeRune() method to call twice.
-  
-      // this.setState(prevState => ({
-      //   isUsersTurn: !this.state.isUsersTurn,
-      //   arena: [...prevState.arena, rune]
-      // }))
-      
       this.state.arena.push(rune)
 
-      if(this.state.mustPlaceRune) this.handleRuneComparisson(true)
+      if (this.state.mustPlaceRune) this.handleRuneComparisson(true)
       if (this.state.arena.length >= 2) this.handleRuneComparisson()
-
       this.setState({
         isUsersTurn: !this.state.isUsersTurn
       })
-  
-
-      }
-
+    }
   }
-  
+
   handleRuneComparisson(soloRuneVictory) {
     console.log("---handleRuneComparisson()")
 
-    let tempArena = []            // NOTE: I do this because I do not want to mutate state directly
+    let tempArena = [] // NOTE: I do this because I do not want to mutate state directly
     let winner = ""
     let winningRune = 0
 
@@ -132,9 +121,9 @@ class Game extends React.Component {
       winner = this.state.isUsersTurn ? "user" : "opponent"
     } else {
       tempArena = this.state.arena
-  
-      if (this.state.opponent.runes.includes(tempArena[0])) tempArena.reverse()   // If the opponent placed a rune first, switch the array
-      if (tempArena[0] > tempArena [1]) {
+
+      if (this.state.opponent.runes.includes(tempArena[0])) tempArena.reverse() // If the opponent placed a rune first, switch the array
+      if (tempArena[0] > tempArena[1]) {
         console.log("user won")
         winner = "user"
         winningRune = tempArena[0]
@@ -143,23 +132,27 @@ class Game extends React.Component {
         winner = "opponent"
         winningRune = tempArena[1]
       } else {
-        console.log("*** BUG *** handleRuneComparisson() - neither the user nor opponent won?..")
+        console.log(
+          "*** BUG *** handleRuneComparisson() - neither the user nor opponent won?.."
+        )
       }
     }
 
-    for (let i = 0; i < this.state.pot.length; i++){
-      this.state[winner][this.state.pot[i]] = this.state[winner][this.state.pot[i]] + 1
+    for (let i = 0; i < this.state.pot.length; i++) {
+      this.state[winner][this.state.pot[i]] =
+        this.state[winner][this.state.pot[i]] + 1
     }
 
-    // const winnersNewRuneArray = [...this.state[winner].runes]
-    const winnersNewRuneArray = [...this.state[winner].runes].filter((value, index, arr) => {
-      if (value !== winningRune) return value
-    })
-  
+    const winnersNewRuneArray = [...this.state[winner].runes].filter(
+      (value, index, arr) => {
+        if (value !== winningRune) return value
+      }
+    )
+
     console.log("Winners runes:")
     console.log(winnersNewRuneArray)
-    
-    this.setState(prevState => ({
+
+    this.setState(() => ({
       [winner]: {
         runes: winnersNewRuneArray
       },
@@ -192,16 +185,19 @@ class Game extends React.Component {
 
   componentDidUpdate() {
     console.log("---componentDidUpdate()")
-    // console.log(`isUsersTurn: ${this.state.isUsersTurn}, isInBet: ${this.state.isInBet}, arena: ${this.state.arena}`)
     if (!this.state.mustBet) {
       this.checkForcedBet()
     }
-    if (!this.state.isUsersTurn) { 
-      Opponent.act(this.state, this.draw, this.bet, this.pass, this.handlePlaceRune)
+    
+    if (!this.state.isUsersTurn) {
+      Opponent.act(
+        this.state,
+        this.draw,
+        this.bet,
+        this.pass,
+        this.handlePlaceRune
+      )
     }
-    // console.log(Opponent.act(this.state, this.draw, this.bet, this.pass, this.handlePlaceRune))
-
-    // console.log(`isUsersTurn: ${this.state.isUsersTurn}, isInBet: ${this.state.isInBet}, arena: ${this.state.arena}`)
 
     // ------------- Dev Turn Tracking
     let whosTurnIsIt = this.state.isUsersTurn ? "User" : "Opponent"
@@ -237,7 +233,7 @@ class Game extends React.Component {
             shouldDisplayBetButton={this.state.shouldDisplayBetButton}
             shouldDisplayDrawButton={this.state.shouldDisplayDrawButton}
             shouldDisplayPassButton={this.state.shouldDisplayPassButton}
-            isUsersTurn = {this.state.isUsersTurn}
+            isUsersTurn={this.state.isUsersTurn}
             bet={this.bet}
             draw={this.draw}
             pass={this.pass}
