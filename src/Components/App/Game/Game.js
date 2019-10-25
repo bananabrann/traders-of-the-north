@@ -144,6 +144,7 @@ class Game extends React.Component {
     
     this.setState({
       arena: [],
+      pot: [],
       isInBet: false,
       shouldDisplayBetButton: true,
       shouldDisplayDrawButton: true,
