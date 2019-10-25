@@ -61,7 +61,7 @@ class Game extends React.Component {
   }
 
   draw() {
-    console.log("---draw()")
+    console.log("> draw()")
     if (this.state.mustBet) {
       return console.log("you can't draw, you must bet")
     } else {
@@ -75,19 +75,22 @@ class Game extends React.Component {
   }
 
   bet() {
-    console.log("---bet()")
-    this.setState({
-      isInBet: true,
-      isUsersTurn: !this.state.isUsersTurn,
-      shouldDisplayBetButton: false,
-      shouldDisplayDrawButton: false,
-      shouldDisplayPassButton: true,
-      shouldAllowRunePlacement: true
-    })
+    console.log("> bet()")
+    if(this.state.isInBet) {console.log("You can't bet again!")
+    } else {
+      this.setState({
+        isInBet: true,
+        isUsersTurn: !this.state.isUsersTurn,
+        shouldDisplayBetButton: false,
+        shouldDisplayDrawButton: false,
+        shouldDisplayPassButton: true,
+        shouldAllowRunePlacement: true
+      })
+    }
   }
 
   pass() {
-    console.log("---pass()")
+    console.log("> pass()")
     this.setState({
       isUsersTurn: !this.state.isUsersTurn,
       mustPlaceRune: true
@@ -95,7 +98,7 @@ class Game extends React.Component {
   }
 
   handlePlaceRune(rune) {
-    console.log(`---handlePlaceRune(${rune})`)
+    console.log(`> handlePlaceRune(${rune})`)
 
     if (!this.state.isInBet) {
       console.log("You cannot place a rune without being in a bet!")
@@ -105,13 +108,14 @@ class Game extends React.Component {
       if (this.state.mustPlaceRune) this.handleRuneComparisson(true)
       if (this.state.arena.length >= 2) this.handleRuneComparisson()
       this.setState({
-        isUsersTurn: !this.state.isUsersTurn
+        isUsersTurn: !this.state.isUsersTurn,
+        mustBet: false
       })
     }
   }
 
   handleRuneComparisson(soloRuneVictory) {
-    console.log("---handleRuneComparisson()")
+    console.log(`> handleRuneComparisson(${soloRuneVictory})`)
 
     let tempArena = [] // NOTE: I do this because I do not want to mutate state directly
     let winner = ""
@@ -167,7 +171,7 @@ class Game extends React.Component {
   }
 
   checkForcedBet() {
-    console.log("---checkForcedBet()")
+    console.log("> checkForcedBet()")
 
     const pot = this.state.pot
 
@@ -183,7 +187,7 @@ class Game extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log("---componentDidUpdate()")
+    console.log("> componentDidUpdate()")
     if (!this.state.mustBet) {
       this.checkForcedBet()
     }

@@ -1,19 +1,18 @@
 class Opponent {
   static act(state, draw, bet, pass, placeRune) {
+    console.log(`> act(...)`)
     this.sleep(1000).then(() => {
       if (state.isUsersTurn) {return null}          // If it is not the opponent's turn, don't do anything
-      else if (state.mustBet) {
-        return bet()
-      } else if (state.mustPlaceRune) {
-        return placeRune(state.opponent.runes[0])
-      } else if (state.isInBet) {
-        this.respondToBet(state, pass, placeRune)
+      else if (state.mustBet && !state.isInBet) {return bet()
+      } else if (state.mustPlaceRune) {return placeRune(state.opponent.runes[0])
+      } else if (state.isInBet) {this.respondToBet(state, pass, placeRune)
       } else {
-        if (this.think(state.pot) > 9) {
-          return bet()
-        } else {
-          return draw()
-        }
+        // if (this.think(state.pot) > 9) {
+        //   return bet()
+        // } else {
+        //   return draw()
+        // }
+        return (this.think(state.pot) > 9) ? bet() : draw()
       }
     })
 
@@ -24,6 +23,8 @@ class Opponent {
   }
 
   static think(pot) {
+    console.log(`> think(...)`)
+
     const weightCap = 100
     let betWeight = 0
 
@@ -38,6 +39,7 @@ class Opponent {
   }
 
   static respondToBet(state, pass, placeRune) {
+    console.log(`> respondToBet(${state}, ${pass}, ${placeRune})`)
     const weightCap = 100
     let passWeight = 0
     let placeRuneWeight = 50   // Note will be zero
