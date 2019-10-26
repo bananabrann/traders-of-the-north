@@ -3,6 +3,7 @@ import ButtonBoard from "./ButtonBoard/ButtonBoard"
 import InfoBoard from "./InfoBoard/InfoBoard"
 import PotBoard from "./PotBoard/PotBoard"
 import RuneBoard from "./RuneBoard/RuneBoard"
+import Opponent from "../../../Opponent"
 
 import "./Game.scss"
 
@@ -16,9 +17,10 @@ class Game extends React.Component {
   constructor() {
     super()
     this.state = {
+      isOutsideRecommendedWidth: false,
       user: {
         name: "Sigrid Treasureborn",
-        rune: baseRunes.pack1,
+        runes: baseRunes.pack1,
         gold: 0,
         fish: 0,
         totem: 0,
@@ -26,118 +28,204 @@ class Game extends React.Component {
       },
       opponent: {
         name: "Ulf Goldkeeper",
-        rune: baseRunes.pack2,
+        runes: baseRunes.pack2,
         gold: 0,
         fish: 0,
         totem: 0,
         seaweed: 0
       },
       pot: [],
+      arena: [],
       isUsersTurn: true,
-      isOutsideRecommendedWidth: false,
+      isInBet: false,
+      mustBet: false,
+      mustPlaceRune: false,
+
+      messageBoardContent: "",
       shouldDisplayDrawButton: true,
       shouldDisplayBetButton: true,
       shouldDisplayPassButton: false,
-      shouldAllowRunePlacement: false,
-      betWasCalled: false,
-      mustBet: false,
-      mustPlaceRune: false,
-      messageBoardContent: ""
+      shouldAllowRunePlacement: false
     }
     this.draw = this.draw.bind(this)
     this.bet = this.bet.bind(this)
     this.pass = this.pass.bind(this)
     this.handlePlaceRune = this.handlePlaceRune.bind(this)
     this.checkForcedBet = this.checkForcedBet.bind(this)
+    this.handleRuneComparisson = this.handleRuneComparisson.bind(this)
+    this.testHello = this.testHello.bind(this)
+  }
+
+  testHello() {
+    console.log("hello ;)")
   }
 
   draw() {
+    console.log("> draw()")
     if (this.state.mustBet) {
       return console.log("you can't draw, you must bet")
     } else {
       const drawnPiece = bag[Math.floor(Math.random() * bag.length)]
+
       this.state.pot.push(drawnPiece)
       this.setState({
         isUsersTurn: !this.state.isUsersTurn
       })
-      // console.log(
-      //   `${drawnPiece} drawed. Pot: ${this.state.pot}. usersTurn: ${this.state.isUsersTurn}`
-      // )
     }
   }
 
   bet() {
-    console.log("bet() called")
-    this.setState({
-      betWasCalled: true,
-      isUsersTurn: !this.state.isUsersTurn,
-      shouldDisplayBetButton: false,
-      shouldDisplayDrawButton: false,
-      shouldDisplayPassButton: true,
-      shouldAllowRunePlacement: true
-    })
-  }
-
-  pass() {
-    console.log("pass() called")
-    this.setState({isUsersTurn: !this.state.isUsersTurn})
-
-    if (this.state.isUsersTurn) {
+    console.log("> bet()")
+    if(this.state.isInBet) {console.log("You can't bet again!")
+    } else {
       this.setState({
-        mustBet: false,
-        mustPlaceRune: true,
-        shouldDisplayPassButton: true
+        isInBet: true,
+        isUsersTurn: !this.state.isUsersTurn,
+        shouldDisplayBetButton: false,
+        shouldDisplayDrawButton: false,
+        shouldDisplayPassButton: true,
+        shouldAllowRunePlacement: true
       })
     }
   }
 
-  handlePlaceRune(rune) {
-    console.log(`The ${rune} has been placed`)
+  pass() {
+    console.log("> pass()")
+    this.setState({
+      isUsersTurn: !this.state.isUsersTurn,
+      mustPlaceRune: true
+    })
   }
 
+  handlePlaceRune(rune) {
+    console.log(`> handlePlaceRune(${rune})`)
+
+    if (!this.state.isInBet) {
+      console.log("You cannot place a rune without being in a bet!")
+    } else {
+      this.state.arena.push(rune)
+
+      if (this.state.mustPlaceRune) this.handleRuneComparisson(true)
+      if (this.state.arena.length >= 2) this.handleRuneComparisson()
+      this.setState({
+        isUsersTurn: !this.state.isUsersTurn,
+        mustBet: false
+      })
+    }
+  }
+
+  handleRuneComparisson(soloRuneVictory) {
+    console.log(`> handleRuneComparisson(${soloRuneVictory})`)
+
+    let tempArena = [] // NOTE: I do this because I do not want to mutate state directly
+    let winner = ""
+    let winningRune = 0
+
+    if (soloRuneVictory) {
+      winner = this.state.isUsersTurn ? "user" : "opponent"
+      winningRune = this.state.arena[0]
+    } else {
+      tempArena = this.state.arena
+
+      if (this.state.opponent.runes.includes(tempArena[0])) tempArena.reverse() // If the opponent placed a rune first, switch the array
+      if (tempArena[0] > tempArena[1]) {
+        console.log("user won")
+        winner = "user"
+        winningRune = tempArena[0]
+      } else if (tempArena[1] > tempArena[0]) {
+        console.log("oppo won")
+        winner = "opponent"
+        winningRune = tempArena[1]
+      } else {
+        console.log(
+          "*** BUG *** handleRuneComparisson() - neither the user nor opponent won?.."
+        )
+      }
+    }
+
+    const winnersNewRuneArray = [...this.state[winner].runes].filter(
+      (value, index, arr) => {
+        if (value !== winningRune) return value
+      }
+    )
+
+    const winnersGold = this.state[winner].gold += this.state.pot.filter(x => {
+        return (x === "gold")
+      }).length
+
+      const winnersFish = this.state[winner].fish += this.state.pot.filter(x => {
+        return (x === "fish")
+      }).length
+
+      const winnersTotem = this.state[winner].totem += this.state.pot.filter(x => {
+        return (x === "totem")
+      }).length
+
+      const winnersSeaweed = this.state[winner].seaweed += this.state.pot.filter(x => {
+        return (x === "seaweed")
+      }).length
+
+    this.setState(() => ({
+      [winner]: {
+        runes: winnersNewRuneArray,
+        gold: winnersGold,
+        fish: winnersFish,
+        totem: winnersTotem,
+        seaweed: winnersSeaweed
+      },
+      arena: [],
+      pot: [],
+      isInBet: false,
+      mustPlaceRune: false,
+      shouldDisplayBetButton: true,
+      shouldDisplayDrawButton: true,
+      shouldDisplayPassButton: false,
+      shouldAllowRunePlacement: false
+    }))
+  }
 
   checkForcedBet() {
-    const isUsersTurn = this.state.isUsersTurn
-    const betWasCalled = this.state.betWasCalled
+    console.log("> checkForcedBet()")
+
     const pot = this.state.pot
 
     if (pot.length >= 8) {
       this.setState({
         mustBet: true,
-        mustPlaceRune: true,
         shouldDisplayBetButton: true,
         shouldDisplayDrawButton: false,
         shouldDisplayPassButton: false,
         shouldAllowRunePlacement: false
       })
     }
-    if (betWasCalled) {
-      if (isUsersTurn) {
-        this.setState({
-          mustBet: false,
-          mustPlaceRune: false,
-          shouldDisplayBetButton: false,
-          shouldDisplayDrawButton: false,
-          shouldDisplayPassButton: true,
-          shouldAllowRunePlacement: true
-        })
-      } else if (!isUsersTurn) {
-        console.log("Not users turn, ")
-        // Call opponent logic
-      }
-    }
   }
 
   componentDidUpdate() {
-    // console.log("Checking for forced bet...")
-    if (!this.state.mustBet && !this.state.mustPlaceRune && !this.state.betWasCalled) {
+    console.log("> componentDidUpdate()")
+    if (!this.state.mustBet) {
       this.checkForcedBet()
     }
-    console.log(`isUsersTurn: ${this.state.isUsersTurn} betWasCalled: ${this.state.betWasCalled}`)
+    
+    if (!this.state.isUsersTurn) {
+      Opponent.act(
+        this.state,
+        this.draw,
+        this.bet,
+        this.pass,
+        this.handlePlaceRune
+      )
+    }
+
+    // ------------- Dev Turn Tracking
+    let whosTurnIsIt = this.state.isUsersTurn ? "User" : "Opponent"
+    console.log(`----------${whosTurnIsIt}----------`)
   }
 
   componentDidMount() {
-    document.title = "Traders of the North"
+    let whosTurnIsIt = this.state.isUsersTurn ? "User" : "Opponent"
+    console.log(`----------${whosTurnIsIt}----------`)
+
+    document.title = "Play Traders of the North"
   }
 
   render() {
@@ -162,6 +250,7 @@ class Game extends React.Component {
             shouldDisplayBetButton={this.state.shouldDisplayBetButton}
             shouldDisplayDrawButton={this.state.shouldDisplayDrawButton}
             shouldDisplayPassButton={this.state.shouldDisplayPassButton}
+            isUsersTurn={this.state.isUsersTurn}
             bet={this.bet}
             draw={this.draw}
             pass={this.pass}
@@ -171,14 +260,15 @@ class Game extends React.Component {
         <div id="rune-board">
           <RuneBoard
             handlePlaceRune={this.handlePlaceRune}
-            usersRunes={this.state.user.rune}
+            usersRunes={this.state.user.runes}
           />
         </div>
 
         <div id="info-board">
           <InfoBoard
+            state={this.state}
             handleInfoBoardTabSelection={this.handleInfoBoardTabSelection}
-          ></InfoBoard>
+          />
         </div>
       </div>
     )
