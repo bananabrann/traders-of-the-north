@@ -112,7 +112,7 @@ class Game extends React.Component {
   handleRuneComparisson(soloRuneVictory) {
     console.log(`> handleRuneComparisson(${soloRuneVictory})`)
 
-    let tempArena = [] // NOTE: I do this because I do not want to mutate state directly
+    let tempArena = []                                                                // NOTE: I do this because I do not want to mutate state directly
     let winner = ""
     let winningRune = 0
 
@@ -122,7 +122,7 @@ class Game extends React.Component {
     } else {
       tempArena = this.state.arena
 
-      if (this.state.opponent.runes.includes(tempArena[0])) tempArena.reverse() // If the opponent placed a rune first, switch the array
+      if (this.state.opponent.runes.includes(tempArena[0])) tempArena.reverse()     // NOTE: If the opponent placed a rune first, switch the array
       if (tempArena[0] > tempArena[1]) {
         console.log("user won")
         winner = "user"

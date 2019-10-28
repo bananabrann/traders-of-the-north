@@ -33,25 +33,25 @@ class InfoBoard extends React.Component {
       })
     }
 
-    // BUG: Why does the above work but not the below?
+                    // BUG: Why does the above work but not the below?
 
-    // (desiredTab === "messages") ? this.setState({
-    //   shouldDisplayMessagesTab: true,
-    //   shouldDisplayStockpileTab: false,
-    //   shouldDisplaySettingsTab: false
-    // }) : void(0)
+                    // (desiredTab === "messages") ? this.setState({
+                    //   shouldDisplayMessagesTab: true,
+                    //   shouldDisplayStockpileTab: false,
+                    //   shouldDisplaySettingsTab: false
+                    // }) : void(0)
 
-    // (desiredTab === "stockpile") ? this.setState({
-    //   shouldDisplayMessagesTab: false,
-    //   shouldDisplayStockpileTab: true,
-    //   shouldDisplaySettingsTab: false
-    // }) : void(0)
+                    // (desiredTab === "stockpile") ? this.setState({
+                    //   shouldDisplayMessagesTab: false,
+                    //   shouldDisplayStockpileTab: true,
+                    //   shouldDisplaySettingsTab: false
+                    // }) : void(0)
 
-    // (desiredTab === "settings") ? this.setState({
-    //   shouldDisplayMessagesTab: false,
-    //   shouldDisplayStockpileTab: false,
-    //   shouldDisplaySettingsTab: true
-    // }) : void(0)
+                    // (desiredTab === "settings") ? this.setState({
+                    //   shouldDisplayMessagesTab: false,
+                    //   shouldDisplayStockpileTab: false,
+                    //   shouldDisplaySettingsTab: true
+                    // }) : void(0)
   }
 
   render() {
@@ -102,12 +102,6 @@ class InfoBoard extends React.Component {
         </div>
       </div>
     )
-  }
-
-  componentDidMount() {
-    this.setState({
-      someKey: "otherValue"
-    })
   }
 }
 

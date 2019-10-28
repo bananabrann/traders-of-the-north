@@ -45,7 +45,6 @@ class App extends Component {
   render() {
     return (
       <div id="App">
-
         {this.state.shouldDisplayTitle ? (
           <Title handleScreenSelectionClick={this.handleScreenSelectionClick} />
         ) : null}
@@ -53,9 +52,7 @@ class App extends Component {
           <Game handleScreenSelectionClick={this.handleScreenSelectionClick} />
         ) : null}
         {this.state.shouldDisplayInstructions ? (
-          <Instructions
-            handleScreenSelectionClick={this.handleScreenSelectionClick}
-          />
+          <Instructions handleScreenSelectionClick={this.handleScreenSelectionClick} />
         ) : null}
       </div>
     )

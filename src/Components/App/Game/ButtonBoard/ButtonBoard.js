@@ -1,25 +1,14 @@
 import React from "react"
 
 class ButtonBoard extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      someKey: "someValue"
-    }
-  }
 
-/*
-  shouldComponentUpdate() {
-    // TODO: Make buttons hide when it is not the user's turn
-  }
-*/
+  shouldComponentUpdate() { }                     // TODO: Make buttons hide when it is not the user's turn
 
   render() {
     // TODO: I think these can be refactored into a props spread opperator
     const shouldDisplayBetButton = this.props.shouldDisplayBetButton
     const shouldDisplayDrawButton = this.props.shouldDisplayDrawButton
     const shouldDisplayPassButton = this.props.shouldDisplayPassButton
-
 
     return (
       <div>
@@ -42,12 +31,6 @@ class ButtonBoard extends React.Component {
         ) : null}
       </div>
     )
-  }
-
-  componentDidMount() {
-    this.setState({
-      someKey: "otherValue"
-    })
   }
 }
 
