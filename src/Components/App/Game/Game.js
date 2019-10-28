@@ -53,11 +53,6 @@ class Game extends React.Component {
     this.handlePlaceRune = this.handlePlaceRune.bind(this)
     this.checkForcedBet = this.checkForcedBet.bind(this)
     this.handleRuneComparisson = this.handleRuneComparisson.bind(this)
-    this.testHello = this.testHello.bind(this)
-  }
-
-  testHello() {
-    console.log("hello ;)")
   }
 
   draw() {
@@ -189,7 +184,7 @@ class Game extends React.Component {
 
     const pot = this.state.pot
 
-    if (pot.length >= 8) {
+    if (pot.length >= 8 && !this.state.isInBet) {
       this.setState({
         mustBet: true,
         shouldDisplayBetButton: true,
