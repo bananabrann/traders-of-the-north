@@ -1,4 +1,4 @@
-![Traders of the North Logo](https://traders-of-the-north.s3.amazonaws.com/logo-main.png)
+![Traders of the North Logo](https://traders-of-the-north.s3.amazonaws.com/traders-of-the-north-logo-main.png)
 
 # Traders of the North
 ### Contents
