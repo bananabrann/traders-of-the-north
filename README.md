@@ -1,3 +1,5 @@
+![Traders of the North Logo](https://traders-of-the-north.s3.amazonaws.com/logo-main.png)
+
 # Traders of the North
 ### Contents
 1. [How to Install](#how-to-install)
