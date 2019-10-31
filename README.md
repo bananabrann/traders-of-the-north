@@ -48,18 +48,16 @@ On a turn, a player is given two options: Draw, or Bet. A user can only act **on
 ### Draw
 On draw, a resource is unloaded off the longboat and into the pot. The resource drawn is random, but is weighted towards some pieces.
 
-The maximum number of items allowed in the pot is **eight**. If a player draws the eigth piece, the other player cannot draw and is a **forced bet**.
+The maximum number of items allowed in the pot is **eight**. If a player draws the eigth piece, the other player cannot draw and must bet. This is called a **forced bet**.
 
 ### Bet
-On bet, the turn is passed to the other player. The other player can either *place a rune*, or *pass*.
+On bet, the turn is passed to the other player, even if the bet is forced. The other player can either *place a rune*, or *pass*.
 
-#### Non-Better Places a Rune
-If the other player places a rune, the original betting player can opt to pass, in which case the other player wins the pot and expends the rune placed.
+**Non-Better Places a Rune**: If the other player places a rune, the original betting player can opt to pass, in which case the other player wins the pot and expends the rune placed. The original better can also place a rune. Whoever's rune is higher will take the pot.
 
-#### Non-Better Passes
-If the other player passes, **the original betting player must place a rune and take the pot**.
+**Non-Better Passes**: If the other player passes, *the original betting player must place a rune and take the pot*.
 
-### Last Player Standing
+## Last Player Standing
 When one player expends all his or her runes, the other player will "play the pot". This player will continue drawing pieces until a desired pot is achieved, and player uses a rune to take the pot. The usual eight pot limit still applies to this instance.
 
 > In future games, an additional piece will added to the possibilities of the draw that will spice up this stage of the game.
