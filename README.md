@@ -1,8 +1,5 @@
 <div>
-  <p align="center">
-    <img src="https://traders-of-the-north.s3.amazonaws.com/traders-of-the-north-logo-main.png" alt="Traders of the North Logo Main" width="500" align="center" />
-  </p>
-
+  <img src="https://traders-of-the-north.s3.amazonaws.com/traders-of-the-north-logo-main.png" alt="Traders of the North Logo Main" width="500" align="center" />
 </div>
 
 # Traders of the North
