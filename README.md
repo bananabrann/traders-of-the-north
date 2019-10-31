@@ -1,8 +1,8 @@
 <div>
-  <span width="300"></span>
-  <span>
-    <img src="https://traders-of-the-north.s3.amazonaws.com/traders-of-the-north-logo-main.png" alt="Traders of the North Logo Main" width="450" align="middle" />
-  </span>
+  <p align="center">
+    <img src="https://traders-of-the-north.s3.amazonaws.com/traders-of-the-north-logo-main.png" alt="Traders of the North Logo Main" width="500" align="center" />
+  </p>
+
 </div>
 
 # Traders of the North
@@ -39,6 +39,6 @@ This section will hope to describe describe all the vocabulary used in Traders o
 - **Bag**: The possible game pieces stored in an array to detemrine ratio.
 
 # Contributing
-This is not contributing policy. If you would like to contribute, simply open an issue of discussion or pull request and please outline what it is you have done or plan to do.
+There is not a contributing policy. If you would like to contribute, simply open an issue of discussion or pull request and please outline what it is you have done or plan to do.
 
 I appreciate any and all folks who want to contribute to the game!
