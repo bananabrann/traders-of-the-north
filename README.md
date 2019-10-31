@@ -1,7 +1,11 @@
-![Traders of the North Logo](https://traders-of-the-north.s3.amazonaws.com/traders-of-the-north-logo-main.png)
+<div>
+
+  <img src="https://traders-of-the-north.s3.amazonaws.com/traders-of-the-north-logo-main.png" alt="Traders of the North Logo Main" width="50" />
+
+</div>
 
 # Traders of the North
-### Contents
+## Contents
 1. [How to Install](#how-to-install)
 1. [How to Play](#how-to-play)
 1. [Developer's Dictionary](#dev-dictionary)
