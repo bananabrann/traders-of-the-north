@@ -14,14 +14,15 @@
 # How to Install
 #### MacOS and Linux with Bash
 1. `cd` into the directory you wish to house this repo.
-1. Copy and paste this line of code: `git clone git@github.com:bananabrann/traders-of-the-north.git && cd traders-of-the-north && npm install && npm start`
-1. If you wish to run the development branch, checkout the `dev` branch with: `git fetch && git checkout dev`
+1. `git clone git@github.com:bananabrann/traders-of-the-north.git && cd traders-of-the-north && npm install && npm start`
+1. If you wish to run the development branch, checkout the `dev` branch: `git fetch && git checkout dev`
 
 #### Windows
 >WIP
 
 # How to Play
->Traders of the North is in development at this time, and unavailable to play publicly. You may of course access the game by cloning the repo down at any time however.
+> Traders of the North is in development at this time, and not hosted anywhere for open play. You may of  course access and play the current state of the game by cloning the repo down.
+
 Traders of the North will be hosted online, and will only require a modern browser.
 
 >A legacy, "alpha" version of the game exists but is taken down from public servers as of October 2019. If you would like access to this version of the game, please contact me.
