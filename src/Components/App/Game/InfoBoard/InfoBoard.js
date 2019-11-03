@@ -10,6 +10,7 @@ class InfoBoard extends React.Component {
     }
     // prettier-ignore
     this.handleInfoBoardTabSelection = this.handleInfoBoardTabSelection.bind(this)
+    this.handleScoreCalculations = this.handleScoreCalculations.bind(this)
   }
 
   handleInfoBoardTabSelection(desiredTab) {
@@ -52,6 +53,27 @@ class InfoBoard extends React.Component {
     //   shouldDisplayStockpileTab: false,
     //   shouldDisplaySettingsTab: true
     // }) : void(0)
+  }
+
+  handleScoreCalculations() {
+    const user = this.props.state.user
+    const opponent = this.props.state.opponent
+    let userPoints = 0
+    let oppPoints = 0
+
+    console.log(`rah${user.gold}`)
+
+    if (user.fish === opponent.fish) { 
+      return
+    }
+    else if (user.fish > opponent.fish) { userPoints += 10 }
+    else if (opponent.fish > user.fish) { oppPoints += 10 }
+
+    console.log(`User points: ${userPoints}\nOpponent points: ${oppPoints}`)
+  }
+
+  componentDidUpdate() {
+    this.handleScoreCalculations()
   }
 
   render() {
