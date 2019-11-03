@@ -53,6 +53,7 @@ class Game extends React.Component {
     this.handlePlaceRune = this.handlePlaceRune.bind(this)
     this.checkForcedBet = this.checkForcedBet.bind(this)
     this.handleRuneComparisson = this.handleRuneComparisson.bind(this)
+    this.getWinnersNewStockpileAmounts = this.getWinnersNewStockpileAmounts.bind(this)
   }
 
   draw() {
@@ -144,29 +145,14 @@ class Game extends React.Component {
       }
     )
 
-    const winnersGold = this.state[winner].gold += this.state.pot.filter(x => {
-        return (x === "gold")
-      }).length
-
-      const winnersFish = this.state[winner].fish += this.state.pot.filter(x => {
-        return (x === "fish")
-      }).length
-
-      const winnersTotem = this.state[winner].totem += this.state.pot.filter(x => {
-        return (x === "totem")
-      }).length
-
-      const winnersSeaweed = this.state[winner].seaweed += this.state.pot.filter(x => {
-        return (x === "seaweed")
-      }).length
+    const winnersGoldNewAmount = this.getWinnersNewStockpileAmounts(winner, "gold")
+    const winnersFishNewAmount = this.getWinnersNewStockpileAmounts(winner, "fish")
 
     this.setState(() => ({
       [winner]: {
         runes: winnersNewRuneArray,
-        gold: winnersGold,
-        fish: winnersFish,
-        totem: winnersTotem,
-        seaweed: winnersSeaweed
+        gold: winnersGoldNewAmount,
+        fish: winnersFishNewAmount
       },
       arena: [],
       pot: [],
@@ -177,6 +163,24 @@ class Game extends React.Component {
       shouldDisplayPassButton: false,
       shouldAllowRunePlacement: false
     }))
+  }
+
+  getWinnersNewStockpileAmounts(viking, resource) {
+    if(resource === "gold") {
+      let potsGold = this.state.pot.filter(x => { return x === "gold"}).length
+      let potsTotem = this.state.pot.filter(x => { return x === "totem"}).length
+      
+      let calculatedNewGoldAmount = this.state[viking].gold += (potsGold - (potsTotem * 2))
+      return calculatedNewGoldAmount < 0 ? 0 : calculatedNewGoldAmount
+    } else if(resource === "fish") {
+      let potsFish = this.state.pot.filter(x => { return x === "fish"}).length
+      let potsSeaweed = this.state.pot.filter(x => { return x === "seaweed"}).length
+
+      let calculatedNewFishAmount = this.state[viking].fish += (potsFish - (potsSeaweed * 2))
+      return calculatedNewFishAmount < 0 ? 0 : calculatedNewFishAmount
+    } else {
+      console.log("ERR: getWinnersNewStockpileAmounts detected no resource")
+    }
   }
 
   checkForcedBet() {

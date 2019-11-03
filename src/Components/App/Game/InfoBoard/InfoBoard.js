@@ -12,7 +12,7 @@ class InfoBoard extends React.Component {
     }
     // prettier-ignore
     this.handleInfoBoardTabSelection = this.handleInfoBoardTabSelection.bind(this)
-    this.handleScoreCalculations = this.handleScoreCalculations.bind(this)
+    // this.handleScoreCalculations = this.handleScoreCalculations.bind(this)
   }
 
   handleInfoBoardTabSelection(desiredTab) {
@@ -55,56 +55,6 @@ class InfoBoard extends React.Component {
     //   shouldDisplayStockpileTab: false,
     //   shouldDisplaySettingsTab: true
     // }) : void(0)
-  }
-  
-/*
-  handleScoreCalculations() {
-    const user = this.props.state.user
-    const opponent = this.props.state.opponent
-    let uGold = user.gold
-    let uFish = user.fish
-    let uTotem =  user.totem
-    let uSeaweed = user.seaweed
-    let oGold = opponent.gold
-    let oFish = opponent.fish
-    let oTotem = opponent.totem
-    let oSeaweed = oppon.seaweed
-
-    let userPoints = 0
-    let oppPoints = 0
-
-    for(let i = uTotem; i > 0; i--) {
-      uTotem -= 1
-      uGold -= 2
-    }
-    if(uGold < 0) { uGold = 0 }
-
-    for(let i = oTotem; i > 0; i--) {
-      oTotem -= 1
-      oGold -= 2
-    }
-    if(oGold < 0) { oGold = 0 }
-
-    for(let i = uSeaweed; i > 0; i)
-
-    if (uFish === oFish) { break }
-    else if (uFish > oFish) { userPoints += 10 }
-    else if (oFish > uFish) { oppPoints += 10 }
-    else { console.log("ERR: Fish detection did not register a victory") }
-
-    if (userPoints !== this.state.userTotalPoints || oppPoints !== this.state.opponentTotalPoints) {
-      this.setState({
-        userTotalPoints: userPoints,
-        opponentTotalPoints: oppPoints
-      })
-    }
-
-    console.log(`User points: ${userPoints}\nOpponent points: ${oppPoints}`)
-  }
-*/
-
-  componentDidUpdate() {
-    this.handleScoreCalculations()
   }
 
   render() {
