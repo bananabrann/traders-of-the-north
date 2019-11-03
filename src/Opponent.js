@@ -47,7 +47,7 @@ class Opponent {
     if (passWeight > placeRuneWeight) {
       pass()
     } else {
-      placeRune(state.opponent.runes[1])
+      placeRune(state.opponent.runes[0])
     }
   }
 }
