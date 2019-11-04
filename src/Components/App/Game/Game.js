@@ -7,7 +7,7 @@ import Opponent from "../../../Opponent"
 
 import "./Game.scss"
 
-const bag = ["gold", "gold", "fish", "fish", "totem", "seaweed"]
+const bag = ["gold", "gold", "gold", "fish", "fish", "fish", "totem", "seaweed"]
 const baseRunes = {
   pack1: [2, 5, 6, 9],
   pack2: [3, 4, 7, 8]
@@ -21,18 +21,16 @@ class Game extends React.Component {
       user: {
         name: "Sigrid Treasureborn",
         runes: baseRunes.pack1,
+        score: 0,
         gold: 0,
         fish: 0,
-        totem: 0,
-        seaweed: 0
       },
       opponent: {
         name: "Ulf Goldkeeper",
         runes: baseRunes.pack2,
+        score: 0,
         gold: 0,
-        fish: 0,
-        totem: 0,
-        seaweed: 0
+        fish: 0
       },
       pot: [],
       arena: [],
@@ -53,6 +51,8 @@ class Game extends React.Component {
     this.handlePlaceRune = this.handlePlaceRune.bind(this)
     this.checkForcedBet = this.checkForcedBet.bind(this)
     this.handleRuneComparisson = this.handleRuneComparisson.bind(this)
+    this.getNewStockpileAmount = this.getNewStockpileAmount.bind(this)
+    this.getCalculatedScore = this.getCalculatedScore.bind(this)
   }
 
   draw() {
@@ -102,6 +102,7 @@ class Game extends React.Component {
 
       if (this.state.mustPlaceRune) this.handleRuneComparisson(true)
       if (this.state.arena.length >= 2) this.handleRuneComparisson()
+
       this.setState({
         isUsersTurn: !this.state.isUsersTurn,
         mustBet: false
@@ -114,22 +115,29 @@ class Game extends React.Component {
 
     let tempArena = []                                                                // NOTE: I do this because I do not want to mutate state directly
     let winner = ""
+    let loser = ""
     let winningRune = 0
 
     if (soloRuneVictory) {
       winner = this.state.isUsersTurn ? "user" : "opponent"
+      winner === "user" ? loser = "opponent" : loser = "user"
+
+      console.log(`DEBUG: Winner of soloRuneVictory is: ${winner}, loser: ${loser}`)
       winningRune = this.state.arena[0]
+      // console.log(`DEBUG: winningRune: ${winningRune}`)
     } else {
       tempArena = this.state.arena
 
-      if (this.state.opponent.runes.includes(tempArena[0])) tempArena.reverse()     // NOTE: If the opponent placed a rune first, switch the array
+      if (this.state.opponent.runes.includes(tempArena[0])) tempArena.reverse()     // If the opponent placed a rune first, switch the array
       if (tempArena[0] > tempArena[1]) {
         console.log("user won")
         winner = "user"
+        loser = "opponent"
         winningRune = tempArena[0]
       } else if (tempArena[1] > tempArena[0]) {
         console.log("oppo won")
         winner = "opponent"
+        loser = "user"
         winningRune = tempArena[1]
       } else {
         console.log(
@@ -144,29 +152,34 @@ class Game extends React.Component {
       }
     )
 
-    const winnersGold = this.state[winner].gold += this.state.pot.filter(x => {
-        return (x === "gold")
-      }).length
+    // console.log(`winner: ${winner}, loser: ${loser}`)
 
-      const winnersFish = this.state[winner].fish += this.state.pot.filter(x => {
-        return (x === "fish")
-      }).length
+    const winnersGoldNewAmount = this.getNewStockpileAmount(true, winner, "gold")
+    const winnersFishNewAmount = this.getNewStockpileAmount(true, winner, "fish")
+    const losersGoldNewAmount = this.getNewStockpileAmount(false, loser, "gold")
+    const losersFishNewAmount = this.getNewStockpileAmount(false, loser, "fish")
 
-      const winnersTotem = this.state[winner].totem += this.state.pot.filter(x => {
-        return (x === "totem")
-      }).length
+    console.log(`winnersGoldNewAmount: ${winnersGoldNewAmount}\n`, 
+                `winnersNewFishAmount: ${winnersFishNewAmount}\n`,
+                `losersGoldNewAmount: ${losersGoldNewAmount}\n`,
+                `losersFishNewAmount: ${losersFishNewAmount}`)
+    
+    const winnersNewScore = this.getCalculatedScore(true, winner, winnersGoldNewAmount, winnersFishNewAmount, losersFishNewAmount)
+    const losersNewScore = this.getCalculatedScore(false, loser, losersGoldNewAmount, winnersFishNewAmount, losersFishNewAmount)
 
-      const winnersSeaweed = this.state[winner].seaweed += this.state.pot.filter(x => {
-        return (x === "seaweed")
-      }).length
 
     this.setState(() => ({
       [winner]: {
         runes: winnersNewRuneArray,
-        gold: winnersGold,
-        fish: winnersFish,
-        totem: winnersTotem,
-        seaweed: winnersSeaweed
+        score: winnersNewScore,
+        gold: winnersGoldNewAmount,
+        fish: winnersFishNewAmount
+      },
+      [loser]: {
+        runes: this.state.opponent.runes,
+        score: losersNewScore,
+        gold: losersGoldNewAmount,
+        fish: losersFishNewAmount
       },
       arena: [],
       pot: [],
@@ -177,6 +190,56 @@ class Game extends React.Component {
       shouldDisplayPassButton: false,
       shouldAllowRunePlacement: false
     }))
+  }
+
+  getNewStockpileAmount(isWinner, viking, resource) {
+    console.log(`> getNewStockpileAmount(${viking}, ${resource}})`)
+
+    if (isWinner) {
+      if(resource === "gold") {
+        let potsGold = this.state.pot.filter(x => { return x === "gold"}).length
+        let potsTotem = this.state.pot.filter(x => { return x === "totem"}).length
+        
+        let calculatedNewGoldAmount = this.state[viking].gold += (potsGold - (potsTotem * 2))
+        return calculatedNewGoldAmount < 0 ? 0 : calculatedNewGoldAmount
+      } else if(resource === "fish") {
+        let potsFish = this.state.pot.filter(x => { return x === "fish"}).length
+        let potsSeaweed = this.state.pot.filter(x => { return x === "seaweed"}).length
+  
+        let calculatedNewFishAmount = this.state[viking].fish += (potsFish - (potsSeaweed * 2))
+        return calculatedNewFishAmount < 0 ? 0 : calculatedNewFishAmount
+      } else {
+        console.log("ERR: getNewStockpileAmount detected no resource")
+      }
+
+    } else {
+      if(resource === "gold") {
+        const gold = this.state[viking].gold
+        return gold < 0 ? 0 : this.state[viking].gold
+      } else if(resource === "fish") {
+        const fish = this.state[viking].fish
+        return fish < 0 ? 0 : this.state[viking].fish
+      } else {
+        console.log("ERR: getNewStockpileAmount detected no resource")
+      }
+    }
+
+  }
+
+  getCalculatedScore(isWinner, viking, goldAmount, winnersFish, losersFish) {
+    if (winnersFish === losersFish) {
+      console.log("Same fish")
+      return goldAmount
+    } else if (isWinner && winnersFish > losersFish) {
+      let score = this.state[viking].gold + 10
+      return score
+    } else if (!isWinner && winnersFish < losersFish) {
+      let score = this.state[viking].gold + 10
+      return score
+    } else {
+      return this.state[viking].gold
+      console.log("ERR: getCalculatedSCore() did not detect a winner")
+    }
   }
 
   checkForcedBet() {
@@ -197,6 +260,7 @@ class Game extends React.Component {
 
   componentDidUpdate() {
     console.log("> componentDidUpdate()")
+    console.log(`DEBUG: opponents runes: ${this.state.opponent.runes}`)
     if (!this.state.mustBet) {
       this.checkForcedBet()
     }

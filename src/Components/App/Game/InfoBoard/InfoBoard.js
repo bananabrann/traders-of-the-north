@@ -6,7 +6,7 @@ class InfoBoard extends React.Component {
     this.state = {
       shouldDisplayMessagesTab: true,
       shouldDisplayStockpileTab: false,
-      shouldDisplaySettingsTab: false
+      shouldDisplaySettingsTab: false,
     }
     // prettier-ignore
     this.handleInfoBoardTabSelection = this.handleInfoBoardTabSelection.bind(this)
@@ -79,19 +79,15 @@ class InfoBoard extends React.Component {
               <p>Yo here is the stockpiles tab</p>
               <div>
                 <h3>User</h3>
-                <p>Total Score: WIP</p>
+                <p>Total Score: {user.score}</p>
                 <p>Gold: {user.gold}</p>
                 <p>Fish: {user.fish}</p>
-                <p>Totems: {user.totem}</p>
-                <p>Seaweed: {user.seaweed}</p>
               </div>
               <div>
                 <h3>Opponent</h3>
-                <p>Total Score: WIP</p>
+                <p>Total Score: {opponent.score}</p>
                 <p>Gold: {opponent.gold}</p>
                 <p>Fish: {opponent.fish}</p>
-                <p>Totems: {opponent.totem}</p>
-                <p>Seaweed: {opponent.seaweed}</p>
               </div> 
             </div>
           ) : null}
