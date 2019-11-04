@@ -120,9 +120,11 @@ class Game extends React.Component {
 
     if (soloRuneVictory) {
       winner = this.state.isUsersTurn ? "user" : "opponent"
-      loser = !this.state.isUsersTurn ? "opponent" : "user"
+      winner === "user" ? loser = "opponent" : loser = "user"
 
+      console.log(`DEBUG: Winner of soloRuneVictory is: ${winner}, loser: ${loser}`)
       winningRune = this.state.arena[0]
+      console.log(`DEBUG: winningRune: ${winningRune}`)
     } else {
       tempArena = this.state.arena
 
