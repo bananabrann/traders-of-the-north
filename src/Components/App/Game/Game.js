@@ -176,7 +176,7 @@ class Game extends React.Component {
         fish: winnersFishNewAmount
       },
       [loser]: {
-        runes: this.state.opponent.runes,
+        runes: [...this.state[loser].runes],
         score: losersNewScore,
         gold: losersGoldNewAmount,
         fish: losersFishNewAmount
@@ -201,44 +201,51 @@ class Game extends React.Component {
         let potsTotem = this.state.pot.filter(x => { return x === "totem"}).length
         
         let calculatedNewGoldAmount = this.state[viking].gold += (potsGold - (potsTotem * 2))
-        return calculatedNewGoldAmount < 0 ? 0 : calculatedNewGoldAmount
+        if(calculatedNewGoldAmount < 0) { calculatedNewGoldAmount = 0 }
+
+        return calculatedNewGoldAmount
       } else if(resource === "fish") {
         let potsFish = this.state.pot.filter(x => { return x === "fish"}).length
         let potsSeaweed = this.state.pot.filter(x => { return x === "seaweed"}).length
   
         let calculatedNewFishAmount = this.state[viking].fish += (potsFish - (potsSeaweed * 2))
-        return calculatedNewFishAmount < 0 ? 0 : calculatedNewFishAmount
+        if(calculatedNewFishAmount < 0 ) { calculatedNewFishAmount = 0 }
+        return calculatedNewFishAmount
       } else {
         console.log("ERR: getNewStockpileAmount detected no resource")
       }
 
     } else {
       if(resource === "gold") {
-        const gold = this.state[viking].gold
-        return gold < 0 ? 0 : this.state[viking].gold
+        let gold = this.state[viking].gold
+        if(gold < 0) { gold = 0 }
+        return gold
       } else if(resource === "fish") {
-        const fish = this.state[viking].fish
-        return fish < 0 ? 0 : this.state[viking].fish
+        let fish = this.state[viking].fish
+        if(fish < 0) { fish = 0 }
+        return fish
       } else {
         console.log("ERR: getNewStockpileAmount detected no resource")
       }
     }
-
   }
 
   getCalculatedScore(isWinner, viking, goldAmount, winnersFish, losersFish) {
+    console.log(`> getCalculatedScore(${isWinner}, ${viking}, ${goldAmount}, ${winnersFish}, ${losersFish})`)
+
     if (winnersFish === losersFish) {
       console.log("Same fish")
-      return goldAmount
+      let score = goldAmount < 0 ? 0 : goldAmount
+      return score
     } else if (isWinner && winnersFish > losersFish) {
-      let score = this.state[viking].gold + 10
+      let score = goldAmount < 0 ? 10 : goldAmount + 10
       return score
     } else if (!isWinner && winnersFish < losersFish) {
-      let score = this.state[viking].gold + 10
+      let score = goldAmount < 0 ? 10 : goldAmount + 10
       return score
     } else {
-      return this.state[viking].gold
-      console.log("ERR: getCalculatedSCore() did not detect a winner")
+      let score = goldAmount < 0 ? 0 : goldAmount
+      return score
     }
   }
 
@@ -260,7 +267,7 @@ class Game extends React.Component {
 
   componentDidUpdate() {
     console.log("> componentDidUpdate()")
-    console.log(`DEBUG: opponents runes: ${this.state.opponent.runes}`)
+    console.log(`DEBUG:\nopponents runes: ${this.state.opponent.runes}\nusers runes: ${this.state.user.runes}`)
     if (!this.state.mustBet) {
       this.checkForcedBet()
     }
