@@ -89,10 +89,10 @@ The game should display...
 - [ ] A message board
 
 The game functions should include, and potentially affect...
-- [ ] draw()
-- [ ] pass()
-- [ ] bet()
-- [ ] placeRune(rune: int)
+- [X] draw()
+- [X] pass()
+- [X] bet()
+- [X] placeRune(rune: int)
 
 
 Intentional exludes:
