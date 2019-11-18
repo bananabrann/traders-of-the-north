@@ -6,32 +6,24 @@ class Opponent {
       else if (state.mustBet && !state.isInBet) {return bet()
       } else if (state.mustPlaceRune) {return placeRune(state.opponent.runes[0])
       } else if (state.isInBet) {this.respondToBet(state, pass, placeRune)
-      } else {
-        // if (this.think(state.pot) > 9) {
-        //   return bet()
-        // } else {
-        //   return draw()
-        // }
-        return (this.think(state.pot) > 9) ? bet() : draw()
-      }
+      } else { return (this.think(state) > 9) ? bet() : draw() }
     })
-
   }
 
   static sleep(amount) {
     return new Promise((resolve) => setTimeout(resolve, amount))
   }
 
-  static think(pot) {
+  static think(state) {
     console.log(`> think(...)`)
 
     const weightCap = 100
     let betWeight = 0
 
-    pot.forEach(item => {
+    state.pot.forEach(item => {
       if (item === "gold") betWeight += 5
       if (item === "fish") betWeight += 5
-      if (item === "totem") betWeight -= 7
+      if (item === "totem" && state.opponent.totem > 0) betWeight -= 7
       if (item === "seaweed") betWeight -= 7
     })
 
