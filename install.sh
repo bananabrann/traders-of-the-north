@@ -1,3 +1,6 @@
+# The intent of this script to provide a user-friendly
+# fire-and-forget method of installing dependencies.
+
 GREEN = "\e[32m"
 YELLOW = "\e[33m"
 BOLD = "\e[1m"
@@ -32,5 +35,6 @@ sleep 1s
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install node
 npm install
-sleep 3s
-npm start
+npm audit fix
+npm run-script build
+npm install -g serve
