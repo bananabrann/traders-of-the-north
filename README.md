@@ -18,6 +18,11 @@
 1. `git clone git@github.com:bananabrann/traders-of-the-north.git && cd traders-of-the-north && npm install && npm start`
 1. If you wish to run the development branch, checkout the `dev` branch: `git fetch && git checkout dev`
 
+### From Scratch
+If you do not have Brew, Node, or any other development packages, `cd` into the correct directory and simply execute the following:
+`chmod 777 ./install.sh && ./install.sh`
+This will download Brew, Node, and all their dependencies to your system.
+
 #### Windows
 >WIP
 
