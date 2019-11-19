@@ -7,24 +7,29 @@
 # Traders of the North
 ## Contents
 1. [How to Install](#how-to-install)
+1. [How to Uninstall](#how-to-uninstall)
 1. [How to Play](#how-to-play)
 1. [Game Instructions](#game-instructions)
 1. [Developer's Dictionary](#dev-dictionary)
 1. [Contributing](#contributing)
 
 # How to Install
-#### Bash, ZSH
-1. `cd` into the directory you wish to house this repo.
-1. `git clone git@github.com:bananabrann/traders-of-the-north.git && cd traders-of-the-north && npm install && npm start`
-1. If you wish to run the development branch, checkout the `dev` branch: `git fetch && git checkout dev`
-
 ### From Scratch
 If you do not have Brew, Node, or any other development packages, `cd` into the correct directory and simply execute the following:
 `chmod 777 ./install.sh && ./install.sh`
 This will download Brew, Node, and all their dependencies to your system.
 
+#### Bash, ZSH
+1. `cd` into the directory you wish to house this repo.
+1. `git clone git@github.com:bananabrann/traders-of-the-north.git && cd traders-of-the-north && npm install && npm start`
+1. If you wish to run the development branch, checkout the `dev` branch: `git fetch && git checkout dev`
+
 #### Windows
 >WIP
+
+# How to Uninstall
+If you are not a developer and want to uninstall all the dependencies used, make sure Traders of the North folder is in your Home folder then copy and paste the following:
+`cd ~/traders-of-the-north && chmod 777 ./uninstall.sh && ./uninstall.sh && cd ../ && rm -rf traders-of-the-north/`
 
 # How to Play
 (Getting to the game)
