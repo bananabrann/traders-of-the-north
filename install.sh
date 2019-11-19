@@ -11,9 +11,8 @@ echo "********************************"
 echo "* Traders of the North install *"
 echo "********************************"
 
-printf "\nHello! This script will install the neccesary dependencies and
-start the development, and local version of Traders of the North.\n
-The software to be downloaded consists of programs that are very 
+printf "\nHello! This script will install the neccesary dependencies and start the development, and local 
+version of Traders of the North.\nThe software to be downloaded consists of programs that are very 
 typical of software engineering. This includes, but not limited to:
   • \e[1mBrew\e[0m, a MacOS software development package manager
   • \e[1mNode\e[0m, a JavaScript runtime enviroment
@@ -38,3 +37,5 @@ npm install
 npm audit fix
 npm run-script build
 npm install -g serve
+
+printf "\n\e[1m\e[32m~~~ Install complete! ~~~\n\e[0mYou maybe now safely terminate this window.\nGoodbye!\n\n"
