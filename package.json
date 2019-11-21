@@ -2,6 +2,6 @@
   "devDependencies": {
     "cssnano": "^4.1.8",
     "pug": "^2.0.3",
-    "sass": "^1.15.3"
+    "sass": "^1.23.7"
   }
 }
