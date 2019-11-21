@@ -34,7 +34,6 @@ sleep 1s
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install node
 npm install
-npm audit fix
 npm run-script build
 npm install -g serve
 
