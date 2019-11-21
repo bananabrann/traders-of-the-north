@@ -16,7 +16,7 @@
 # How to Install
 ### From Scratch
 If you do not have Brew, Node, or any other development packages, `cd` into the correct directory and simply execute the following:
-`chmod 777 ./install.sh && ./install.sh`
+`chmod 511 ./install.sh && ./install.sh`
 This will download Brew, Node, and all their dependencies to your system.
 
 #### Bash, ZSH
@@ -29,7 +29,7 @@ This will download Brew, Node, and all their dependencies to your system.
 
 # How to Uninstall
 If you are not a developer and want to uninstall all the dependencies used, make sure Traders of the North folder is in your Home folder then copy and paste the following:
-`cd ~/traders-of-the-north && chmod 777 ./uninstall.sh && ./uninstall.sh && cd ../ && rm -rf traders-of-the-north/`
+`cd ~/traders-of-the-north && chmod 511 ./uninstall.sh && ./uninstall.sh && cd ../ && rm -rf traders-of-the-north/`
 
 # How to Play
 (Getting to the game)
