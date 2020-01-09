@@ -29,12 +29,10 @@ if ! ( [ $selection == "Y" ] || [ $selection == "y" ] ) ; then
   exit 0
 fi
 
-sleep 1s
+cd ../
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install node
 npm install
-npm run-script build
-npm install -g serve
 
 printf "\n\e[1m\e[32m~~~ Install complete! ~~~\n\e[0mYou maybe now safely terminate this window.\nGoodbye!\n\n"

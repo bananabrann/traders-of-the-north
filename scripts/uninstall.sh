@@ -29,10 +29,18 @@ if ! ( [ $selection == "Y" ] || [ $selection == "y" ] ) ; then
   exit 0
 fi
 
+cd ~/Desktop/traders-of-the-north/
+
+npm uninstall *
+
+cd ~/
+
 brew uninstall --force node
-brew cleanup
 rm -f /usr/local/bin/npm /usr/local/lib/dtrace/node.d
 rm -rf ~/.npm
+
+brew cleanup
+
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
 
 printf "\n\e[1m\e[32m~~~ Uninstall complete! ~~~\n\e[0mYou maybe now safely terminate this window.\nGoodbye!\n\n"

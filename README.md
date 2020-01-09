@@ -14,22 +14,42 @@
 1. [Contributing](#contributing)
 
 # How to Install
-### From Scratch
-If you do not have Brew, Node, or any other development packages, `cd` into the correct directory and simply execute the following:
-`chmod 511 ./install.sh && ./install.sh`
-This will download Brew, Node, and all their dependencies to your system.
+## Developers
+1. Have Node installed.
+1. Copy and paste into your shell: `git clone git@github.com:bananabrann/traders-of-the-north.git && cd ./traders-of-the-north && npm install`
+1. Run the game locally: `npm start`
 
-#### Bash, ZSH
-1. `cd` into the directory you wish to house this repo.
-1. `git clone git@github.com:bananabrann/traders-of-the-north.git && cd traders-of-the-north && npm install && npm start`
-1. If you wish to run the development branch, checkout the `dev` branch: `git fetch && git checkout dev`
+## Non-Developers
 
-#### Windows
->WIP
+These instructions are *only* for Mac or Linux computers. For Windows, please contact bananabrann at https://github.com/bananabrann.
+
+Easy install and uninstall scripts can be found in the **scripts** folder of the project.
+
+### Windows
+No work order to add instructions for Windows. Please contact bananabrann at https://github.com/bananabrann
+
+### Mac and Linux
+#### Step 1: Open the Terminal
+
+##### Linux-Based Systems
+Your terminal and shell depends on the distro you use. Check your toolbar for anything that looks like "console" or "terminal". A common thing is additional letters or phrases in the name, such as "xTerminal" or "EZConsole".
+
+##### Mac
+1. Press Command (⌘) and Spacebar at the same time. This should bring up a typable field in the center of your screen.
+1. Type "terminal" into the searchbar, and click on the application named "Terminal".
+
+#### Step 2: Install
+1. Copy and paste the following into the open Terminal window: `cd ~/Desktop && git clone git@github.com:bananabrann/traders-of-the-north.git && chmod 511 ./traders-of-the-north/scripts/install.sh && ./scripts/traders-of-the-north/install.sh`
+
+#### Step 3: Run
+This step assumes the Traders of the North folder is on your Desktop
+1. Within the open Terminal window, paste the following: `cd ~/Desktop/traders-of-the-north/scripts && bash ./run.sh`
 
 # How to Uninstall
 If you are not a developer and want to uninstall all the dependencies used, make sure Traders of the North folder is in your Home folder then copy and paste the following:
 `cd ~/traders-of-the-north && chmod 511 ./uninstall.sh && ./uninstall.sh && cd ../ && rm -rf traders-of-the-north/`
+
+******
 
 # How to Play
 (Getting to the game)
