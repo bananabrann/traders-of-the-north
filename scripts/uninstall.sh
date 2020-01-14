@@ -1,5 +1,7 @@
 # The intent of this script is a user-friendly
 # way over removing all dependencies of the project.
+# This script is intended for non-developers who want
+# to install the game locally. 
 
 GREEN = "\e[32m"
 YELLOW = "\e[33m"
