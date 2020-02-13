@@ -6,7 +6,7 @@ class InfoBoard extends React.Component {
     this.state = {
       shouldDisplayMessagesTab: true,
       shouldDisplayStockpileTab: false,
-      shouldDisplaySettingsTab: false,
+      shouldDisplaySettingsTab: false
     }
     // prettier-ignore
     this.handleInfoBoardTabSelection = this.handleInfoBoardTabSelection.bind(this)
@@ -32,26 +32,6 @@ class InfoBoard extends React.Component {
         shouldDisplaySettingsTab: true
       })
     }
-
-                    // BUG: Why does the above work but not the below?
-
-                    // (desiredTab === "messages") ? this.setState({
-                    //   shouldDisplayMessagesTab: true,
-                    //   shouldDisplayStockpileTab: false,
-                    //   shouldDisplaySettingsTab: false
-                    // }) : void(0)
-
-                    // (desiredTab === "stockpile") ? this.setState({
-                    //   shouldDisplayMessagesTab: false,
-                    //   shouldDisplayStockpileTab: true,
-                    //   shouldDisplaySettingsTab: false
-                    // }) : void(0)
-
-                    // (desiredTab === "settings") ? this.setState({
-                    //   shouldDisplayMessagesTab: false,
-                    //   shouldDisplayStockpileTab: false,
-                    //   shouldDisplaySettingsTab: true
-                    // }) : void(0)
   }
 
   render() {
@@ -88,7 +68,7 @@ class InfoBoard extends React.Component {
                 <p>Total Score: {opponent.score}</p>
                 <p>Gold: {opponent.gold}</p>
                 <p>Fish: {opponent.fish}</p>
-              </div> 
+              </div>
             </div>
           ) : null}
 

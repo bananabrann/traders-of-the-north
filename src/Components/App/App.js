@@ -52,6 +52,7 @@ class App extends Component {
           <Game handleScreenSelectionClick={this.handleScreenSelectionClick} />
         ) : null}
         {this.state.shouldDisplayInstructions ? (
+          // prettier-ignore
           <Instructions handleScreenSelectionClick={this.handleScreenSelectionClick} />
         ) : null}
       </div>

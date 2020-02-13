@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react"
 
 class Instructions extends React.Component {
   constructor() {
-    super();
+    super()
     this.state = {
-      someKey: 'someValue'
-    };
+      someKey: "someValue"
+    }
   }
 
   componentDidMount() {
@@ -13,13 +13,15 @@ class Instructions extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div id="Instructions">
         <h1>Instructions Screen</h1>
-        <div onClick={() => this.props.handleScreenSelectionClick("title")}>Title</div> 
+        <div onClick={() => this.props.handleScreenSelectionClick("title")}>
+          Title
+        </div>
       </div>
     )
   }
 }
 
-export default Instructions;
+export default Instructions

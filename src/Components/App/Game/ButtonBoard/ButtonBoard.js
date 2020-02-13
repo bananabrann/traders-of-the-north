@@ -1,8 +1,7 @@
 import React from "react"
 
 class ButtonBoard extends React.Component {
-
-  shouldComponentUpdate() { }                     // TODO: Make buttons hide when it is not the user's turn
+  shouldComponentUpdate() {} // TODO: Make buttons hide when it is not the user's turn
 
   render() {
     // TODO: I think these can be refactored into a props spread opperator
