@@ -5,7 +5,7 @@ import PotBoard from "./PotBoard/PotBoard"
 import RuneBoard from "./RuneBoard/RuneBoard"
 import Opponent from "../../../Opponent"
 
-import "./Game.scss"
+import "./GameGrid.scss"
 
 const bag = ["gold", "gold", "gold", "fish", "fish", "fish", "totem", "seaweed"]
 const baseRunes = {
@@ -71,7 +71,8 @@ class Game extends React.Component {
 
   bet() {
     console.log("> bet()")
-    if(this.state.isInBet) {console.log("You can't bet again!")
+    if (this.state.isInBet) {
+      console.log("You can't bet again!")
     } else {
       this.setState({
         isInBet: true,
@@ -159,11 +160,11 @@ class Game extends React.Component {
     const losersGoldNewAmount = this.getNewStockpileAmount(false, loser, "gold")
     const losersFishNewAmount = this.getNewStockpileAmount(false, loser, "fish")
 
-    console.log(`winnersGoldNewAmount: ${winnersGoldNewAmount}\n`, 
-                `winnersNewFishAmount: ${winnersFishNewAmount}\n`,
-                `losersGoldNewAmount: ${losersGoldNewAmount}\n`,
-                `losersFishNewAmount: ${losersFishNewAmount}`)
-    
+    console.log(`winnersGoldNewAmount: ${winnersGoldNewAmount}\n`,
+      `winnersNewFishAmount: ${winnersFishNewAmount}\n`,
+      `losersGoldNewAmount: ${losersGoldNewAmount}\n`,
+      `losersFishNewAmount: ${losersFishNewAmount}`)
+
     const winnersNewScore = this.getCalculatedScore(true, winner, winnersGoldNewAmount, winnersFishNewAmount, losersFishNewAmount)
     const losersNewScore = this.getCalculatedScore(false, loser, losersGoldNewAmount, winnersFishNewAmount, losersFishNewAmount)
 
@@ -196,33 +197,33 @@ class Game extends React.Component {
     console.log(`> getNewStockpileAmount(${viking}, ${resource}})`)
 
     if (isWinner) {
-      if(resource === "gold") {
-        let potsGold = this.state.pot.filter(x => { return x === "gold"}).length
-        let potsTotem = this.state.pot.filter(x => { return x === "totem"}).length
-        
+      if (resource === "gold") {
+        let potsGold = this.state.pot.filter(x => { return x === "gold" }).length
+        let potsTotem = this.state.pot.filter(x => { return x === "totem" }).length
+
         let calculatedNewGoldAmount = this.state[viking].gold += (potsGold - (potsTotem * 2))
-        if(calculatedNewGoldAmount < 0) { calculatedNewGoldAmount = 0 }
+        if (calculatedNewGoldAmount < 0) { calculatedNewGoldAmount = 0 }
 
         return calculatedNewGoldAmount
-      } else if(resource === "fish") {
-        let potsFish = this.state.pot.filter(x => { return x === "fish"}).length
-        let potsSeaweed = this.state.pot.filter(x => { return x === "seaweed"}).length
-  
+      } else if (resource === "fish") {
+        let potsFish = this.state.pot.filter(x => { return x === "fish" }).length
+        let potsSeaweed = this.state.pot.filter(x => { return x === "seaweed" }).length
+
         let calculatedNewFishAmount = this.state[viking].fish += (potsFish - (potsSeaweed * 2))
-        if(calculatedNewFishAmount < 0 ) { calculatedNewFishAmount = 0 }
+        if (calculatedNewFishAmount < 0) { calculatedNewFishAmount = 0 }
         return calculatedNewFishAmount
       } else {
         console.log("ERR: getNewStockpileAmount detected no resource")
       }
 
     } else {
-      if(resource === "gold") {
+      if (resource === "gold") {
         let gold = this.state[viking].gold
-        if(gold < 0) { gold = 0 }
+        if (gold < 0) { gold = 0 }
         return gold
-      } else if(resource === "fish") {
+      } else if (resource === "fish") {
         let fish = this.state[viking].fish
-        if(fish < 0) { fish = 0 }
+        if (fish < 0) { fish = 0 }
         return fish
       } else {
         console.log("ERR: getNewStockpileAmount detected no resource")
@@ -271,7 +272,7 @@ class Game extends React.Component {
     if (!this.state.mustBet) {
       this.checkForcedBet()
     }
-    
+
     if (!this.state.isUsersTurn) {
       Opponent.act(
         this.state,

@@ -4,7 +4,6 @@ import Instructions from "./Instructions/Instructions"
 import Title from "./Title/Title"
 
 import "./Reset.css"
-import "./App.css"
 
 class App extends Component {
   constructor(props) {
@@ -52,6 +51,7 @@ class App extends Component {
           <Game handleScreenSelectionClick={this.handleScreenSelectionClick} />
         ) : null}
         {this.state.shouldDisplayInstructions ? (
+          // prettier-ignore
           <Instructions handleScreenSelectionClick={this.handleScreenSelectionClick} />
         ) : null}
       </div>
