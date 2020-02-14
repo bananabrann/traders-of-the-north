@@ -5,7 +5,7 @@ import PotBoard from "./PotBoard/PotBoard"
 import RuneBoard from "./RuneBoard/RuneBoard"
 import Opponent from "../../../Opponent"
 
-import "./Game.scss"
+import "./GameGrid.scss"
 
 const bag = ["gold", "gold", "gold", "fish", "fish", "fish", "totem", "seaweed"]
 const baseRunes = {

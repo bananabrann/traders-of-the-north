@@ -4,7 +4,6 @@ import Instructions from "./Instructions/Instructions"
 import Title from "./Title/Title"
 
 import "./Reset.css"
-import "./App.css"
 
 class App extends Component {
   constructor(props) {
