@@ -1,34 +1,79 @@
 $dev-c: rgba(255, 0, 0, 0.082);
 #Game {
-  // * {
-  //   background-color: $dev-c;
-  // }
   background-color: $dev-c;
 
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-rows: repeat(10, 1fr);
-  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(14, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   grid-template-areas:
-    "back-btn topbar-l topbar-l topbar-l logo logo logo logo logo logo logo logo topbar-r topbar-r topbar-r topbar-r"
-    ". . . . logo logo logo logo logo logo logo logo . . . ."
-    ". pot pot pot pot pot pot pot pot pot pot pot pot pot pot ."
-    ". pot pot pot pot pot pot pot pot pot pot pot pot pot pot ."
-    ". pot pot pot pot pot pot pot pot pot pot pot pot pot pot ."
-    ". pot pot pot pot pot pot pot pot pot pot pot pot pot pot ."
-    ". pot pot pot pot pot pot pot pot pot pot pot pot pot pot mini-btn"
-    "btn-board btn-board btn-board btn-board rune-board rune-board rune-board rune-board rune-board rune-board rune-board info-board info-board info-board info-board info-board"
-    "btn-board btn-board btn-board btn-board rune-board rune-board rune-board rune-board rune-board rune-board rune-board info-board info-board info-board info-board info-board"
-    "btn-board btn-board btn-board btn-board rune-board rune-board rune-board rune-board rune-board rune-board rune-board info-board info-board info-board info-board info-board";
+  /*
+  p = pot
+  i = action board, runeboard and buttonboard flexed above each other as things become available
+  g = go back to menu button
+  o = options button
+  a = player stockpile
+  b = opponent stockpile
+  e = player available runes
+  f = opponent available runes
+  s = player portrait
+  t = opponent portrait
+  */
 
-  #return-to-title-btn {
-    grid-area: back-btn;
+  "s s . . . . t t"
+  "s s p p p p t t"
+  "a e p p p p f b"
+  "a e p p p p f b"
+  "a e p p p p f b"
+  "a e p p p p f b"
+  "o . p p p p . ."
+  "g . p p p p . ."
+  "i i i i i i i i"
+  "i i i i i i i i"
+  "i i i i i i i i"
+  "i i i i i i i i"
+  "i i i i i i i i"
+  "i i i i i i i i"
+  ;
+
+  #player-portrait {
+    grid-area: s;
     background-color: $dev-c;
   }
 
-  #logo-header {
-    grid-area: logo;
+  #opponent-portrait {
+    grid-area: t;
+    background-color: $dev-c;
+  }
+
+  #player-stockpile {
+    grid-area: a;
+    background-color: $dev-c;
+  }
+
+  #opponent-stockpile {
+    grid-area: b;
+    background-color: $dev-c;
+  }
+
+  #player-available-runes {
+    grid-area: e;
+    background-color: $dev-c;
+  }
+
+  #opponent-available-runes {
+    grid-area: f;
+    background-color: $dev-c;
+  }
+
+  #options-btn {
+    grid-area: o;
+    background-color: $dev-c;
+  }
+
+  #return-btn {
+    grid-area: g;
     background-color: $dev-c;
   }
 
@@ -37,18 +82,9 @@ $dev-c: rgba(255, 0, 0, 0.082);
     background-color: $dev-c;
   }
 
-  #button-board {
-    grid-area: btn-board;
+  #action-board {
+    grid-area: i;
     background-color: $dev-c;
   }
 
-  #rune-board {
-    grid-area: rune-board;
-    background-color: $dev-c;
-  }
-
-  #info-board {
-    grid-area: info-board;
-    background-color: $dev-c;
-  }
 }
