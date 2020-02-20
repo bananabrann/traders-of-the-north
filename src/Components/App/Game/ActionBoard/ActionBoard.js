@@ -2,36 +2,24 @@ import React from "react"
 import Rune from "./Rune/Rune"
 
 class ActionBoard extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      shouldDisplayMessagesTab: true,
-      shouldDisplayStockpileTab: false,
-      shouldDisplaySettingsTab: false
-    }
-    // prettier-ignore
-    // this.handleInfoBoardTabSelection = this.handleInfoBoardTabSelection.bind(this)
-  }
-
   render() {
     const shouldDisplayBetButton = this.props.shouldDisplayBetButton
     const shouldDisplayDrawButton = this.props.shouldDisplayDrawButton
     const shouldDisplayPassButton = this.props.shouldDisplayPassButton
+    const shouldAllowRunePlacement = this.props.shouldAllowRunePlacement
 
     return (
       <div>
         <p>hello from Actionboard</p>
 
         <div id="rune-select-area">
-          {this.props.usersRunes.map((r, i) => {
-            return (
-              <Rune
-                key={i}
-                runeValue={r}
-                handlePlaceRune={this.props.handlePlaceRune}
-              />
-            )
-          })}
+          {shouldAllowRunePlacement ? (this.props.usersRunes.map((r, i) => {return (
+            <Rune
+              key={i}
+              runeValue={r}
+              handlePlaceRune={this.props.handlePlaceRune}
+            />
+            )})) : null}
         </div>
         
         <div id="button-select-area">
