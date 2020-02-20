@@ -338,11 +338,11 @@ class Game extends React.Component {
         </div>
 
         <div id="player-stockpile">
-          <Stockpile stockpile={this.state.user}/>
+          <Stockpile viking={this.state.user}/>
         </div>
 
         <div id ="opponent-stockpile">
-          <Stockpile stockpile={this.state.opponent}/>
+          <Stockpile viking={this.state.opponent}/>
         </div>
 
         <div id="player-available-runes">
