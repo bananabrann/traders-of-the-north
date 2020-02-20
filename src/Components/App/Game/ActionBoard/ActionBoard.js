@@ -1,4 +1,5 @@
 import React from "react"
+import Rune from "./Rune/Rune"
 
 class ActionBoard extends React.Component {
   constructor() {
@@ -19,33 +20,39 @@ class ActionBoard extends React.Component {
 
     return (
       <div>
-        {/* {this.props.usersRunes.map((r, i) => {
-          return (
-            <Rune
-              key={i}
-              runeValue={r}
-              handlePlaceRune={this.props.handlePlaceRune}
-            />
-          )
-        })} */}
-          <p>hello from Actionboard</p>
-        {/* {shouldDisplayDrawButton ? (
-          <div className="action-btn" onClick={() => this.props.draw()}>
-            Draw
-          </div>
-        ) : null}
+        <p>hello from Actionboard</p>
 
-        {shouldDisplayBetButton ? (
-          <div className="action-btn" onClick={() => this.props.bet()}>
-            Bet
-          </div>
-        ) : null}
+        <div id="rune-select-area">
+          {this.props.usersRunes.map((r, i) => {
+            return (
+              <Rune
+                key={i}
+                runeValue={r}
+                handlePlaceRune={this.props.handlePlaceRune}
+              />
+            )
+          })}
+        </div>
+        
+        <div id="button-select-area">
+          {shouldDisplayDrawButton ? (
+            <div className="action-btn" onClick={() => this.props.draw()}>
+              Draw
+            </div>
+          ) : null}
 
-        {shouldDisplayPassButton ? (
-          <div className="action-btn" onClick={() => this.props.pass()}>
-            Pass
-          </div>
-        ) : null} */}
+          {shouldDisplayBetButton ? (
+            <div className="action-btn" onClick={() => this.props.bet()}>
+              Bet
+            </div>
+          ) : null}
+
+          {shouldDisplayPassButton ? (
+            <div className="action-btn" onClick={() => this.props.pass()}>
+              Pass
+            </div>
+          ) : null}
+        </div>
       </div>
     )
   }
