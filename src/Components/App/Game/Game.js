@@ -1,8 +1,9 @@
 import React from "react"
-import ButtonBoard from "./ButtonBoard/ButtonBoard"
-import InfoBoard from "./InfoBoard/InfoBoard"
+import ActionBoard from "./ActionBoard/ActionBoard"
+import AvailableRunes from "./AvailableRunes/AvailableRunes"
+import Portrait from "./Portrait/Portrait"
 import PotBoard from "./PotBoard/PotBoard"
-import RuneBoard from "./RuneBoard/RuneBoard"
+import Stockpile from "./Stockpile/Stockpile"
 import Opponent from "../../../Opponent"
 
 import "./GameGrid.scss"
@@ -269,6 +270,7 @@ class Game extends React.Component {
   componentDidUpdate() {
     console.log("> componentDidUpdate()")
     console.log(`DEBUG:\nopponents runes: ${this.state.opponent.runes}\nusers runes: ${this.state.user.runes}`)
+
     if (!this.state.mustBet) {
       this.checkForcedBet()
     }
@@ -298,25 +300,28 @@ class Game extends React.Component {
   render() {
     return (
       <div id="Game">
-        <div
-          id="return-to-title-btn"
-          className="topbar-btn"
-          onClick={() => this.props.handleScreenSelectionClick("title")}
-        >
-          Return Home
-        </div>
+        <div className="" id="btn-bar" onClick={() => this.props.handleScreenSelectionClick("title")}>
+          <button onClick={() => this.props.handleScreenSelectionClick("title")}>
+            Title
+          </button>
 
-        <div id="logo-header"></div>
+          <button onClick={() => console.log("Button for options clicked")}>
+            Options
+          </button>
+        </div>
 
         <div id="pot">
           <PotBoard pot={this.state.pot} />
         </div>
 
-        <div id="button-board">
-          <ButtonBoard
+        <div id="action-board">
+          <ActionBoard
+            handlePlaceRune={this.handlePlaceRune}
+            usersRunes={this.state.user.runes}
             shouldDisplayBetButton={this.state.shouldDisplayBetButton}
             shouldDisplayDrawButton={this.state.shouldDisplayDrawButton}
             shouldDisplayPassButton={this.state.shouldDisplayPassButton}
+            shouldAllowRunePlacement={this.state.shouldAllowRunePlacement}
             isUsersTurn={this.state.isUsersTurn}
             bet={this.bet}
             draw={this.draw}
@@ -324,18 +329,28 @@ class Game extends React.Component {
           />
         </div>
 
-        <div id="rune-board">
-          <RuneBoard
-            handlePlaceRune={this.handlePlaceRune}
-            usersRunes={this.state.user.runes}
-          />
+        <div id="player-portrait">
+          <Portrait />  
+        </div>
+        
+        <div id="opponent-portrait">
+          <Portrait />
         </div>
 
-        <div id="info-board">
-          <InfoBoard
-            state={this.state}
-            handleInfoBoardTabSelection={this.handleInfoBoardTabSelection}
-          />
+        <div id="player-stockpile">
+          <Stockpile viking={this.state.user}/>
+        </div>
+
+        <div id ="opponent-stockpile">
+          <Stockpile viking={this.state.opponent}/>
+        </div>
+
+        <div id="player-available-runes">
+          <AvailableRunes runes={this.state.user.runes} />
+        </div>
+
+        <div id="opponent-available-runes">
+          <AvailableRunes runes={this.state.opponent.runes} />
         </div>
       </div>
     )
