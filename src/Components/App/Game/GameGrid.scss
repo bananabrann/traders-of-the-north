@@ -11,8 +11,7 @@ $dev-c: rgba(255, 0, 0, 0.082);
   /*
   p = pot
   i = action board, runeboard and buttonboard flexed above each other as things become available
-  g = go back to menu button
-  o = options button
+  o = button bar
   a = player stockpile
   b = opponent stockpile
   e = player available runes
@@ -28,7 +27,7 @@ $dev-c: rgba(255, 0, 0, 0.082);
   "a e p p p p f b"
   "a e p p p p f b"
   "o . p p p p . ."
-  "g . p p p p . ."
+  ". . p p p p . ."
   "i i i i i i i i"
   "i i i i i i i i"
   "i i i i i i i i"
@@ -67,18 +66,13 @@ $dev-c: rgba(255, 0, 0, 0.082);
     background-color: $dev-c;
   }
 
-  #options-btn {
+  #btn-bar {
     grid-area: o;
     background-color: $dev-c;
   }
 
-  #return-btn {
-    grid-area: g;
-    background-color: $dev-c;
-  }
-
   #pot {
-    grid-area: pot;
+    grid-area: p;
     background-color: $dev-c;
   }
 

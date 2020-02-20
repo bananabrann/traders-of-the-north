@@ -1,9 +1,11 @@
 import React from "react"
-import ButtonBoard from "./ButtonBoard/ButtonBoard"
-import InfoBoard from "./InfoBoard/InfoBoard"
 import PotBoard from "./PotBoard/PotBoard"
-import RuneBoard from "./RuneBoard/RuneBoard"
 import Opponent from "../../../Opponent"
+// import InfoBoard from "./InfoBoard/InfoBoard"
+import ActionBoard from "./ActionBoard/ActionBoard"
+import Portrait from "./Portrait/Portrait"
+import AvailableRunes from "./AvailableRunes/AvailableRunes"
+import Stockpile from "./Stockpile/Stockpile"
 
 import "./GameGrid.scss"
 
@@ -298,22 +300,24 @@ class Game extends React.Component {
   render() {
     return (
       <div id="Game">
-        <div
-          id="return-to-title-btn"
-          className="topbar-btn"
-          onClick={() => this.props.handleScreenSelectionClick("title")}
-        >
-          Return Home
+        <div className="" id="btn-bar" onClick={() => this.props.handleScreenSelectionClick("title")}>
+          <button onClick={() => this.props.handleScreenSelectionClick("title")}>
+            Title
+          </button>
+          
+          <button onClick={() => console.log("Button for options clicked")}>
+            Options
+          </button>
         </div>
-
-        <div id="logo-header"></div>
 
         <div id="pot">
           <PotBoard pot={this.state.pot} />
         </div>
 
-        <div id="button-board">
-          <ButtonBoard
+        <div id="action-board">
+          <ActionBoard
+            handlePlaceRune={this.handlePlaceRune}
+            usersRunes={this.state.user.runes}
             shouldDisplayBetButton={this.state.shouldDisplayBetButton}
             shouldDisplayDrawButton={this.state.shouldDisplayDrawButton}
             shouldDisplayPassButton={this.state.shouldDisplayPassButton}
@@ -324,18 +328,28 @@ class Game extends React.Component {
           />
         </div>
 
-        <div id="rune-board">
-          <RuneBoard
-            handlePlaceRune={this.handlePlaceRune}
-            usersRunes={this.state.user.runes}
-          />
+        <div id="player-portrait">
+          <Portrait />  
+        </div>
+        
+        <div id="opponent-portrait">
+          <Portrait />
         </div>
 
-        <div id="info-board">
-          <InfoBoard
-            state={this.state}
-            handleInfoBoardTabSelection={this.handleInfoBoardTabSelection}
-          />
+        <div id="player-stockpile">
+          <Stockpile stockpile={this.state.user}/>
+        </div>
+
+        <div id ="opponent-stockpile">
+          <Stockpile stockpile={this.state.opponent}/>
+        </div>
+
+        <div id="player-available-runes">
+          <AvailableRunes runes={this.state.user.runes} />
+        </div>
+
+        <div id="opponent-available-runes">
+          <AvailableRunes runes={this.state.opponent.runes} />
         </div>
       </div>
     )

@@ -1,17 +1,35 @@
 import React from "react"
 
-class ButtonBoard extends React.Component {
-  shouldComponentUpdate() {} // TODO: Make buttons hide when it is not the user's turn
+class ActionBoard extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      shouldDisplayMessagesTab: true,
+      shouldDisplayStockpileTab: false,
+      shouldDisplaySettingsTab: false
+    }
+    // prettier-ignore
+    // this.handleInfoBoardTabSelection = this.handleInfoBoardTabSelection.bind(this)
+  }
 
   render() {
-    // TODO: I think these can be refactored into a props spread opperator
     const shouldDisplayBetButton = this.props.shouldDisplayBetButton
     const shouldDisplayDrawButton = this.props.shouldDisplayDrawButton
     const shouldDisplayPassButton = this.props.shouldDisplayPassButton
 
     return (
       <div>
-        {shouldDisplayDrawButton ? (
+        {/* {this.props.usersRunes.map((r, i) => {
+          return (
+            <Rune
+              key={i}
+              runeValue={r}
+              handlePlaceRune={this.props.handlePlaceRune}
+            />
+          )
+        })} */}
+          <p>hello from Actionboard</p>
+        {/* {shouldDisplayDrawButton ? (
           <div className="action-btn" onClick={() => this.props.draw()}>
             Draw
           </div>
@@ -27,10 +45,10 @@ class ButtonBoard extends React.Component {
           <div className="action-btn" onClick={() => this.props.pass()}>
             Pass
           </div>
-        ) : null}
+        ) : null} */}
       </div>
     )
   }
 }
 
-export default ButtonBoard
+export default ActionBoard
