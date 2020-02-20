@@ -7,6 +7,7 @@ import Stockpile from "./Stockpile/Stockpile"
 import Opponent from "../../../Opponent"
 
 import "./GameGrid.scss"
+import "./ButtonBar.scss"
 
 const bag = ["gold", "gold", "gold", "fish", "fish", "fish", "totem", "seaweed"]
 const baseRunes = {
@@ -301,13 +302,13 @@ class Game extends React.Component {
     return (
       <div id="Game">
         <div className="" id="btn-bar" onClick={() => this.props.handleScreenSelectionClick("title")}>
-          <button onClick={() => this.props.handleScreenSelectionClick("title")}>
-            Title
-          </button>
+          <div onClick={() => this.props.handleScreenSelectionClick("title")}>
+            <i class="fas fa-home fa-3x"></i>
+          </div>
 
-          <button onClick={() => console.log("Button for options clicked")}>
-            Options
-          </button>
+          <div onClick={() => console.log("Button for options clicked")}>
+            <i class="fas fa-bars fa-3x"></i>
+          </div>
         </div>
 
         <div id="pot">
