@@ -1,6 +1,6 @@
 <div>
   <p align="center">
-    <img src="https://traders-of-the-north.s3.amazonaws.com/traders-of-the-north-logo-main.png" alt="Traders of the North Logo Main" width="500" />
+    <img src="https://traders-of-the-north.s3.amazonaws.com/traders-of-the-north-hori-logo.jpg" alt="Traders of the North Logo Main" width="500" />
   </p>
 </div>
 
