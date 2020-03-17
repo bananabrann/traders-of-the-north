@@ -1,7 +1,7 @@
-# The intent of this script to provide a user-friendly
-# # fire-and-forget method of serving the game locally.
-# This script is intended for non-developers who want
-# to install the game locally. 
+#!/bin/bash
+
+# SECTION
+# This script provides an easy way to build and serve the project.
 
 npm run-script build
 serve -s build
