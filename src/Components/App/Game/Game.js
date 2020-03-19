@@ -303,11 +303,11 @@ class Game extends React.Component {
       <div id="Game">
         <div className="" id="btn-bar" onClick={() => this.props.handleScreenSelectionClick("title")}>
           <div onClick={() => this.props.handleScreenSelectionClick("title")}>
-            <i class="fas fa-home fa-3x"></i>
+            <i className="fas fa-home fa-3x"></i>
           </div>
 
           <div onClick={() => console.log("Button for options clicked")}>
-            <i class="fas fa-bars fa-3x"></i>
+            <i className="fas fa-bars fa-3x"></i>
           </div>
         </div>
 
