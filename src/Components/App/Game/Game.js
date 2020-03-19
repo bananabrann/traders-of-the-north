@@ -97,6 +97,9 @@ class Game extends React.Component {
 
   handlePlaceRune(rune) {
     console.log(`> handlePlaceRune(${rune})`)
+    
+    // let selectedRune = document.getElementsByClassName("Rune");
+    // selectedRune.classList.add("selected");
 
     if (!this.state.isInBet) {
       console.log("You cannot place a rune without being in a bet!")
@@ -271,6 +274,17 @@ class Game extends React.Component {
   componentDidUpdate() {
     console.log("> componentDidUpdate()")
     console.log(`DEBUG:\nopponents runes: ${this.state.opponent.runes}\nusers runes: ${this.state.user.runes}`)
+
+    // NOTE
+    // This shouldn't be considered final. This is for the purpose of playing the game
+    // without the console open.
+    // When 2.x is released, the actual rune PNG files will be present, and should
+    // instead be a transition or a highlighting of the rune. (Like a different PNG
+    // file that shows a highlighted rune)
+    this.state.arena.forEach(runeInArena => {
+      document.getElementById(runeInArena).childNodes[0].style.backgroundColor = "red";
+    })
+    // ------------
 
     if (!this.state.mustBet) {
       this.checkForcedBet()

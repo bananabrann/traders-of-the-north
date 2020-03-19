@@ -7,11 +7,13 @@ class AvailableRunes extends React.Component {
       <div>
         hello from AvailableRunes!
         {this.props.runes.map((r, i) => {return(
-          <Rune
-            key={i}
-            runeValue={r}
-            handlePlaceRune={null}
-          />
+          <span className="available-rune-wrapper" id={r}>
+            <Rune
+              key={i}
+              runeValue={r}
+              handlePlaceRune={null}
+            />
+          </span>
         )})}
       </div>
     )
