@@ -106,6 +106,17 @@ class Game extends React.Component {
     } else {
       this.state.arena.push(rune)
 
+      // NOTE ----
+      // This shouldn't be considered final. This is for the purpose of playing the game
+      // without the console open.
+      // When 2.x is released, the actual rune PNG files will be present, and should
+      // instead be a transition or a highlighting of the rune. (Like a different PNG
+      // file that shows a highlighted rune)
+      this.state.arena.forEach(runeInArena => {
+        document.getElementById(runeInArena).childNodes[0].style.backgroundColor = "red";
+      })
+      // ---------
+
       if (this.state.mustPlaceRune) this.handleRuneComparisson(true)
       if (this.state.arena.length >= 2) this.handleRuneComparisson()
 
@@ -274,17 +285,6 @@ class Game extends React.Component {
   componentDidUpdate() {
     console.log("> componentDidUpdate()")
     console.log(`DEBUG:\nopponents runes: ${this.state.opponent.runes}\nusers runes: ${this.state.user.runes}`)
-
-    // NOTE
-    // This shouldn't be considered final. This is for the purpose of playing the game
-    // without the console open.
-    // When 2.x is released, the actual rune PNG files will be present, and should
-    // instead be a transition or a highlighting of the rune. (Like a different PNG
-    // file that shows a highlighted rune)
-    this.state.arena.forEach(runeInArena => {
-      document.getElementById(runeInArena).childNodes[0].style.backgroundColor = "red";
-    })
-    // ------------
 
     if (!this.state.mustBet) {
       this.checkForcedBet()
