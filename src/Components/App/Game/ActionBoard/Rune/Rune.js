@@ -1,9 +1,9 @@
-import React from "react"
+import React from "react";
 
 class Rune extends React.Component {
   constructor() {
-    super()
-    this.state = {}
+    super();
+    this.state = {};
   }
 
   render() {
@@ -11,19 +11,19 @@ class Rune extends React.Component {
       <div
         className="Rune"
         onClick={() => {
-          this.props.handlePlaceRune(this.props.runeValue)
+          this.props.handlePlaceRune(this.props.runeValue);
         }}
       >
         {this.props.runeValue}
       </div>
-    )
+    );
   }
 
   componentDidMount() {
     this.setState({
       someKey: "otherValue"
-    })
+    });
   }
 }
 
-export default Rune
+export default Rune;

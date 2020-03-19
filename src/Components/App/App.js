@@ -1,19 +1,21 @@
-import React, { Component } from "react"
-import Game from "./Game/Game"
-import Instructions from "./Instructions/Instructions"
-import Title from "./Title/Title"
+import React, { Component } from "react";
+import Game from "./Game/Game";
+import Instructions from "./Instructions/Instructions";
+import Title from "./Title/Title";
 
-import "./Reset.css"
+import "./Reset.css";
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       shouldDisplayTitle: true,
       shouldDisplayGame: false,
       shouldDisplayInstructions: false
-    }
-    this.handleScreenSelectionClick = this.handleScreenSelectionClick.bind(this)
+    };
+    this.handleScreenSelectionClick = this.handleScreenSelectionClick.bind(
+      this
+    );
   }
 
   handleScreenSelectionClick(desiredPage) {
@@ -38,7 +40,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    document.title = "Traders of the North"
+    document.title = "Traders of the North";
   }
 
   render() {
@@ -55,8 +57,8 @@ class App extends Component {
           <Instructions handleScreenSelectionClick={this.handleScreenSelectionClick} />
         ) : null}
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;
