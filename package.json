@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "node-sass": "^4.13.1",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-scripts": "2.1.8",
     "serve": "^11.3.0",
     "uuid-js": "^0.7.5"
