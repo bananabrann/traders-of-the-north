@@ -1,22 +1,17 @@
-FROM debian:jessie
+# NOTE - Visit https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
+# for information on Dockerizing Node applications
 
-RUN apt-get update \
-    && apt-get install --no-install-recommends --no-install-suggests -y \
-    && apt-get install curl -y \
-    && apt-get install unzip \
-    && curl -sL https://deb.nodesource.com/setup_13.x | bash - \
-    && apt-get install -y nodejs
+FROM node:13.10.1
 
-RUN curl -LOk https://github.com/bananabrann/traders-of-the-north/archive/master.zip \
-    && unzip master.zip \
-    && cd traders-of-the-north-master \
-    && npm install
+WORKDIR /usr/src/app
 
-# TODO Figure what Node default logging is and reassign it to /dev/stdout and stderr
-# RUN ln -sf /dev/stdout \
-#     && ln -sf /dev/stderr
+COPY package*.json ./
 
-EXPOSE 8000 4040
+RUN npm install
 
-# TODO Add run commands
-CMD 
+COPY . .
+
+# FIXME
+EXPOSE 8080
+
+CMD ["node", "server.js"]
