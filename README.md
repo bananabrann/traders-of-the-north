@@ -17,12 +17,37 @@
 
 # How to Install
 ## Developers
-1. Have Node installed.
-1. Copy and paste into your shell: `git clone git@github.com:bananabrann/traders-of-the-north.git && cd ./traders-of-the-north && npm install`
-1. Run the game locally: `npm start`
+#### Requirements
+- Have Node.
+- Have NPM.
+
+> TODO - Add version compatibility.
+
+## Run Source Locally
+1. Once the repo is downloaded, use `npm install` to download dependencies.
+1. Run the game locally: `npm start`.
+
+## Run Build Locally 
+1. Install dependencies with `npm install`.
+1. Install **serve** with `npm install -g serve`.
+1. Call build script: `npm run-script build`.
+1. Follow serve instructions after successful build.
+
+## Docker
+The Docker image contains all the source code of the game, though when running the Docker container, it is calling `serve` and opening traffic for **port 5000**.
+
+Build the image with 
+```
+docker build -t traders-of-the-north .
+``` 
+
+Then run the image with 
+```
+docker run --name traders-of-the-north --rm -d -p 5000:5000 traders-of-the-north
+```
 
 ## Non-Developers
-
+<!-- NOTE: Needs checking that these instructions still work. -->
 These instructions are *only* for Mac or Linux computers. For Windows, please contact bananabrann at https://github.com/bananabrann.
 
 Easy install and uninstall scripts can be found in the **scripts** folder of the project.
