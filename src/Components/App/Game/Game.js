@@ -31,6 +31,8 @@ class Game extends React.Component {
       isOutsideRecommendedWidth: false,
       user: {
         name: "Sigrid Treasureborn",
+        firstName: "Sigrid",
+        lastName: "Treasureborn",
         runes: baseRunes.pack1,
         score: 0,
         gold: 0,
@@ -38,6 +40,8 @@ class Game extends React.Component {
       },
       opponent: {
         name: "Ulf Goldkeeper",
+        firstName: "Ulf",
+        lastName: "Goldkeeper",
         runes: baseRunes.pack2,
         score: 0,
         gold: 0,
@@ -396,11 +400,11 @@ class Game extends React.Component {
         </div>
 
         <div id="player-portrait">
-          <Portrait />
+          <Portrait name={this.state.user.firstName} />
         </div>
 
         <div id="opponent-portrait">
-          <Portrait />
+          <Portrait name={this.state.opponent.firstName} />
         </div>
 
         <div id="player-stockpile">
