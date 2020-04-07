@@ -1,0 +1,1 @@
+The source images of Sigrid and Ulf is namespaced.
