@@ -5,69 +5,65 @@ $dev-c: rgba(255, 0, 0, 0.082);
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-rows: repeat(14, 1fr);
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   grid-template-areas:
-  /*
-  p = pot
-  i = action board, runeboard and buttonboard flexed above each other as things become available
-  o = button bar
-  a = player stockpile
-  b = opponent stockpile
-  e = player available runes
-  f = opponent available runes
-  s = player portrait
-  t = opponent portrait
+
+  /* SECTION ---
+
+      NOTE - The purpose of the cutdown is that not everything needs to 
+      be explicitly defined in a grid, and would actually make the code
+      easier if things rellied a little bit on Flexbox within the grids.
+      I.e., Stockpile and menu being their own thing within the Bottom
+      Board.
+
+  m = Message Board
+
+  s = Sigrid Portrait Anchor
+    A place where the portrait will be anchored from, extending well
+    into the bottom of the game window.
+  
+  u = Ulf Portrait Anchor
+    A place where the portrait will be anchored from, extending well
+    into the bottom of the game window.
+  
+  p = Pot Board
+
+  a = Action Board
+    This will be the area the Rune Board and Pass button swaps out with 
+    the Draw and Bet button depending on what's happening.
+  
+  b = Bottom Board
+    Stockpile, Menu
   */
 
-  "s s . . . . t t"
-  "s s p p p p t t"
-  "a e p p p p f b"
-  "a e p p p p f b"
-  "a e p p p p f b"
-  "a e p p p p f b"
-  "o . p p p p . ."
-  ". . p p p p . ."
-  "i i i i i i i i"
-  "i i i i i i i i"
-  "i i i i i i i i"
-  "i i i i i i i i"
-  "i i i i i i i i"
-  "i i i i i i i i"
-  ;
+  "m m m m m m m m m m m m"
+  "s p p p p p p p p p p u"
+  ". p p p p p p p p p p ."
+  ". p p p p p p p p p p ."
+  ". p p p p p p p p p p ."
+  ". p p p p p p p p p p ."
+  ". p p p p p p p p p p ."
+  ". p p p p p p p p p p ."
+  "a a a a a a a a a a a a"
+  "a a a a a a a a a a a a"
+  "a a a a a a a a a a a a"
+  "b b b b b b b b b b b b"
 
-  #player-portrait {
+
+  /*
+  #message-board {
+    grid-area: m;
+    background-color: $dev-c;
+  }
+
+  #sigrid-char-anchor {
     grid-area: s;
     background-color: $dev-c;
   }
 
-  #opponent-portrait {
-    grid-area: t;
-    background-color: $dev-c;
-  }
-
-  #player-stockpile {
-    grid-area: a;
-    background-color: $dev-c;
-  }
-
-  #opponent-stockpile {
-    grid-area: b;
-    background-color: $dev-c;
-  }
-
-  #player-available-runes {
-    grid-area: e;
-    background-color: $dev-c;
-  }
-
-  #opponent-available-runes {
-    grid-area: f;
-    background-color: $dev-c;
-  }
-
-  #btn-bar {
-    grid-area: o;
+  #ulf-char-anchor {
+    grid-area: u;
     background-color: $dev-c;
   }
 
@@ -77,8 +73,14 @@ $dev-c: rgba(255, 0, 0, 0.082);
   }
 
   #action-board {
-    grid-area: i;
+    grid-area: a;
     background-color: $dev-c;
   }
 
+  #bottom-board {
+    grid-area: b;
+    background-color: $dev-c;
+  }
+  */
+  
 }
