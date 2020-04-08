@@ -1,0 +1,10 @@
+#pot-board {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .piece {
+    padding: 1.25vw;
+  }
+}

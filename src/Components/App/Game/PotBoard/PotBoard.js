@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./PotBoard.scss";
+
 const uuid = require("uuid-js");
 
 class PotBoard extends React.Component {
@@ -11,13 +13,13 @@ class PotBoard extends React.Component {
             let uuid1 = uuid.create(1).toString();
 
             if (item === "gold") {
-              return <img key={uuid1} alt="gold" src="" />;
+              return <img key={uuid1} alt="gold" src="" className="piece" />;
             } else if (item === "fish") {
-              return <img key={uuid1} alt="fish" src="" />;
+              return <img key={uuid1} alt="fish" src="" className="piece" />;
             } else if (item === "totem") {
-              return <img key={uuid1} alt="totem" src="" />;
+              return <img key={uuid1} alt="totem" src="" className="piece" />;
             } else if (item === "seaweed") {
-              return <img key={uuid1} alt="seaweed" src="" />;
+              return <img key={uuid1} alt="seaweed" src="" className="piece" />;
             } else {
               return <err>Error</err>;
             }
