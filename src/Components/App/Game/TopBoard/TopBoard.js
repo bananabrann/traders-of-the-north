@@ -3,6 +3,8 @@ import AvailableRunes from "./AvailableRunes/AvailableRunes";
 import Portrait from "./Portrait/Portrait";
 import Stockpile from "./Stockpile/Stockpile";
 
+import "./TopBoard.scss";
+
 class TopBoard extends React.Component {
   render() {
     return (
