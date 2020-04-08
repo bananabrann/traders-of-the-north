@@ -1,11 +1,12 @@
 import React from "react";
-import Rune from "../ActionBoard/Rune/Rune";
+import Rune from "../../ActionBoard/Rune/Rune";
 
 class AvailableRunes extends React.Component {
   render() {
     return (
       <div>
-        hello from AvailableRunes!
+        <p>hello from AvailableRunes!</p>
+
         {this.props.runes.map((r, i) => {
           return (
             <span className="available-rune-wrapper" id={r}>

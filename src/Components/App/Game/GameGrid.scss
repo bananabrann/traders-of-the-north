@@ -49,12 +49,10 @@ $dev-c: rgba(255, 0, 0, 0.082);
   "a a a a a a a a a a a a"
   "a a a a a a a a a a a a"
   "a a a a a a a a a a a a"
-  "b b b b b b b b b b b b"
+  "b b b b b b b b b b b b";
 
-
-  /*
   #top-board {
-    grid-area: m;
+    grid-area: t;
     background-color: $dev-c;
   }
 
@@ -68,7 +66,7 @@ $dev-c: rgba(255, 0, 0, 0.082);
     background-color: $dev-c;
   }
 
-  #pot {
+  #pot-board {
     grid-area: p;
     background-color: $dev-c;
   }
@@ -82,6 +80,5 @@ $dev-c: rgba(255, 0, 0, 0.082);
     grid-area: b;
     background-color: $dev-c;
   }
-  */
 
 }

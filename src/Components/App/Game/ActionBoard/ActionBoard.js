@@ -9,7 +9,7 @@ class ActionBoard extends React.Component {
     const shouldAllowRunePlacement = this.props.shouldAllowRunePlacement;
 
     return (
-      <div>
+      <div id="action-board">
         <p>hello from Actionboard</p>
 
         <div id="rune-select-area">

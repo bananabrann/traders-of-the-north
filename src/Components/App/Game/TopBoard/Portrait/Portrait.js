@@ -8,7 +8,7 @@ class Portrait extends React.Component {
       <div>
         <img 
           className="portrait"
-          src={require("../../../../res/img/" + vikingName + "/headshot.png")}
+          src={require("../../../../../res/img/" + vikingName + "/headshot.png")}
           alt=""
         />
       </div>

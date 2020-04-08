@@ -1,13 +1,12 @@
 import React from "react";
 import ActionBoard from "./ActionBoard/ActionBoard";
-import AvailableRunes from "./AvailableRunes/AvailableRunes";
-import Portrait from "./TopBoard/Portrait/Portrait";
+import BottomBoard from "./BottomBoard/BottomBoard";
 import PotBoard from "./PotBoard/PotBoard";
-import Stockpile from "./TopBoard/Stockpile/Stockpile";
 import Opponent from "../../../Opponent";
 
 import "./GameGrid.scss";
 import "./ButtonBar.scss";
+import TopBoard from "./TopBoard/TopBoard";
 
 const bag = [
   "gold",
@@ -366,24 +365,28 @@ class Game extends React.Component {
   render() {
     return (
       <div id="Game">
-        <div id="pot">
-          <PotBoard pot={this.state.pot} />
-        </div>
+        <TopBoard 
+          
+        />
 
-        <div id="action-board">
-          <ActionBoard
-            handlePlaceRune={this.handlePlaceRune}
-            usersRunes={this.state.user.runes}
-            shouldDisplayBetButton={this.state.shouldDisplayBetButton}
-            shouldDisplayDrawButton={this.state.shouldDisplayDrawButton}
-            shouldDisplayPassButton={this.state.shouldDisplayPassButton}
-            shouldAllowRunePlacement={this.state.shouldAllowRunePlacement}
-            isUsersTurn={this.state.isUsersTurn}
-            bet={this.bet}
-            draw={this.draw}
-            pass={this.pass}
-          />
-        </div>
+        <PotBoard 
+          pot={this.state.pot}
+        />
+
+        <ActionBoard
+          handlePlaceRune={this.handlePlaceRune}
+          usersRunes={this.state.user.runes}
+          shouldDisplayBetButton={this.state.shouldDisplayBetButton}
+          shouldDisplayDrawButton={this.state.shouldDisplayDrawButton}
+          shouldDisplayPassButton={this.state.shouldDisplayPassButton}
+          shouldAllowRunePlacement={this.state.shouldAllowRunePlacement}
+          isUsersTurn={this.state.isUsersTurn}
+          bet={this.bet}
+          draw={this.draw}
+          pass={this.pass}
+        />
+
+        <BottomBoard />
       </div>
     );
   }

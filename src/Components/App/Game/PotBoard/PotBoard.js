@@ -5,7 +5,7 @@ const uuid = require("uuid-js");
 class PotBoard extends React.Component {
   render() {
     return (
-      <div>
+      <div id="pot-board">
         {this.props.pot.map((item, idx) => {
           {
             let uuid1 = uuid.create(1).toString();
