@@ -5,8 +5,6 @@ class AvailableRunes extends React.Component {
   render() {
     return (
       <div>
-        <p>hello from AvailableRunes!</p>
-
         {this.props.runes.map((r, i) => {
           return (
             <span className="available-rune-wrapper" id={r}>

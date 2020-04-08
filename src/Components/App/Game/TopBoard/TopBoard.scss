@@ -4,17 +4,18 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 
   p {
     @include viking-font();
   }
 
-//   * {
-//       display: inline;
-//   }
-
   .player {
       display: flex;
       align-items: center;
+  }
+
+  .ulf, .ulf .stockpile {
+      flex-direction: row-reverse;
   }
 }

@@ -22,7 +22,15 @@ class TopBoard extends React.Component {
         </div>
 
         <div className="player ulf">
-        
+          <Portrait 
+            vikingName={this.props.opponent.firstName}
+            />
+          <Stockpile
+            viking={this.props.opponent}
+            />
+          <AvailableRunes 
+            runes={this.props.opponent.runes}
+            />
         </div>
       </div>
     );
