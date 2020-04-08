@@ -5,6 +5,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  background-color: rgb(65, 49, 37);
+  color: #e3e3e3;       // FIXME - Make variables global
 
   p {
     @include viking-font();
