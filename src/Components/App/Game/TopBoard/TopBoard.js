@@ -9,8 +9,21 @@ class TopBoard extends React.Component {
   render() {
     return (
       <div id="top-board">
-        <p>Helloo from TopBoard!</p>
-        <p>Hey</p>
+        <div className="player sigrid">
+          <Portrait 
+            vikingName={this.props.user.firstName}
+            />
+          <Stockpile
+            viking={this.props.user}
+            />
+          <AvailableRunes 
+            runes={this.props.user.runes}
+            />
+        </div>
+
+        <div className="player ulf">
+        
+        </div>
       </div>
     );
   }

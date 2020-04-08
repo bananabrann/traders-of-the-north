@@ -1,0 +1,20 @@
+@import "../../../../style/mixins.scss";
+
+#top-board {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  p {
+    @include viking-font();
+  }
+
+//   * {
+//       display: inline;
+//   }
+
+  .player {
+      display: flex;
+      align-items: center;
+  }
+}

@@ -8,14 +8,14 @@ class Rune extends React.Component {
 
   render() {
     return (
-      <div
+      <span
         className="Rune"
         onClick={() => {
           this.props.handlePlaceRune(this.props.runeValue);
         }}
       >
         {this.props.runeValue}
-      </div>
+      </span>
     );
   }
 
