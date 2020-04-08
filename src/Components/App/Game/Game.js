@@ -1,9 +1,9 @@
 import React from "react";
 import ActionBoard from "./ActionBoard/ActionBoard";
 import AvailableRunes from "./AvailableRunes/AvailableRunes";
-import Portrait from "./Portrait/Portrait";
+import Portrait from "./TopBoard/Portrait/Portrait";
 import PotBoard from "./PotBoard/PotBoard";
-import Stockpile from "./Stockpile/Stockpile";
+import Stockpile from "./TopBoard/Stockpile/Stockpile";
 import Opponent from "../../../Opponent";
 
 import "./GameGrid.scss";
@@ -366,20 +366,6 @@ class Game extends React.Component {
   render() {
     return (
       <div id="Game">
-        <div
-          className=""
-          id="btn-bar"
-          onClick={() => this.props.handleScreenSelectionClick("title")}
-        >
-          <div onClick={() => this.props.handleScreenSelectionClick("title")}>
-            <i className="fas fa-home fa-3x"></i>
-          </div>
-
-          <div onClick={() => console.log("Button for options clicked")}>
-            <i className="fas fa-bars fa-3x"></i>
-          </div>
-        </div>
-
         <div id="pot">
           <PotBoard pot={this.state.pot} />
         </div>
@@ -397,30 +383,6 @@ class Game extends React.Component {
             draw={this.draw}
             pass={this.pass}
           />
-        </div>
-
-        <div id="player-portrait">
-          <Portrait name={this.state.user.firstName} />
-        </div>
-
-        <div id="opponent-portrait">
-          <Portrait name={this.state.opponent.firstName} />
-        </div>
-
-        <div id="player-stockpile">
-          <Stockpile viking={this.state.user} />
-        </div>
-
-        <div id="opponent-stockpile">
-          <Stockpile viking={this.state.opponent} />
-        </div>
-
-        <div id="player-available-runes">
-          <AvailableRunes runes={this.state.user.runes} />
-        </div>
-
-        <div id="opponent-available-runes">
-          <AvailableRunes runes={this.state.opponent.runes} />
         </div>
       </div>
     );

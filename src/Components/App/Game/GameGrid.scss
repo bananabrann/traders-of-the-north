@@ -17,7 +17,8 @@ $dev-c: rgba(255, 0, 0, 0.082);
       I.e., Stockpile and menu being their own thing within the Bottom
       Board.
 
-  m = Message Board
+  m = Top Board
+    Contains the mini portraits, stockpile, and available runes.
 
   s = Sigrid Portrait Anchor
     A place where the portrait will be anchored from, extending well
@@ -34,10 +35,10 @@ $dev-c: rgba(255, 0, 0, 0.082);
     the Draw and Bet button depending on what's happening.
   
   b = Bottom Board
-    Stockpile, Menu
+    Menu options and config
   */
 
-  "m m m m m m m m m m m m"
+  "t t t t t t t t t t t t"
   "s p p p p p p p p p p u"
   ". p p p p p p p p p p ."
   ". p p p p p p p p p p ."
@@ -52,7 +53,7 @@ $dev-c: rgba(255, 0, 0, 0.082);
 
 
   /*
-  #message-board {
+  #top-board {
     grid-area: m;
     background-color: $dev-c;
   }
@@ -82,5 +83,5 @@ $dev-c: rgba(255, 0, 0, 0.082);
     background-color: $dev-c;
   }
   */
-  
+
 }
