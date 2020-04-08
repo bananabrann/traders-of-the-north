@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import About from "./About/About";
 import Game from "./Game/Game";
 import Instructions from "./Instructions/Instructions";
 import Title from "./Title/Title";
@@ -9,6 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      shouldDisplayAbout: false,
       shouldDisplayTitle: true,
       shouldDisplayGame: false,
       shouldDisplayInstructions: false
@@ -21,21 +23,31 @@ class App extends Component {
   handleScreenSelectionClick(desiredPage) {
     // prettier-ignore
     desiredPage === "title" ? this.setState({
+      shouldDisplayAbout: false,
       shouldDisplayTitle: true,
       shouldDisplayGame: false,
       shouldDisplayInstructions: false
     }) : void(0)
     // prettier-ignore
     desiredPage === "game" ? this.setState({
+      shouldDisplayAbout: false,
       shouldDisplayTitle: false,
       shouldDisplayGame: true,
       shouldDisplayInstructions: false
     }) : void(0)
     // prettier-ignore
     desiredPage === "instructions" ? this.setState({
+      shouldDisplayAbout: false,
       shouldDisplayTitle: false,
       shouldDisplayGame: false,
       shouldDisplayInstructions: true
+    }) : void(0)
+    // prettier-ignore
+    desiredPage === "about" ? this.setState({
+      shouldDisplayAbout: true,
+      shouldDisplayTitle: false,
+      shouldDisplayGame: false,
+      shouldDisplayInstructions: false
     }) : void(0)
   }
 
@@ -49,12 +61,19 @@ class App extends Component {
         {this.state.shouldDisplayTitle ? (
           <Title handleScreenSelectionClick={this.handleScreenSelectionClick} />
         ) : null}
+
         {this.state.shouldDisplayGame ? (
           <Game handleScreenSelectionClick={this.handleScreenSelectionClick} />
         ) : null}
+
         {this.state.shouldDisplayInstructions ? (
           // prettier-ignore
           <Instructions handleScreenSelectionClick={this.handleScreenSelectionClick} />
+        ) : null}
+
+        {this.state.shouldDisplayAbout ? (
+          // prettier-ignore
+          <About handleScreenSelectionClick={this.handleScreenSelectionClick} />
         ) : null}
       </div>
     );

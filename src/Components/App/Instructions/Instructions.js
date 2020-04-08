@@ -1,15 +1,15 @@
-import React from "react"
+import React from "react";
 
 class Instructions extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       someKey: "someValue"
-    }
+    };
   }
 
   componentDidMount() {
-    document.title = "Traders of the North - Instructions"
+    document.title = "Traders of the North - Instructions";
   }
 
   render() {
@@ -20,8 +20,8 @@ class Instructions extends React.Component {
           Title
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Instructions
+export default Instructions;

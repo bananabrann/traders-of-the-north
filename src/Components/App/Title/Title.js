@@ -1,5 +1,5 @@
 import React from "react"
-import "../../../style/_text.scss"
+// import "../../../style/_text.scss"
 
 class Title extends React.Component {
   /*
@@ -20,9 +20,15 @@ class Title extends React.Component {
           <div onClick={() => this.props.handleScreenSelectionClick("game")}>
             Play Game
           </div>
+
           {/* prettier-ignore */}
           <div onClick={() => this.props.handleScreenSelectionClick("instructions")}>
             Instructions
+          </div>
+
+          {/* prettier-ignore */}
+          <div onClick={() => this.props.handleScreenSelectionClick("about")}>
+            About
           </div>
 
           <br />
