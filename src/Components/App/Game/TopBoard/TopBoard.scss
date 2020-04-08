@@ -6,18 +6,19 @@
   align-items: center;
   justify-content: space-between;
   background-color: rgb(65, 49, 37);
-  color: #e3e3e3;       // FIXME - Make variables global
+  color: #e3e3e3; // TODO - Make variables global
 
   p {
     @include viking-font();
   }
 
   .player {
-      display: flex;
-      align-items: center;
+    display: flex;
+    align-items: center;
   }
 
-  .ulf, .ulf .stockpile {
-      flex-direction: row-reverse;
+  .ulf,
+  .ulf .stockpile {
+    flex-direction: row-reverse;
   }
 }

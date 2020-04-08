@@ -1,0 +1,13 @@
+@import "../../../style/mixins.scss";
+
+// NOTE - Because there's both an Instructions and About page,
+// I should probably just make this one SCSS file.
+// FIXME - The problem is the h1 tags will effect other things
+// outside of the two pages, which may or may not be a problem
+// when game assets are added.
+
+#about {
+  h1 {
+    @include viking-font(50px);
+  }
+}

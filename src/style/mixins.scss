@@ -1,4 +1,4 @@
-@mixin viking-font($size:"12px") {
-    font-family: "vikingregular";
-    font-size: $size;
+@mixin viking-font($size: "12px") {
+  font-family: "vikingregular" !important;
+  font-size: $size;
 }
