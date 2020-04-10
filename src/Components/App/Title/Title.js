@@ -6,7 +6,6 @@ class Title extends React.Component {
   render() {
     return (
       <div className="Title">
-        <h1>Title Screen</h1>
         <div id="title-page-selection-wrapper">
           {/* prettier-ignore */}
           <div onClick={() => this.props.handleScreenSelectionClick("game")}>
