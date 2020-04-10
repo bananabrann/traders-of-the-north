@@ -3,6 +3,7 @@ import About from "./About/About";
 import Game from "./Game/Game";
 import Instructions from "./Instructions/Instructions";
 import Title from "./Title/Title";
+import LoadingScreen from "../LoadingScreen/LoadingScreen";
 
 import "./Reset.css";
 
@@ -10,8 +11,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoading: true,
       shouldDisplayAbout: false,
-      shouldDisplayTitle: true,
+      shouldDisplayTitle: false,
       shouldDisplayGame: false,
       shouldDisplayInstructions: false
     };
@@ -53,30 +55,49 @@ class App extends Component {
 
   componentDidMount() {
     document.title = "Traders of the North";
+
+    this.setState({
+      isLoading: false,
+      shouldDisplayTitle: true
+    });
+    // NOTE: For development on the load screen,
+    // but the above text in here...
+    
+    // setTimeout(() => {
+
+    // }, 10000);
   }
 
   render() {
-    return (
-      <div id="App">
-        {this.state.shouldDisplayTitle ? (
-          <Title handleScreenSelectionClick={this.handleScreenSelectionClick} />
-        ) : null}
+    if (this.state.isLoading) {
+      return <LoadingScreen />;
+    } else {
+      return (
+        <div id="App">
+          {this.state.shouldDisplayTitle ? (
+            <Title
+              handleScreenSelectionClick={this.handleScreenSelectionClick}
+            />
+          ) : null}
 
-        {this.state.shouldDisplayGame ? (
-          <Game handleScreenSelectionClick={this.handleScreenSelectionClick} />
-        ) : null}
+          {this.state.shouldDisplayGame ? (
+            <Game
+              handleScreenSelectionClick={this.handleScreenSelectionClick}
+            />
+          ) : null}
 
-        {this.state.shouldDisplayInstructions ? (
-          // prettier-ignore
-          <Instructions handleScreenSelectionClick={this.handleScreenSelectionClick} />
-        ) : null}
+          {this.state.shouldDisplayInstructions ? (
+            // prettier-ignore
+            <Instructions handleScreenSelectionClick={this.handleScreenSelectionClick} />
+          ) : null}
 
-        {this.state.shouldDisplayAbout ? (
-          // prettier-ignore
-          <About handleScreenSelectionClick={this.handleScreenSelectionClick} />
-        ) : null}
-      </div>
-    );
+          {this.state.shouldDisplayAbout ? (
+            // prettier-ignore
+            <About handleScreenSelectionClick={this.handleScreenSelectionClick} />
+          ) : null}
+        </div>
+      );
+    }
   }
 }
 
