@@ -7,30 +7,19 @@ import "./TopBoard.scss";
 
 class TopBoard extends React.Component {
   render() {
+    console.log("> TopBoard render");
     return (
       <div id="top-board">
         <div className="player sigrid">
-          <Portrait 
-            vikingName={this.props.user.firstName}
-            />
-          <Stockpile
-            viking={this.props.user}
-            />
-          <AvailableRunes 
-            runes={this.props.user.runes}
-            />
+          <Portrait vikingName="sigrid" />
+          <Stockpile viking={this.props.user} />
+          <AvailableRunes runes={this.props.user.runes} />
         </div>
 
         <div className="player ulf">
-          <Portrait 
-            vikingName={this.props.opponent.firstName}
-            />
-          <Stockpile
-            viking={this.props.opponent}
-            />
-          <AvailableRunes 
-            runes={this.props.opponent.runes}
-            />
+          <Portrait vikingName="ulf" />
+          <Stockpile viking={this.props.opponent} />
+          <AvailableRunes runes={this.props.opponent.runes} />
         </div>
       </div>
     );

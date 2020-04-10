@@ -2,11 +2,11 @@ import React from "react";
 import ActionBoard from "./ActionBoard/ActionBoard";
 import BottomBoard from "./BottomBoard/BottomBoard";
 import PotBoard from "./PotBoard/PotBoard";
+import TopBoard from "./TopBoard/TopBoard";
 import Opponent from "../../../Opponent";
 
 import "./GameGrid.scss";
 import "./ButtonBar.scss";
-import TopBoard from "./TopBoard/TopBoard";
 
 const bag = [
   "gold",
@@ -293,13 +293,14 @@ class Game extends React.Component {
     }
   }
 
+  // TODO - This function could probably be trimmed.
+  // I.e., remove isWinnder, viking, etc.
   getCalculatedScore(isWinner, viking, goldAmount, winnersFish, losersFish) {
     console.log(
       `> getCalculatedScore(${isWinner}, ${viking}, ${goldAmount}, ${winnersFish}, ${losersFish})`
     );
 
     if (winnersFish === losersFish) {
-      console.log("Same fish");
       let score = goldAmount < 0 ? 0 : goldAmount;
       return score;
     } else if (isWinner && winnersFish > losersFish) {
@@ -363,6 +364,7 @@ class Game extends React.Component {
   }
 
   render() {
+    console.log("> Game render()")
     return (
       <div id="Game">
         <TopBoard 

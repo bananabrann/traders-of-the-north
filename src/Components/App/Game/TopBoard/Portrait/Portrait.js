@@ -4,18 +4,23 @@ import "./Portrait.scss";
 
 class Portrait extends React.Component {
   render() {
-    const vikingName = this.props.vikingName.toLowerCase();
+    const vikingName =
+      this.props.vikingName != undefined
+        ? this.props.vikingName.toLowerCase()
+        : null; // TODO: Do I need this?
 
     return (
       <span>
-        <img 
+        <img
           className="portrait"
-          src={require("../../../../../res/img/" + vikingName + "/headshot.png")}
+          src={require("../../../../../res/img/" +
+            vikingName +
+            "/headshot.png")}
           alt=""
         />
       </span>
-    )
+    );
   }
 }
 
-export default Portrait
+export default Portrait;
