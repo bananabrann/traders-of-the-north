@@ -1,3 +1,8 @@
+
+// @function get-vert-slide($width, $base-vw: 1292px) {
+//   $
+// }
+
 .Title {
   width: 100vw;
   height: 100vh;
@@ -37,11 +42,10 @@
     align-items: center;
   }
 
-  $min-width: 690px;
-  $max-width: 870px;
-  $width: 60vw;
-  $max-height: 100%;
-  $vert-offset: 160px;
+  $vert-offset: 20vh;
+  $height: 120vh;
+  $min-width: 500px;
+
 
   #sigrid {
     background-color: green;
@@ -49,15 +53,14 @@
     grid-row: 1 / span 2;
 
     img {
-      min-width: $min-width;
-      width: $width;
-      max-width: $max-width;
-      transform: translate(-100px, $vert-offset );
-
       z-index: 3;
       position: absolute;
       bottom: 0;
       left: 0;
+
+      height: $height;
+      min-width: $min-width;
+      transform: translate(-100px, $vert-offset );
     }
   }
 
@@ -67,27 +70,15 @@
     grid-row: 1 / span 2;
 
     img {
-      min-width: $min-width;
-      width: $width;
-      max-width: $max-width;
-      transform: translate(160px, $vert-offset);
-
       z-index: 2;
       position: absolute;
       bottom: 0;
       right: 0;
 
+      height: $height;
+      min-width: $min-width;
+      transform: translate(120px, $vert-offset);
+
     };
   }
 }
-
-// FIXME: Sigrid moves earlier than Ulf, but I believe
-// this is due to image height. If they were the same dimensions,
-// I'm sure this would be fixed. An alternative is to use 
-// something like this where the width and height is calculated
-// based on what the other one is doing.
-
-// @function get-vert-slide($tar) {
-//   $vw-context: (1000*.01) * 1px;
-//   @return ($tar/$vw-context) * 1vw;
-// }
