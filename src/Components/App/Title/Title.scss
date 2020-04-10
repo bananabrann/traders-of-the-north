@@ -1,7 +1,6 @@
-
-// @function get-vert-slide($width, $base-vw: 1292px) {
-//   $
-// }
+$vert-offset: 20vh;
+$height: 120vh;
+$min-width: 500px;
 
 .Title {
   width: 100vw;
@@ -9,7 +8,7 @@
   overflow: hidden;
 
   display: grid;
-  grid-template-columns: [sigrid-area] 10vw [center-area] 1fr [ulf-area] 10vw;
+  grid-template-columns: [sigrid-area] 1px [center-area] 1fr [ulf-area] 1px;
   grid-template-rows: 1fr 1fr;
 
   > * {
@@ -18,23 +17,21 @@
   }
 
   #logo {
-    background-color: red;
     grid-column: center-area / span 1;
-    grid-row: 1 / span 1;
+    grid-row: 2 / span 1;
 
-    z-index: 1;
+    z-index: 5;
     justify-content: center;
 
     img {
-      width: 50vw;
-      max-width: 700px;
-      min-width: 404px;
+      width: 100%;
+      max-width: 550px;
     }
   }
 
   #selection {
     grid-column: center-area / span 1;
-    grid-row: 2 / span 1;
+    grid-row: 1 / span 1;
 
     z-index: 4;
     flex-direction: column;
@@ -42,13 +39,7 @@
     align-items: center;
   }
 
-  $vert-offset: 20vh;
-  $height: 120vh;
-  $min-width: 500px;
-
-
   #sigrid {
-    background-color: green;
     grid-column: sigrid-area / span 1;
     grid-row: 1 / span 2;
 
@@ -60,12 +51,11 @@
 
       height: $height;
       min-width: $min-width;
-      transform: translate(-100px, $vert-offset );
+      transform: translate(-50px, $vert-offset);
     }
   }
 
   #ulf {
-    background-color: yellow;
     grid-column: ulf-area / span 1;
     grid-row: 1 / span 2;
 
@@ -77,8 +67,7 @@
 
       height: $height;
       min-width: $min-width;
-      transform: translate(120px, $vert-offset);
-
-    };
+      transform: translate(166px, $vert-offset);
+    }
   }
 }
