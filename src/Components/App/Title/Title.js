@@ -31,7 +31,7 @@ class Title extends React.Component {
         </div>
 
         <div id="sigrid">
-          {/* <img src={require("../../../res/img/sigrid/full.png")} alt="" /> */}
+          <img src={require("../../../res/img/sigrid/full.png")} alt="" />
         </div>
 
         <div id="ulf">

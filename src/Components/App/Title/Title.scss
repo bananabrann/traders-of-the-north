@@ -1,6 +1,7 @@
 .Title {
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 
   display: grid;
   grid-template-columns: [sigrid-area] 10vw [center-area] 1fr [ulf-area] 10vw;
@@ -8,6 +9,7 @@
 
   > * {
     display: flex;
+    position: relative;
   }
 
   #logo {
@@ -25,7 +27,6 @@
   }
 
   #selection {
-    background-color: blue;
     grid-column: center-area / span 1;
     grid-row: 2 / span 1;
 
@@ -39,6 +40,16 @@
     background-color: green;
     grid-column: sigrid-area / span 1;
     grid-row: 1 / span 2;
+
+    img {
+      min-width: 550px;
+      width: 60vw;
+
+      z-index: 3;
+      position: absolute;
+      top: 0;
+      transform: translate(-100px, 20vh);
+    }
   }
 
   #ulf {
