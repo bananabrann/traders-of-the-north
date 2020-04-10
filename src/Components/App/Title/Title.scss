@@ -45,12 +45,12 @@
       min-width: 550px;
       width: 60vw;
       max-width: 726.6px;
+      transform: translate(-100px, 28vh);
 
       z-index: 3;
       position: absolute;
       bottom: 0;
       left: 0;
-      transform: translate(-100px, 18vh);
     }
   }
 
@@ -60,15 +60,27 @@
     grid-row: 1 / span 2;
 
     img {
+      min-width: 690px;
+      width: 60vw;
+      max-width: 870px;
+      transform: translate(150px, 350px);
+
       z-index: 2;
       position: absolute;
-      right: 0;
       bottom: 0;
-      min-width: 630px;
-      width: 70vw;
-      max-width: 847.7px;
+      right: 0;
 
-      transform: translate(200px, 15vh);
     };
   }
 }
+
+// FIXME: Sigrid moves earlier than Ulf, but I believe
+// this is due to image height. If they were the same dimensions,
+// I'm sure this would be fixed. An alternative is to use 
+// something like this where the width and height is calculated
+// based on what the other one is doing.
+
+// @function get-vert-slide($tar) {
+//   $vw-context: (1000*.01) * 1px;
+//   @return ($tar/$vw-context) * 1vw;
+// }
