@@ -1,0 +1,48 @@
+.Title {
+  background-color: lightblue;
+  height: 100vh;
+  width: 100vw;
+}
+
+#title-page-selection-wrapper {
+  z-index: 5;
+}
+
+#game-title-background-wrapper {
+  display: flex;
+  justify-content: space-around;
+
+  #game-logo {
+    img {
+      width: 65vw;
+      min-width: 250px;
+      max-width: 680px;
+    }
+  }
+}
+
+#character-wrapper {
+  width: 100%;
+
+  z-index: 1;
+  bottom: 0;
+  position: absolute;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  overflow: hidden;
+
+  #sigrid {
+    transform: translate(-7.25vw, 15vh);
+    max-height: 991px;
+    img {
+      width: 50vw;
+      min-width: 500px;
+    }
+  }
+  #ulf {
+    transform: translate(0, 200px);
+  }
+}

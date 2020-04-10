@@ -1,16 +1,8 @@
-import React from "react"
-// import "../../../style/_text.scss"
+import React from "react";
+
+import "./Title.scss";
 
 class Title extends React.Component {
-  /*
-  constructor() {
-    super()
-    this.state = {
-      someKey: "someValue"
-    }
-  }
-  */
-
   render() {
     return (
       <div className="Title">
@@ -32,11 +24,29 @@ class Title extends React.Component {
           </div>
 
           <br />
-          <p className="dev">Hello</p>
+        </div>
+
+        <div id="game-title-background-wrapper">
+          <div id="game-logo">
+            <img
+              src={require("../../../res/img/logo.png")}
+              alt="Traders of the North game logo"
+            />
+          </div>
+        </div>
+
+        <div id="character-wrapper">
+          <div id="sigrid">
+            <img src={require("../../../res/img/sigrid/full.png")} alt="" />
+          </div>
+
+          {/* <div id="ulf">
+            <img src={require("../../../res/img/ulf/full.png")} alt="" />
+          </div> */}
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Title
+export default Title;
