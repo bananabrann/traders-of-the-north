@@ -15,6 +15,7 @@
     grid-column: center-area / span 1;
     grid-row: 1 / span 1;
 
+    z-index: 1;
     justify-content: center;
 
     img {
@@ -27,6 +28,11 @@
     background-color: blue;
     grid-column: center-area / span 1;
     grid-row: 2 / span 1;
+
+    z-index: 4;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   #sigrid {

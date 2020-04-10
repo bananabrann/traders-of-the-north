@@ -21,8 +21,6 @@ class Title extends React.Component {
           <div onClick={() => this.props.handleScreenSelectionClick("about")}>
             About
           </div>
-
-          <br />
         </div>
 
         <div id="logo">
