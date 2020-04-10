@@ -68,6 +68,8 @@ Your terminal and shell depends on the distro you use. Check your toolbar for an
 #### Step 2: Install
 1. Copy and paste the following into the open Terminal window: `cd ~/Desktop && git clone git@github.com:bananabrann/traders-of-the-north.git && chmod 511 ./traders-of-the-north/scripts/install.sh && ./scripts/traders-of-the-north/install.sh`
 
+> You may run in to issues with commands that are available. If this is the case, please contact me for specific instructions on installing the neccesary packages.
+
 #### Step 3: Run
 This step assumes the Traders of the North folder is on your Desktop
 1. Within the open Terminal window, paste the following: `cd ~/Desktop/traders-of-the-north/scripts && bash ./run.sh`
