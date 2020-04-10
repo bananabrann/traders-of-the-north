@@ -37,16 +37,22 @@
     align-items: center;
   }
 
+  $min-width: 690px;
+  $max-width: 870px;
+  $width: 60vw;
+  $max-height: 100%;
+  $vert-offset: 160px;
+
   #sigrid {
     background-color: green;
     grid-column: sigrid-area / span 1;
     grid-row: 1 / span 2;
 
     img {
-      min-width: 550px;
-      width: 60vw;
-      max-width: 726.6px;
-      transform: translate(-100px, 28vh);
+      min-width: $min-width;
+      width: $width;
+      max-width: $max-width;
+      transform: translate(-100px, $vert-offset );
 
       z-index: 3;
       position: absolute;
@@ -61,10 +67,10 @@
     grid-row: 1 / span 2;
 
     img {
-      min-width: 690px;
-      width: 60vw;
-      max-width: 870px;
-      transform: translate(150px, 350px);
+      min-width: $min-width;
+      width: $width;
+      max-width: $max-width;
+      transform: translate(160px, $vert-offset);
 
       z-index: 2;
       position: absolute;
