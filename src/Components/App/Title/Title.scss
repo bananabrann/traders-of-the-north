@@ -11,6 +11,10 @@ $min-width: 500px;
   grid-template-columns: [sigrid-area] 1px [center-area] 1fr [ulf-area] 1px;
   grid-template-rows: 1fr 1fr;
 
+  background-image: url("../../../res/img/village.jpeg");
+  background-repeat: none;
+  background-size: cover;
+
   > * {
     display: flex;
     position: relative;
