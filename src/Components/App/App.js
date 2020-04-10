@@ -59,12 +59,12 @@ class App extends Component {
     // NOTE: For development on the load screen,
     // remove comments around this.
 
-    // setTimeout(() => {
+    setTimeout(() => {
       this.setState({
         isLoading: false,
         shouldDisplayTitle: true
       });
-    // }, 10000);
+    }, 1000);
   }
 
   render() {
