@@ -35,7 +35,7 @@ class Title extends React.Component {
         </div>
 
         <div id="ulf">
-          {/* <img src={require("../../../res/img/ulf/full.png")} alt="" /> */}
+          <img src={require("../../../res/img/ulf/full.png")} alt="" />
         </div>
       </div>
     );

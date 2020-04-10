@@ -44,11 +44,13 @@
     img {
       min-width: 550px;
       width: 60vw;
+      max-width: 726.6px;
 
       z-index: 3;
       position: absolute;
-      top: 0;
-      transform: translate(-100px, 20vh);
+      bottom: 0;
+      left: 0;
+      transform: translate(-100px, 18vh);
     }
   }
 
@@ -56,5 +58,17 @@
     background-color: yellow;
     grid-column: ulf-area / span 1;
     grid-row: 1 / span 2;
+
+    img {
+      z-index: 2;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      min-width: 630px;
+      width: 70vw;
+      max-width: 847.7px;
+
+      transform: translate(200px, 15vh);
+    };
   }
 }
