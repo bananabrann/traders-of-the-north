@@ -56,15 +56,14 @@ class App extends Component {
   componentDidMount() {
     document.title = "Traders of the North";
 
-    this.setState({
-      isLoading: false,
-      shouldDisplayTitle: true
-    });
     // NOTE: For development on the load screen,
-    // but the above text in here...
-    
-    // setTimeout(() => {
+    // remove comments around this.
 
+    // setTimeout(() => {
+      this.setState({
+        isLoading: false,
+        shouldDisplayTitle: true
+      });
     // }, 10000);
   }
 
