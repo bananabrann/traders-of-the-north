@@ -2,6 +2,7 @@
   background-color: lightblue;
   height: 100vh;
   width: 100vw;
+  max-width: 1330px;
 
   #title-page-selection-wrapper {
     z-index: 5;
@@ -23,7 +24,7 @@
       img {
         width: 65vw;
         min-width: 250px;
-        max-width: 680px;
+        max-width: 600px;
       }
     }
   }
@@ -41,16 +42,30 @@
     justify-content: space-between;
     overflow: hidden;
 
-    #sigrid {
-      transform: translate(-7.25vw, 15vh);
-      max-height: 991px;
+    #sigrid, #ulf {
       img {
-        width: 50vw;
-        min-width: 500px;
+        height: 100vh;
       }
     }
-    #ulf {
-      transform: translate(0, 200px);
+
+    #sigrid {
+      z-index: 2;
+      transform: translate(-7.25vw, 15vh);
+      max-height: 991px;
+
     }
+
+    #ulf {
+      z-index: 1;
+      position: absolute;
+      right: 0;
+      transform: translate(15.50vw, 34vh);
+      max-height: 1610px;
+      height: 130vh;
+      img {
+        height: 110vh;
+      }
+    }
+
   }
 }
