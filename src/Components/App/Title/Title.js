@@ -26,10 +26,10 @@ class Title extends React.Component {
         </div>
 
         <div id="logo">
-          {/* <img
+          <img
             src={require("../../../res/img/logo.png")}
             alt="Traders of the North game logo"
-          /> */}
+          />
         </div>
 
         <div id="sigrid">

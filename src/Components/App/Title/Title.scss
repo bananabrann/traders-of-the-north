@@ -6,10 +6,21 @@
   grid-template-columns: [sigrid-area] 10vw [center-area] 1fr [ulf-area] 10vw;
   grid-template-rows: 1fr 1fr;
 
+  > * {
+    display: flex;
+  }
+
   #logo {
     background-color: red;
     grid-column: center-area / span 1;
     grid-row: 1 / span 1;
+
+    justify-content: center;
+
+    img {
+      width: 50vw;
+      max-width: 700px;
+    }
   }
 
   #selection {
