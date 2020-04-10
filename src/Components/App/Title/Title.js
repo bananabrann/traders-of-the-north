@@ -6,7 +6,7 @@ class Title extends React.Component {
   render() {
     return (
       <div className="Title">
-        <div id="title-page-selection-wrapper">
+        <div id="selection">
           {/* prettier-ignore */}
           <div onClick={() => this.props.handleScreenSelectionClick("game")}>
             Play Game
@@ -25,23 +25,19 @@ class Title extends React.Component {
           <br />
         </div>
 
-        <div id="game-title-background-wrapper">
-          <div id="game-logo">
-            <img
-              src={require("../../../res/img/logo.png")}
-              alt="Traders of the North game logo"
-            />
-          </div>
+        <div id="logo">
+          {/* <img
+            src={require("../../../res/img/logo.png")}
+            alt="Traders of the North game logo"
+          /> */}
         </div>
 
-        <div id="character-wrapper">
-          <div id="sigrid">
-            <img src={require("../../../res/img/sigrid/full.png")} alt="" />
-          </div>
+        <div id="sigrid">
+          {/* <img src={require("../../../res/img/sigrid/full.png")} alt="" /> */}
+        </div>
 
-          <div id="ulf">
-            <img src={require("../../../res/img/ulf/full.png")} alt="" />
-          </div>
+        <div id="ulf">
+          {/* <img src={require("../../../res/img/ulf/full.png")} alt="" /> */}
         </div>
       </div>
     );
