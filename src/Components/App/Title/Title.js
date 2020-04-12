@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Title.scss";
 
-const VERSION = "1.3.0.1";
+const VERSION = "1.3.14";     // NOTE - Major.Minor.Patch
 
 class Title extends React.Component {
   render() {
