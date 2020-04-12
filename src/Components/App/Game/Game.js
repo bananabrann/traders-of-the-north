@@ -5,6 +5,7 @@ import PotBoard from "./PotBoard/PotBoard";
 import TopBoard from "./TopBoard/TopBoard";
 import Opponent from "../../../Opponent";
 
+import "./Game.scss";
 import "./GameGrid.scss";
 import "./ButtonBar.scss";
 
