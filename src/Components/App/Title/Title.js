@@ -2,6 +2,8 @@ import React from "react";
 
 import "./Title.scss";
 
+const VERSION = "1.3.0.1";
+
 class Title extends React.Component {
   render() {
     return (
@@ -21,6 +23,7 @@ class Title extends React.Component {
           <div onClick={() => this.props.handleScreenSelectionClick("about")}>
             About
           </div>
+          <p id="version">{VERSION}</p>
         </div>
 
         <div id="logo">
