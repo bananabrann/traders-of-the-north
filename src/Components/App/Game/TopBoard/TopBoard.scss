@@ -1,23 +1,25 @@
 @import "../../../../style/mixins.scss";
 
 #top-board {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  color: #413125; // TODO - Make variables global
+  #info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: #413125; // TODO - Make variables global
+
+    .player {
+      display: flex;
+      align-items: center;
+    }
+
+    .ulf,
+    .ulf .stockpile {
+      flex-direction: row-reverse;
+    }
+  }
 
   p {
     @include viking-font();
-  }
-
-  .player {
-    display: flex;
-    align-items: center;
-  }
-
-  .ulf,
-  .ulf .stockpile {
-    flex-direction: row-reverse;
   }
 }
