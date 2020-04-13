@@ -1,6 +1,12 @@
-$vert-offset: 20vh;
-$height: 120vh;
-$min-width: 500px;
+
+@function get-horizontal-offset($b) {
+  // TODO - Create functionality so that the portraits
+  // will translate away from center as screen width gets
+  // smaller, and translates towards center as the 
+  // screen's width get larger.
+
+  @return $b;
+}
 
 .Title {
   width: 100vw;
@@ -21,6 +27,7 @@ $min-width: 500px;
   }
 
   #logo {
+    display: none;
     grid-column: center-area / span 1;
     grid-row: 2 / span 1;
 
@@ -53,9 +60,8 @@ $min-width: 500px;
       bottom: 0;
       left: 0;
 
-      height: $height;
-      min-width: $min-width;
-      transform: translate(-50px, $vert-offset);
+      height: calc(100%  + 5vh);
+      transform: translate(get-horizontal-offset(-50px), 80px);
     }
   }
 
@@ -66,12 +72,11 @@ $min-width: 500px;
     img {
       z-index: 2;
       position: absolute;
-      bottom: 0;
+      top: 0;
       right: 0;
 
-      height: $height;
-      min-width: $min-width;
-      transform: translate(166px, $vert-offset);
+      height: calc(100% + 5vh);
+      transform: translate(get-horizontal-offset(100px), 40px);
     }
   }
 }
