@@ -1,34 +1,30 @@
 #action-board {
-  overflow: hidden;
+  position: absolute;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-
-  // background-color: blue;
+  overflow: hidden;
+  bottom: 0;
+  width: 100vw;
+  height: 30vh;
 
   #draw-bet-container {
-    // background-color: pink;
-    // position: absolute;
-    z-index: 1;
-    height: 100%;
-    width: 100%;
+    position: absolute;
+    z-index: 5;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-  }
-
-  #button-select-area {
-    background-color: coral;
+    width: 100%;
+    height: 100%;
+    
+    img {
+      max-width: 50vw;
+      height: 52%;
+      padding: 0 2vw;
+    }
   }
 
   #action-board-background {
-    // background-color: green;
-    
-    position: fixed;
-    max-width: 950px;
-    width: 100%;
-    bottom: 0;
+    margin: 0 5vw -25px 5vw;
   }
 }

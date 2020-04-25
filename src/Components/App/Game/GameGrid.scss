@@ -47,9 +47,9 @@ $dev-c: rgba(255, 0, 0, 0.185);
   ". p p p p p p p p p p ."
   ". p p p p p p p p p p ."
   ". p p p p p p p p p p ."
-  "a a a a a a a a a a a a"
-  "a a a a a a a a a a a a"
-  "a a a a a a a a a a a a";
+  ". p p p p p p p p p p ."
+  ". . . . . . . . . . . ."
+  ". . . . . . . . . . . .";
   
   #top-board {
     grid-area: t;
@@ -71,10 +71,10 @@ $dev-c: rgba(255, 0, 0, 0.185);
     background-color: $dev-c;
   }
 
-  #action-board {
-    grid-area: a;
-    // background-color: $dev-c;
-  }
+  // #action-board {
+  //   grid-area: a;
+  //   // background-color: $dev-c;
+  // }
 
   #bottom-board {
     grid-area: b;

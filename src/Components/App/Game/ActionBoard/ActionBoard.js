@@ -15,7 +15,7 @@ class ActionBoard extends React.Component {
 
     return (
       <div id="action-board">
-        <div id="rune-select-area">
+        {/* <div id="rune-select-area">
           {shouldAllowRunePlacement
             ? this.props.usersRunes.map((r, i) => {
                 return (
@@ -27,12 +27,7 @@ class ActionBoard extends React.Component {
                 );
               })
             : null}
-        </div>
-
-        <div id="draw-bet-container">
-          Draw
-          Bet
-        </div>
+        </div> */}
 
         {/* <div id="button-select-area">
 
@@ -55,7 +50,12 @@ class ActionBoard extends React.Component {
           ) : null}
         </div> */}
 
-        <img src={ActionBoardBackground} alt="" id="action-board-background"/>
+        <div id="draw-bet-container">
+          <img src={DrawButton} />
+          <img src={BetButton} />
+        </div>
+
+        <img src={ActionBoardBackground} alt="" id="action-board-background" />
       </div>
     );
   }
