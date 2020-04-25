@@ -1,0 +1,21 @@
+#action-board {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+
+  background-color: blue;
+
+  #button-select-area {
+    background-color: coral;
+  }
+
+  #action-board-background {
+    background-color: green;
+    
+    // position: ;
+    bottom: 0;
+    max-width: 550px;
+  }
+}
