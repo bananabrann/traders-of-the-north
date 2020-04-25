@@ -1,0 +1,2 @@
+# The Structure of the Resource Folder
+The majority of this folder is **namespaced** and retrieved as such from the `src/` directory during runtime, and thus should file names should be carefully renamed if renamed or moved at all. 
