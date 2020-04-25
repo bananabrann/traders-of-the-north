@@ -390,7 +390,7 @@ class Game extends React.Component {
           pass={this.pass}
         />
 
-        <BottomBoard />
+        {/* <BottomBoard /> */}
       </div>
     );
   }
