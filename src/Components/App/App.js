@@ -4,6 +4,7 @@ import Game from "./Game/Game";
 import Instructions from "./Instructions/Instructions";
 import Title from "./Title/Title";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
+// import Utility from "../../Utility";
 
 import "./Reset.css";
 
@@ -23,6 +24,8 @@ class App extends Component {
   }
 
   handleScreenSelectionClick(desiredPage) {
+    // TODO - Add button gif effect from Utility class
+
     // prettier-ignore
     desiredPage === "title" ? this.setState({
       shouldDisplayAbout: false,

@@ -1,17 +1,31 @@
 abstract class Utility {
-  public static playButtonAnimation(button: string) {
+  public static playButtonAnimation(name: string, secondsDelayTime: number = 1) {
     // NOTE - Handles the playing of the gif images on 
     // the button selections. This does NOT include the
     // game pieces.
 
-    console.log(button);
+    // NOTE - The reason why I have chosen to not have
+    // a Title class method handle this is because 
+    // more places other than Title might use this 
+    // method, such as action pieces.
 
     // TODO - Determine what button was selected and
     // what gif to play.
+    if (name === "instructions" || name === "play" || name === "about") {
+      const pathGif: string = `res/img/buttons-menu/${name}/animate.gif`;
+      const staticPath: string = `res/img/buttons-menu/${name}/static.png`;
+    } else {
+      throw new ReferenceError("Unknown button name called");
+    }
 
     // TODO - Manipulate DOM to play gif.
+    let btn = document.getElementById("btn-" + name);
 
     // TODO - Wait like 3 seconds or so. No callback.
+    setTimeout(() => {
+      console.log(btn)
+      return
+    }, 1000)
 
     // TODO - No return predicted, because this function
     // should manipulate everythig before moving on.

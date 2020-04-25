@@ -5,7 +5,7 @@ import PLAY from "../../../res/img/buttons-menu/play/static.png";
 import INSTRUCTIONS from "../../../res/img/buttons-menu/instructions/static.png";
 import ABOUT from "../../../res/img/buttons-menu/about/static.png";
 
-const VERSION = "1.3.21";     // NOTE - Major.Minor.Patch
+const VERSION = "1.3.21"; // NOTE - Major.Minor.Patch
 
 class Title extends React.Component {
   render() {
@@ -14,18 +14,18 @@ class Title extends React.Component {
         <div id="selection">
           {/* prettier-ignore */}
           <div onClick={() => this.props.handleScreenSelectionClick("game")}>
-            <img src={PLAY} alt="Play Game" />
+            <img src={PLAY} id="btn-play" alt="Play Game" />
           </div>
 
           {/* prettier-ignore */}
           <div onClick={() => this.props.handleScreenSelectionClick("instructions")}>
-            {/*  TODO - Better to put this within the handleScreenSelectionClick I think */}
-            <img src={INSTRUCTIONS} alt="Instructions on the Game" onClick={() => Utility.playButtonAnimation("instructions")} />
+            <img  src={INSTRUCTIONS} id="btn-instructions" alt="Instructions on the Game" 
+            />
           </div>
 
           {/* prettier-ignore */}
           <div onClick={() => this.props.handleScreenSelectionClick("about")}>
-            <img src={ABOUT} alt="About the Game" />
+            <img src={ABOUT} id="btn-about" alt="About the Game" />
           </div>
           <p id="version">{VERSION}</p>
         </div>
