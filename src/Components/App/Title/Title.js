@@ -1,4 +1,5 @@
 import React from "react";
+import Utility from "../../../Utility";
 import "./Title.scss";
 import PLAY from "../../../res/img/buttons-menu/play/static.png";
 import INSTRUCTIONS from "../../../res/img/buttons-menu/instructions/static.png";
@@ -18,7 +19,8 @@ class Title extends React.Component {
 
           {/* prettier-ignore */}
           <div onClick={() => this.props.handleScreenSelectionClick("instructions")}>
-            <img src={INSTRUCTIONS} alt="Instructions on the Game" />
+            {/*  TODO - Better to put this within the handleScreenSelectionClick I think */}
+            <img src={INSTRUCTIONS} alt="Instructions on the Game" onClick={() => Utility.playButtonAnimation("instructions")} />
           </div>
 
           {/* prettier-ignore */}
@@ -29,7 +31,7 @@ class Title extends React.Component {
         </div>
 
         {/* TODO - Figure out what to do with the logo */}
-        
+
         {/* <div id="logo">
           <img
             src={require("../../../res/img/logo.png")}
