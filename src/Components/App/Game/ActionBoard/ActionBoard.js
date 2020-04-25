@@ -29,6 +29,11 @@ class ActionBoard extends React.Component {
             : null}
         </div>
 
+        <div id="draw-bet-container">
+          Draw
+          Bet
+        </div>
+
         {/* <div id="button-select-area">
 
           {shouldDisplayDrawButton ? (

@@ -3,19 +3,32 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 
+  // background-color: blue;
 
-  background-color: blue;
+  #draw-bet-container {
+    // background-color: pink;
+    // position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 
   #button-select-area {
     background-color: coral;
   }
 
   #action-board-background {
-    background-color: green;
+    // background-color: green;
     
-    // position: ;
+    position: fixed;
+    max-width: 950px;
+    width: 100%;
     bottom: 0;
-    max-width: 550px;
   }
 }
