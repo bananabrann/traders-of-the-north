@@ -31,13 +31,14 @@ class Title extends React.Component {
         </div>
 
         {/* TODO - Figure out what to do with the logo */}
-
-        {/* <div id="logo">
+        {/* FIXME - It's not shown right now, but it makes everything
+                    looks good */}
+        <div id="logo">
           <img
             src={require("../../../res/img/logo.png")}
             alt="Traders of the North game logo"
           />
-        </div> */}
+        </div>
 
         <div id="sigrid">
           <img src={require("../../../res/img/sigrid/full.png")} alt="" />
