@@ -10,6 +10,32 @@ import PassButton from "../../../../res/img/buttons-action/pass/normal.png";
 import PassButtonPressed from "../../../../res/img/buttons-action/pass/pressed.png"
 
 class ActionBoard extends React.Component {
+  constructor() {
+    super();
+    this.handleRuneTransitions = this.handleRuneTransitions.bind(this);
+  }
+
+  handleRuneTransitions(isSelectable=false) {
+    let runes = document.getElementsByClassName("rune");
+    
+    if (isSelectable) {
+      for (let i = 0; i < runes.length; i++) {
+        console.log(runes[i])
+        runes[i].classList.add("selectable")
+      }
+    } else {
+      for (let i = 0; i < runes.length; i++) {
+        console.log(runes[i])
+        runes[i].classList.remove("selectable")
+      }
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.props.shouldAllowRunePlacement) this.handleRuneTransitions(true);
+    if (!this.props.shouldAllowRunePlacement) this.handleRuneTransitions();
+  }
+
   render() {
     const shouldDisplayBetButton = this.props.shouldDisplayBetButton;
     const shouldDisplayDrawButton = this.props.shouldDisplayDrawButton;
@@ -18,20 +44,6 @@ class ActionBoard extends React.Component {
 
     return (
       <div id="action-board">
-        <div id="rune-select-area">
-          {shouldAllowRunePlacement
-            ? this.props.usersRunes.map((r, i) => {
-                return (
-                  <Rune
-                    key={i}
-                    runeValue={r}
-                    handlePlaceRune={this.props.handlePlaceRune}
-                  />
-                );
-              })
-            : null}
-        </div>
-
         <div id="draw-bet-container">
           {shouldDisplayDrawButton ? (
             <img src={DrawButton} alt="" onClick={() => this.props.draw()} />
@@ -55,6 +67,18 @@ class ActionBoard extends React.Component {
         </div>
 
         <img src={ActionBoardBackground} alt="" id="action-board-background" />
+
+        <div id="rune-select-area">
+          {this.props.usersRunes.map((r, i) => {
+            return (
+              <Rune
+                key={i}
+                runeValue={r}
+                handlePlaceRune={this.props.handlePlaceRune}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   }

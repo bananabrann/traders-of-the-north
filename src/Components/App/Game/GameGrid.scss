@@ -46,8 +46,8 @@ $dev-c: rgba(255, 0, 0, 0.185);
   ". p p p p p p p p p p ."
   ". p p p p p p p p p p ."
   ". p p p p p p p p p p ."
-  ". p p p p p p p p p p ."
-  ". p p p p p p p p p p ."
+  ". . . . . . . . . . . ."
+  ". . . . . . . . . . . ."
   ". . . . . . . . . . . ."
   ". . . . . . . . . . . .";
   
@@ -68,7 +68,7 @@ $dev-c: rgba(255, 0, 0, 0.185);
 
   #pot-board {
     grid-area: p;
-    background-color: $dev-c;
+    // background-color: $dev-c;
   }
 
   // #action-board {

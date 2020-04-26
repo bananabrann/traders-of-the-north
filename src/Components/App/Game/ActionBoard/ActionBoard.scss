@@ -16,6 +16,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
+    z-index: 3;
     
     img {
       max-width: 50vw;
@@ -26,5 +27,16 @@
 
   #action-board-background {
     margin: 0 5vw -25px 5vw;
+    z-index: 2;
   }
+}
+
+#rune-select-area {
+  // background-color: teal;
+  
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
