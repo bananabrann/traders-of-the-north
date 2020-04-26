@@ -10,7 +10,7 @@ class Rune extends React.Component {
   render() {
     return (
       <img
-        className="Rune"
+        className="rune"
         src={require(`../../../../../res/img/runes/${this.props.runeValue}.png`)}
         alt={`Rune ${this.runeValue}`}
         onClick={() => {
