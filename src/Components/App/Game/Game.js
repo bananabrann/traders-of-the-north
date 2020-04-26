@@ -172,9 +172,7 @@ class Game extends React.Component {
         loser = "user";
         winningRune = tempArena[1];
       } else {
-        console.log(
-          "*** BUG *** handleRuneComparisson() - neither the user nor opponent won?.."
-        );
+        throw new TypeError("Error in handleRuneComparisson() - Neither the user nor opponent won")
       }
     }
 
