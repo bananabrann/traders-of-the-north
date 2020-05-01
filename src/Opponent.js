@@ -1,6 +1,7 @@
 class Opponent {
   static act(state, draw, bet, pass, placeRune) {
     console.log(`> act(...)`);
+
     this.sleep(1000).then(() => {
       if (state.isUsersTurn) {
         return null;
@@ -24,17 +25,34 @@ class Opponent {
   static think(state) {
     console.log(`> think(...)`);
 
-    const weightCap = 100;
-    let betWeight = 0;
+    const pot = state.pot;
+    const oppGold = state.opponent.gold;
+    const oppFish = state.opponent.fish;
+    const userGold = state.user.gold;
+    const userFish = state.user.fish;
+  
+    let goldInPot = 0;
+    let fishInPot = 0;
+    let totalWeight = 0;
 
-    state.pot.forEach(item => {
-      if (item === "gold") betWeight += 5;
-      if (item === "fish") betWeight += 5;
-      if (item === "totem" && state.opponent.totem > 0) betWeight -= 7;
-      if (item === "seaweed") betWeight -= 7;
+    pot.forEach(p => {
+      if (p === "gold") ++goldInPot;
+      if (p === "fish") ++fishInPot;
+      if (p === "totem") goldInPot -= 2;
+      if (p === "seaweed") fishInPot -= 2;
     });
 
-    return betWeight;
+    if (oppGold > 0) totalWeight += (oppGold - goldInPot);
+
+    if ((fishInPot + oppFish) > userFish) {
+      totalWeight += 12;
+    } else {
+      totalWeight += (oppFish - fishInPot);
+    }
+
+    totalWeight = totalWeight - (8 - pot.length);
+
+    return totalWeight;
   }
 
   static respondToBet(state, pass, placeRune) {
@@ -42,6 +60,7 @@ class Opponent {
     const weightCap = 100;
     let passWeight = 0;
     let placeRuneWeight = 50; // Note will be zero
+
     // TODO: Calculation to determine whether or not places rune
     if (passWeight > placeRuneWeight) {
       pass();
