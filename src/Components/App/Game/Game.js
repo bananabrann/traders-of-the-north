@@ -4,6 +4,7 @@ import BottomBoard from "./BottomBoard/BottomBoard";
 import PotBoard from "./PotBoard/PotBoard";
 import TopBoard from "./TopBoard/TopBoard";
 import Opponent from "../../../Opponent";
+import Utility from "../../../Utility";
 
 import "./Game.scss";
 import "./GameGrid.scss";
@@ -23,6 +24,7 @@ const baseRunes = {
   pack1: [2, 5, 6, 9],
   pack2: [3, 4, 7, 8]
 };
+const log = Utility.log;
 
 class Game extends React.Component {
   constructor() {
@@ -71,7 +73,8 @@ class Game extends React.Component {
   }
 
   draw() {
-    console.log("> draw()");
+    log("> draw()")
+
     if (this.state.mustBet) {
       return console.log("you can't draw, you must bet");
     } else {
@@ -85,7 +88,8 @@ class Game extends React.Component {
   }
 
   bet() {
-    console.log("> bet()");
+    log("> bet()")
+
     if (this.state.isInBet) {
       console.log("You can't bet again!");
     } else {
@@ -101,7 +105,8 @@ class Game extends React.Component {
   }
 
   pass() {
-    console.log("> pass()");
+    log("> pass()")
+
     this.setState({
       isUsersTurn: !this.state.isUsersTurn,
       mustPlaceRune: true
@@ -109,7 +114,7 @@ class Game extends React.Component {
   }
 
   handlePlaceRune(rune) {
-    console.log(`> handlePlaceRune(${rune})`);
+    log(`handlePlaceRune(rune: ${rune})`)
 
     if (!this.state.isInBet) {
       console.log("You cannot place a rune without being in a bet!");
@@ -127,7 +132,7 @@ class Game extends React.Component {
   }
 
   handleRuneComparisson(soloRuneVictory) {
-    console.log(`> handleRuneComparisson(${soloRuneVictory})`);
+    log(`> handleRuneComparisson(soloRuneVictory: ${soloRuneVictory}`)
 
     let tempArena = []; // NOTE: I do this because I do not want to mutate state directly
     let winner = "";
@@ -138,9 +143,8 @@ class Game extends React.Component {
       winner = this.state.isUsersTurn ? "user" : "opponent";
       winner === "user" ? (loser = "opponent") : (loser = "user");
 
-      console.log(
-        `DEBUG: Winner of soloRuneVictory is: ${winner}, loser: ${loser}`
-      );
+      log(`soloRuneVictory detected as true`, `\twinner: ${winner}, loser: ${loser}`)
+
       winningRune = this.state.arena[0];
     } else {
       tempArena = this.state.arena;
@@ -178,12 +182,12 @@ class Game extends React.Component {
     //prettier-ignore
     const losersFishNewAmount = this.getNewStockpileAmount(false, loser, "fish");
 
-    console.log(
-      `winnersGoldNewAmount: ${winnersGoldNewAmount}\n`,
-      `winnersNewFishAmount: ${winnersFishNewAmount}\n`,
-      `losersGoldNewAmount: ${losersGoldNewAmount}\n`,
-      `losersFishNewAmount: ${losersFishNewAmount}`
-    );
+    // console.log(
+    //   `winnersGoldNewAmount: ${winnersGoldNewAmount}\n`,
+    //   `winnersNewFishAmount: ${winnersFishNewAmount}\n`,
+    //   `losersGoldNewAmount: ${losersGoldNewAmount}\n`,
+    //   `losersFishNewAmount: ${losersFishNewAmount}`
+    // );
 
     const winnersNewScore = this.getCalculatedScore(
       true,
@@ -225,7 +229,7 @@ class Game extends React.Component {
   }
 
   getNewStockpileAmount(isWinner, viking, resource) {
-    console.log(`> getNewStockpileAmount(${viking}, ${resource}})`);
+    log(`> getNewStockpileAmount(isWinner: ${isWinner}, viking: ${viking}, resources: ${resource})`)
 
     if (isWinner) {
       if (resource === "gold") {
@@ -258,7 +262,7 @@ class Game extends React.Component {
         }
         return calculatedNewFishAmount;
       } else {
-        console.log("ERR: getNewStockpileAmount detected no resource");
+        throw new TypeError("getNewStockpileAmount detected no resource")
       }
     } else {
       if (resource === "gold") {
@@ -274,18 +278,20 @@ class Game extends React.Component {
         }
         return fish;
       } else {
-        console.log("ERR: getNewStockpileAmount detected no resource");
+        throw new TypeError("getNewStockpileAmount detected no resource")
       }
     }
   }
 
   // TODO - This function could probably be trimmed.
   // I.e., remove isWinnder, viking, etc.
-  getCalculatedScore(isWinner, viking, goldAmount, winnersFish, losersFish) {
-    console.log(
-      `> getCalculatedScore(${isWinner}, ${viking}, ${goldAmount}, ${winnersFish}, ${losersFish})`
-    );
 
+  // NOTE I probably don't need to pass all this to this function.
+  // I can probably just retrieve the amounts from state.
+  getCalculatedScore(isWinner, viking, goldAmount, winnersFish, losersFish) {
+    log(`> getCalculatedScore(isWinnder: ${isWinner}, viking: ${viking}, goldAmount: ${goldAmount}, winnersFish: ${winnersFish}, losersFish: ${losersFish} `)
+
+    // TODO: Make values a variable
     if (winnersFish === losersFish) {
       let score = goldAmount < 0 ? 0 : goldAmount;
       return score;
@@ -302,7 +308,7 @@ class Game extends React.Component {
   }
 
   checkForcedBet() {
-    console.log("> checkForcedBet()");
+    log(`> checkForcedBet()`);
 
     const pot = this.state.pot;
 
@@ -318,10 +324,7 @@ class Game extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log("> componentDidUpdate()");
-    console.log(
-      `DEBUG:\nopponents runes: ${this.state.opponent.runes}\nusers runes: ${this.state.user.runes}`
-    );
+    log(`> componentDidUpdate()`);
 
     if (!this.state.mustBet) {
       this.checkForcedBet();
@@ -337,20 +340,21 @@ class Game extends React.Component {
       );
     }
 
-    // ------------- Dev Turn Tracking
+    // SECTION Turn tracking
     let whosTurnIsIt = this.state.isUsersTurn ? "User" : "Opponent";
-    console.log(`----------${whosTurnIsIt}----------`);
+    // log(`\n`, `--- ${whosTurnIsIt} ---`);
   }
 
   componentDidMount() {
-    let whosTurnIsIt = this.state.isUsersTurn ? "User" : "Opponent";
-    console.log(`----------${whosTurnIsIt}----------`);
+    // let whosTurnIsIt = this.state.isUsersTurn ? "User" : "Opponent";
+    // log(`\n`, `--- ${whosTurnIsIt} ---`);
 
     document.title = "Play Traders of the North";
   }
 
   render() {
-    console.log("> Game render()")
+    log(`> Game render()`)
+    
     return (
       <div id="Game">
         <TopBoard 

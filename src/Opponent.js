@@ -1,6 +1,10 @@
+import Utility from "./Utility";
+
+const log = Utility.log;
+
 class Opponent {
   static act(state, draw, bet, pass, placeRune) {
-    console.log(`> act(...)`);
+    log(`Opponent`, `\t> act(state, draw, bet, pass, placeRune)`);
 
     this.sleep(1000).then(() => {
       if (state.isUsersTurn) {
@@ -24,6 +28,7 @@ class Opponent {
 
   static think(state) {
     console.log(`> think(...)`);
+    log(`Opponent`, `\t> think(state))`)
 
     const pot = state.pot;
     const oppGold = state.opponent.gold;
@@ -56,7 +61,8 @@ class Opponent {
   }
 
   static respondToBet(state, pass, placeRune) {
-    console.log(`> respondToBet(...)`);
+    log(`Opponent`, `\t> respondToBet(state, pass, placeRune)`)
+
     const weightCap = 100;
     let passWeight = 0;
     let placeRuneWeight = 50; // Note will be zero

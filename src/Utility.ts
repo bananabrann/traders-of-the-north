@@ -1,4 +1,10 @@
 abstract class Utility {
+  
+  public static log(x: string, opt: string = "", optMethod: string = "log") {
+    const displayConsoleLogActions: boolean = true;
+    if (displayConsoleLogActions && optMethod === "log") console.log(`${x}\n${opt}`);
+  }
+
   public static playButtonAnimation(name: string, secondsDelayTime: number = 1) {
     // NOTE - Handles the playing of the gif images on 
     // the button selections. This does NOT include the
