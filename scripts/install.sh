@@ -14,15 +14,19 @@ echo "********************************"
 echo "* Traders of the North install *"
 echo "********************************"
 
-printf "\nHello! This script will install the neccesary dependencies and start the development, and local 
-version of Traders of the North.\nThe software to be downloaded consists of programs that are very 
-typical of software engineering. This includes, but not limited to:
-  • \e[1mBrew\e[0m, a MacOS software development package manager
-  • \e[1mNode\e[0m, a JavaScript runtime enviroment
-  • \e[1mReact\e[0m, a dynamic rendering framework
-  
-The dependencies may ask for your password. This is normal, as this
-is your system protecting you."
+printf "
+Hello! This script will install the neccesary dependencies to run
+or develop Traders of the North. This script does ${YELLOW}not\e[0m install the
+project dependencies, such as React and SASS, found in package.json.
+This script will check for and install the following \e[1mglobally\e[0m:
+- Node
+- NPM
+- Lua
+- Docker
+
+You may be prompted to enter your password. This is normal. After
+completition of this script, please next run \e[32m\e[1mnpm install\e[0m to install
+the project's individual dependencies."
 
 printf "\n\nTo continue, please type \e[32m\e[1mY\e[0m and press Enter. To cancel, press any other key.\n"
 read selection
@@ -34,8 +38,10 @@ fi
 
 cd ../
 
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install node
-npm install
+# /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# brew install node
+# npm install
 
-printf "\n\e[1m\e[32m~~~ Install complete! ~~~\n\e[0mYou maybe now safely terminate this window.\nGoodbye!\n\n"
+printf "\n\e[1m\e[32m~~~ Install complete! ~~~
+Please run npm install 
+\e[0mYou maybe now safely terminate this window.\nGoodbye!\n\n"
