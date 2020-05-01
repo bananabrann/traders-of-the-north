@@ -73,7 +73,7 @@ class Game extends React.Component {
   }
 
   draw() {
-    log("> draw()")
+    log("> draw()");
 
     if (this.state.mustBet) {
       return console.log("you can't draw, you must bet");
@@ -88,7 +88,7 @@ class Game extends React.Component {
   }
 
   bet() {
-    log("> bet()")
+    log("> bet()");
 
     if (this.state.isInBet) {
       console.log("You can't bet again!");
@@ -105,7 +105,7 @@ class Game extends React.Component {
   }
 
   pass() {
-    log("> pass()")
+    log("> pass()");
 
     this.setState({
       isUsersTurn: !this.state.isUsersTurn,
@@ -114,7 +114,7 @@ class Game extends React.Component {
   }
 
   handlePlaceRune(rune) {
-    log(`handlePlaceRune(rune: ${rune})`)
+    log(`handlePlaceRune(rune: ${rune})`);
 
     if (!this.state.isInBet) {
       console.log("You cannot place a rune without being in a bet!");
@@ -132,7 +132,7 @@ class Game extends React.Component {
   }
 
   handleRuneComparisson(soloRuneVictory) {
-    log(`> handleRuneComparisson(soloRuneVictory: ${soloRuneVictory}`)
+    log(`> handleRuneComparisson(soloRuneVictory: ${soloRuneVictory}`);
 
     let tempArena = []; // NOTE: I do this because I do not want to mutate state directly
     let winner = "";
@@ -143,7 +143,10 @@ class Game extends React.Component {
       winner = this.state.isUsersTurn ? "user" : "opponent";
       winner === "user" ? (loser = "opponent") : (loser = "user");
 
-      log(`soloRuneVictory detected as true`, `\twinner: ${winner}, loser: ${loser}`)
+      log(
+        `soloRuneVictory detected as true`,
+        `\twinner: ${winner}, loser: ${loser}`
+      );
 
       winningRune = this.state.arena[0];
     } else {
@@ -163,7 +166,9 @@ class Game extends React.Component {
         loser = "user";
         winningRune = tempArena[1];
       } else {
-        throw new TypeError("Error in handleRuneComparisson() - Neither the user nor opponent won")
+        throw new TypeError(
+          "Error in handleRuneComparisson() - Neither the user nor opponent won"
+        );
       }
     }
 
@@ -229,7 +234,9 @@ class Game extends React.Component {
   }
 
   getNewStockpileAmount(isWinner, viking, resource) {
-    log(`> getNewStockpileAmount(isWinner: ${isWinner}, viking: ${viking}, resources: ${resource})`)
+    log(
+      `> getNewStockpileAmount(isWinner: ${isWinner}, viking: ${viking}, resources: ${resource})`
+    );
 
     if (isWinner) {
       if (resource === "gold") {
@@ -262,7 +269,7 @@ class Game extends React.Component {
         }
         return calculatedNewFishAmount;
       } else {
-        throw new TypeError("getNewStockpileAmount detected no resource")
+        throw new TypeError("getNewStockpileAmount detected no resource");
       }
     } else {
       if (resource === "gold") {
@@ -278,7 +285,7 @@ class Game extends React.Component {
         }
         return fish;
       } else {
-        throw new TypeError("getNewStockpileAmount detected no resource")
+        throw new TypeError("getNewStockpileAmount detected no resource");
       }
     }
   }
@@ -289,7 +296,9 @@ class Game extends React.Component {
   // NOTE I probably don't need to pass all this to this function.
   // I can probably just retrieve the amounts from state.
   getCalculatedScore(isWinner, viking, goldAmount, winnersFish, losersFish) {
-    log(`> getCalculatedScore(isWinnder: ${isWinner}, viking: ${viking}, goldAmount: ${goldAmount}, winnersFish: ${winnersFish}, losersFish: ${losersFish} `)
+    log(
+      `> getCalculatedScore(isWinnder: ${isWinner}, viking: ${viking}, goldAmount: ${goldAmount}, winnersFish: ${winnersFish}, losersFish: ${losersFish} `
+    );
 
     // TODO: Make values a variable
     if (winnersFish === losersFish) {
@@ -353,18 +362,13 @@ class Game extends React.Component {
   }
 
   render() {
-    log(`> Game render()`)
-    
+    log(`> Game render()`);
+
     return (
       <div id="Game">
-        <TopBoard 
-          user={this.state.user}
-          opponent={this.state.opponent}
-        />
+        <TopBoard user={this.state.user} opponent={this.state.opponent} />
 
-        <PotBoard 
-          pot={this.state.pot}
-        />
+        <PotBoard pot={this.state.pot} />
 
         <ActionBoard
           handlePlaceRune={this.handlePlaceRune}

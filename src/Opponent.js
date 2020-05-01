@@ -28,14 +28,14 @@ class Opponent {
 
   static think(state) {
     console.log(`> think(...)`);
-    log(`Opponent`, `\t> think(state))`)
+    log(`Opponent`, `\t> think(state))`);
 
     const pot = state.pot;
     const oppGold = state.opponent.gold;
     const oppFish = state.opponent.fish;
     const userGold = state.user.gold;
     const userFish = state.user.fish;
-  
+
     let goldInPot = 0;
     let fishInPot = 0;
     let totalWeight = 0;
@@ -47,12 +47,12 @@ class Opponent {
       if (p === "seaweed") fishInPot -= 2;
     });
 
-    if (oppGold > 0) totalWeight += (oppGold - goldInPot);
+    if (oppGold > 0) totalWeight += oppGold - goldInPot;
 
-    if ((fishInPot + oppFish) > userFish) {
+    if (fishInPot + oppFish > userFish) {
       totalWeight += 12;
     } else {
-      totalWeight += (oppFish - fishInPot);
+      totalWeight += oppFish - fishInPot;
     }
 
     totalWeight = totalWeight - (8 - pot.length);
@@ -61,7 +61,7 @@ class Opponent {
   }
 
   static respondToBet(state, pass, placeRune) {
-    log(`Opponent`, `\t> respondToBet(state, pass, placeRune)`)
+    log(`Opponent`, `\t> respondToBet(state, pass, placeRune)`);
 
     const weightCap = 100;
     let passWeight = 0;
