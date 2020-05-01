@@ -5,6 +5,11 @@ abstract class Utility {
     if (displayConsoleLogActions && optMethod === "log") console.log(`${x}\n${opt}`);
   }
 
+  public static devLog(x: string, opt: string = "", optMethod: string = "log") {
+    const displayDevConsoleLogging: boolean = false;
+    if (displayDevConsoleLogging && optMethod === "log") console.log(`${x}\n${opt}`);
+  }
+
   public static playButtonAnimation(name: string, secondsDelayTime: number = 1) {
     // NOTE - Handles the playing of the gif images on 
     // the button selections. This does NOT include the
