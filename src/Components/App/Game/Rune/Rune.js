@@ -7,7 +7,7 @@ class Rune extends React.Component {
       return (
         <img
           className="topboard-rune"
-          src={require(`../../../../../res/img/runes/${this.props.runeValue}.png`)}
+          src={require(`../../../../res/img/runes/${this.props.runeValue}.png`)}
           alt={`A stony rune with a value of ${this.runeValue}`}
           onClick={null}
         />
@@ -16,7 +16,7 @@ class Rune extends React.Component {
       return (
         <img
           className="rune"
-          src={require(`../../../../../res/img/runes/${this.props.runeValue}.png`)}
+          src={require(`../../../../res/img/runes/${this.props.runeValue}.png`)}
           alt={`Rune ${this.runeValue}`}
           onClick={() => {
             this.props.handlePlaceRune(this.props.runeValue);

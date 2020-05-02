@@ -28,7 +28,7 @@ class Opponent {
 
   static think(state) {
     console.log(`> think(...)`);
-    log(`Opponent`, `\t> think(state))`);
+    log(`Opponent`, `\t> think(state)`);
 
     const pot = state.pot;
     const oppGold = state.opponent.gold;

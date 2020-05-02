@@ -1,5 +1,5 @@
 import React from "react";
-import Rune from "../../ActionBoard/Rune/Rune";
+import Rune from "../../Rune/Rune";
 
 class AvailableRunes extends React.Component {
   render() {

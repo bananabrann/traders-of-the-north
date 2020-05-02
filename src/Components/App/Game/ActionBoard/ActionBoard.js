@@ -1,5 +1,5 @@
 import React from "react";
-import Rune from "./Rune/Rune";
+import Rune from "../Rune/Rune";
 import Utility from "../../../../Utility";
 import "./ActionBoard.scss";
 import ActionBoardBackground from "../../../../res/img/dashboard.png";
