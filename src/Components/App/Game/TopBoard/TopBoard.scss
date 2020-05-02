@@ -1,6 +1,10 @@
 @import "../../../../style/mixins.scss";
 
 #top-board {
+  position: fixed;
+  background-color: blue;
+  width: 100%;
+
   #info {
     display: flex;
     flex-direction: row;

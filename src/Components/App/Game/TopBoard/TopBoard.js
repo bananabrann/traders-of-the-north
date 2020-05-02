@@ -3,12 +3,15 @@ import AvailableRunes from "./AvailableRunes/AvailableRunes";
 import MessageBoard from "./MessageBoard/MessageBoard";
 import Portrait from "./Portrait/Portrait";
 import Stockpile from "./Stockpile/Stockpile";
-
+import Utility from "../../../../Utility";
 import "./TopBoard.scss";
+
+const log = Utility.log;
 
 class TopBoard extends React.Component {
   render() {
-    console.log("> TopBoard render");
+    log("TopBoard", "\trender()");
+
     return (
       <div id="top-board">
         <div id="info">
@@ -25,7 +28,7 @@ class TopBoard extends React.Component {
           </div>
         </div>
         
-        <MessageBoard />
+        {/* <MessageBoard /> */}
       </div>
     );
   }

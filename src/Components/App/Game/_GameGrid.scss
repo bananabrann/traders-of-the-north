@@ -1,0 +1,45 @@
+$dev-c: rgba(255, 0, 0, 0.185);
+
+#Game {
+  // background-color: $dev-c;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: repeat(12, 1fr);
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas:
+
+  /* SECTION ---
+
+      NOTE - The purpose of the cutdown is that not everything needs to 
+      be explicitly defined in a grid, and would actually make the code
+      easier if things rellied a little bit on Flexbox within the grids.
+      I.e., Stockpile and menu being their own thing within the Bottom
+      Board.
+  */
+
+  ". . . . . . . . . . . ."
+  ". p p p p p p p p p p ."
+  ". p p p p p p p p p p ."
+  "o p p p p p p p p p p ."
+  "o p p p p p p p p p p ."
+  ". p p p p p p p p p p ."
+  ". p p p p p p p p p p ."
+  ". p p p p p p p p p p ."
+  ". . . . . . . . . . . ."
+  ". . . . . . . . . . . ."
+  ". . . . . . . . . . . ."
+  ". . . . . . . . . . . .";
+  
+  // #top-board {
+  //   grid-area: t;
+  // }
+
+  #game-options {
+    grid-area: o;
+  }
+
+  #pot-board {
+    grid-area: p;
+  }
+}
