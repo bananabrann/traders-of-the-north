@@ -8,8 +8,13 @@ class AvailableRunes extends React.Component {
         {this.props.runes.map((r, i) => {
           return (
             <span className="available-rune-wrapper" id={r}>
-              {/* <Rune key={i} runeValue={r} handlePlaceRune={null} /> */}
-              <p>{r}</p>
+              <Rune
+                className="topboard-rune"
+                key={i}
+                runeValue={r}
+                handlePlaceRune={null}
+                isTopboardRune={true}
+              />
             </span>
           );
         })}

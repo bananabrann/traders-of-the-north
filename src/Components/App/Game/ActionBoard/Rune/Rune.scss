@@ -1,13 +1,16 @@
 .rune {
   width: 20vw;
   margin: 0 1%;
-
   transition: ease-in-out;
   transition-duration: 0.25s;
 }
 
+.topboard-rune {
+  width: 50px;
+  margin: auto 5px;
+}
+
 .selectable {
-  // background-color: green;
   transform: translateY(-170px);
   transition: ease-in-out;
   transition-duration: 0.25s;
