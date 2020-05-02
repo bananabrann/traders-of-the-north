@@ -6,7 +6,7 @@ abstract class Utility {
   }
 
   public static devLog(x: string, opt: string = "", optMethod: string = "log") {
-    const displayDevConsoleLogging: boolean = false;
+    const displayDevConsoleLogging: boolean = true;
     if (displayDevConsoleLogging && optMethod === "log") console.log(`${x}\n${opt}`);
   }
 

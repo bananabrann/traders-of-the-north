@@ -1,6 +1,7 @@
 import Utility from "./Utility";
 
 const log = Utility.log;
+const devLog = Utility.devLog;
 
 class Opponent {
   static act(state, draw, bet, pass, placeRune) {
@@ -27,7 +28,6 @@ class Opponent {
   }
 
   static think(state) {
-    console.log(`> think(...)`);
     log(`Opponent`, `\t> think(state)`);
 
     const pot = state.pot;
@@ -35,16 +35,15 @@ class Opponent {
     const oppFish = state.opponent.fish;
     const userGold = state.user.gold;
     const userFish = state.user.fish;
-
     let goldInPot = 0;
     let fishInPot = 0;
     let totalWeight = 0;
 
-    pot.forEach(p => {
-      if (p === "gold") ++goldInPot;
-      if (p === "fish") ++fishInPot;
-      if (p === "totem") goldInPot -= 2;
-      if (p === "seaweed") fishInPot -= 2;
+    pot.forEach(potItem => {
+      if (potItem === "gold") goldInPot += 1;
+      if (potItem === "fish") fishInPot += 1;
+      if (potItem === "totem") goldInPot -= 2;
+      if (potItem === "seaweed") fishInPot -= 2;
     });
 
     if (oppGold > 0) totalWeight += oppGold - goldInPot;
@@ -55,7 +54,9 @@ class Opponent {
       totalWeight += oppFish - fishInPot;
     }
 
-    totalWeight = totalWeight - (8 - pot.length);
+    totalWeight = totalWeight - (6 - pot.length);
+
+    devLog(`totalWeight: ${totalWeight}`)
 
     return totalWeight;
   }
