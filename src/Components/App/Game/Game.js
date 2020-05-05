@@ -3,6 +3,7 @@ import ActionBoard from "./ActionBoard/ActionBoard";
 import BottomBoard from "./BottomBoard/BottomBoard";
 import PotBoard from "./PotBoard/PotBoard";
 import TopBoard from "./TopBoard/TopBoard";
+import Portrait from "./Portrait/Portrait";
 import Opponent from "../../../Opponent";
 import Utility from "../../../Utility";
 import "./Game.scss";
@@ -383,7 +384,11 @@ class Game extends React.Component {
           pass={this.pass}
         />
 
-        {/* <BottomBoard /> */}
+        {this.state.isUsersTurn
+          ? <Portrait viking="sigrid" />
+          : <Portrait viking="ulf" />
+        }
+
       </div>
     );
   }
