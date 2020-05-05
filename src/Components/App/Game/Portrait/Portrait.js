@@ -1,11 +1,11 @@
 import React from "react";
+import "./Portrait.scss";
 
 class Portrait extends React.Component {
   render() {
     return (
-      <div>
+      <div className="portrait">
         <img
-          className=""
           id={this.props.viking}
           src={require(`../../../../res/img/${this.props.viking}/full.png`)}
           alt={`The portrait of ${this.props.viking}`}
