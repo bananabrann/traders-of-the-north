@@ -1,8 +1,22 @@
+@import "../../../../style/mixins.scss";
+
 #action-board {
 
   #action-board-background {
-    // background-color: blue;
+    position: absolute;
     width: 100%;
+    z-index: 1;
+  }
+
+  #button-container {
+    @include center-me();
+    position: fixed;
+    z-index: 5;
+    margin-top: 8.5%;
+
+    img {
+      width: 25%;
+    }
   }
 }
 

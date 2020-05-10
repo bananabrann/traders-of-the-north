@@ -2,3 +2,11 @@
   font-family: "vikingregular" !important;
   font-size: $size;
 }
+
+@mixin center-me($direction: "row", $wrap: "nowrap") {
+  display: flex;
+  flex-wrap: $wrap;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
