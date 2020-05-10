@@ -1,45 +1,41 @@
 $dev-c: rgba(255, 0, 0, 0.185);
 
 #Game {
-  // background-color: $dev-c;
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-rows: repeat(12, 1fr);
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-areas:
+  grid-template-rows: 8vh repeat(8, 1fr) 15vh;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 
 
-  /* SECTION ---
+  // NOTE
+  // t - topboard
+  // p - pot
+  // b - bottomboard
 
-      NOTE - The purpose of the cutdown is that not everything needs to 
-      be explicitly defined in a grid, and would actually make the code
-      easier if things rellied a little bit on Flexbox within the grids.
-      I.e., Stockpile and menu being their own thing within the Bottom
-      Board.
-  */
-
-  ". . . . . . . . . . . ."
-  ". p p p p p p p p p p ."
-  ". p p p p p p p p p p ."
-  "o p p p p p p p p p p ."
-  "o p p p p p p p p p p ."
-  ". p p p p p p p p p p ."
-  ". p p p p p p p p p p ."
-  ". p p p p p p p p p p ."
-  ". . . . . . . . . . . ."
-  ". . . . . . . . . . . ."
-  ". . . . . . . . . . . ."
-  ". . . . . . . . . . . .";
+  "t t t"
+  "p p p"
+  "p p p"
+  "p p p"
+  "p p p"
+  "p p p"
+  "p p p"
+  "p p p"
+  "p p p"
+  "a a a";
   
-  // #top-board {
-  //   grid-area: t;
-  // }
-
-  #game-options {
-    grid-area: o;
+  #top-board {
+    background-color: red;
+    grid-area: t;
   }
 
   #pot-board {
+    background-color: teal;
     grid-area: p;
+  }
+
+  #action-board {
+    background-color: lightgreen;
+    grid-area: a;
   }
 }
