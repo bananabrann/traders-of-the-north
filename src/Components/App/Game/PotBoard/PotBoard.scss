@@ -7,10 +7,11 @@
   // should
 
   .piece {
+    // TODO - Make pieces transition when new piece is added
+
     $p: calc(32px + 25vw); 
     padding: 1.15vw;
     width: $p;
     height: $p;
-    transition: transform 2s linear 1s;
   }
 }
