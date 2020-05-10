@@ -55,6 +55,17 @@ class App extends Component {
       shouldDisplayInstructions: false
     }) : void(0)
   }
+  
+  checkDisplayDimensions() {
+    // TODO - Checks the viewports and decides if 
+    // a warning screens hould be displayed
+  }
+
+  displayViewportWarning() {
+    // TODO - Display a little warning screen if
+    // the viewport is detected as being something
+    // that is not reccomended
+  }
 
   componentDidMount() {
     document.title = "Traders of the North";
