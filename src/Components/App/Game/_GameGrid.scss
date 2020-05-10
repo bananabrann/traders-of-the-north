@@ -25,7 +25,7 @@ $dev-c: rgba(255, 0, 0, 0.185);
   "a a a";
   
   #top-board {
-    background-color: red;
+    // background-color: red;
     grid-area: t;
   }
 
@@ -35,7 +35,7 @@ $dev-c: rgba(255, 0, 0, 0.185);
   }
 
   #action-board {
-    background-color: lightgreen;
+    // background-color: lightgreen;
     grid-area: a;
   }
 }

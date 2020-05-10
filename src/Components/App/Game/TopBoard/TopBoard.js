@@ -18,13 +18,13 @@ class TopBoard extends React.Component {
           <div className="player sigrid">
             <Portrait vikingName="sigrid" />
             <Stockpile viking={this.props.user} />
-            <AvailableRunes runes={this.props.user.runes} />
+            {/* <AvailableRunes runes={this.props.user.runes} /> */}
           </div>
 
           <div className="player ulf">
             <Portrait vikingName="ulf" />
             <Stockpile viking={this.props.opponent} />
-            <AvailableRunes runes={this.props.opponent.runes} />
+            {/* <AvailableRunes runes={this.props.opponent.runes} /> */}
           </div>
         </div>
         
