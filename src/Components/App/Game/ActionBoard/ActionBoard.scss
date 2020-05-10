@@ -1,9 +1,10 @@
 @import "../../../../style/mixins.scss";
 
 #action-board {
+  // overflow: hidden;
 
   #action-board-background {
-    position: absolute;
+    position: fixed;
     width: 100%;
     z-index: 1;
   }
@@ -17,6 +18,10 @@
     img {
       width: 25%;
     }
+  }
+
+  #rune-select-area {
+    @include center-me();
   }
 }
 
