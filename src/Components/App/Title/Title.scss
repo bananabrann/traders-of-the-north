@@ -13,78 +13,78 @@
   height: 100vh;
   overflow: hidden;
 
-  display: grid;
-  grid-template-columns: [sigrid-area] 1px [center-area] 1fr [ulf-area] 1px;
-  grid-template-rows: 1fr 1fr;
-
   background-image: url("../../../res/img/village.jpeg");
   background-repeat: none;
   background-size: cover;
 
-  > * {
-    position: relative; // For overflow: hidden to work, all parent elements need to be relative.
+  // > * {
+  //   position: relative; // For overflow: hidden to work, all parent elements need to be relative.
+  // }
+
+  .selection {
+    margin-top: 45px;
   }
 
-  #logo {
-    z-index: 5;
-    grid-column: center-area / span 1;
-    grid-row: 2 / span 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-
-    img {
-      width: 80%;
-      max-width: 600px;
-    }
-  }
-
-  #selection {
-    grid-column: center-area / span 1;
-    grid-row: 1 / span 1;
-    // background-color: red;
-    height: 100vh;
-
-    z-index: 4;
+  .selection, .selection div {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     align-items: center;
+    justify-content: flex-end;
 
     img {
-      width: 35vw;
-      min-width: 380px;
-      // max-height: 100vh;
+      height: 16vh;
     }
   }
 
-  #sigrid {
-    grid-column: sigrid-area / span 1;
-    grid-row: 1 / span 2;
+  .logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
 
     img {
-      z-index: 3;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-
-      height: calc(100%  + 5vh);
-      transform: translate(get-horizontal-offset(-50px), 80px);
-    }
-  }
-
-  #ulf {
-    grid-column: ulf-area / span 1;
-    grid-row: 1 / span 2;
-
-    img {
-      z-index: 2;
-      position: absolute;
-      top: 0;
-      right: 0;
-
-      height: calc(100% + 5vh);
-      transform: translate(get-horizontal-offset(100px), 40px);
+      height: 25vh;
     }
   }
 }
+
+#sigrid, #ulf {
+
+}
+
+#sigrid {
+
+}
+
+#ulf {
+
+}
+
+
+  // #sigrid {
+  //   grid-column: sigrid-area / span 1;
+  //   grid-row: 1 / span 2;
+
+  //   img {
+  //     z-index: 3;
+  //     position: absolute;
+  //     bottom: 0;
+  //     left: 0;
+
+  //     height: calc(100%  + 5vh);
+  //     transform: translate(get-horizontal-offset(-50px), 80px);
+  //   }
+  // }
+
+  // #ulf {
+  //   grid-column: ulf-area / span 1;
+  //   grid-row: 1 / span 2;
+
+  //   img {
+  //     z-index: 2;
+  //     position: absolute;
+  //     top: 0;
+  //     right: 0;
+
+  //     height: calc(100% + 5vh);
+  //     transform: translate(get-horizontal-offset(100px), 40px);
+  //   }

@@ -5,6 +5,10 @@ import PLAY from "../../../res/img/buttons-menu/play/static.png";
 import INSTRUCTIONS from "../../../res/img/buttons-menu/instructions/static.png";
 import ABOUT from "../../../res/img/buttons-menu/about/static.png";
 
+import LOGO from "../../../res/img/text-logo.png";
+import SIGRID from "../../../res/img/sigrid/full.png";
+import ULF from "../../../res/img/ulf/full.png";
+
 const VERSION = require("../../../../package.json").version;
 // NOTE - Doing this may expose the package.json to the client.
 //        Further investigation needed.
@@ -12,8 +16,15 @@ const VERSION = require("../../../../package.json").version;
 class Title extends React.Component {
   render() {
     return (
-      <div className="Title">
-        <div id="selection">
+      <div className="Title">        
+        <div className="logo">
+          <img
+            src={LOGO}
+            alt="Traders of the North game logo"
+          />
+        </div>
+        
+        <div className="selection">
           {/* prettier-ignore */}
           <div onClick={() => this.props.handleScreenSelectionClick("game")}>
             <img src={PLAY} id="btn-play" alt="Play Game" />
@@ -29,26 +40,18 @@ class Title extends React.Component {
           <div onClick={() => this.props.handleScreenSelectionClick("about")}>
             <img src={ABOUT} id="btn-about" alt="About the Game" />
           </div>
-          <p id="version">{VERSION}</p>
         </div>
 
-        {/* TODO - Figure out what to do with the logo */}
-        {/* FIXME - It's not shown right now, but it makes everything
-                    looks good */}
-        <div id="logo">
-          <img
-            src={require("../../../res/img/logo.png")}
-            alt="Traders of the North game logo"
-          />
+
+        <div className="portrait" id="sigrid">
+          <img src={SIGRID} alt="" />
         </div>
 
-        <div id="sigrid">
-          <img src={require("../../../res/img/sigrid/full.png")} alt="" />
+        <div className="portrait" id="ulf">
+          <img src={ULF} alt="" />
         </div>
 
-        <div id="ulf">
-          <img src={require("../../../res/img/ulf/full.png")} alt="" />
-        </div>
+        <p id="version">{VERSION}</p>
       </div>
     );
   }

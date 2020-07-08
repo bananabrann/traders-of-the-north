@@ -45,7 +45,11 @@ abstract class Utility {
   public static isLegalWindowDimension() {
     let x = window.innerWidth;
     let y = window.innerHeight;
+    // NOTE - Dev only
+    return false;
+
     return (y / x >= 0.88 && y / x <= 2.17) ? true : false
+
   }
 }
 
