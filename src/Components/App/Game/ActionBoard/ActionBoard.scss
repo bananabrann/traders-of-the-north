@@ -1,25 +1,20 @@
 @import "../../../../style/mixins.scss";
 
 #action-board {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-
-  #action-board-background {
-    position: absolute;
-    margin-top: -60px;
-    width: 100vw;
-    z-index: 1;
-  }
+  grid-area: "a";
+  background-image: url(../../../../res/img/dashboard.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 
   #button-container {
+    margin-top: -1.5%;
+    position: relative;
     z-index: 5;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    width: 100vw;
+    height: 100%;
 
     img {
       width: 25%;

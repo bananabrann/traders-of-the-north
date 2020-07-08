@@ -69,7 +69,7 @@ class ActionBoard extends React.Component {
           )}
         </div>
 
-        <img src={ActionBoardBackground} alt="" id="action-board-background" />
+        {/* <img src={ActionBoardBackground} alt="" id="action-board-background" /> */}
 
         <div id="rune-select-area">
           {this.props.usersRunes.map((r, i) => {
