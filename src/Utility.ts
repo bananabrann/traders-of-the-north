@@ -41,6 +41,12 @@ abstract class Utility {
     // TODO - No return predicted, because this function
     // should manipulate everythig before moving on.
   }
+
+  public static isLegalWindowDimension() {
+    let x = window.innerWidth;
+    let y = window.innerHeight;
+    return (y / x >= 0.88 && y / x <= 2.17) ? true : false
+  }
 }
 
 export default Utility;

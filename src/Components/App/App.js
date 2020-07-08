@@ -4,11 +4,11 @@ import Game from "./Game/Game";
 import Instructions from "./Instructions/Instructions";
 import Title from "./Title/Title";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
-// import Utility from "../../Utility";
+import Utility from "../../Utility";
 
 import "./Reset.css";
 
-class App extends Component {
+class App extends Component {  
   constructor(props) {
     super(props);
     this.state = {
@@ -18,9 +18,10 @@ class App extends Component {
       shouldDisplayGame: false,
       shouldDisplayInstructions: false
     };
-    this.handleScreenSelectionClick = this.handleScreenSelectionClick.bind(
-      this
-    );
+    // prettier-ignore
+    this.handleScreenSelectionClick = this.handleScreenSelectionClick.bind(this);
+    // prettier-ignore
+    this.handleViewportDimensionWarning = this.handleViewportDimensionWarning.bind(this);
   }
 
   handleScreenSelectionClick(desiredPage) {
@@ -55,20 +56,14 @@ class App extends Component {
       shouldDisplayInstructions: false
     }) : void(0)
   }
-  
-  checkDisplayDimensions() {
-    // TODO - Checks the viewports and decides if 
-    // a warning screens hould be displayed
-  }
 
-  displayViewportWarning() {
-    // TODO - Display a little warning screen if
-    // the viewport is detected as being something
-    // that is not reccomended
+  handleViewportDimensionWarning() {
+    console.log(Utility.isLegalWindowDimension());
   }
 
   componentDidMount() {
     document.title = "Traders of the North";
+    window.addEventListener("resize", this.handleViewportDimensionWarning)
 
     // NOTE: For development on the load screen,
     // remove comments around this.
