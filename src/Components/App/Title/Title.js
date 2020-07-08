@@ -16,14 +16,16 @@ const VERSION = require("../../../../package.json").version;
 class Title extends React.Component {
   render() {
     return (
-      <div className="Title">        
+      <div className="Title">
+        <p id="version">Version {VERSION}</p>
+
         <div className="logo">
           <img
             src={LOGO}
             alt="Traders of the North game logo"
           />
         </div>
-        
+
         <div className="selection">
           {/* prettier-ignore */}
           <div onClick={() => this.props.handleScreenSelectionClick("game")}>
@@ -42,16 +44,15 @@ class Title extends React.Component {
           </div>
         </div>
 
+        <div id="title-characters">
+          <div className="portrait sigrid">
+            <img src={SIGRID} alt="" />
+          </div>
 
-        <div className="portrait" id="sigrid">
-          <img src={SIGRID} alt="" />
+          <div className="portrait ulf">
+            <img src={ULF} alt="" />
+          </div>
         </div>
-
-        <div className="portrait" id="ulf">
-          <img src={ULF} alt="" />
-        </div>
-
-        <p id="version">{VERSION}</p>
       </div>
     );
   }
