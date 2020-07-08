@@ -5,7 +5,9 @@ import PLAY from "../../../res/img/buttons-menu/play/static.png";
 import INSTRUCTIONS from "../../../res/img/buttons-menu/instructions/static.png";
 import ABOUT from "../../../res/img/buttons-menu/about/static.png";
 
-const VERSION = "1.3.21"; // NOTE - Major.Minor.Patch
+const VERSION = require("../../../../package.json").version;
+// NOTE - Doing this may expose the package.json to the client.
+//        Further investigation needed.
 
 class Title extends React.Component {
   render() {
