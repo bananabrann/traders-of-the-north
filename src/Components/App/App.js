@@ -73,6 +73,7 @@ class App extends Component {
 
   componentDidMount() {
     document.title = "Traders of the North";
+    this.handleViewportDimensionWarning();
     window.addEventListener("resize", this.handleViewportDimensionWarning)
 
     // NOTE: For development on the load screen,
