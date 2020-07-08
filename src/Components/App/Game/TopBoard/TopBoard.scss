@@ -2,9 +2,7 @@
 
 #top-board {
   #info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    @include center-me();
     justify-content: space-between;
     color: #413125; // TODO - Make variables global
 

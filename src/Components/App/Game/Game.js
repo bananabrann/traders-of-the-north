@@ -3,12 +3,10 @@ import ActionBoard from "./ActionBoard/ActionBoard";
 import BottomBoard from "./BottomBoard/BottomBoard";
 import PotBoard from "./PotBoard/PotBoard";
 import TopBoard from "./TopBoard/TopBoard";
+import Portrait from "./Portrait/Portrait";
 import Opponent from "../../../Opponent";
 import Utility from "../../../Utility";
-
 import "./Game.scss";
-import "./GameGrid.scss";
-import "./ButtonBar.scss";
 
 const bag = [
   "gold",
@@ -20,11 +18,14 @@ const bag = [
   "totem",
   "seaweed"
 ];
+
 const baseRunes = {
   pack1: [2, 5, 6, 9],
   pack2: [3, 4, 7, 8]
 };
+
 const log = Utility.log;
+const devLog = Utility.devLog;
 
 class Game extends React.Component {
   constructor() {
@@ -383,7 +384,11 @@ class Game extends React.Component {
           pass={this.pass}
         />
 
-        {/* <BottomBoard /> */}
+        {this.state.isUsersTurn
+          ? <Portrait viking="sigrid" />
+          : <Portrait viking="ulf" />
+        }
+
       </div>
     );
   }

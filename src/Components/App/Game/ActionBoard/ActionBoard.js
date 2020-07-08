@@ -1,5 +1,5 @@
 import React from "react";
-import Rune from "./Rune/Rune";
+import Rune from "../Rune/Rune";
 import Utility from "../../../../Utility";
 import "./ActionBoard.scss";
 import ActionBoardBackground from "../../../../res/img/dashboard.png";
@@ -47,7 +47,7 @@ class ActionBoard extends React.Component {
 
     return (
       <div id="action-board">
-        <div id="draw-bet-container">
+        <div id="button-container">
           {shouldDisplayDrawButton ? (
             <img src={DrawButton} alt="" onClick={() => this.props.draw()} />
           ) : (
@@ -69,7 +69,7 @@ class ActionBoard extends React.Component {
           )}
         </div>
 
-        <img src={ActionBoardBackground} alt="" id="action-board-background" />
+        {/* <img src={ActionBoardBackground} alt="" id="action-board-background" /> */}
 
         <div id="rune-select-area">
           {this.props.usersRunes.map((r, i) => {

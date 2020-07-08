@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import About from "./About/About";
+import BadViewport from "./BadViewport/BadViewport";
 import Game from "./Game/Game";
 import Instructions from "./Instructions/Instructions";
 import Title from "./Title/Title";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
-// import Utility from "../../Utility";
+import Utility from "../../Utility";
 
 import "./Reset.css";
 
-class App extends Component {
+class App extends Component {  
   constructor(props) {
     super(props);
     this.state = {
@@ -16,11 +17,13 @@ class App extends Component {
       shouldDisplayAbout: false,
       shouldDisplayTitle: false,
       shouldDisplayGame: false,
-      shouldDisplayInstructions: false
+      shouldDisplayInstructions: false,
+      shouldDisplayViewportWarning: false
     };
-    this.handleScreenSelectionClick = this.handleScreenSelectionClick.bind(
-      this
-    );
+    // prettier-ignore
+    this.handleScreenSelectionClick = this.handleScreenSelectionClick.bind(this);
+    // prettier-ignore
+    this.handleViewportDimensionWarning = this.handleViewportDimensionWarning.bind(this);
   }
 
   handleScreenSelectionClick(desiredPage) {
@@ -56,8 +59,22 @@ class App extends Component {
     }) : void(0)
   }
 
+  handleViewportDimensionWarning() {
+    if(!Utility.isLegalWindowDimension()) {
+      this.setState({
+        shouldDisplayViewportWarning: true
+      })
+    } else {
+      this.setState({
+        shouldDisplayViewportWarning: false
+      })
+    }
+  }
+
   componentDidMount() {
     document.title = "Traders of the North";
+    // this.handleViewportDimensionWarning();                                     // NOTE - Commented for dev only
+    // window.addEventListener("resize", this.handleViewportDimensionWarning)     // NOTE - Commented for dev only
 
     // NOTE: For development on the load screen,
     // remove comments around this.
@@ -76,6 +93,11 @@ class App extends Component {
     } else {
       return (
         <div id="App">
+          {this.state.shouldDisplayViewportWarning ? (
+            // prettier-ignore
+            <BadViewport />
+          ) : null}
+
           {this.state.shouldDisplayTitle ? (
             <Title
               handleScreenSelectionClick={this.handleScreenSelectionClick}

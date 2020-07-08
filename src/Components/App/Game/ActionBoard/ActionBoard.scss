@@ -1,42 +1,27 @@
-#action-board {
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  overflow: hidden;
-  bottom: 0;
-  width: 100vw;
-  height: 30vh;
+@import "../../../../style/mixins.scss";
 
-  #draw-bet-container {
-    position: absolute;
+#action-board {
+  grid-area: "a";
+  background-image: url(../../../../res/img/dashboard.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  #button-container {
+    margin-top: -1.5%;
+    position: relative;
     z-index: 5;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
-    width: 100%;
+    justify-content: center;
     height: 100%;
-    z-index: 3;
-    
+
     img {
-      max-width: 50vw;
-      height: 52%;
-      padding: 0 0.75vw;
+      width: 25%;
     }
   }
 
-  #action-board-background {
-    margin: 0 5vw -25px 5vw;
-    z-index: 2;
+  #rune-select-area {
+    @include center-me();
   }
-}
-
-#rune-select-area {
-  // background-color: teal;
-  
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-  display: flex;
-  justify-content: center;
 }

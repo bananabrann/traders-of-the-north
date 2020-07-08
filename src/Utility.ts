@@ -6,7 +6,7 @@ abstract class Utility {
   }
 
   public static devLog(x: string, opt: string = "", optMethod: string = "log") {
-    const displayDevConsoleLogging: boolean = false;
+    const displayDevConsoleLogging: boolean = true;
     if (displayDevConsoleLogging && optMethod === "log") console.log(`${x}\n${opt}`);
   }
 
@@ -40,6 +40,16 @@ abstract class Utility {
 
     // TODO - No return predicted, because this function
     // should manipulate everythig before moving on.
+  }
+
+  public static isLegalWindowDimension() {
+    let x = window.innerWidth;
+    let y = window.innerHeight;
+    // NOTE - Dev only
+    return false;
+
+    return (y / x >= 0.88 && y / x <= 2.17) ? true : false
+
   }
 }
 

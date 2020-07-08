@@ -1,0 +1,41 @@
+$dev-c: rgba(255, 0, 0, 0.185);
+
+#Game {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 8vh repeat(8, 1fr) 15vh;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 
+
+  // NOTE
+  // t - topboard
+  // p - pot
+  // b - bottomboard
+
+  "t t t"
+  "p p p"
+  "p p p"
+  "p p p"
+  "p p p"
+  "p p p"
+  "p p p"
+  "p p p"
+  "a a a"
+  "a a a";
+  
+  #top-board {
+    // background-color: red;
+    grid-area: t;
+  }
+
+  #pot-board {
+    // background-color: teal;
+    grid-area: p;
+  }
+
+  #action-board {
+    // background-color: lightgreen;
+    grid-area: a;
+  }
+}

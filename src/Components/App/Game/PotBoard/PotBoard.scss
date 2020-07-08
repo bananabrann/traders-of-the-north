@@ -1,12 +1,17 @@
 #pot-board {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: center;
+  align-items: center;
+  // FIXME - The pieces do not act like align-items: center
+  // should
 
   .piece {
-    padding: 1.25vw;
-    width: 17vw;
-    height: 17vw;
+    // TODO - Make pieces transition when new piece is added
+
+    $p: calc(32px + 25vw); 
+    padding: 1.15vw;
+    width: $p;
+    height: $p;
   }
 }
