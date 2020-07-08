@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import About from "./About/About";
+import BadViewport from "./BadViewport/BadViewport";
 import Game from "./Game/Game";
 import Instructions from "./Instructions/Instructions";
 import Title from "./Title/Title";
@@ -16,7 +17,8 @@ class App extends Component {
       shouldDisplayAbout: false,
       shouldDisplayTitle: false,
       shouldDisplayGame: false,
-      shouldDisplayInstructions: false
+      shouldDisplayInstructions: false,
+      shouldDisplayViewportWarning: false
     };
     // prettier-ignore
     this.handleScreenSelectionClick = this.handleScreenSelectionClick.bind(this);
@@ -58,7 +60,15 @@ class App extends Component {
   }
 
   handleViewportDimensionWarning() {
-    console.log(Utility.isLegalWindowDimension());
+    if(!Utility.isLegalWindowDimension()) {
+      this.setState({
+        shouldDisplayViewportWarning: true
+      })
+    } else {
+      this.setState({
+        shouldDisplayViewportWarning: false
+      })
+    }
   }
 
   componentDidMount() {
@@ -82,6 +92,11 @@ class App extends Component {
     } else {
       return (
         <div id="App">
+          {this.state.shouldDisplayViewportWarning ? (
+            // prettier-ignore
+            <BadViewport />
+          ) : null}
+
           {this.state.shouldDisplayTitle ? (
             <Title
               handleScreenSelectionClick={this.handleScreenSelectionClick}
