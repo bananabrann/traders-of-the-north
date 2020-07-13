@@ -6,7 +6,7 @@ class PictureBubble extends React.Component {
   render() {
     return (
       <div className="picture-bubble">
-        <h4>hello</h4>
+        <img src={this.props.pictureUrl} alt="Picture of contributor" />
       </div>
     );
   }

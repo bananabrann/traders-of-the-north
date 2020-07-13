@@ -1,6 +1,11 @@
 import React from "react";
 import PictureBubble from "./PictureBubble/PictureBubble";
 
+import picMe from "../../../res/img/contributors/me.jpeg";
+import picAditya from "../../../res/img/contributors/gamedsgn.png";
+import picMonica from "../../../res/img/contributors/monica-remes.jpg";
+import picAlex from "../../../res/img/contributors/alex.jpg";
+
 import "./About.scss";
 
 class About extends React.Component {
@@ -11,7 +16,7 @@ class About extends React.Component {
   render() {
     return (
       <div id="about">
-        <PictureBubble />
+        <PictureBubble pictureUrl={picMe} />
         <h1>About</h1>
         <div id="my-blurb">
           <h2>Lee</h2>
