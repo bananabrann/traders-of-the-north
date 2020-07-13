@@ -16,3 +16,9 @@
   background-repeat: none;
   background-size: cover;
 }
+
+@mixin add-box-shadow() {
+  -webkit-box-shadow: 8px 10px 22px -11px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 8px 10px 22px -11px rgba(0, 0, 0, 0.75);
+  box-shadow: 8px 10px 22px -11px rgba(0, 0, 0, 0.75);
+}

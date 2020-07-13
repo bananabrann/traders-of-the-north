@@ -1,0 +1,9 @@
+@import "../../../../style/mixins.scss";
+
+.picture-bubble {
+  img {
+    @include add-box-shadow();
+    width: 145px;
+    border-radius: 50%;
+  }
+}
