@@ -10,3 +10,9 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin use-viking-village-background() {
+  background-image: url("../../../res/img/village.jpeg");
+  background-repeat: none;
+  background-size: cover;
+}

@@ -7,6 +7,9 @@
 // when game assets are added.
 
 #about {
+  @include use-viking-village-background();
+  height: 100vh;
+
   h1 {
     @include viking-font(50px);
   }
