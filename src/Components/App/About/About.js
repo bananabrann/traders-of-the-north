@@ -1,4 +1,5 @@
 import React from "react";
+import PictureBubble from "./PictureBubble/PictureBubble";
 
 import "./About.scss";
 
@@ -10,6 +11,7 @@ class About extends React.Component {
   render() {
     return (
       <div id="about">
+        <PictureBubble />
         <h1>About</h1>
         <div id="my-blurb">
           <h2>Lee</h2>
