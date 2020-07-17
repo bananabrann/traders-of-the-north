@@ -2,6 +2,7 @@
 @import "../../../../style/colors";
 
 .person-card {
+  font-family: "Rowdies", cursive;
   color: $bwn;
   display: flex;
   flex-direction: row;
@@ -18,15 +19,15 @@
   }
 
   h2 {
-    @include viking-font(48px);
+    @include rowdies-font(42px);
   }
 
   h3 {
-    @include viking-font(15px);
+    @include rowdies-font(25px);
   }
 
   i {
-      padding-top: 14px;
-      margin: 0 auto;
+    padding-top: 14px;
+    //   margin: 0 auto;
   }
 }

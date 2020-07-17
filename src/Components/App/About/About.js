@@ -27,15 +27,10 @@ class About extends React.Component {
         </div>
 
         <div id="contributors">
-          <PersonCard pictureUrl={picAditya} exLink="fiverr.com" firstName="Aditya" title="Artist" />
+          <PersonCard pictureUrl={picAditya} exLink="fiverr.com" firstName="Aditya" title="Main Artist" />
+          <PersonCard pictureUrl={picMonica} exLink="fiverr.com" firstName="Aditya" title="Voice of Sigrid" />
+          <PersonCard pictureUrl={picAlex} exLink="fiverr.com" firstName="Alex" title="Logo Artist" />
         </div>
-{/* 
-        <div id="additional-help">
-          <h3>Art - Aditya</h3>
-          <h3>Logo - Alex</h3>
-          <h3>Sound & Music - Milan Kovarbasic</h3>
-          <h3>Voice - Monica Remes</h3>
-        </div> */}
 
         <div onClick={() => this.props.handleScreenSelectionClick("title")}>
           <p>Return To Title</p>

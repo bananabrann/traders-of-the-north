@@ -3,6 +3,11 @@
   font-size: $size;
 }
 
+@mixin rowdies-font($size: "12px") {
+  font-family: 'Rowdies', cursive;
+  font-size: $size;
+}
+
 @mixin center-me($direction: "row", $wrap: "nowrap") {
   display: flex;
   flex-wrap: $wrap;
