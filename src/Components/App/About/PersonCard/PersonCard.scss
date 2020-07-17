@@ -1,0 +1,32 @@
+@import "../../../../style/mixins.scss";
+@import "../../../../style/colors";
+
+.person-card {
+  color: $bwn;
+  display: flex;
+  flex-direction: row;
+  max-height: 350px;
+  max-width: 35vw;
+  background-color: rgba(0, 0, 255, 0.431);
+  padding: 32px 16px;
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 28px;
+  }
+
+  h2 {
+    @include viking-font(48px);
+  }
+
+  h3 {
+    @include viking-font(15px);
+  }
+
+  i {
+      padding-top: 14px;
+      margin: 0 auto;
+  }
+}

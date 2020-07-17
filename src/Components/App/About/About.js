@@ -27,7 +27,7 @@ class About extends React.Component {
         </div>
 
         <div id="contributors">
-          <PersonCard pictureUrl={picAditya} exLink="fiverr.com" firstName="Aditya" />
+          <PersonCard pictureUrl={picAditya} exLink="fiverr.com" firstName="Aditya" title="Artist" />
         </div>
 {/* 
         <div id="additional-help">
