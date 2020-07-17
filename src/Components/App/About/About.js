@@ -18,9 +18,9 @@ class About extends React.Component {
       <div id="about">
         <section>
           <h1>About</h1>
-          <div onClick={() => this.props.handleScreenSelectionClick("title")}>
+          <div className="back-button" onClick={() => this.props.handleScreenSelectionClick("title")}>
+            <i class="fas fa-2x fa-chevron-circle-left"></i>
             <p>Return To Title</p>
-            <i class="fas fa-4x fa-undo"></i>
           </div>
 
           <p>

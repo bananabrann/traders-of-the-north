@@ -29,4 +29,19 @@
     @include rowdies-font();
     font-weight: 300;
   }
+
+  .back-button {
+    padding: 20px 0px;
+    // background-color: blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    p {
+      margin: auto 0;
+      padding-left: 13px;
+      font-weight: 300;
+    }
+
+  }
 }
