@@ -16,7 +16,14 @@
 
   p {
     @include rowdies-font();
+    font-weight: 300;
   }
+}
+
+#about-the-game {
+  max-width: 500px;
+  padding: 20px;
+}
 
   #contributors {
     position: absolute;
@@ -34,4 +41,3 @@
       justify-content: space-around;
     }
   }
-}

@@ -24,12 +24,50 @@ class About extends React.Component {
           {/* TODO: Add social media tags */}
         </div>
 
+        <div id="about-the-game">
+          <p>
+            Traders of the North started out during my time in General
+            Assembly's Web Development Immersive school, or coding bootcamp, in
+            2018 and 2019. At the time, it was very, very crude. I've since
+            decided that it's time for a rehaul of the game, which is what
+            you're seeing now.
+          </p>
+          <br />
+          <p>
+            The game is powered by React, JavaScript, and a little bit of
+            TypeScript. Styling is done in SASS. Deployment to AWS is entirely
+            automated using Bash shell scripts.
+          </p>
+          <br />
+          <p>
+            View the game's source code, or contribute at{" "}
+            {/* prettier-ignore */}
+            <a href="github.com/bananabrann/traders-of-the-north">github.com/bananabrann/traders-of-the-north</a>
+            .
+          </p>
+        </div>
+
         <div id="contributors">
           <p>A big "thank you" for the Fiverr contributors!</p>
           <div>
-            <PersonCard pictureUrl={picAditya} exLink="https://www.fiverr.com/gamedsgn" firstName="Aditya" title="Main Art" />
-            <PersonCard pictureUrl={picMonica} exLink="https://www.fiverr.com/monzie90" firstName="Monica" title="Voice of Sigrid" />
-            <PersonCard pictureUrl={picAlex} exLink="https://www.fiverr.com/geeksmagic" firstName="Alex" title="Logo Design" />
+            <PersonCard
+              pictureUrl={picAditya}
+              exLink="https://www.fiverr.com/gamedsgn"
+              firstName="Aditya"
+              title="Main Art"
+            />
+            <PersonCard
+              pictureUrl={picMonica}
+              exLink="https://www.fiverr.com/monzie90"
+              firstName="Monica"
+              title="Voice of Sigrid"
+            />
+            <PersonCard
+              pictureUrl={picAlex}
+              exLink="https://www.fiverr.com/geeksmagic"
+              firstName="Alex"
+              title="Logo Design"
+            />
           </div>
         </div>
 
