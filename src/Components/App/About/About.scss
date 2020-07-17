@@ -13,4 +13,9 @@
   h1 {
     @include viking-font(50px);
   }
+
+  #contributors {
+    display: flex;
+    justify-content: space-around;
+  }
 }

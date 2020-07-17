@@ -16,8 +16,6 @@ class About extends React.Component {
   render() {
     return (
       <div id="about">
-
-
         <h1>About</h1>
 
         <div id="my-blurb">
@@ -27,9 +25,9 @@ class About extends React.Component {
         </div>
 
         <div id="contributors">
-          <PersonCard pictureUrl={picAditya} exLink="fiverr.com" firstName="Aditya" title="Main Artist" />
-          <PersonCard pictureUrl={picMonica} exLink="fiverr.com" firstName="Aditya" title="Voice of Sigrid" />
-          <PersonCard pictureUrl={picAlex} exLink="fiverr.com" firstName="Alex" title="Logo Artist" />
+          <PersonCard pictureUrl={picAditya} exLink="https://www.fiverr.com/gamedsgn" firstName="Aditya" title="Main Art" />
+          <PersonCard pictureUrl={picMonica} exLink="https://www.fiverr.com/monzie90" firstName="Monica" title="Voice of Sigrid" />
+          <PersonCard pictureUrl={picAlex} exLink="https://www.fiverr.com/geeksmagic" firstName="Alex" title="Logo Design" />
         </div>
 
         <div onClick={() => this.props.handleScreenSelectionClick("title")}>
