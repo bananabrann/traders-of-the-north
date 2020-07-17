@@ -1,10 +1,10 @@
 @import "../../../style/mixins.scss";
+@import "../../../style/colors";
 
 // NOTE - Because there's both an Instructions and About page,
 // I should probably just make this one SCSS file.
-// FIXME - The problem is the h1 tags will effect other things
-// outside of the two pages, which may or may not be a problem
-// when game assets are added.
+
+
 
 #about {
   @include use-viking-village-background();
@@ -14,8 +14,24 @@
     @include viking-font(50px);
   }
 
+  p {
+    @include rowdies-font();
+  }
+
   #contributors {
-    display: flex;
-    justify-content: space-around;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    
+    p {
+      color: $wht;
+      display: flex;
+      justify-content: center;
+    }
+
+    div {
+      display: flex;
+      justify-content: space-around;
+    }
   }
 }
