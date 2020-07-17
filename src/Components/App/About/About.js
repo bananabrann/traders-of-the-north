@@ -16,15 +16,13 @@ class About extends React.Component {
   render() {
     return (
       <div id="about">
-        <h1>About</h1>
+        <section>
+          <h1>About</h1>
+          <div onClick={() => this.props.handleScreenSelectionClick("title")}>
+            <p>Return To Title</p>
+            <i class="fas fa-4x fa-undo"></i>
+          </div>
 
-        <div id="my-blurb">
-          <h2>Pierson</h2>
-          <p>Lead and Developer</p>
-          {/* TODO: Add social media tags */}
-        </div>
-
-        <div id="about-the-game">
           <p>
             Traders of the North started out during my time in General
             Assembly's Web Development Immersive school, or coding bootcamp, in
@@ -34,21 +32,47 @@ class About extends React.Component {
           </p>
           <br />
           <p>
-            The game is powered by React, JavaScript, and a little bit of
+            The game is made with React, JavaScript, and a little bit of
             TypeScript. Styling is done in SASS. Deployment to AWS is entirely
             automated using Bash shell scripts.
           </p>
           <br />
           <p>
             View the game's source code, or contribute at{" "}
-            {/* prettier-ignore */}
-            <a href="github.com/bananabrann/traders-of-the-north">github.com/bananabrann/traders-of-the-north</a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/bananabrann/traders-of-the-north"
+            >
+              github.com/bananabrann/traders-of-the-north
+            </a>
             .
           </p>
-        </div>
+          <br />
+          <p>
+            For more about me, visit my website at{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://bananabrann.com"
+            >
+              bananabrann.com
+            </a>
+            .
+          </p>
+        </section>
 
-        <div id="contributors">
-          <p>A big "thank you" for the Fiverr contributors!</p>
+        {/* <PersonCard
+          pictureUrl={picMe}
+          exLink="github.com/bananabrann.com"
+          firstName="Lee"
+          title="Developer"
+        /> */}
+
+        <br />
+
+        <section id="contributors">
+          <p>... and a big "thank you" to the Fiverr contributors!</p>
           <div>
             <PersonCard
               pictureUrl={picAditya}
@@ -69,12 +93,7 @@ class About extends React.Component {
               title="Logo Design"
             />
           </div>
-        </div>
-
-        <div onClick={() => this.props.handleScreenSelectionClick("title")}>
-          <p>Return To Title</p>
-          <i class="fas fa-4x fa-undo"></i>
-        </div>
+        </section>
       </div>
     );
   }

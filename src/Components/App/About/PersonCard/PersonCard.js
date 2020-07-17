@@ -14,7 +14,7 @@ class PersonCard extends React.Component {
         <div className="right">
           <h2>{this.props.firstName}</h2>
           <h3>{this.props.title}</h3>
-          <i class="fas fa-2x fa-external-link-alt"></i>
+          <i class="fas fa-1x fa-external-link-alt"></i>
         </div>
       </div>
     );
