@@ -3,10 +3,27 @@
   font-size: $size;
 }
 
+@mixin rowdies-font($size: "12px") {
+  font-family: 'Rowdies', cursive;
+  font-size: $size;
+}
+
 @mixin center-me($direction: "row", $wrap: "nowrap") {
   display: flex;
   flex-wrap: $wrap;
   flex-direction: $direction;
   justify-content: center;
   align-items: center;
+}
+
+@mixin use-viking-village-background() {
+  background-image: url("../../../res/img/village.jpeg");
+  background-repeat: none;
+  background-size: cover;
+}
+
+@mixin add-box-shadow() {
+  -webkit-box-shadow: 8px 10px 22px -11px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 8px 10px 22px -11px rgba(0, 0, 0, 0.75);
+  box-shadow: 8px 10px 22px -11px rgba(0, 0, 0, 0.75);
 }

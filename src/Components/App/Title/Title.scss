@@ -1,11 +1,10 @@
+@import "../../../style/mixins.scss";
+
 .Title {
+  @include use-viking-village-background();
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-
-  background-image: url("../../../res/img/village.jpeg");
-  background-repeat: none;
-  background-size: cover;
 
   .selection {
     margin-top: 45px;
@@ -62,6 +61,7 @@
 }
 
 #version {
+  @include viking-font(12px);
   width: 100%;
   display: flex;
   justify-content: center;

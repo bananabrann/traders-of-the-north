@@ -1,0 +1,11 @@
+@import "../../../../style/mixins.scss";
+@import "../../../../style/colors";
+
+.picture-bubble {
+  img {
+    @include add-box-shadow();
+    // background-color: $bwn;
+    width: 65px;
+    border-radius: 50%;
+  }
+}
