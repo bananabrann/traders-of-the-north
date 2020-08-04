@@ -9,3 +9,10 @@
   background-size: cover;
   overflow: hidden;
 }
+
+#turn-bg-portraits {
+  > * {
+    position: absolute;
+    top: 0;
+  }
+}
