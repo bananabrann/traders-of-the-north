@@ -47,7 +47,7 @@ class ActionBoard extends React.Component {
 
     return (
       <div id="action-board">
-        <div id="button-container">
+        {/* <div id="button-container">
           {shouldDisplayDrawButton ? (
             <img src={DrawButton} alt="" onClick={() => this.props.draw()} />
           ) : (
@@ -67,11 +67,11 @@ class ActionBoard extends React.Component {
           ) : (
             <img src={PassButtonPressed} alt="" />
           )}
-        </div>
+        </div> */}
 
         {/* <img src={ActionBoardBackground} alt="" id="action-board-background" /> */}
 
-        <div id="rune-select-area">
+        {/* <div id="rune-select-area">
           {this.props.usersRunes.map((r, i) => {
             return (
               <Rune
@@ -81,7 +81,7 @@ class ActionBoard extends React.Component {
               />
             );
           })}
-        </div>
+        </div> */}
       </div>
     );
   }

@@ -4,6 +4,8 @@
   background-image: url("../../../res/img/village.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
-
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

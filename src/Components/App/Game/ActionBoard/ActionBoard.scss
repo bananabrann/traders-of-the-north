@@ -1,27 +1,34 @@
 @import "../../../../style/mixins.scss";
+@use "sass:math";
 
 #action-board {
-  grid-area: "a";
+  @include center-me();
+
   background-image: url(../../../../res/img/dashboard.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  transform: translateY(20px);
+  position: fixed;
+  bottom: 0;
+  height: calc(27vh + 2.5vw);
+  width: 95vw;
 
-  #button-container {
-    margin-top: -1.5%;
-    position: relative;
-    z-index: 5;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+  // #button-container {
+  //   // margin-top: -1.5%;
+  //   position: relative;
+  //   // z-index: 5;
+  //   display: flex;
+  //   flex-direction: row;
+  //   align-items: center;
+  //   justify-content: center;
+  //   height: 100%;
 
-    img {
-      width: 25%;
-    }
-  }
+  //   img {
+  //     width: 25%;
+  //   }
+  // }
 
-  #rune-select-area {
-    @include center-me();
-  }
+  // #rune-select-area {
+  //   @include center-me();
+  // }
 }
