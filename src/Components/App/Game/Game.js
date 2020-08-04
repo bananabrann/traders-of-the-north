@@ -369,7 +369,7 @@ class Game extends React.Component {
       <div id="Game">
         {/* <TopBoard user={this.state.user} opponent={this.state.opponent} /> */}
 
-        {/* <PotBoard pot={this.state.pot} /> */}
+        <PotBoard pot={this.state.pot} />
 
         <ActionBoard
           handlePlaceRune={this.handlePlaceRune}
