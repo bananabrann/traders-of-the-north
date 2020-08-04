@@ -384,10 +384,13 @@ class Game extends React.Component {
           pass={this.pass}
         />
 
-        {this.state.isUsersTurn
-          ? <Portrait viking="sigrid" />
-          : <Portrait viking="ulf" />
-        }
+        {/* FIXME */}
+        {/* <div id="turn-bg-portraits">
+          {this.state.isUsersTurn
+            ? <Portrait viking="sigrid" />
+            : <Portrait viking="ulf" />
+          }
+        </div> */}
 
       </div>
     );

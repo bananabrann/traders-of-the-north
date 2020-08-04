@@ -9,6 +9,7 @@ class Portrait extends React.Component {
         ? this.props.vikingName.toLowerCase()
         : null; // TODO: Do I need this?
 
+    // FIXME
     return (
       <span>
         <img

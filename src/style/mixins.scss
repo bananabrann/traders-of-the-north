@@ -14,6 +14,17 @@
   flex-direction: $direction;
   justify-content: center;
   align-items: center;
+  margin: auto;
+}
+
+@mixin fit-in-parent($psize: 100%, $csize: 100%) {
+  position: fixed;
+  height: $psize;
+  width: inherit;
+
+  > * {
+    height: $csize;
+  }
 }
 
 @mixin use-viking-village-background() {

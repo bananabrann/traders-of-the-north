@@ -1,27 +1,35 @@
 @import "../../../../style/mixins.scss";
 
+$rune-offset: 50vh;
+// NOTE - I think it would be more effecient to put the offset
+// variable into a _.scss file and @use it.
+
 #action-board {
-  grid-area: "a";
+  @include center-me();
+
   background-image: url(../../../../res/img/dashboard.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  z-index: 2;
+  transform: translateY(20px);
+  position: fixed;
+  bottom: 0;
+  height: calc(27vh + 2.5vw);
+  width: 95vw;
 
-  #button-container {
-    margin-top: -1.5%;
-    position: relative;
-    z-index: 5;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+  #buttons {
+    @include center-me();
+    @include fit-in-parent(100%, 50%);
+    z-index: 3;
+    transform: translateY(-13.5px);
 
-    img {
-      width: 25%;
+    > img {
+      margin: 0.85vw;
     }
   }
 
-  #rune-select-area {
-    @include center-me();
+  #rune-area {
+    @include fit-in-parent();
+    transform: translateY($rune-offset);
   }
 }
