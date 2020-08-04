@@ -1,5 +1,8 @@
 @import "../../../../style/mixins.scss";
-@use "sass:math";
+
+$rune-offset: 50vh;
+// NOTE - I think it would be more effecient to put the offset
+// variable into a _.scss file and @use it.
 
 #action-board {
   @include center-me();
@@ -7,6 +10,7 @@
   background-image: url(../../../../res/img/dashboard.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  z-index: 2;
   transform: translateY(20px);
   position: fixed;
   bottom: 0;
@@ -16,10 +20,16 @@
   #buttons {
     @include center-me();
     @include fit-in-parent(100%, 50%);
+    z-index: 3;
     transform: translateY(-13.5px);
 
     > img {
       margin: 0.85vw;
     }
+  }
+
+  #rune-area {
+    @include fit-in-parent();
+    transform: translateY($rune-offset);
   }
 }
