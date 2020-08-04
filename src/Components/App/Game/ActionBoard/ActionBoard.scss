@@ -13,22 +13,13 @@
   height: calc(27vh + 2.5vw);
   width: 95vw;
 
-  // #button-container {
-  //   // margin-top: -1.5%;
-  //   position: relative;
-  //   // z-index: 5;
-  //   display: flex;
-  //   flex-direction: row;
-  //   align-items: center;
-  //   justify-content: center;
-  //   height: 100%;
+  #buttons {
+    @include center-me();
+    @include fit-in-parent(100%, 50%);
+    transform: translateY(-13.5px);
 
-  //   img {
-  //     width: 25%;
-  //   }
-  // }
-
-  // #rune-select-area {
-  //   @include center-me();
-  // }
+    > img {
+      margin: 0.85vw;
+    }
+  }
 }
