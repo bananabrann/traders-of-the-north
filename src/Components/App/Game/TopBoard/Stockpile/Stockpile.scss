@@ -4,6 +4,7 @@
     @include center-me();
     
     .gold-fish-col {
+        @include rowdies-font();
         display: flex;
         flex-flow: column nowrap;
         align-items: flex-end;
@@ -11,6 +12,7 @@
     }
     
     .stockpile-score {
+        @include viking-font();
         display: block;
         font-size: calc(4px + 4vh);
         padding: 0 calc(8px + 1vh);

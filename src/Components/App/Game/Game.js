@@ -367,7 +367,7 @@ class Game extends React.Component {
 
     return (
       <div id="Game">
-        {/* <TopBoard user={this.state.user} opponent={this.state.opponent} /> */}
+        <TopBoard user={this.state.user} opponent={this.state.opponent} />
 
         <PotBoard pot={this.state.pot} />
 
