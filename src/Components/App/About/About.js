@@ -83,7 +83,7 @@ class About extends React.Component {
             <PersonCard
               pictureUrl={picMonica}
               exLink="https://www.fiverr.com/monzie90"
-              firstName="Monica"
+              firstName="Maelle"
               title="Voice of Sigrid"
             />
             <PersonCard
