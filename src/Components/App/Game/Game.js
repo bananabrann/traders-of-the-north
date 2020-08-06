@@ -373,7 +373,7 @@ class Game extends React.Component {
 
         <PotBoard pot={this.state.pot} />
 
-        <SideMenu />
+        <SideMenu handleScreenSelectionClick={this.props.handleScreenSelectionClick} />
 
         <ActionBoard
           handlePlaceRune={this.handlePlaceRune}

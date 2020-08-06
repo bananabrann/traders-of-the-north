@@ -5,7 +5,9 @@ class SideMenu extends React.Component {
   render() {
     return(
       <div id="sidemenu">
-        Hello
+        {/* TODO - Waiting on the image from Aditya. */}
+
+        <i onClick={() => this.props.handleScreenSelectionClick("title")} class="fa-2x fas fa-home"></i>
       </div>
     )
   }
