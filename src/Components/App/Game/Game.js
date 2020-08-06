@@ -6,6 +6,8 @@ import TopBoard from "./TopBoard/TopBoard";
 import Portrait from "./Portrait/Portrait";
 import Opponent from "../../../Opponent";
 import Utility from "../../../Utility";
+import SideMenu from "./SideMenu/SideMenu";
+
 import "./Game.scss";
 
 const bag = [
@@ -370,6 +372,8 @@ class Game extends React.Component {
         <TopBoard user={this.state.user} opponent={this.state.opponent} />
 
         <PotBoard pot={this.state.pot} />
+
+        <SideMenu />
 
         <ActionBoard
           handlePlaceRune={this.handlePlaceRune}
