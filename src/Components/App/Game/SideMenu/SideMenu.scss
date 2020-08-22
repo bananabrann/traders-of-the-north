@@ -1,4 +1,13 @@
 #sidemenu {
   position: absolute;
   left: 0;
+  width: 22vw;
+  height: 45vh;
+  margin-top: -10%;
+  
+  // TODO - This can be done with background shorthand.
+  background-image: url("../../../../res/img/sidepanel.png");
+  background-position: left;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
