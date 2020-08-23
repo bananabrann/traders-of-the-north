@@ -9,9 +9,11 @@
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  max-width: 80vw;
+  margin-right: -16.5vw;
 
   .piece {
-    $p: calc(32px + 18vw); 
+    $p: calc(6px + 18vw); 
     padding: -40px 1.15vw;
     width: $p;
     height: $p;
