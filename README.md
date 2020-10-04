@@ -6,6 +6,8 @@
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>.
 
+> Though this version still compiles and runs, further development on both v1.* and v2.* has been deprecated for v3.0 v3.0 is a major transformation of the game to the Unity game engine and C#/C++/Boo-lang for ease of development, platform building availibility (builds to WebGL, Windows, MacOS, and Linux natively), and overall 3D rendering quality.
+
 # Traders of the North
 ## Contents
 1. [Where to Play](#where-to-play)
