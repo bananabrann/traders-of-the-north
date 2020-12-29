@@ -1,5 +1,0 @@
-img.portrait {
-    $v: 8px;
-    max-height: calc(8vh - 8px);        // FIXME - Why doesn't 8vh - $v work?
-    margin: $v 8px;
-}
