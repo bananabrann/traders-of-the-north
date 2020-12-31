@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HandleClick : MonoBehaviour
+public class Ulf : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+        // TODO - Make x and y coordinates relative to screen size.
     }
 
     // Update is called once per frame
