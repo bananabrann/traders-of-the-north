@@ -1,11 +1,5 @@
 module.exports = {
   // SECTION - Modifiables
-  tabWidth: 2,
-  singleQuote: false,
+  tabWidth: 4,
   endOfLine: "lf",
-  semi: true,
-
-  // SECTION - Defaults
-  arrowParens: "avoid",
-  trailingComma: "none",
 };
