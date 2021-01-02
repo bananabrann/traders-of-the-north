@@ -9,15 +9,18 @@ public class ResolutionManager : MonoBehaviour
 
     public void SetWidth(int newWidth)
     {
+        Debug.Log("SetWidth called");
         width = newWidth;
     }
 
     public void SetHeight(int newHeight)
     {
+        Debug.Log("SetHeight called");
         height = newHeight;
     }
 
     public void SetScreenResolution() {
+        Debug.Log("SetScreenResolution called");
         // NOTE - Third parameter allows setting framerate
         Screen.SetResolution(width, height, false);  
     }
