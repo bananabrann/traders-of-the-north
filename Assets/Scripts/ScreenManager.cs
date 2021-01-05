@@ -15,6 +15,7 @@ public class ScreenManager : MonoBehaviour
         // FIXME -- UnassignedReferenceException
         // This is probably due to the onClick button event and this script being different 
         // instances. Nooby mistake?
+                
         currentScreen.SetActive(false);
         targetScreen.SetActive(true);
     }
