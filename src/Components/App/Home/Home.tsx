@@ -1,21 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import ScreenSelectionOption from "./ScreenSelectionOption/ScreenSelectionOption";
 
 interface IHomeProps {
     versionNumber: string | undefined,
-    handleScreenSelection(destination: string): any;
 }
 
 const Home: React.FC<IHomeProps> = (props: IHomeProps) => {
     return(
-        <div>
+        <div id="home-screen">
             <p>Home!</p>
             <p>{props.versionNumber}</p>
-            <Link to="/game">
-                <p>
-                    Click me!
-                </p>
-            </Link>
+
+            <div>
+                <ScreenSelectionOption value="playgame" destination="/game" />
+                <ScreenSelectionOption value="instructions" destination="/instructions" />
+                <ScreenSelectionOption value="about" destination="/about" />
+            </div>
         </div>
     )
 }
