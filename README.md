@@ -6,6 +6,8 @@ This work is licensed under the <a href="https://creativecommons.org/licenses/by
 
 This build (v2.0) is currently undergoing a transition from JavaScript to TypeScript, as well as an infrastructure change from Amazon Web Services to Microsoft Azure. Once it's done, v2.0 will be officially released and a comprehensive README added. Stay tuned!
 
+# Community
+Though to a very small scale obviously, this repo is utilizing GitHub **Issues**, **Discussions**, and **Projects**. Maybe in the future, Wiki will be added. Feel free to use all these avenues to check-up, ask questions, or interact with me or the repo.
 
-### Contributing
+# Contributing
 I really, really appreciate your interest! Developers of any level are more than welcome to learn or work on Traders of the North for fun. **There is not a contributing policy.** If you would like to contribute, simply open an issue or pull request and please outline what it is you have done or plan to do or have done.
