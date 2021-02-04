@@ -1,38 +1,48 @@
 {
-  "name": "traders-of-the-north",
-  "description": "The longboat returns from a successful raid, and two vikings must use whatever strategy necessary and bet their way to the top to take home the best loot!",
-  "version": "1.5.6",
-  "author": "Pierson Brannan",
-  "license": "CC",
-  "private": true,
-  "dependencies": {
-    "@types/jest": "^25.2.3",
-    "@types/node": "^13.13.15",
-    "@types/react": "^16.9.46",
-    "@types/react-dom": "^16.9.8",
-    "dotenv": "^8.2.0",
-    "express": "^4.16.1",
-    "node-sass": "^4.14.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "2.1.8",
-    "serve": "^11.3.2",
-    "typescript": "^3.9.7",
-    "uuid-js": "^0.7.5"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    "name": "traders-of-the-north",
+    "description": "The longboat returns from a successful raid, and two vikings must use whatever strategy necessary and bet their way to the top to take home the best loot!",
+    "version": "1.5.6",
+    "author": "bananabrann",
+    "license": "CC BY-NC-ND 4.0",
+    "private": true,
+    "dependencies": {
+        "@types/jest": "^25.2.3",
+        "@types/node": "^13.13.15",
+        "@types/react": "^16.9.46",
+        "@types/react-dom": "^16.9.8",
+        "dotenv": "^8.2.0",
+        "node-sass": "^4.14.1",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-router-dom": "^5.2.0",
+        "react-scripts": "2.1.8",
+        "serve": "^11.3.2"
+    },
+    "devDependencies": {
+        "@types/react-router-dom": "^5.1.7",
+        "prettier": "2.2.1",
+        "typescript": "^4.1.3"
+    },
+    "scripts": {
+        "deploy": "bash ./scripts/deploy.sh",
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ],
+    "prettier": {
+        "tabWidth": 4,
+        "trailingComma": "es5",
+        "semi": true,
+        "singleQuote": false
+    }
 }

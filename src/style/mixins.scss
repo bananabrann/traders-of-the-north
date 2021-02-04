@@ -1,40 +1,47 @@
+/*
+    NOTE
+    Cannot use _mixins.scss file name with @use because node-sass
+    does not support. Continue doing mixins.scss and @import
+*/
+
 @mixin viking-font($size: "12px") {
-  font-family: "vikingregular" !important;
-  font-size: $size;
+    // TODO -- Just make this on a p tag or something
+    font-family: "vikingregular" !important;
+    font-size: $size;
 }
 
 @mixin rowdies-font($size: "12px") {
-  font-family: 'Rowdies', cursive;
-  font-size: $size;
+    font-family: "Rowdies", cursive;
+    font-size: $size;
 }
 
 @mixin center-me($direction: "row", $wrap: "nowrap") {
-  display: flex;
-  flex-wrap: $wrap;
-  flex-direction: $direction;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
+    display: flex;
+    flex-wrap: $wrap;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 
 @mixin fit-in-parent($psize: 100%, $csize: 100%) {
-  position: fixed;
-  height: $psize;
-  width: inherit;
+    position: fixed;
+    height: $psize;
+    width: inherit;
 
-  > * {
-    height: $csize;
-  }
+    > * {
+        height: $csize;
+    }
 }
 
 @mixin use-viking-village-background() {
-  background-image: url("../../../res/img/village.jpeg");
-  background-repeat: none;
-  background-size: cover;
+    background-image: url("../../../res/img/village.jpeg");
+    background-repeat: none;
+    background-size: cover;
 }
 
 @mixin add-box-shadow() {
-  -webkit-box-shadow: 8px 10px 22px -11px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 8px 10px 22px -11px rgba(0, 0, 0, 0.75);
-  box-shadow: 8px 10px 22px -11px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 8px 10px 22px -11px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 8px 10px 22px -11px rgba(0, 0, 0, 0.75);
+    box-shadow: 8px 10px 22px -11px rgba(0, 0, 0, 0.75);
 }

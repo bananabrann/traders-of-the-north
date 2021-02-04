@@ -1,22 +1,10 @@
 #!/bin/bash
 
-# SECTION
-# This script automates the process to deploy the project to the
-# AWS S3 instance.
+RED='\033[0;31m'
+GREEN='\033[0;32'
+YELLOW='\033[0;33m'
+CYAN='\033[0;36m'
 
-# NOTE
-# You must have your AWS CLI configured. See `aws config` for setup
-# process and instructions.
+NC='\033[0m'        # No color
 
-DIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-npm run-script build
-
-# NOTE Normally I would would the DIR, but because
-# this script is executed from project root, we need
-# to be in projcet root and not the script location
-
-# aws s3 sync $DIR/build s3://traders.bananabrann.com
-aws s3 sync build s3://traders.bananabrann.com
-
-printf "\n\e[32m\e[1mdeploy.sh finished\033[0m\n"
+printf "${YELLOW}WARNING: deploy.sh has been called, but this script is has not been written!${NC}\n"

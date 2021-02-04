@@ -1,0 +1,11 @@
+docs/
+misc/
+node_modules/
+public/
+src/res/
+
+.dockerignore
+.gitignore
+
+README.md
+LICENSE.md
