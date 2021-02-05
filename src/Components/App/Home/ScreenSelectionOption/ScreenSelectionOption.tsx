@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import btnAboutPNG from "../../../../res/img/buttons/about.png";
 import btnInstructionsPNG from "../../../../res/img/buttons/instructions.png";
 import btnPlayGame from "../../../../res/img/buttons/playgame.png";
+import "./ScreenSelectionOption.scss";
 
 interface IScreenSelectionOptionProps {
     value: string;
