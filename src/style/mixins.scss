@@ -15,33 +15,7 @@
     font-size: $size;
 }
 
-@mixin center-me($direction: "row", $wrap: "nowrap") {
-    display: flex;
-    flex-wrap: $wrap;
-    flex-direction: $direction;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-}
-
-@mixin fit-in-parent($psize: 100%, $csize: 100%) {
-    position: fixed;
-    height: $psize;
-    width: inherit;
-
-    > * {
-        height: $csize;
-    }
-}
-
-@mixin use-viking-village-background() {
-    background-image: url("../../../res/img/village.jpeg");
-    background-repeat: none;
-    background-size: cover;
-}
-
-@mixin add-box-shadow() {
-    -webkit-box-shadow: 8px 10px 22px -11px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 8px 10px 22px -11px rgba(0, 0, 0, 0.75);
-    box-shadow: 8px 10px 22px -11px rgba(0, 0, 0, 0.75);
+@mixin fill-screen() {
+    height: 100vh;
+    width: 100vw;
 }

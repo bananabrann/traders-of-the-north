@@ -18,8 +18,6 @@ const Home: React.FC<IHomeProps> = (props: IHomeProps) => {
                 <ScreenSelectionOption value="about" destination="/about" />
             </div>
 
-            <i className="fas fa-spinner" />
-
             <p className="version-text">Version {props.versionNumber}</p>
 
             <br />
