@@ -4,7 +4,21 @@
 
 This work is licensed under the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0).</a>
 
-This build (v2.0) is currently undergoing a transition from JavaScript to TypeScript, as well as an infrastructure change from Amazon Web Services to Microsoft Azure. Once it's done, v2.0 will be officially released and a comprehensive README added. Stay tuned!
+This build (v2.0) is currently undergoing a transition from JavaScript to TypeScript, as well as an infrastructure change from Amazon Web Services to Microsoft Azure. Once it's done, v2.0 will be officially released and a comprehensive README added. I have a full-time job, so this project, especially the rewrite, might not go as fast as I would like. But stay tuned!
+
+# Installation
+### Linux
+Install:
+```sh
+npm i
+```
+Start:
+```sh
+npm start
+```
+
+### Mac
+Very similar to Linux I imagine. If you have Brew and NPM installed, try running the Linux commands.
 
 # Community
 Though to a very small scale obviously, this repo is utilizing GitHub **Issues**, **Discussions**, and **Projects**. Maybe in the future, Wiki will be added. Feel free to use all these avenues to check-up, ask questions, or interact with me or the repo.
