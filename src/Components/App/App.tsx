@@ -1,11 +1,5 @@
-import { DESTRUCTION } from "dns";
 import React, { useEffect, useState } from "react";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Game from "./Game/Game";
 import Home from "./Home/Home";
 
@@ -23,7 +17,7 @@ function App() {
                 `\nIs your environment file set correctly?`
             );
         }
-    }, [])
+    }, []);
 
     return (
         <div className="App">
@@ -34,11 +28,7 @@ function App() {
                         exact
                         path="/"
                         render={() => {
-                            return (
-                                <div>
-                                    <Home versionNumber={appVersion} />
-                                </div>
-                            );
+                            return <Home versionNumber={appVersion} />;
                         }}
                     />
 
@@ -46,13 +36,29 @@ function App() {
                         exact
                         path="/game"
                         render={() => {
-                            return(
-                                <div>
-                                    <Game />
-                                </div>
-                            )
+                            return <Game />;
                         }}
-                        />
+                    />
+
+                    {/* 
+                    <Route
+                        exact
+                        path="/about"
+                        render={() => {
+                            return <About />
+                        }}
+                    />
+                    */}
+
+                    {/* 
+                    <Route
+                        exact
+                        path="/instructions"
+                        render={() => {
+                            return <Instructions />
+                        }}
+                    />
+                    */}
                 </Switch>
             </Router>
         </div>
