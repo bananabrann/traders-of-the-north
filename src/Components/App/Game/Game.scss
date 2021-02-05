@@ -25,22 +25,12 @@ $url-dashboard: "../../../res/misc/dashboard.png";
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
-        
-        background-color: blue;
 
+        background-color: lightblue;
+        
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
         justify-content: center;
-        
-        > img {
-            margin: 0 0.75vw;
-            width: 25%;
-
-            @media (min-aspect-ratio: 4/3) {
-                // background-color: lightblue;
-                width: 12%
-            }
-        }
     }
 }

@@ -4,6 +4,7 @@ import btnBetPNG from "../../../res/buttons/bt_bet_normal.png";
 import btnDrawPNG from "../../../res/buttons/bt_draw_normal.png";
 import btnPassPNG from "../../../res/buttons/bt_pass_normal.png";
 import "./Game.scss";
+import ActionButton from "./ActionButton/ActionButton";
 
 interface IItem {
     name: string;
@@ -78,8 +79,8 @@ const Game: React.FC<any> = () => {
         States and effects
     */
     const [visibility, setVisibility] = useState({
-        isDrawVisible: false,
-        isBetVisible: false,
+        isDrawVisible: true,
+        isBetVisible: true,
         isPassVisible: false,
     });
 
@@ -119,6 +120,9 @@ const Game: React.FC<any> = () => {
         SECTION -------
         Functions
     */
+    function handleActionButtonClick(buttonName: string) {
+        console.log(`ActionButton ${buttonName} clicked!`);
+    }
 
     /*
         SECTION -------
@@ -131,9 +135,21 @@ const Game: React.FC<any> = () => {
             <div id="pot"></div>
 
             <div id="actionboard">
-                <img src={btnDrawPNG} />
-                <img src={btnBetPNG} />
-                <img src={btnPassPNG} />
+                <ActionButton
+                    name="draw"
+                    {...visibility}
+                    handleActionButtonClick={handleActionButtonClick}
+                />
+                <ActionButton
+                    name="bet"
+                    {...visibility}
+                    handleActionButtonClick={handleActionButtonClick}
+                />
+                <ActionButton
+                    name="pass"
+                    {...visibility}
+                    handleActionButtonClick={handleActionButtonClick}
+                />
             </div>
             <Footer />
         </div>
