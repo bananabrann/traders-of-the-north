@@ -5,7 +5,11 @@ import btnDrawPNG from "../../../res/buttons/bt_draw_normal.png";
 import btnPassPNG from "../../../res/buttons/bt_pass_normal.png";
 import "./Game.scss";
 
-const RUNE_RES_PATH = "../../../res/runes";
+interface IItem {
+    name: string;
+    value: number;
+    resPath: string;
+}
 
 interface IRune {
     value: number;
@@ -13,15 +17,14 @@ interface IRune {
 }
 
 interface IGameState {
+    isPlayersTurn: Boolean;
     player: {
         vikingName?: string;
         runes: IRune[];
         score: number;
         stockpile: {
             gold: number;
-            badgold: number;
             fish: number;
-            badfish: number;
         };
     };
     opponent: {
@@ -30,14 +33,23 @@ interface IGameState {
         score: number;
         stockpile: {
             gold: number;
-            badgold: number;
             fish: number;
-            badfish: number;
         };
     };
 }
 
 const Game: React.FC<any> = () => {
+    /*
+        SECTION -------
+        Game statics
+    */
+    const RES_PATH = "../../../res";
+    const RUNE_RES_PATH = `${RES_PATH}/runes`;
+    const GOLD_RES_PATH = `${RES_PATH}/items/gold.png`;
+    const BADGOLD_RES_PATH = `${RES_PATH}/items/gold_bad.png`;
+    const FISH_RES_PATH = `${RES_PATH}/items/fish.png`;
+    const BADFISH_RES_PATH = `${RES_PATH}/items/fish_bad.png`;
+
     const runeBagAlpha: IRune[] = [
         { value: 2, resPath: `${RUNE_RES_PATH}/rune-2.png` },
         { value: 4, resPath: `${RUNE_RES_PATH}/rune-4.png` },
@@ -51,31 +63,67 @@ const Game: React.FC<any> = () => {
         { value: 9, resPath: `${RUNE_RES_PATH}/rune-9.png` },
     ];
 
+    const bag: IItem[] = [
+        { name: "gold", value: 1, resPath: GOLD_RES_PATH },
+        { name: "gold", value: 1, resPath: GOLD_RES_PATH },
+        { name: "gold", value: 1, resPath: GOLD_RES_PATH },
+        { name: "fish", value: 1, resPath: FISH_RES_PATH },
+        { name: "fish", value: 1, resPath: FISH_RES_PATH },
+        { name: "gold", value: -2, resPath: BADGOLD_RES_PATH },
+        { name: "fish", value: -2, resPath: BADFISH_RES_PATH },
+    ];
+
+    /*
+        SECTION -------
+        States and effects
+    */
+    const [visibility, setVisibility] = useState({
+        isDrawVisible: false,
+        isBetVisible: false,
+        isPassVisible: false,
+    });
+
     const [gameState, setGameState] = useState<IGameState>({
+        isPlayersTurn: true,
         player: {
-            vikingName: "Sigrid",
+            vikingName: "Sigrid Treasureborn",
             runes: runeBagAlpha,
             score: 0,
             stockpile: {
                 gold: 0,
-                badgold: 0,
                 fish: 0,
-                badfish: 0,
             },
         },
         opponent: {
-            vikingName: "Ulf",
+            vikingName: "Ulf Goldkeeper",
             runes: runeBagBravo,
             score: 0,
             stockpile: {
                 gold: 0,
-                badgold: 0,
                 fish: 0,
-                badfish: 0,
             },
         },
     });
 
+    // Manage button visibility
+    useEffect(() => {
+        console.log("useEffect((), [gameState])");
+
+        // TODO -- Evaluate the gameState and change button visibilities accordingly
+        // Logic
+
+        // Set state
+    }, [gameState]);
+
+    /*
+        SECTION -------
+        Functions
+    */
+
+    /*
+        SECTION -------
+        Rendering
+    */
     return (
         <div id="Game">
             <div id="scoreboard"></div>
