@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import btnAboutPNG from "../../../../res/img/buttons/about.png";
-import btnInstructionsPNG from "../../../../res/img/buttons/instructions.png";
-import btnPlayGame from "../../../../res/img/buttons/playgame.png";
+import btnAboutPNG from "../../../../res/buttons/home_about.png";
+import btnInstructionsPNG from "../../../../res/buttons/home_instructions.png";
+import btnPlayGame from "../../../../res/buttons/home_playgame.png";
 import "./ScreenSelectionOption.scss";
 
 interface IScreenSelectionOptionProps {

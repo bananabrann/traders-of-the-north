@@ -1,5 +1,5 @@
 import React from "react";
-import logoPNG from "../../../res/img/logo.png";
+import logoPNG from "../../../res/misc/logo.png";
 import "./Footer.scss";
 
 const Footer: React.FC<any> = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import ScreenSelectionOption from "./ScreenSelectionOption/ScreenSelectionOption";
-import logoPNG from "../../../res/img/logo.png";
+import logoPNG from "../../../res/misc/logo.png";
 import "./Home.scss";
 
 interface IHomeProps {
@@ -17,6 +17,8 @@ const Home: React.FC<IHomeProps> = (props: IHomeProps) => {
                 <ScreenSelectionOption value="instructions" destination="/instructions" />
                 <ScreenSelectionOption value="about" destination="/about" />
             </div>
+
+            <i className="fas fa-spinner" />
 
             <p className="version-text">Version {props.versionNumber}</p>
 
