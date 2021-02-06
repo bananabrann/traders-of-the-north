@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../Footer/Footer";
+import ActionButton from "./ActionButton/ActionButton";
+import ScoreCard from "./ScoreCard/ScoreCard";
 import btnBetPNG from "../../../res/buttons/bt_bet_normal.png";
 import btnDrawPNG from "../../../res/buttons/bt_draw_normal.png";
 import btnPassPNG from "../../../res/buttons/bt_pass_normal.png";
 import "./Game.scss";
-import ActionButton from "./ActionButton/ActionButton";
 
-interface IItem {
+export interface IItem {
     name: string;
     value: number;
     resPath: string;
 }
 
-interface IRune {
+export interface IRune {
     value: number;
     resPath: string;
 }
@@ -130,7 +131,9 @@ const Game: React.FC<any> = () => {
     */
     return (
         <div id="Game">
-            <div id="scoreboard"></div>
+            <div id="scoreboard">
+                <ScoreCard  />
+            </div>
 
             <div id="pot"></div>
 
