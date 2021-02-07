@@ -6,16 +6,18 @@ import btnBetPNG from "../../../res/buttons/bt_bet_normal.png";
 import btnDrawPNG from "../../../res/buttons/bt_draw_normal.png";
 import btnPassPNG from "../../../res/buttons/bt_pass_normal.png";
 import "./Game.scss";
+import PotItem from "./PotItem/PotItem";
+import Utils from "../../../utils";
 
 export interface IItem {
     name: string;
     value: number;
-    resPath: string;
+    fileName: string;
 }
 
 export interface IRune {
     value: number;
-    resPath: string;
+    fileName: string;
 }
 
 interface IGameState {
@@ -38,6 +40,7 @@ interface IGameState {
             fish: number;
         };
     };
+    pot: IItem[];
 }
 
 const Game: React.FC<any> = () => {
@@ -45,34 +48,32 @@ const Game: React.FC<any> = () => {
         SECTION -------
         Game statics
     */
-    const RES_PATH = "../../../res";
-    const RUNE_RES_PATH = `${RES_PATH}/runes`;
-    const GOLD_RES_PATH = `${RES_PATH}/items/gold.png`;
-    const BADGOLD_RES_PATH = `${RES_PATH}/items/gold_bad.png`;
-    const FISH_RES_PATH = `${RES_PATH}/items/fish.png`;
-    const BADFISH_RES_PATH = `${RES_PATH}/items/fish_bad.png`;
+    const GOLD_RES_FILE_NAME = "gold.png";
+    const FISH_RES_FILE_NAME = "fish.png";
+    const BADGOLD_RES_FILE_NAME = "gold_bad.png";
+    const BADFISH_RES_FILE_NAME = "fish_bad.png";
 
     const runeBagAlpha: IRune[] = [
-        { value: 2, resPath: `${RUNE_RES_PATH}/rune-2.png` },
-        { value: 4, resPath: `${RUNE_RES_PATH}/rune-4.png` },
-        { value: 6, resPath: `${RUNE_RES_PATH}/rune-6.png` },
-        { value: 8, resPath: `${RUNE_RES_PATH}/rune-8.png` },
+        { value: 2, fileName: `rune-2.png` },
+        { value: 4, fileName: `rune-4.png` },
+        { value: 6, fileName: `rune-6.png` },
+        { value: 8, fileName: `rune-8.png` },
     ];
     const runeBagBravo: IRune[] = [
-        { value: 3, resPath: `${RUNE_RES_PATH}/rune-3.png` },
-        { value: 5, resPath: `${RUNE_RES_PATH}/rune-5.png` },
-        { value: 7, resPath: `${RUNE_RES_PATH}/rune-7.png` },
-        { value: 9, resPath: `${RUNE_RES_PATH}/rune-9.png` },
+        { value: 3, fileName: `rune-3.png` },
+        { value: 5, fileName: `rune-5.png` },
+        { value: 7, fileName: `rune-7.png` },
+        { value: 9, fileName: `rune-9.png` },
     ];
 
     const bag: IItem[] = [
-        { name: "gold", value: 1, resPath: GOLD_RES_PATH },
-        { name: "gold", value: 1, resPath: GOLD_RES_PATH },
-        { name: "gold", value: 1, resPath: GOLD_RES_PATH },
-        { name: "fish", value: 1, resPath: FISH_RES_PATH },
-        { name: "fish", value: 1, resPath: FISH_RES_PATH },
-        { name: "gold", value: -2, resPath: BADGOLD_RES_PATH },
-        { name: "fish", value: -2, resPath: BADFISH_RES_PATH },
+        { name: "gold", value: 1, fileName: GOLD_RES_FILE_NAME },
+        { name: "gold", value: 1, fileName: GOLD_RES_FILE_NAME },
+        { name: "gold", value: 1, fileName: GOLD_RES_FILE_NAME },
+        { name: "fish", value: 1, fileName: FISH_RES_FILE_NAME },
+        { name: "fish", value: 1, fileName: FISH_RES_FILE_NAME },
+        { name: "gold", value: -2, fileName: BADGOLD_RES_FILE_NAME },
+        { name: "fish", value: -2, fileName: BADFISH_RES_FILE_NAME },
     ];
 
     /*
@@ -105,6 +106,7 @@ const Game: React.FC<any> = () => {
                 fish: 0,
             },
         },
+        pot: [],
     });
 
     // Manage button visibility
@@ -120,7 +122,6 @@ const Game: React.FC<any> = () => {
                 isPassVisible: false,
             });
         }
-
     }, [gameState]);
 
     /*
@@ -154,7 +155,19 @@ const Game: React.FC<any> = () => {
     }
 
     function draw() {
-        // Add item to pot from bag
+        // Get a random piece from the bag
+        const pieceToAdd: IItem = Utils.getRandomFromArray(bag);
+
+        // Add it to the new pot array
+        const newPot: IItem[] = gameState.pot;
+        newPot.push(pieceToAdd);
+
+        // Assign new array to game state
+        setGameState({
+            ...gameState,
+            pot: newPot,
+        });
+
         endTurn();
     }
 
@@ -188,7 +201,11 @@ const Game: React.FC<any> = () => {
             </div>
             {/* ------------------------------------- */}
 
-            <div id="pot"></div>
+            <div id="pot">
+                {gameState.pot.map((item) => {
+                    return <PotItem {...item} />;
+                })}
+            </div>
 
             <div id="actionboard">
                 <ActionButton
