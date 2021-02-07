@@ -113,8 +113,14 @@ const Game: React.FC<any> = () => {
 
         // TODO -- Evaluate the gameState and change button visibilities accordingly
         // Logic
+        if (!gameState.isPlayersTurn) {
+            setVisibility({
+                isDrawVisible: true,
+                isBetVisible: false,
+                isPassVisible: false,
+            });
+        }
 
-        // Set state
     }, [gameState]);
 
     /*
@@ -129,10 +135,10 @@ const Game: React.FC<any> = () => {
         });
     }
 
-    function handleActionButtonClick(buttonName: string) {
-        console.log(`ActionButton ${buttonName} clicked!`);
+    function handleAction(actionName: string) {
+        console.log(`ActionButton ${actionName} clicked!`);
 
-        switch (buttonName) {
+        switch (actionName) {
             case "draw":
                 draw();
                 break;
@@ -149,7 +155,7 @@ const Game: React.FC<any> = () => {
 
     function draw() {
         // Add item to pot from bag
-        
+        endTurn();
     }
 
     /*
@@ -188,17 +194,17 @@ const Game: React.FC<any> = () => {
                 <ActionButton
                     name="draw"
                     {...visibility}
-                    handleActionButtonClick={handleActionButtonClick}
+                    handleAction={handleAction}
                 />
                 <ActionButton
                     name="bet"
                     {...visibility}
-                    handleActionButtonClick={handleActionButtonClick}
+                    handleAction={handleAction}
                 />
                 <ActionButton
                     name="pass"
                     {...visibility}
-                    handleActionButtonClick={handleActionButtonClick}
+                    handleAction={handleAction}
                 />
             </div>
             <Footer />

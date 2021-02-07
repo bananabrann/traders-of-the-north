@@ -21,7 +21,7 @@ const ActionButton: React.FC<any> = (props) => {
             <img
                 src={btnDrawPNG}
                 onClick={() => {
-                    props.handleActionButtonClick(props.name);
+                    props.handleAction(props.name);
                 }}
             />
         ) : (
@@ -32,7 +32,7 @@ const ActionButton: React.FC<any> = (props) => {
             <img
                 src={btnBetPNG}
                 onClick={() => {
-                    props.handleActionButtonClick(props.name);
+                    props.handleAction(props.name);
                 }}
             />
         ) : (
@@ -43,7 +43,7 @@ const ActionButton: React.FC<any> = (props) => {
             <img
                 src={btnPassPNG}
                 onClick={() => {
-                    props.handleActionButtonClick(props.name);
+                    props.handleAction(props.name);
                 }}
             />
         ) : (
