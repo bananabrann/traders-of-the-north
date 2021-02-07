@@ -131,9 +131,29 @@ const Game: React.FC<any> = () => {
     */
     return (
         <div id="Game">
+            {/* TODO -- Put scoreboard in subcomponent */}
             <div id="scoreboard">
-                <ScoreCard  />
+                <div className="viking-score">
+                    <div className="stockpile">
+                        <p>Gold: {gameState.player.stockpile.gold}</p>
+                        <p>Fish: {gameState.player.stockpile.gold}</p>
+                    </div>
+                    <div className="score">
+                        <p>{gameState.player.score}</p>
+                    </div>
+                </div>
+
+                <div className="viking-score">
+                    <div className="score">
+                        <p>{gameState.opponent.score}</p>
+                    </div>
+                    <div className="stockpile">
+                        <p>Gold: {gameState.opponent.stockpile.gold} </p>
+                        <p>Fish: {gameState.opponent.stockpile.fish} </p>
+                    </div>
+                </div>
             </div>
+            {/* ------------------------------------- */}
 
             <div id="pot"></div>
 

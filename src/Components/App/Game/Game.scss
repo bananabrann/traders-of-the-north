@@ -10,8 +10,34 @@ $url-dashboard: "../../../res/misc/dashboard.png";
     flex-direction: column;
 
     #scoreboard {
-        flex-grow: 1;
+        flex-grow: 0;
         background-color: green;
+
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+
+        padding: 6px;
+
+        .stockpile {
+            margin: auto 0;
+
+            p {
+                font-size: 1rem;
+            }
+        }
+
+        .score {
+            margin: auto 10px;
+
+            p {
+                font-size: 2rem;
+            }
+        }
+
+        .viking-score {
+            display: flex;
+        }
     }
 
     #pot {
@@ -27,7 +53,7 @@ $url-dashboard: "../../../res/misc/dashboard.png";
         background-repeat: no-repeat;
 
         background-color: lightblue;
-        
+
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
