@@ -121,8 +121,35 @@ const Game: React.FC<any> = () => {
         SECTION -------
         Functions
     */
+
+    function endTurn() {
+        setGameState({
+            ...gameState,
+            isPlayersTurn: !gameState.isPlayersTurn,
+        });
+    }
+
     function handleActionButtonClick(buttonName: string) {
         console.log(`ActionButton ${buttonName} clicked!`);
+
+        switch (buttonName) {
+            case "draw":
+                draw();
+                break;
+            case "bet":
+                break;
+            case "pass":
+                break;
+            default:
+                throw new Error(
+                    "Unexpected button name was passed into handleActionbButtonClick"
+                );
+        }
+    }
+
+    function draw() {
+        // Add item to pot from bag
+        
     }
 
     /*
