@@ -17,7 +17,7 @@ export interface IItem {
 
 export interface IRune {
     value: number;
-    fileName: string;
+    fileName?: string;
 }
 
 interface IGameState {
@@ -41,6 +41,7 @@ interface IGameState {
         };
     };
     pot: IItem[];
+    specialConditions: string[];
 }
 
 const Game: React.FC<any> = () => {
@@ -107,14 +108,25 @@ const Game: React.FC<any> = () => {
             },
         },
         pot: [],
+        specialConditions: [""],
     });
 
     // Manage button buttonVisibility
     useEffect(() => {
-        console.log("useEffect((), [gameState])");
+        // console.log("useEffect((), [gameState])");
 
         applyButtonVisibilities(true);
-    }, [gameState]);
+    }, [gameState.isPlayersTurn]);
+
+    useEffect(() => {
+        console.log(gameState.pot.length);
+        if (gameState.pot.length >= 8) {
+            setGameState({
+                ...gameState,
+                specialConditions: ["must bet"],
+            });
+        }
+    }, [gameState.pot.length]);
 
     /*
         SECTION -------
@@ -176,6 +188,16 @@ const Game: React.FC<any> = () => {
                 isPassVisible: false,
             });
         } else {
+            // Check special conditions first...
+            if (gameState.specialConditions.includes("must bet")) {
+                setButtonVisibility({
+                    isDrawVisible: false,
+                    isBetVisible: false,
+                    isPassVisible: false,
+                });
+            } 
+
+            // Check everything else.
         }
     }
 
