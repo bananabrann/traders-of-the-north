@@ -80,7 +80,7 @@ const Game: React.FC<any> = () => {
         SECTION -------
         States and effects
     */
-    const [visibility, setVisibility] = useState({
+    const [buttonVisibility, setButtonVisibility] = useState({
         isDrawVisible: true,
         isBetVisible: true,
         isPassVisible: false,
@@ -109,19 +109,11 @@ const Game: React.FC<any> = () => {
         pot: [],
     });
 
-    // Manage button visibility
+    // Manage button buttonVisibility
     useEffect(() => {
         console.log("useEffect((), [gameState])");
 
-        // TODO -- Evaluate the gameState and change button visibilities accordingly
-        // Logic
-        if (!gameState.isPlayersTurn) {
-            setVisibility({
-                isDrawVisible: true,
-                isBetVisible: false,
-                isPassVisible: false,
-            });
-        }
+        applyButtonVisibilities(true);
     }, [gameState]);
 
     /*
@@ -171,6 +163,22 @@ const Game: React.FC<any> = () => {
         endTurn();
     }
 
+    function applyButtonVisibilities(devByPass: Boolean = false) {
+        if(devByPass) {
+            Utils.consoleWarnAboutDevByPassMode();
+        }
+
+        if (!gameState.isPlayersTurn && !devByPass) {
+            setButtonVisibility({
+                isDrawVisible: false,
+                isBetVisible: false,
+                isPassVisible: false,
+            });
+        } else {
+        }
+
+    }
+
     /*
         SECTION -------
         Rendering
@@ -210,17 +218,17 @@ const Game: React.FC<any> = () => {
             <div id="actionboard">
                 <ActionButton
                     name="draw"
-                    {...visibility}
+                    {...buttonVisibility}
                     handleAction={handleAction}
                 />
                 <ActionButton
                     name="bet"
-                    {...visibility}
+                    {...buttonVisibility}
                     handleAction={handleAction}
                 />
                 <ActionButton
                     name="pass"
-                    {...visibility}
+                    {...buttonVisibility}
                     handleAction={handleAction}
                 />
             </div>
