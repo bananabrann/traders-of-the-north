@@ -164,11 +164,12 @@ const Game: React.FC<any> = () => {
     }
 
     function applyButtonVisibilities(devByPass: Boolean = false) {
-        if(devByPass) {
+        if (devByPass) {
             Utils.consoleWarnAboutDevByPassMode();
+            return;
         }
-
-        if (!gameState.isPlayersTurn && !devByPass) {
+        
+        if (!gameState.isPlayersTurn) {
             setButtonVisibility({
                 isDrawVisible: false,
                 isBetVisible: false,
@@ -176,7 +177,6 @@ const Game: React.FC<any> = () => {
             });
         } else {
         }
-
     }
 
     /*
