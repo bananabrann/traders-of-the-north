@@ -43,6 +43,18 @@ $url-dashboard: "../../../res/misc/dashboard.png";
     #pot {
         flex-grow: 10;
         background-color: yellow;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap-reverse;
+
+        > img {
+            // FIXME -- 
+            // Cannot change width of the pot items inside the flex-grow.
+            min-width: none;
+            margin: 10px;
+        }
     }
 
     #actionboard {
