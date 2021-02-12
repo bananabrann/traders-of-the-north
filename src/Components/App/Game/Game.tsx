@@ -8,6 +8,7 @@ import btnPassPNG from "../../../res/buttons/bt_pass_normal.png";
 import "./Game.scss";
 import PotItem from "./PotItem/PotItem";
 import Utils from "../../../utils";
+import Opponent from "../../../opponent";
 
 export interface IItem {
     name: string;
@@ -81,6 +82,8 @@ const Game: React.FC<any> = () => {
         SECTION -------
         States and effects
     */
+    const [opponent, setOpponent] = useState<Opponent | undefined>();
+
     const [buttonVisibility, setButtonVisibility] = useState({
         isDrawVisible: true,
         isBetVisible: true,
@@ -111,15 +114,23 @@ const Game: React.FC<any> = () => {
         specialConditions: [""],
     });
 
+    useEffect(() => {
+        // const opponent = new Opponent(0, 1000, handleAction)
+        setOpponent(new Opponent(0, 1000, handleAction));
+    }, []);
+
     // Manage button buttonVisibility
     useEffect(() => {
         // console.log("useEffect((), [gameState])");
 
-        applyButtonVisibilities(true);
+        applyButtonVisibilities();
+
+        if (!gameState.isPlayersTurn) {
+            opponent?.makeMove();
+        }
     }, [gameState.isPlayersTurn]);
 
     useEffect(() => {
-        console.log(gameState.pot.length);
         if (gameState.pot.length >= 8) {
             setGameState({
                 ...gameState,
@@ -180,7 +191,7 @@ const Game: React.FC<any> = () => {
             Utils.consoleWarnAboutDevByPassMode();
             return;
         }
-        
+
         if (!gameState.isPlayersTurn) {
             setButtonVisibility({
                 isDrawVisible: false,
@@ -195,9 +206,14 @@ const Game: React.FC<any> = () => {
                     isBetVisible: false,
                     isPassVisible: false,
                 });
-            } 
-
-            // Check everything else.
+            } else {
+                // If no special conditions, display base button visibility.
+                setButtonVisibility({
+                    isDrawVisible: true,
+                    isBetVisible: true,
+                    isPassVisible: false,
+                });
+            }
         }
     }
 
