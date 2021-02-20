@@ -115,20 +115,17 @@ const Game: React.FC<any> = () => {
     });
 
     useEffect(() => {
-        setOpponent(new Opponent(0, 1000, handleAction));
+        setOpponent(new Opponent(0, 1000, handleAction, endTurn));
     }, []);
+
+    useEffect(() => {
+        if (!gameState.isPlayersTurn) opponent?.makeMove();
+    }, [gameState.isPlayersTurn]);
 
     useEffect(() => {
         checkAndApplySpecialConditions();
         applyButtonVisibilities();
-
-        /* NOTE
-            Because game validations and logic is down in the useEffect for gameState.isUsersTurn,
-            if don't have this check then an infinite loop will occur and the game's button
-            visibility will break.
-        */
-        if (!gameState.isPlayersTurn) opponent?.makeMove();
-    }, [gameState.isPlayersTurn]);
+    }, [gameState]);
 
     /*
         SECTION -------
@@ -136,8 +133,6 @@ const Game: React.FC<any> = () => {
     */
 
     function checkAndApplySpecialConditions() {
-        // console.log("Function called: checkAndApplySpecialConditions()");
-
         if (gameState.pot.length >= 8) {
             setGameState({
                 ...gameState,
@@ -147,17 +142,16 @@ const Game: React.FC<any> = () => {
     }
 
     function endTurn() {
-        // console.log("Function called: endTurn()");
-
         setGameState({
             ...gameState,
             isPlayersTurn: !gameState.isPlayersTurn,
         });
     }
 
-    function handleAction(actionName: string, isOpponent: boolean = false) {
-        // console.log(`Function called: handleAction(${actionName})`);
-
+    function handleAction(
+        actionName: string,
+        calledFromOpponent: boolean = false
+    ) {
         switch (actionName) {
             case "draw":
                 draw();
@@ -172,20 +166,20 @@ const Game: React.FC<any> = () => {
                 );
         }
 
-        /* NOTE
-            Because game validations and logic is down in the useEffect for gameState.isUsersTurn,
-            if don't have this check then an infinite loop will occur and the game's button
-            visibility will break.
+        /*
+            NOTE
+            At this point in the process, we are potentially nested within a useEffect.
+            If we are, meaning meaning the opponent is calling handleAction, then we need
+            to escape everything so that an infinite loop isn't triggered.
         */
-        if (!isOpponent) endTurn();
+        if (calledFromOpponent) return null;
+        endTurn();
     }
 
     function draw() {
-        console.log("Function called: draw()");
-
         const pieceToAdd: IItem = Utils.getRandomFromArray(bag);
-
         const newPot: IItem[] = gameState.pot;
+
         newPot.push(pieceToAdd);
 
         setGameState({
@@ -195,25 +189,21 @@ const Game: React.FC<any> = () => {
     }
 
     function applyButtonVisibilities(devByPass: Boolean = false) {
-        // console.log("Function called: applyButtonVisibilities()");
-
         if (devByPass) {
             Utils.consoleWarnAboutDevByPassMode();
-            return;
         }
 
-        if (!gameState.isPlayersTurn) {
+        if (!gameState.isPlayersTurn && !devByPass) {
             setButtonVisibility({
                 isDrawVisible: false,
                 isBetVisible: false,
                 isPassVisible: false,
             });
         } else {
-            // Check special conditions first...
             if (gameState.specialConditions.includes("must bet")) {
                 setButtonVisibility({
                     isDrawVisible: false,
-                    isBetVisible: false,
+                    isBetVisible: true,
                     isPassVisible: false,
                 });
             } else {
