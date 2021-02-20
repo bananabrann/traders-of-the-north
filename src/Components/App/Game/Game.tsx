@@ -22,7 +22,7 @@ export interface IRune {
 }
 
 interface IGameState {
-    isPlayersTurn: Boolean;
+    isPlayersTurn: boolean;
     player: {
         vikingName?: string;
         runes: IRune[];

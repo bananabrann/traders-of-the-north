@@ -13,14 +13,14 @@ class Opponent {
         this.moveCount = 0;
     }
 
-    public makeMove(devByPass: Boolean = false) {
+    public makeMove(devByPass: boolean = false) {
         this.moveCount = this.moveCount + 1;
 
         console.log(`Making move ${this.moveCount}`);
         
-        setTimeout(() => {
+        // setTimeout(() => {
             this.handleAction("draw");
-        }, this.delayTime)
+        // }, this.delayTime)
     }
 }
 
