@@ -119,13 +119,16 @@ const Game: React.FC<any> = () => {
     }, []);
 
     useEffect(() => {
-        if (!gameState.isPlayersTurn) opponent?.makeMove();
+        checkAndApplySpecialConditions();
+        applyButtonVisibilities();
+        if (!gameState.isPlayersTurn) {
+            opponent?.makeMove();
+        }
     }, [gameState.isPlayersTurn]);
 
     useEffect(() => {
-        checkAndApplySpecialConditions();
         applyButtonVisibilities();
-    }, [gameState]);
+    }, [gameState.specialConditions]);
 
     /*
         SECTION -------
@@ -257,16 +260,19 @@ const Game: React.FC<any> = () => {
                     name="draw"
                     {...buttonVisibility}
                     handleAction={handleAction}
+                    endTurn={endTurn}
                 />
                 <ActionButton
                     name="bet"
                     {...buttonVisibility}
                     handleAction={handleAction}
+                    endTurn={endTurn}
                 />
                 <ActionButton
                     name="pass"
                     {...buttonVisibility}
                     handleAction={handleAction}
+                    endTurn={endTurn}
                 />
             </div>
             <Footer />
