@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../Footer/Footer";
 import ActionButton from "./ActionButton/ActionButton";
-import ScoreCard from "./ScoreCard/ScoreCard";
-import btnBetPNG from "../../../res/buttons/bt_bet_normal.png";
-import btnDrawPNG from "../../../res/buttons/bt_draw_normal.png";
-import btnPassPNG from "../../../res/buttons/bt_pass_normal.png";
-import "./Game.scss";
 import PotItem from "./PotItem/PotItem";
 import Utils from "../../../utils";
 import Opponent from "../../../opponent";
+/*
+import btnBetPNG from "../../../res/buttons/bt_bet_normal.png";
+import btnDrawPNG from "../../../res/buttons/bt_draw_normal.png";
+import btnPassPNG from "../../../res/buttons/bt_pass_normal.png";
+*/
+import "./Game.scss";
 
 export interface IItem {
     name: string;

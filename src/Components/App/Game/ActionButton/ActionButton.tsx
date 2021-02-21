@@ -20,34 +20,37 @@ const ActionButton: React.FC<any> = (props) => {
         return props.isDrawVisible ? (
             <img
                 src={btnDrawPNG}
+                alt="Draw button."
                 onClick={() => {
                     props.handleAction(props.name);
                 }}
             />
         ) : (
-            <img src={btnDrawPressedPNG} />
+            <img src={btnDrawPressedPNG} alt="Draw button pressed." />
         );
     } else if (props.name === "bet") {
         return props.isBetVisible ? (
             <img
                 src={btnBetPNG}
+                alt="Bet button."
                 onClick={() => {
                     props.handleAction(props.name);
                 }}
             />
         ) : (
-            <img src={btnBetPressedPNG} />
+            <img src={btnBetPressedPNG} alt="Bet button pressed." />
         );
     } else if (props.name === "pass") {
         return props.isPassVisible ? (
             <img
                 src={btnPassPNG}
+                alt="Pass button"
                 onClick={() => {
                     props.handleAction(props.name);
                 }}
             />
         ) : (
-            <img src={btnPassPressedPNG} />
+            <img src={btnPassPressedPNG} alt="Pass button pressed." />
         );
     } else {
         console.error(props);

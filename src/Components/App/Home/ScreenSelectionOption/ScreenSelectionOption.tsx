@@ -17,19 +17,28 @@ const ScreenSelectionOption: React.FC<IScreenSelectionOptionProps> = (
         if (props.value === "about") {
             return (
                 <Link to={props.destination}>
-                    <img src={btnAboutPNG} />
+                    <img
+                        src={btnAboutPNG}
+                        alt="Button for navigating to the about page."
+                    />
                 </Link>
             );
         } else if (props.value === "instructions") {
             return (
                 <Link to={props.destination}>
-                    <img src={btnInstructionsPNG} />
+                    <img
+                        src={btnInstructionsPNG}
+                        alt="Button for navigating to the instructions page."
+                    />
                 </Link>
             );
         } else if (props.value === "playgame") {
             return (
                 <Link to={props.destination}>
-                    <img src={btnPlayGame} />
+                    <img
+                        src={btnPlayGame}
+                        alt="Button for navigating to the game page."
+                    />
                 </Link>
             );
         }
