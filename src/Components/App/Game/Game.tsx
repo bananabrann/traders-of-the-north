@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import Footer from "../Footer/Footer";
 import ActionButton from "./ActionButton/ActionButton";
 import PotItem from "./PotItem/PotItem";
@@ -252,7 +253,9 @@ const Game: React.FC<any> = () => {
 
             <div id="pot">
                 {gameState.pot.map((item) => {
-                    return <PotItem {...item} />;
+                    return (
+                        <PotItem {...item} key={`${item.name}-${uuidv4()}`} />
+                    );
                 })}
             </div>
 
