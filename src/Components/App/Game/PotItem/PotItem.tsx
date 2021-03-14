@@ -14,8 +14,6 @@ interface IPotItemProps {
 const PotItem: React.FC<IItem> = (props: IPotItemProps) => {
     let item;
 
-    console.log(props)
-
     switch (props.name) {
         case "fish":
             item = (

@@ -70,8 +70,8 @@ const Game: React.FC<any> = () => {
         { name: "gold", value: 1 },
         { name: "fish", value: 1 },
         { name: "fish", value: 1 },
-        { name: "gold", value: -2 },
-        { name: "fish", value: -2 },
+        { name: "badgold", value: -2 },
+        { name: "badfish", value: -2 },
     ];
 
     /*
