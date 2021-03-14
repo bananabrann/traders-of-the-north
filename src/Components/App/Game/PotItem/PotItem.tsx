@@ -1,21 +1,55 @@
 import React from "react";
 import { IItem } from "../Game";
+import PNGGold from "../../../../res/items/gold.png";
+import PNGFish from "../../../../res/items/fish.png";
+import PNGBadGold from "../../../../res/items/gold_bad.png";
+import PNGBadFish from "../../../../res/items/fish_bad.png";
 import "./PotItem.scss";
 
-const PotItem: React.FC<IItem> = (props) => {
-    /*
-    const RES_PATH = "../../../../res/items";
-    const path = `./../../../../res/items/${props.fileName}`;
-    */
+interface IPotItemProps {
+    name: string;
+    value: number;
+}
 
-    return (
-        // FIXME -- Using the above variables don't work for some reason
-        <img
-            className="pot-item"
-            src={require(`./../../../../res/items/${props.fileName}`)}
-            alt={`${props.name}`}
-        />
-    );
+const PotItem: React.FC<IItem> = (props: IPotItemProps) => {
+    let item;
+
+    console.log(props)
+
+    switch (props.name) {
+        case "fish":
+            item = (
+                <img className="pot-item" src={PNGFish} alt={`${props.name}`} />
+            );
+            break;
+
+        case "gold":
+            item = (
+                <img className="pot-item" src={PNGGold} alt={`${props.name}`} />
+            );
+            break;
+
+        case "badgold":
+            item = (
+                <img
+                    className="pot-item"
+                    src={PNGBadGold}
+                    alt={`${props.name}`}
+                />
+            );
+            break;
+
+        case "badfish":
+            item = (
+                <img
+                    className="pot-item"
+                    src={PNGBadFish}
+                    alt={`${props.name}`}
+                />
+            );
+            break;
+    }
+    return <div>{item}</div>;
 };
 
 export default PotItem;

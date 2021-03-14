@@ -15,7 +15,6 @@ import "./Game.scss";
 export interface IItem {
     name: string;
     value: number;
-    fileName: string;
 }
 
 export interface IRune {
@@ -52,11 +51,6 @@ const Game: React.FC<any> = () => {
         SECTION -------
         Game statics
     */
-    const GOLD_RES_FILE_NAME = "gold.png";
-    const FISH_RES_FILE_NAME = "fish.png";
-    const BADGOLD_RES_FILE_NAME = "gold_bad.png";
-    const BADFISH_RES_FILE_NAME = "fish_bad.png";
-
     const runeBagAlpha: IRune[] = [
         { value: 2, fileName: `rune-2.png` },
         { value: 4, fileName: `rune-4.png` },
@@ -71,13 +65,13 @@ const Game: React.FC<any> = () => {
     ];
 
     const bag: IItem[] = [
-        { name: "gold", value: 1, fileName: GOLD_RES_FILE_NAME },
-        { name: "gold", value: 1, fileName: GOLD_RES_FILE_NAME },
-        { name: "gold", value: 1, fileName: GOLD_RES_FILE_NAME },
-        { name: "fish", value: 1, fileName: FISH_RES_FILE_NAME },
-        { name: "fish", value: 1, fileName: FISH_RES_FILE_NAME },
-        { name: "gold", value: -2, fileName: BADGOLD_RES_FILE_NAME },
-        { name: "fish", value: -2, fileName: BADFISH_RES_FILE_NAME },
+        { name: "gold", value: 1 },
+        { name: "gold", value: 1 },
+        { name: "gold", value: 1 },
+        { name: "fish", value: 1 },
+        { name: "fish", value: 1 },
+        { name: "gold", value: -2 },
+        { name: "fish", value: -2 },
     ];
 
     /*
@@ -252,7 +246,7 @@ const Game: React.FC<any> = () => {
             {/* ------------------------------------- */}
 
             <div id="pot">
-                {gameState.pot.map((item) => {
+                {gameState.pot.map((item: IItem) => {
                     return (
                         <PotItem {...item} key={`${item.name}-${uuidv4()}`} />
                     );
