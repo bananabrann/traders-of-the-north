@@ -1,6 +1,6 @@
 ![GitHub Logo for Traders of the North](./.github/img/gh-logo.png?raw=true "GitHub Logo for Traders of the North")
 
-![rating](https://img.shields.io/badge/esrb%20unofficial-E%20(everyone)-lightgrey) ![License](https://img.shields.io/badge/license-CC%20BY--NC--ND%204.0-blue) ![websiteup](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Ftraders-of-the-north.leeb.xyz)
+![rating](https://img.shields.io/badge/esrb%20unofficial-E%20(everyone)-lightgrey) ![License](https://img.shields.io/badge/license-CC%20BY--NC--ND%204.0-blue) ![websiteup](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Ftraders.leeb.xyz)
 
 This work is licensed under the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0).</a>
 
