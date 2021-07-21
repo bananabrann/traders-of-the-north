@@ -4,19 +4,12 @@ import Game from "./Game/Game";
 import Home from "./Home/Home";
 
 function App() {
-  const [appVersion, setAppVersion] = useState<string | undefined>(
-    process.env.REACT_APP_VERSION || undefined
-  );
+  const [appVersion, setAppVersion] = useState<string>();
 
   // Only loads once on mount
   useEffect(() => {
-    // If appVersion is undefined
-    if (!appVersion) {
-      console.error(
-        `Unexpected app version found: ${undefined}`,
-        `\nIs your environment file set correctly?`
-      );
-    }
+    const v: string = process.env.REACT_APP_VERSION ?? "No version";
+    setAppVersion(v);
   }, []);
 
   return (
