@@ -1,23 +1,24 @@
 #home-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 100vh;
+
+  img {
+    max-width: 400px;
+  }
+
+  .button-column,
+  .button-column a {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-
-    height: 100vh;
+    justify-content: center;
 
     img {
-        max-width: 400px;
+      width: calc(65vw + 20px);
     }
-
-    .button-column, .button-column a {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        
-        img {
-            width: calc(65vw + 20px);
-        }
-    }
+  }
 }

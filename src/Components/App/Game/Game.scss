@@ -4,71 +4,71 @@
 $url-dashboard: "../../../res/misc/dashboard.png";
 
 #Game {
-    @include fill-screen();
+  @include fill-screen();
+
+  display: flex;
+  flex-direction: column;
+
+  #scoreboard {
+    flex-grow: 0;
+    background-color: green;
 
     display: flex;
-    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 
-    #scoreboard {
-        flex-grow: 0;
-        background-color: green;
+    padding: 6px;
 
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
+    .stockpile {
+      margin: auto 0;
 
-        padding: 6px;
-
-        .stockpile {
-            margin: auto 0;
-
-            p {
-                font-size: 1rem;
-            }
-        }
-
-        .score {
-            margin: auto 10px;
-
-            p {
-                font-size: 2rem;
-            }
-        }
-
-        .viking-score {
-            display: flex;
-        }
+      p {
+        font-size: 1rem;
+      }
     }
 
-    #pot {
-        flex-grow: 10;
-        background-color: yellow;
+    .score {
+      margin: auto 10px;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap-reverse;
-
-        > img {
-            // FIXME -- 
-            // Cannot change width of the pot items inside the flex-grow.
-            min-width: none;
-            margin: 10px;
-        }
+      p {
+        font-size: 2rem;
+      }
     }
 
-    #actionboard {
-        flex-grow: 2;
-        background-image: url($url-dashboard);
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;
-
-        background-color: lightblue;
-
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: center;
+    .viking-score {
+      display: flex;
     }
+  }
+
+  #pot {
+    flex-grow: 10;
+    background-color: yellow;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+
+    > img {
+      // FIXME --
+      // Cannot change width of the pot items inside the flex-grow.
+      min-width: none;
+      margin: 10px;
+    }
+  }
+
+  #actionboard {
+    flex-grow: 2;
+    background-image: url($url-dashboard);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    background-color: lightblue;
+
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+  }
 }

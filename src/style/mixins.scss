@@ -5,17 +5,17 @@
 */
 
 @mixin viking-font($size: "12px") {
-    // TODO -- Just make this on a p tag or something
-    font-family: "vikingregular" !important;
-    font-size: $size;
+  // TODO -- Just make this on a p tag or something
+  font-family: "vikingregular" !important;
+  font-size: $size;
 }
 
 @mixin rowdies-font($size: "12px") {
-    font-family: "Rowdies", cursive;
-    font-size: $size;
+  font-family: "Rowdies", cursive;
+  font-size: $size;
 }
 
 @mixin fill-screen() {
-    height: 100vh;
-    width: 100vw;
+  height: 100vh;
+  width: 100vw;
 }
