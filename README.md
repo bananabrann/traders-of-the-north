@@ -1,3 +1,5 @@
+> I never got around to polishing up this side project, so only the really old version is available 😟
+
 ![GitHub Logo for Traders of the North](./.github/img/gh-logo.png?raw=true "GitHub Logo for Traders of the North")
 
 ![rating](https://img.shields.io/badge/esrb%20unofficial-E%20(everyone)-lightgrey) ![License](https://img.shields.io/badge/license-CC%20BY--NC--ND%204.0-blue) ![websiteup](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Ftraders.leeb.xyz)
