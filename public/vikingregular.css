@@ -1,7 +1,0 @@
-@font-face {
-  font-family: "vikingregular";
-  src:  url("./fonts/viking-webfont.woff2") format("woff2"),
-        url("./fonts/viking-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
